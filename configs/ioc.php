@@ -18,7 +18,8 @@ return [
         "RDev\\Views\\Templates\\ICache" => new \RDev\Views\Templates\Cache(
             $fileSystem,
             // The path to store compiled templates
-            __DIR__ . "/../tmp",
+            // Make sure this path is writable
+            __DIR__ . "/../views/compiled",
             // The lifetime of cached templates
             3600,
             // The chance that garbage collection will be run

@@ -1,0 +1,39 @@
+{
+  "name": "rdev/project",
+  "description": "An empty project that uses the RDev framework",
+  "authors": [
+    {
+      "name": "David Young",
+      "email": "dbyoung2@gmail.com",
+      "role": "Architect"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "TBA\\": [
+        "application/project",
+        "tests/application/project"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=5.5.10",
+    "rdev/rdev": "0.1.*@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.2.*",
+    "phpunit/php-file-iterator": ">=1.3.0",
+    "phpunit/php-token-stream": ">=1.1.3",
+    "phpunit/php-text-template": ">=1.2.0",
+    "phpunit/php-invoker": ">=1.1.0",
+    "phpunit/phpunit-selenium": ">=1.2",
+    "phpunit/phpunit-story": "*",
+    "phpunit/dbunit": ">=1.2"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.x-dev"
+    }
+  },
+  "minimum-stability": "dev"
+}

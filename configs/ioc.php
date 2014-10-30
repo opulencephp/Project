@@ -4,6 +4,8 @@
  *
  * Defines the dependency injection config
  */
+$fileSystem = new \RDev\Files\FileSystem();
+
 return [
     // The container class to use
     "container" => "RDev\\IoC\\Container",
@@ -11,8 +13,19 @@ return [
     "universal" => [
         "RDev\\Authentication\\Credentials\\ICredentials" => "RDev\\Authentication\\Credentials\\Credentials",
         "RDev\\Cryptography\\IHasher" => "RDev\\Cryptography\\BCryptHasher",
+        "RDev\\Files\\FileSystem" => $fileSystem,
         "RDev\\Sessions\\ISession" => "RDev\\Sessions\\Session",
-        "RDev\\Views\\Templates\\ICache" => "RDev\\Views\\Cache\\Cache",
+        "RDev\\Views\\Templates\\ICache" => new \RDev\Views\Templates\Cache(
+            $fileSystem,
+            // The path to store compiled templates
+            __DIR__ . "/../tmp",
+            // The lifetime of cached templates
+            3600,
+            // The chance that garbage collection will be run
+            1,
+            // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
+            100
+        ),
         "RDev\\Views\\Templates\\ICompiler" => "RDev\\Views\\Templates\\Compiler"
     ],
     "targeted" => [

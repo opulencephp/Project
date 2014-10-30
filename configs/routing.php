@@ -6,18 +6,17 @@
  */
 return [
     // The route compiler class
-    "compiler" => "RDev\\Routing\\Compiler",
+    "compiler" => "RDev\\Routing\\RouteCompiler",
+    // The list of routes
     "routes" => [
-        // The list of routes
         [
             "methods" => ["GET"],
-            "path" => "/{path}",
+            "path" => "/",
             "options" => [
-                "controller" => "Project\\Controllers\\Example@showHomepage",
-                "variables" => [
-                    "path" => ".*"
-                ]
+                "controller" => "Project\\Routing\\Controllers\\Example@showHomepage"
             ]
         ]
-    ]
+    ],
+    // The controller that will be called in the case of a missing route
+    "missedRouteController" => "Project\\Routing\\Controllers\\Example"
 ];

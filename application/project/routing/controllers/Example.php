@@ -45,7 +45,7 @@ class Example extends Routing\Controller
         switch($statusCode)
         {
             case HTTP\ResponseHeaders::HTTP_NOT_FOUND:
-                $this->template->setTag("My custom 404 page", "Hello, world!");
+                $this->template->setTag("content", "My custom 404 page");
                 break;
             default:
                 $this->template->setTag("content", "Something went wrong");

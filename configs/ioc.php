@@ -27,7 +27,12 @@ return [
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ),
-        "RDev\\Views\\Templates\\ICompiler" => "RDev\\Views\\Templates\\Compiler"
+        "RDev\\Views\\Templates\\ICompiler" => "RDev\\Views\\Templates\\Compiler",
+        "RDev\\Views\\Templates\\TemplateFactory" => new \RDev\Views\Templates\TemplateFactory(
+            $fileSystem,
+            // The path to the template directory
+            __DIR__ . "/../views"
+        )
     ],
     "targeted" => [
         // Target class names mapped to an array of abstract class/interface to concrete class mappings

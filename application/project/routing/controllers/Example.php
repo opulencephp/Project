@@ -5,7 +5,6 @@
  * Defines an example controller
  */
 namespace Project\Routing\Controllers;
-use RDev\Files;
 use RDev\HTTP;
 use RDev\Routing;
 use RDev\Views\Templates;
@@ -14,25 +13,25 @@ class Example extends Routing\Controller
 {
     /** @var Templates\ICompiler The template compiler to use */
     protected $compiler = null;
-    /** @var Files\FileSystem The file system to use to read files */
-    protected $fileSystem = null;
+    /** @var Templates\TemplateFactory The factory to use to create templates */
+    protected $templateFactory = null;
 
     /**
      * @param HTTP\Connection $connection The HTTP connection
      * @param Templates\ICompiler $compiler The template compiler to use
-     * @param Files\FileSystem $fileSystem The file system to use to read files
+     * @param Templates\TemplateFactory $templateFactory The factory to use to create templates
      */
     public function __construct(
         HTTP\Connection $connection,
         Templates\ICompiler $compiler,
-        Files\FileSystem $fileSystem
+        Templates\TemplateFactory $templateFactory
     )
     {
         parent::__construct($connection);
 
         $this->compiler = $compiler;
-        $this->fileSystem = $fileSystem;
-        $this->template = new Templates\Template($this->fileSystem->read(__DIR__ . "/../../../../views/Example.html"));
+        $this->templateFactory = $templateFactory;
+        $this->template = $this->templateFactory->create("Example.html");
         $this->template->setTag("projectName", "My Project");
     }
 

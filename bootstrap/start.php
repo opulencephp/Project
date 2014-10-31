@@ -19,7 +19,6 @@ $configArray = [
     "bootstrappers" => require_once(__DIR__ . "/../configs/bootstrappers.php")
 ];
 $config = new Configs\ApplicationConfig($configArray);
-$applicationFactory = new Factories\ApplicationFactory();
-$application = $applicationFactory->createFromConfig($config);
+$application = (new Factories\ApplicationFactory())->createFromConfig($config);
 $application->start();
 $application->shutdown();

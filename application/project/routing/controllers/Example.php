@@ -62,7 +62,7 @@ class Example extends Routing\Controller
      */
     public function showHomepage()
     {
-        // The class "Hello, world!" example
+        // The classic "Hello, world!" example
         $this->template->setTag("content", "Hello, world!");
 
         return new HTTP\Response($this->compiler->compile($this->template));

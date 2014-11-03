@@ -9,30 +9,31 @@ use RDev\HTTP;
 use RDev\Routing;
 use RDev\Views;
 use RDev\Views\Compilers;
+use RDev\Views\Factories;
 
 class Example extends Routing\Controller
 {
     /** @var Compilers\ICompiler The template compiler to use */
     protected $compiler = null;
-    /** @var Views\IFactory The factory to use to create templates */
+    /** @var Factories\ITemplateFactory The factory to use to create templates */
     protected $templateFactory = null;
 
     /**
      * @param HTTP\Connection $connection The HTTP connection
      * @param Compilers\ICompiler $compiler The template compiler to use
-     * @param Views\IFactory $templateFactory The factory to use to create templates
+     * @param Factories\ITemplateFactory $templateFactory The factory to use to create templates
      */
     public function __construct(
         HTTP\Connection $connection,
         Compilers\ICompiler $compiler,
-        Views\IFactory $templateFactory
+        Factories\ITemplateFactory $templateFactory
     )
     {
         parent::__construct($connection);
 
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;
-        $this->template = $this->templateFactory->createTemplate("Example.html");
+        $this->template = $this->templateFactory->create("Example.html");
     }
 
     /**

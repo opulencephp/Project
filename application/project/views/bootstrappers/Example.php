@@ -7,7 +7,7 @@
 namespace Project\Views\Bootstrappers;
 use Project\Views\Builders;
 use RDev\Applications\Bootstrappers;
-use RDev\Views;
+use RDev\Views\Factories;
 
 class Example extends Bootstrappers\Bootstrapper
 {
@@ -17,8 +17,8 @@ class Example extends Bootstrappers\Bootstrapper
     public function run()
     {
         $container = $this->application->getIoCContainer();
-        /** @var Views\IFactory $factory */
-        $factory = $container->makeShared("RDev\\Views\\IFactory");
+        /** @var Factories\ITemplateFactory $factory */
+        $factory = $container->makeShared("RDev\\Views\\Factories\\ITemplateFactory");
         $factory->registerBuilder("Example.html", new Builders\Example());
     }
 }

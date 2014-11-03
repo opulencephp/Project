@@ -28,7 +28,7 @@ return [
             100
         ),
         "RDev\\Views\\Compilers\\ICompiler" => "RDev\\Views\\Compilers\\Compiler",
-        "RDev\\Views\\IFactory" => new \RDev\Views\Factory(
+        "RDev\\Views\\Factories\\ITemplateFactory" => new \RDev\Views\Factories\TemplateFactory(
             $fileSystem,
             // The path to the template directory
             __DIR__ . "/../views"

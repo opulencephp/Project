@@ -12,7 +12,7 @@ class Example implements Views\IBuilder
     /**
      * {@inheritdoc}
      */
-    public function build(Views\Template $template)
+    public function build(Views\ITemplate $template)
     {
         $template->setTag("projectName", "My Project");
 

@@ -19,6 +19,9 @@ class Example extends Bootstrappers\Bootstrapper
         $container = $this->application->getIoCContainer();
         /** @var Factories\ITemplateFactory $factory */
         $factory = $container->makeShared("RDev\\Views\\Factories\\ITemplateFactory");
-        $factory->registerBuilder("Example.html", new Builders\Example());
+        $factory->registerBuilder("Example.html", function()
+        {
+            return new Builders\Example();
+        });
     }
 }

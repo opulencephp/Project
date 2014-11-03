@@ -15,7 +15,7 @@ return [
         "RDev\\Cryptography\\IHasher" => "RDev\\Cryptography\\BCryptHasher",
         "RDev\\Files\\FileSystem" => $fileSystem,
         "RDev\\Sessions\\ISession" => "RDev\\Sessions\\Session",
-        "RDev\\Views\\Templates\\ICache" => new \RDev\Views\Templates\Cache(
+        "RDev\\Views\\Cache\\ICache" => new \RDev\Views\Cache\Cache(
             $fileSystem,
             // The path to store compiled templates
             // Make sure this path is writable
@@ -27,8 +27,8 @@ return [
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ),
-        "RDev\\Views\\Templates\\ICompiler" => "RDev\\Views\\Templates\\Compiler",
-        "RDev\\Views\\Templates\\TemplateFactory" => new \RDev\Views\Templates\TemplateFactory(
+        "RDev\\Views\\Compilers\\ICompiler" => "RDev\\Views\\Compilers\\Compiler",
+        "RDev\\Views\\IFactory" => new \RDev\Views\Factory(
             $fileSystem,
             // The path to the template directory
             __DIR__ . "/../views"

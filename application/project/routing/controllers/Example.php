@@ -7,32 +7,32 @@
 namespace Project\Routing\Controllers;
 use RDev\HTTP;
 use RDev\Routing;
-use RDev\Views\Templates;
+use RDev\Views;
+use RDev\Views\Compilers;
 
 class Example extends Routing\Controller
 {
-    /** @var Templates\ICompiler The template compiler to use */
+    /** @var Compilers\ICompiler The template compiler to use */
     protected $compiler = null;
-    /** @var Templates\TemplateFactory The factory to use to create templates */
+    /** @var Views\IFactory The factory to use to create templates */
     protected $templateFactory = null;
 
     /**
      * @param HTTP\Connection $connection The HTTP connection
-     * @param Templates\ICompiler $compiler The template compiler to use
-     * @param Templates\TemplateFactory $templateFactory The factory to use to create templates
+     * @param Compilers\ICompiler $compiler The template compiler to use
+     * @param Views\IFactory $templateFactory The factory to use to create templates
      */
     public function __construct(
         HTTP\Connection $connection,
-        Templates\ICompiler $compiler,
-        Templates\TemplateFactory $templateFactory
+        Compilers\ICompiler $compiler,
+        Views\IFactory $templateFactory
     )
     {
         parent::__construct($connection);
 
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;
-        $this->template = $this->templateFactory->create("Example.html");
-        $this->template->setTag("projectName", "My Project");
+        $this->template = $this->templateFactory->createTemplate("Example.html");
     }
 
     /**
@@ -44,9 +44,11 @@ class Example extends Routing\Controller
         switch($statusCode)
         {
             case HTTP\ResponseHeaders::HTTP_NOT_FOUND:
+                $this->template->setTag("title", "404 Example");
                 $this->template->setTag("content", "My custom 404 page");
                 break;
             default:
+                $this->template->setTag("title", $statusCode . " Example");
                 $this->template->setTag("content", "Something went wrong");
                 break;
         }
@@ -62,6 +64,7 @@ class Example extends Routing\Controller
     public function showHomepage()
     {
         // The classic "Hello, world!" example
+        $this->template->setTag("title", "Hello World Example");
         $this->template->setTag("content", "Hello, world!");
 
         return new HTTP\Response($this->compiler->compile($this->template));

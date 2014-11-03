@@ -7,7 +7,7 @@
 namespace Project\IoC\Bootstrappers;
 use RDev\Applications\Bootstrappers;
 
-class Container extends Bootstrappers\Bootstrapper
+class Example extends Bootstrappers\Bootstrapper
 {
     /**
      * {@inheritdoc}

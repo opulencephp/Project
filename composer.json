@@ -11,8 +11,8 @@
   "autoload": {
     "psr-4": {
       "Project\\": [
-        "application/project",
-        "tests/application/project"
+        "app/project",
+        "tests/app/project"
       ]
     }
   },

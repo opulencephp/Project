@@ -5,6 +5,7 @@
  * Defines the application config
  */
 use RDev\Applications\Application;
+
 $logger = require_once __DIR__ . "/logging.php";
 $environment = require_once __DIR__ . "/environment.php";
 $container = require_once __DIR__ . "/ioc.php";

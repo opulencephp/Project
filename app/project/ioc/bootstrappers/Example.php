@@ -16,8 +16,7 @@ class Example extends Bootstrappers\Bootstrapper
     {
         $container = $this->application->getIoCContainer();
         $container->bind("Monolog\\Logger", $this->application->getLogger());
-        $container->bind("RDev\\HTTP\\Connection", $this->application->getConnection());
-        $container->bind("RDev\\HTTP\\Request", $this->application->getConnection()->getRequest());
+        $container->bind("RDev\\Application\\Environment", $this->application->getEnvironment());
         $container->bind("RDev\\Session\\ISession", $this->application->getSession());
     }
 }

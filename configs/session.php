@@ -4,7 +4,6 @@
  *
  * Defines the session config
  */
-return [
-    // The name of the session class to use
-    "session" => "RDev\\Sessions\\Session"
-];
+use RDev\Sessions\Session;
+
+return new Session();

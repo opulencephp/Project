@@ -7,5 +7,7 @@
 return [
     // The list of bootstrapper classes to load
     "Project\\IoC\\Bootstrappers\\Example",
-    "Project\\Views\\Bootstrappers\\Example"
+    "Project\\Views\\Bootstrappers\\Example",
+    "Project\\Routing\\Bootstrappers\\Example",
+    "Project\\Authentication\\Bootstrappers\\Example",
 ];

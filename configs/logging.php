@@ -4,12 +4,10 @@
  *
  * Defines the logging config
  */
-return [
-    // List the Monolog handlers
-    "handlers" => [
-        "main" => [
-            // List the attributes of this handler
-            "type" => "Monolog\\Handler\\ErrorLogHandler"
-        ]
-    ]
-];
+use Monolog\Logger;
+use Monolog\Handler\ErrorLogHandler;
+
+$logger = new Logger("application");
+$logger->pushHandler(new ErrorLogHandler());
+
+return $logger;

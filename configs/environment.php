@@ -4,10 +4,13 @@
  *
  * Defines the environment config
  */
-return [
+use RDev\Applications;
+
+$detector = new Applications\EnvironmentDetector();
+$config = [
     "production" => [
         // By default, all servers are listed as production
-        ["type" => "regex", "value" => "/.*/"]
+        ["type" => "regex", "value" => "/^.*$/"]
     ],
     "staging" => [
         // The list of staging servers
@@ -19,3 +22,5 @@ return [
         // The list of development servers
     ]
 ];
+
+return new Applications\Environment($detector->detect($config));

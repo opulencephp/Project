@@ -19,17 +19,17 @@ class Example extends Routing\Controller
     protected $templateFactory = null;
 
     /**
-     * @param HTTP\Connection $connection The HTTP connection
+     * @param HTTP\Request $request The HTTP connection
      * @param Compilers\ICompiler $compiler The template compiler to use
      * @param Factories\ITemplateFactory $templateFactory The factory to use to create templates
      */
     public function __construct(
-        HTTP\Connection $connection,
+        HTTP\Request $request,
         Compilers\ICompiler $compiler,
         Factories\ITemplateFactory $templateFactory
     )
     {
-        parent::__construct($connection);
+        parent::__construct($request);
 
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;

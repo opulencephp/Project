@@ -4,9 +4,9 @@
  *
  * Defines the environment config
  */
-use RDev\Applications;
+use RDev\Applications\Environments;
 
-$detector = new Applications\EnvironmentDetector();
+$detector = new Environments\EnvironmentDetector();
 $config = [
     "production" => [
         // By default, all servers are listed as production
@@ -23,4 +23,4 @@ $config = [
     ]
 ];
 
-return new Applications\Environment($detector->detect($config));
+return new Environments\Environment($detector->detect($config));

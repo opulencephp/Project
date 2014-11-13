@@ -2,23 +2,34 @@
 /**
  * Copyright (C) 2014 David Young
  * 
- * Defines an example template bootstrapper
+ * Defines the template bootstrapper
  */
 namespace Project\Views\Bootstrappers;
 use Project\Views\Builders;
 use RDev\Applications\Bootstrappers;
+use RDev\IoC;
 use RDev\Views\Cache;
 use RDev\Views\Factories;
 
-class Example extends Bootstrappers\Bootstrapper
+class Template implements Bootstrappers\IBootstrapper
 {
+    /** @var IoC\IContainer The dependency injection container to use */
+    private $container = null;
+
+    /**
+     * @param IoC\IContainer $container The dependency injection container to use
+     */
+    public function __construct(IoC\IContainer $container)
+    {
+        $this->container = $container;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function run()
     {
-        $container = $this->application->getIoCContainer();
-        $cache = $container->makeShared("RDev\\Views\\Cache\\Cache", [
+        $cache = $this->container->makeShared("RDev\\Views\\Cache\\Cache", [
             // The path to store compiled templates
             // Make sure this path is writable
             __DIR__ . "/../../../../views/compiled",
@@ -29,13 +40,13 @@ class Example extends Bootstrappers\Bootstrapper
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ]);
-        $container->bind("RDev\\Views\\Compilers\\ICompiler", "RDev\\Views\\Compilers\\Compiler");
-        $container->bind("RDev\\Views\\Cache\\ICache", $cache);
-        $templateFactory = $container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
+        $this->container->bind("RDev\\Views\\Compilers\\ICompiler", "RDev\\Views\\Compilers\\Compiler");
+        $this->container->bind("RDev\\Views\\Cache\\ICache", $cache);
+        $templateFactory = $this->container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
             // The path to the template directory
             __DIR__ . "/../../../../views"
         ]);
-        $container->bind("RDev\\Views\\Factories\\ITemplateFactory", $templateFactory);
+        $this->container->bind("RDev\\Views\\Factories\\ITemplateFactory", $templateFactory);
         $templateFactory->registerBuilder("Example.html", function()
         {
             return new Builders\Example();

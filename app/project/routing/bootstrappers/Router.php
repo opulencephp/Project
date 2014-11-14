@@ -8,6 +8,7 @@ namespace Project\Routing\Bootstrappers;
 use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 use RDev\Routing;
+use RDev\Routing\Compilers;
 
 class Router implements Bootstrappers\IBootstrapper
 {
@@ -28,7 +29,7 @@ class Router implements Bootstrappers\IBootstrapper
     public function run()
     {
         $dispatcher = new Routing\Dispatcher($this->container);
-        $compiler = new Routing\RouteCompiler();
+        $compiler = new Compilers\Compiler();
         $router = new Routing\Router(
             $dispatcher,
             $compiler,

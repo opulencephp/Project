@@ -4,4 +4,7 @@
  *
  * Defines the routing config
  */
-$router->get("/", ["controller" => "Project\\Routing\\Controllers\\Example@showHomepage"]);
+$router->get("/", [
+    "controller" => "Project\\Routing\\Controllers\\Example@showHomepage",
+    "name" => "home"
+]);

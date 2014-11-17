@@ -18,23 +18,18 @@ class Router implements Bootstrappers\IBootstrapper
     private $container = null;
     /** @var ViewCompilers\ICompiler The view compiler used by this application */
     private $viewCompiler = null;
-    /** @var URL\URLGenerator The URL generator used by this application */
-    private $urlGenerator = null;
 
     /**
      * @param IoC\IContainer $container The dependency injection container to use
      * @param ViewCompilers\ICompiler $viewCompiler The view compiler used by this application
-     * @param URL\URLGenerator $urlGenerator The URL generator used by this application
      */
     public function __construct(
         IoC\IContainer $container,
-        ViewCompilers\ICompiler $viewCompiler,
-        URL\URLGenerator $urlGenerator
+        ViewCompilers\ICompiler $viewCompiler
     )
     {
         $this->container = $container;
         $this->viewCompiler = $viewCompiler;
-        $this->urlGenerator = $urlGenerator;
     }
 
     /**
@@ -49,10 +44,17 @@ class Router implements Bootstrappers\IBootstrapper
             $compiler,
             "Project\\Routing\\Controllers\\Example"
         );
+        $urlGenerator = new URL\URLGenerator($router->getRoutes(), $compiler);
+        // Add the ability to generate URLs to named routes from templates
+        $this->viewCompiler->registerTemplateFunction(
+            "namedRouteURL",
+            function($routeName, $arguments = []) use ($urlGenerator)
+            {
+                return $urlGenerator->createFromName($routeName, $arguments);
+            }
+        );
+        $this->container->bind("RDev\\Routing\\URL\\URLGenerator", $urlGenerator);
         $this->container->bind("RDev\\Routing\\Router", $router);
-        $this->viewCompiler->registerTemplateFunction("namedRouteURL", function($routeName, $arguments = [])
-        {
-            return $this->urlGenerator->createFromName($routeName, $arguments);
-        });
+        $this->container->bind("RDev\\Routing\\Compilers\\ICompiler", $compiler);
     }
 }

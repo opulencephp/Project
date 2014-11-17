@@ -5,7 +5,7 @@
  * Defines the list of bootstrapper classes to load
  */
 return [
-    "Project\\Routing\\Bootstrappers\\Router",
     "Project\\Views\\Bootstrappers\\Template",
+    "Project\\Routing\\Bootstrappers\\Router",
     "Project\\Authentication\\Bootstrappers\\Credentials",
 ];

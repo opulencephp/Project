@@ -23,10 +23,7 @@ class Router implements Bootstrappers\IBootstrapper
      * @param IoC\IContainer $container The dependency injection container to use
      * @param ViewCompilers\ICompiler $viewCompiler The view compiler used by this application
      */
-    public function __construct(
-        IoC\IContainer $container,
-        ViewCompilers\ICompiler $viewCompiler
-    )
+    public function __construct(IoC\IContainer $container, ViewCompilers\ICompiler $viewCompiler)
     {
         $this->container = $container;
         $this->viewCompiler = $viewCompiler;

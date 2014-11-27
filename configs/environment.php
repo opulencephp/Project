@@ -11,6 +11,7 @@ $detector = new EnvironmentDetector();
 $config = [
     "production" => [
         // By default, all servers are listed as production
+        ["type" => "regex", "value" => "/^.*$/"]
     ],
     "staging" => [
         // The list of staging servers
@@ -20,7 +21,6 @@ $config = [
     ],
     "development" => [
         // The list of development servers
-        ["type" => "regex", "value" => "/^.*$/"]
     ]
 ];
 

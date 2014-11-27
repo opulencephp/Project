@@ -45,11 +45,11 @@ class Example extends Routing\Controller
         switch($statusCode)
         {
             case HTTP\ResponseHeaders::HTTP_NOT_FOUND:
-                $this->template->setTag("title", "404 Example");
+                $this->template->setVar("title", "404 Example");
                 $this->template->setTag("content", "My custom 404 page");
                 break;
             default:
-                $this->template->setTag("title", $statusCode . " Example");
+                $this->template->setVar("title", $statusCode . " Example");
                 $this->template->setTag("content", "Something went wrong");
                 break;
         }
@@ -65,8 +65,8 @@ class Example extends Routing\Controller
     public function showHomepage()
     {
         // The classic "Hello, world!" example
-        $this->template->setTag("title", "Hello World Example");
-        $this->template->setTag("content", "Hello, world!");
+        $this->template->setVar("title", "First RDev Application");
+        $this->template->setTag("content", "<h2>Congratulations on creating your first RDev application!</h2>To change the contents of this file, change the template in <b>views/Example.html</b> and the controller in <b>app/routing/controllers/Example.php</b>.");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }

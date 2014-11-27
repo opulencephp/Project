@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{title}}</title>
+        {{!pageTitle($title)!}}
+        {{!css($css)!}}
     </head>
     <body>
         <h1>{{projectName}}</h1>
         <nav>
-            <a href="{{namedRouteURL('home')}}">Go to homepage</a>
+            <a href="{{namedRouteURL('home')}}">Home</a>
         </nav>
-        {{content}}
+        {{!content!}}
     </body>
 </html>

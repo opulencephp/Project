@@ -14,7 +14,8 @@ class Example implements Views\IBuilder
      */
     public function build(Views\ITemplate $template)
     {
-        $template->setTag("projectName", "My Project");
+        $template->setTag("projectName", "My First RDev Project");
+        $template->setVar("css", "assets/css/style.css");
 
         return $template;
     }

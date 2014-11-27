@@ -1,0 +1,84 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    font-family: 'Segoe UI', arial, sans-serif;;
+    font-size: 13px;
+    color: #111;
+}
+
+a, a:link, a:active, a:visited
+{
+    color: #369;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover
+{
+    color: #147;
+}
+
+h1
+{
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+img
+{
+    border: none;
+}
+
+ul
+{
+    list-style: inside none;
+    padding: 0 1em;
+    margin: 0;
+}
+
+button
+{
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 5px;
+    font-family: 'Segoe UI', arial, sans-serif;;
+}
+
+button:hover
+{
+    color: #111;
+    background-color: #ccc;
+    border-color: #111;
+}
+
+input::-moz-focus-inner, button::-moz-focus-inner
+{
+    border: 0;
+}
+
+input, select, textarea
+{
+    font-family: 'Segoe UI', arial, sans-serif;;
+}
+
+input[type=text], input[type=password], input[type=email]
+{
+    text-align: left;
+    width: 150px;
+    height: 18px;
+    font-size: 14px;
+}
+
+table
+{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;;
+}

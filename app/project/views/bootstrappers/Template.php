@@ -10,6 +10,7 @@ use RDev\Applications\Bootstrappers;
 use RDev\Applications\Environments;
 use RDev\IoC;
 use RDev\Views\Cache;
+use RDev\Views\Compilers;
 use RDev\Views\Factories;
 
 class Template implements Bootstrappers\IBootstrapper
@@ -46,16 +47,23 @@ class Template implements Bootstrappers\IBootstrapper
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ]);
+        /**
+         * Register any template functions or compilers here
+         */
+        $compiler = new Compilers\Compiler($cache);
         $templateFactory = $this->container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
             // The path to the template directory
             __DIR__ . "/../../../../views"
         ]);
+        /**
+         * Register any builders here
+         */
         $templateFactory->registerBuilder("Example.html", function()
         {
             return new Builders\Example();
         });
         $this->container->bind("RDev\\Views\\Cache\\ICache", $cache);
-        $this->container->bind("RDev\\Views\\Compilers\\ICompiler", "RDev\\Views\\Compilers\\Compiler");
+        $this->container->bind("RDev\\Views\\Compilers\\ICompiler", $compiler);
         $this->container->bind("RDev\\Views\\Factories\\ITemplateFactory", $templateFactory);
 
         // If we're developing, wipe out the view cache

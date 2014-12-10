@@ -8,4 +8,6 @@ return [
     "Project\\Views\\Bootstrappers\\Template",
     "Project\\Routing\\Bootstrappers\\Router",
     "Project\\Authentication\\Bootstrappers\\Credentials",
+    "Project\\Views\\Bootstrappers\\Builders",
+    "Project\\Views\\Bootstrappers\\TemplateFunctions"
 ];

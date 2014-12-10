@@ -15,6 +15,6 @@ $application->start();
 /** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\Routing\\Router");
 require_once __DIR__ . "/../configs/routing.php";
-$response = (new Kernel($router))->handle(Request::createFromGlobals());
+$response = (new Kernel($router, $application->getLogger()))->handle(Request::createFromGlobals());
 $response->send();
 $application->shutdown();

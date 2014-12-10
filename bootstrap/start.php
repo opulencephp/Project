@@ -9,6 +9,7 @@ use RDev\HTTP\Request;
 use RDev\Routing\Router;
 
 require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . "/../configs/php.php";
 
 $application = require_once __DIR__ . "/../configs/application.php";
 $application->start();

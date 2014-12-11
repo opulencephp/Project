@@ -13,9 +13,11 @@ require_once __DIR__ . "/../configs/php.php";
 
 $application = require_once __DIR__ . "/../configs/application.php";
 $application->start();
+$request = Request::createFromGlobals();
+$application->getIoCContainer()->bind("RDev\\HTTP\\Request", $request);
 /** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\Routing\\Router");
 require_once __DIR__ . "/../configs/routing.php";
-$response = (new Kernel($router, $application->getLogger()))->handle(Request::createFromGlobals());
+$response = (new Kernel($router, $application->getLogger()))->handle($request);
 $response->send();
 $application->shutdown();

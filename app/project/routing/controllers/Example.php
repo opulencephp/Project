@@ -33,7 +33,7 @@ class Example extends Routing\Controller
 
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;
-        $this->template = $this->templateFactory->create("Example.html");
+        $this->template = $this->templateFactory->create("Example.php");
     }
 
     /**
@@ -66,7 +66,7 @@ class Example extends Routing\Controller
     {
         // The classic "Hello, world!" example
         $this->template->setVar("title", "First RDev Application");
-        $this->template->setTag("content", "<h2>Congratulations on creating your first RDev application!</h2>To change the contents of this file, change the template in <b>views/Example.html</b> and the controller in <b>app/project/routing/controllers/Example.php</b>.");
+        $this->template->setTag("content", "<h2>Congratulations on creating your first RDev application!</h2>To change the contents of this file, change the template in <b>views/Example.php</b> and the controller in <b>app/project/routing/controllers/Example.php</b>.");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }

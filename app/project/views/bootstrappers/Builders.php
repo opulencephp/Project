@@ -27,7 +27,7 @@ class Builders implements Bootstrappers\IBootstrapper
      */
     public function run()
     {
-        $this->templateFactory->registerBuilder("Example.html", function()
+        $this->templateFactory->registerBuilder("Example.php", function()
         {
             return new ViewBuilders\Example();
         });

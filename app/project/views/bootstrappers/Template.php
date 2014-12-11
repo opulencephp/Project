@@ -10,6 +10,7 @@ use RDev\Applications\Environments;
 use RDev\IoC;
 use RDev\Views\Cache;
 use RDev\Views\Compilers;
+use RDev\Views\Filters;
 
 class Template implements Bootstrappers\IBootstrapper
 {
@@ -45,7 +46,7 @@ class Template implements Bootstrappers\IBootstrapper
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ]);
-        $compiler = new Compilers\Compiler($cache);
+        $compiler = new Compilers\Compiler($cache, new Filters\XSS());
         $templateFactory = $this->container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
             // The path to the template directory
             __DIR__ . "/../../../../views"

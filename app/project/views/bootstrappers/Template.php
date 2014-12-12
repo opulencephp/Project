@@ -46,11 +46,11 @@ class Template implements Bootstrappers\IBootstrapper
             // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
             100
         ]);
-        $compiler = new Compilers\Compiler($cache, new Filters\XSS());
         $templateFactory = $this->container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
             // The path to the template directory
             __DIR__ . "/../../../../views"
         ]);
+        $compiler = new Compilers\Compiler($cache, $templateFactory, new Filters\XSS());
         $this->container->bind("RDev\\Views\\Cache\\ICache", $cache);
         $this->container->bind("RDev\\Views\\Compilers\\ICompiler", $compiler);
         $this->container->bind("RDev\\Views\\Factories\\ITemplateFactory", $templateFactory);

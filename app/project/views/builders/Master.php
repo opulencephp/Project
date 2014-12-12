@@ -7,7 +7,7 @@
 namespace Project\Views\Builders;
 use RDev\Views;
 
-class Example implements Views\IBuilder
+class Master implements Views\IBuilder
 {
     /**
      * {@inheritdoc}

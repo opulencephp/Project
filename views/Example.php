@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {{!pageTitle($title)!}}
-        {{!css($css)!}}
-    </head>
-    <body>
-        <h1>{{projectName}}</h1>
-        <nav>
-            <a href="{{namedRouteURL('home')}}">Home</a>
-        </nav>
-        {{!content!}}
-    </body>
-</html>
+{% extend("Master.php") %}
+
+{% part("content") %}
+<h2>Congratulations on creating your first RDev application!</h2>
+To change the contents of this file, change the template in <b>views/Example.php</b>.
+{% endpart %}

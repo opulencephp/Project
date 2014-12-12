@@ -33,7 +33,6 @@ class Example extends Routing\Controller
 
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;
-        $this->template = $this->templateFactory->create("Example.php");
     }
 
     /**
@@ -41,16 +40,18 @@ class Example extends Routing\Controller
      */
     public function showHTTPError($statusCode)
     {
+        $this->template = $this->templateFactory->create("HTTPError.php");
+
         // Demonstrate showing custom error pages
         switch($statusCode)
         {
             case HTTP\ResponseHeaders::HTTP_NOT_FOUND:
                 $this->template->setVar("title", "404 Example");
-                $this->template->setTag("content", "My custom 404 page");
+                $this->template->setTag("errorMessage", "My custom 404 page");
                 break;
             default:
                 $this->template->setVar("title", $statusCode . " Example");
-                $this->template->setTag("content", "Something went wrong");
+                $this->template->setTag("errorMessage", "Something went wrong");
                 break;
         }
 
@@ -64,9 +65,8 @@ class Example extends Routing\Controller
      */
     public function showHomepage()
     {
-        // The classic "Hello, world!" example
+        $this->template = $this->templateFactory->create("Example.php");
         $this->template->setVar("title", "First RDev Application");
-        $this->template->setTag("content", "<h2>Congratulations on creating your first RDev application!</h2>To change the contents of this file, change the template in <b>views/Example.php</b> and the controller in <b>app/project/routing/controllers/Example.php</b>.");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }

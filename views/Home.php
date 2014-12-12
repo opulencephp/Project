@@ -2,5 +2,5 @@
 
 {% part("content") %}
 <h2>Congratulations on creating your first RDev application!</h2>
-To change the contents of this file, change the template in <b>views/Example.php</b>.
+Feel free to play around with this project.  <a href="{{namedRouteURL('edit')}}">Want some guidance?</a>
 {% endpart %}

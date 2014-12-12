@@ -34,7 +34,7 @@ class Router implements Bootstrappers\IBootstrapper
         $router = new Routing\Router(
             $dispatcher,
             $compiler,
-            "Project\\Routing\\Controllers\\Example"
+            "Project\\Routing\\Controllers\\Page"
         );
         $urlGenerator = new URL\URLGenerator($router->getRoutes(), $compiler);
         $this->container->bind("RDev\\Routing\\URL\\URLGenerator", $urlGenerator);

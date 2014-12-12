@@ -11,7 +11,7 @@ use RDev\Views;
 use RDev\Views\Compilers;
 use RDev\Views\Factories;
 
-class Example extends Routing\Controller
+class Page extends Routing\Controller
 {
     /** @var Compilers\ICompiler The template compiler to use */
     protected $compiler = null;
@@ -63,10 +63,23 @@ class Example extends Routing\Controller
      *
      * @return HTTP\Response The response
      */
-    public function showHomepage()
+    public function showHomePage()
     {
-        $this->template = $this->templateFactory->create("Example.php");
+        $this->template = $this->templateFactory->create("Home.php");
         $this->template->setVar("title", "First RDev Application");
+
+        return new HTTP\Response($this->compiler->compile($this->template));
+    }
+
+    /**
+     * Shows the edit page
+     *
+     * @return HTTP\Response The response
+     */
+    public function showEditPage()
+    {
+        $this->template = $this->templateFactory->create("Edit.php");
+        $this->template->setVar("title", "Editing This Project");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }

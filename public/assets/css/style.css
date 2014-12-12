@@ -8,6 +8,13 @@ html
     font-family: 'Segoe UI', arial, sans-serif;;
     font-size: 13px;
     color: #111;
+    background-color: #f1f1f1;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
 }
 
 nav
@@ -94,4 +101,22 @@ table
     width: 100%;
     border-spacing: 0;
     border-collapse: collapse;;
+}
+
+nav ul li
+{
+    padding: 0 5px;
+    display: inline-block;
+    line-height: 2em;
+    font-size: 1.2em;
+}
+
+#siteWrapper
+{
+    width: 1024px;
+    padding: 0 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #888;
+    background-color: #fff;
+    min-height: 600px;
 }

@@ -4,7 +4,14 @@
  *
  * Defines the routing config
  */
-$router->get("/", [
-    "controller" => "Project\\Routing\\Controllers\\Example@showHomepage",
-    "name" => "home"
-]);
+$router->group(["controllerNamespace" => "Project\\Routing\\Controllers"], function() use ($router)
+{
+    $router->get("/", [
+        "controller" => "Page@showHomePage",
+        "name" => "home"
+    ]);
+    $router->get("/edit", [
+        "controller" => "Page@showEditPage",
+        "name" => "edit"
+    ]);
+});

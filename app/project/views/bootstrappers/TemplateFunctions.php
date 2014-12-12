@@ -7,6 +7,7 @@
 namespace Project\Views\Bootstrappers;
 use RDev\Applications\Bootstrappers;
 use RDev\Routing\URL;
+use RDev\Views;
 use RDev\Views\Compilers;
 
 class TemplateFunctions implements Bootstrappers\IBootstrapper
@@ -34,7 +35,7 @@ class TemplateFunctions implements Bootstrappers\IBootstrapper
         // Add the ability to generate URLs to named routes from templates
         $this->compiler->registerTemplateFunction(
             "namedRouteURL",
-            function($routeName, $arguments = [])
+            function(Views\ITemplate $template, $routeName, $arguments = [])
             {
                 return $this->urlGenerator->createFromName($routeName, $arguments);
             }

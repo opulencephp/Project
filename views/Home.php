@@ -1,4 +1,4 @@
-{% extend("Master.php") %}
+{% extends("Master.php") %}
 
 {% part("content") %}
 <h2>Congratulations on creating your first RDev application!</h2>

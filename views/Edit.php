@@ -1,4 +1,4 @@
-{% extend("Master.php") %}
+{% extends("Master.php") %}
 
 {% part("content") %}
 <h2>Editing This Project</h2>

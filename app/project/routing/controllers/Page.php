@@ -41,19 +41,8 @@ class Page extends Routing\Controller
     public function showHTTPError($statusCode)
     {
         $this->template = $this->templateFactory->create("HTTPError.php");
-
-        // Demonstrate showing custom error pages
-        switch($statusCode)
-        {
-            case HTTP\ResponseHeaders::HTTP_NOT_FOUND:
-                $this->template->setVar("title", "404 Example");
-                $this->template->setTag("errorMessage", "My custom 404 page");
-                break;
-            default:
-                $this->template->setVar("title", $statusCode . " Example");
-                $this->template->setTag("errorMessage", "Something went wrong");
-                break;
-        }
+        $this->template->setVar("title", $statusCode . " Error Page");
+        $this->template->setTag("errorMessage", "Custom " . $statusCode . " Page");
 
         return new HTTP\Response($this->compiler->compile($this->template), $statusCode);
     }
@@ -66,7 +55,6 @@ class Page extends Routing\Controller
     public function showHomePage()
     {
         $this->template = $this->templateFactory->create("Home.php");
-        $this->template->setVar("title", "First RDev Application");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }
@@ -79,7 +67,6 @@ class Page extends Routing\Controller
     public function showEditPage()
     {
         $this->template = $this->templateFactory->create("Edit.php");
-        $this->template->setVar("title", "Editing This Project");
 
         return new HTTP\Response($this->compiler->compile($this->template));
     }

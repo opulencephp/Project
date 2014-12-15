@@ -31,5 +31,13 @@ class Builders implements Bootstrappers\IBootstrapper
         {
             return new ViewBuilders\Master();
         });
+        $this->templateFactory->registerBuilder("Home.php", function()
+        {
+            return new ViewBuilders\Home();
+        });
+        $this->templateFactory->registerBuilder("Edit.php", function()
+        {
+            return new ViewBuilders\Edit();
+        });
     }
 }

@@ -9,5 +9,6 @@ return [
     "Project\\Routing\\Bootstrappers\\Router",
     "Project\\Authentication\\Bootstrappers\\Credentials",
     "Project\\Views\\Bootstrappers\\Builders",
-    "Project\\Views\\Bootstrappers\\TemplateFunctions"
+    "Project\\Views\\Bootstrappers\\TemplateFunctions",
+    "Project\\ORM\\Bootstrappers\\ORM"
 ];

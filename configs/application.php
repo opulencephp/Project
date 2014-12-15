@@ -20,6 +20,15 @@ $container->bind("RDev\\Applications\\Environments\\Environment", $environment);
 $container->bind("RDev\\IoC\\IContainer", $container);
 $container->bind("RDev\\Sessions\\ISession", $session);
 
+/**
+ * To bind database connections, uncomment the following lines
+ *
+ * $sql = require_once __DIR__ . "/sql.php";
+ * $redis = require_once __DIR__ . "/redis.php";
+ * $container->bind("RDev\\Databases\\SQL\\ConnectionPool", $sql);
+ * $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
+ */
+
 $application = new Application($logger, $environment, $container, $session);
 $application->registerBootstrappers(require_once __DIR__ . "/bootstrappers.php");
 

@@ -9,5 +9,5 @@ require_once __DIR__ . "/../../configs/php.php";
 
 $application = require_once __DIR__ . "/../../configs/application.php";
 $application->start();
-// Todo: implement
+// TODO: Implement
 $application->shutdown();

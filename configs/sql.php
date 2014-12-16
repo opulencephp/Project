@@ -4,9 +4,9 @@
  * 
  * Defines the SQL connection pool config
  */
+use RDev\Databases\SQL\PDO\PostgreSQL\Driver;
 use RDev\Databases\SQL\Server;
 use RDev\Databases\SQL\SingleServerConnectionPool;
-use RDev\Databases\SQL\PDO\PostgreSQL\Driver;
 
 // Choose the correct server for this environment
 switch($environment->getName())

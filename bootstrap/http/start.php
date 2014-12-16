@@ -14,6 +14,7 @@ require_once __DIR__ . "/../../configs/php.php";
 $application = require_once __DIR__ . "/../../configs/application.php";
 $request = Request::createFromGlobals();
 $application->getIoCContainer()->bind("RDev\\HTTP\\Request", $request);
+$application->registerBootstrappers(require_once __DIR__ . "/../../configs/http/bootstrappers.php");
 $application->start();
 /** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\Routing\\Router");

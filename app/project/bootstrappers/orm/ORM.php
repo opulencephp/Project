@@ -6,9 +6,9 @@
  */
 namespace Project\Bootstrappers\ORM;
 use RDev\Applications\Bootstrappers;
-use RDev\IoC;
 use RDev\Databases\SQL;
 use RDev\ORM as RDevORM;
+use RDev\IoC;
 
 class ORM implements Bootstrappers\IBootstrapper
 {

@@ -4,7 +4,7 @@
  * 
  * Defines an example controller
  */
-namespace Project\HTTP\Routing\Controllers;
+namespace Project\HTTP\Controllers;
 use RDev\HTTP;
 use RDev\Routing;
 use RDev\Views;

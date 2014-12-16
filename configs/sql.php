@@ -17,7 +17,9 @@ switch($environment->getName())
             new Server(
                 "mydevserver",
                 "myuser",
-                "mypassword"
+                "mypassword",
+                "mydbname",
+                5432
             )
         );
     default:
@@ -26,7 +28,9 @@ switch($environment->getName())
             new Server(
                 "myproductionserver",
                 "myuser",
-                "mypassword"
+                "mypassword",
+                "mydbname",
+                5432
             )
         );
 }

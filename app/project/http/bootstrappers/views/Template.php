@@ -4,7 +4,7 @@
  * 
  * Defines the template bootstrapper
  */
-namespace Project\Views\Bootstrappers;
+namespace Project\HTTP\Bootstrappers\Views;
 use RDev\Applications\Bootstrappers;
 use RDev\Applications\Environments;
 use RDev\IoC;
@@ -38,7 +38,7 @@ class Template implements Bootstrappers\IBootstrapper
         $cache = $this->container->makeShared("RDev\\Views\\Cache\\Cache", [
             // The path to store compiled templates
             // Make sure this path is writable
-            __DIR__ . "/../../../../views/compiled",
+            __DIR__ . "/../../../../../views/compiled",
             // The lifetime of cached templates
             3600,
             // The chance that garbage collection will be run
@@ -48,7 +48,7 @@ class Template implements Bootstrappers\IBootstrapper
         ]);
         $templateFactory = $this->container->makeShared("RDev\\Views\\Factories\\TemplateFactory", [
             // The path to the template directory
-            __DIR__ . "/../../../../views"
+            __DIR__ . "/../../../../../views"
         ]);
         $compiler = new Compilers\Compiler($cache, $templateFactory, new Filters\XSS());
         $this->container->bind("RDev\\Views\\Cache\\ICache", $cache);

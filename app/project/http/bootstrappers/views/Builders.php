@@ -4,8 +4,8 @@
  *
  * Defines the view builders bootstrapper
  */
-namespace Project\Views\Bootstrappers;
-use Project\Views\Builders as ViewBuilders;
+namespace Project\HTTP\Bootstrappers\Views;
+use Project\HTTP\Views\Builders as ViewBuilders;
 use RDev\Applications\Bootstrappers;
 use RDev\Views\Factories;
 

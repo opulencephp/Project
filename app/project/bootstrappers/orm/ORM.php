@@ -4,7 +4,7 @@
  * 
  * Defines the ORM bootstrapper
  */
-namespace Project\ORM\Bootstrappers;
+namespace Project\Bootstrappers\ORM;
 use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 use RDev\Databases\SQL;

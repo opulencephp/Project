@@ -4,7 +4,7 @@
  *
  * Defines the edit page template builder
  */
-namespace Project\Views\Builders;
+namespace Project\HTTP\Views\Builders;
 use RDev\Views;
 
 class Edit implements Views\IBuilder

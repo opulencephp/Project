@@ -4,11 +4,12 @@
  * 
  * Defines the list of bootstrapper classes to load
  */
+// Order here matters
 return [
-    "Project\\Views\\Bootstrappers\\Template",
-    "Project\\Routing\\Bootstrappers\\Router",
-    "Project\\Authentication\\Bootstrappers\\Credentials",
-    "Project\\Views\\Bootstrappers\\Builders",
-    "Project\\Views\\Bootstrappers\\TemplateFunctions",
-    "Project\\ORM\\Bootstrappers\\ORM"
+    "Project\\HTTP\\Bootstrappers\\Views\\Template",
+    "Project\\HTTP\\Bootstrappers\\Routing\\Router",
+    "Project\\HTTP\\Bootstrappers\\Views\\Builders",
+    "Project\\HTTP\\Bootstrappers\\Views\\TemplateFunctions",
+    "Project\\Bootstrappers\\Authentication\\Credentials",
+    "Project\\Bootstrappers\\ORM\\ORM"
 ];

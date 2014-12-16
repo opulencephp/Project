@@ -4,7 +4,7 @@
  * 
  * Defines the master template builder
  */
-namespace Project\Views\Builders;
+namespace Project\HTTP\Views\Builders;
 use RDev\Views;
 
 class Master implements Views\IBuilder

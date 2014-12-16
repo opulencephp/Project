@@ -4,7 +4,7 @@
  * 
  * Defines the routing bootstrapper
  */
-namespace Project\Routing\Bootstrappers;
+namespace Project\HTTP\Bootstrappers\Routing;
 use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 use RDev\Routing;
@@ -34,7 +34,7 @@ class Router implements Bootstrappers\IBootstrapper
         $router = new Routing\Router(
             $dispatcher,
             $compiler,
-            "Project\\Routing\\Controllers\\Page"
+            "Project\\HTTP\\Routing\\Controllers\\Page"
         );
         $urlGenerator = new URL\URLGenerator($router->getRoutes(), $compiler);
         $this->container->bind("RDev\\Routing\\URL\\URLGenerator", $urlGenerator);

@@ -4,7 +4,7 @@
  *
  * Defines the home page template builder
  */
-namespace Project\Views\Builders;
+namespace Project\HTTP\Views\Builders;
 use RDev\Views;
 
 class Home implements Views\IBuilder

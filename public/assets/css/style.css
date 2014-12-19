@@ -1,8 +1,3 @@
-*
-{
-    box-sizing: border-box;
-}
-
 html
 {
     font-family: 'Segoe UI', arial, sans-serif;;
@@ -13,21 +8,18 @@ html
 
 body
 {
-    margin: 0;
-    padding: 0;
-}
-
-nav
-{
-    border-width: 1px 0 1px 0;
-    border-color: #ccc;
-    border-style: solid;
-    background-color: #ddd;
-}
-
-nav a
-{
+    position: relative;
+    width: 1024px;
     padding: 0 10px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #888;
+    background-color: #fff;
+    min-height: 600px;
+}
+
+body, div
+{
+    box-sizing: border-box;
 }
 
 a, a:link, a:active, a:visited
@@ -103,6 +95,22 @@ table
     border-collapse: collapse;;
 }
 
+nav
+{
+    background-color: #369;
+}
+
+nav a, nav a:link, nav a:active, nav a:visited
+{
+    padding: 0 10px;
+    color: #fff;
+}
+
+nav a:hover
+{
+    color: #def;
+}
+
 nav ul li
 {
     padding: 0 5px;
@@ -111,12 +119,14 @@ nav ul li
     font-size: 1.2em;
 }
 
-#siteWrapper
+footer
 {
-    width: 1024px;
-    padding: 0 10px;
-    margin: 0 auto;
-    box-shadow: 0 0 10px #888;
-    background-color: #fff;
-    min-height: 600px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    line-height: 40px;
+    background-color: #f1f1f1;
+    color: #888;
 }

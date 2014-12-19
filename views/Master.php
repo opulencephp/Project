@@ -5,7 +5,7 @@
         {{!css($css)!}}
     </head>
     <body>
-        <div id="siteWrapper">
+        <header>
             <h1><a href="{{namedRouteURL('home')}}">{{projectName}}</a></h1>
             <nav>
                 <ul>
@@ -13,7 +13,12 @@
                     <li><a href="{{namedRouteURL('edit')}}">How to Edit This Project</a></li>
                 </ul>
             </nav>
+        </header>
+        <main>
             {% show("content") %}
-        </div>
+        </main>
+        <footer>
+            My First RDev Project
+        </footer>
     </body>
 </html>

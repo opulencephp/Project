@@ -33,7 +33,7 @@ class TemplateFunctions implements Bootstrappers\IBootstrapper
     public function run()
     {
         // Add the ability to generate URLs to named routes from templates
-        $this->compiler->registerTemplateFunction("namedRouteURL", function($routeName, $arguments = [])
+        $this->compiler->registerTemplateFunction("route", function($routeName, $arguments = [])
         {
             return $this->urlGenerator->createFromName($routeName, $arguments);
         });

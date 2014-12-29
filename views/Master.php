@@ -6,11 +6,11 @@
     </head>
     <body>
         <header>
-            <h1><a href="{{namedRouteURL('home')}}">{{projectName}}</a></h1>
+            <h1><a href="{{namedRouteURL('home')}}" title="Home">{{projectName}}</a></h1>
             <nav>
                 <ul>
-                    <li><a href="{{namedRouteURL('home')}}">Home</a></li>
-                    <li><a href="{{namedRouteURL('edit')}}">How to Edit This Project</a></li>
+                    <li><a href="{{namedRouteURL('home')}}" title="Home">Home</a></li>
+                    <li><a href="{{namedRouteURL('edit')}}" title="How to edit this project">How to Edit This Project</a></li>
                 </ul>
             </nav>
         </header>

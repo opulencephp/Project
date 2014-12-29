@@ -9,6 +9,8 @@ use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 use RDev\Routing;
 use RDev\Routing\Compilers;
+use RDev\Routing\Compilers\Parsers;
+use RDev\Routing\Dispatchers;
 use RDev\Routing\URL;
 
 class Router implements Bootstrappers\IBootstrapper
@@ -29,14 +31,15 @@ class Router implements Bootstrappers\IBootstrapper
      */
     public function run()
     {
-        $dispatcher = new Routing\Dispatcher($this->container);
-        $compiler = new Compilers\Compiler();
+        $dispatcher = new Dispatchers\Dispatcher($this->container);
+        $parser = new Parsers\Parser();
+        $compiler = new Compilers\Compiler($parser);
         $router = new Routing\Router(
             $dispatcher,
             $compiler,
             "Project\\HTTP\\Controllers\\Page"
         );
-        $urlGenerator = new URL\URLGenerator($router->getRoutes(), $compiler);
+        $urlGenerator = new URL\URLGenerator($router->getRoutes(), $parser);
         $this->container->bind("RDev\\Routing\\URL\\URLGenerator", $urlGenerator);
         $this->container->bind("RDev\\Routing\\Router", $router);
         $this->container->bind("RDev\\Routing\\Compilers\\ICompiler", $compiler);

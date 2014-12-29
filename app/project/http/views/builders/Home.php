@@ -14,7 +14,7 @@ class Home implements Views\IBuilder
      */
     public function build(Views\ITemplate $template)
     {
-        $template->setVar("title", "First RDev Application");
+        $template->setVar("title", "My First RDev Application");
 
         return $template;
     }

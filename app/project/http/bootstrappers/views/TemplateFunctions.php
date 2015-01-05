@@ -6,7 +6,7 @@
  */
 namespace Project\HTTP\Bootstrappers\Views;
 use RDev\Applications\Bootstrappers;
-use RDev\Routing\URL;
+use RDev\HTTP\Routing\URL;
 use RDev\Views;
 use RDev\Views\Compilers;
 

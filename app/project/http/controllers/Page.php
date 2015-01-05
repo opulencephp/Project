@@ -5,8 +5,9 @@
  * Defines an example controller
  */
 namespace Project\HTTP\Controllers;
-use RDev\HTTP;
-use RDev\Routing;
+use RDev\HTTP\Requests;
+use RDev\HTTP\Responses;
+use RDev\HTTP\Routing;
 use RDev\Views;
 use RDev\Views\Compilers;
 use RDev\Views\Factories;
@@ -19,12 +20,12 @@ class Page extends Routing\Controller
     protected $templateFactory = null;
 
     /**
-     * @param HTTP\Request $request The HTTP connection
+     * @param Requests\Request $request The HTTP connection
      * @param Compilers\ICompiler $compiler The template compiler to use
      * @param Factories\ITemplateFactory $templateFactory The factory to use to create templates
      */
     public function __construct(
-        HTTP\Request $request,
+        Requests\Request $request,
         Compilers\ICompiler $compiler,
         Factories\ITemplateFactory $templateFactory
     )
@@ -44,30 +45,30 @@ class Page extends Routing\Controller
         $this->template->setVar("title", $statusCode . " Error Page");
         $this->template->setTag("errorMessage", "Custom " . $statusCode . " Page");
 
-        return new HTTP\Response($this->compiler->compile($this->template), $statusCode);
+        return new Responses\Response($this->compiler->compile($this->template), $statusCode);
     }
 
     /**
      * Shows the homepage
      *
-     * @return HTTP\Response The response
+     * @return Responses\Response The response
      */
     public function showHomePage()
     {
         $this->template = $this->templateFactory->create("Home.php");
 
-        return new HTTP\Response($this->compiler->compile($this->template));
+        return new Responses\Response($this->compiler->compile($this->template));
     }
 
     /**
      * Shows the edit page
      *
-     * @return HTTP\Response The response
+     * @return Responses\Response The response
      */
     public function showEditPage()
     {
         $this->template = $this->templateFactory->create("Edit.php");
 
-        return new HTTP\Response($this->compiler->compile($this->template));
+        return new Responses\Response($this->compiler->compile($this->template));
     }
 }

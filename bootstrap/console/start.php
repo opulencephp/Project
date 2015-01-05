@@ -4,10 +4,21 @@
  *
  * Boots up our application with a console kernel
  */
+use RDev\Applications\Kernels\Console\Kernel;
+use RDev\Console\Commands\Commands;
+
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once __DIR__ . "/../../configs/php.php";
 
+// Setup the application
 $application = require_once __DIR__ . "/../../configs/application.php";
 $application->start();
-// TODO: Implement
+
+// Setup the commands
+/** @var Commands $commands */
+$commands = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Commands");
+require_once __DIR__ . "/../../configs/commands.php";
+
+// Handle the input
+(new Kernel($commands, $application->getLogger()))->handle();
 $application->shutdown();

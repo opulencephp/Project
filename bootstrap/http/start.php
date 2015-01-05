@@ -5,20 +5,26 @@
  * Boots up our application with an HTTP kernel
  */
 use RDev\Applications\Kernels\HTTP\Kernel;
-use RDev\HTTP\Request;
-use RDev\Routing\Router;
+use RDev\HTTP\Requests\Request;
+use RDev\HTTP\Routing\Router;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once __DIR__ . "/../../configs/php.php";
 
-$application = require_once __DIR__ . "/../../configs/application.php";
 $request = Request::createFromGlobals();
-$application->getIoCContainer()->bind("RDev\\HTTP\\Request", $request);
+
+// Setup the application
+$application = require_once __DIR__ . "/../../configs/application.php";
+$application->getIoCContainer()->bind("RDev\\HTTP\\Requests\\Request", $request);
 $application->registerBootstrappers(require_once __DIR__ . "/../../configs/http/bootstrappers.php");
 $application->start();
+
+// Setup the router
 /** @var Router $router */
-$router = $application->getIoCContainer()->makeShared("RDev\\Routing\\Router");
+$router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
 require_once __DIR__ . "/../../configs/routing.php";
+
+// Handle the request
 $response = (new Kernel($router, $application->getLogger()))->handle($request);
 $response->send();
 $application->shutdown();

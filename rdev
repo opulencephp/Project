@@ -1,3 +1,5 @@
 #!/usr/bin/env php
 <?php
-// Todo:  Implement
+require_once __DIR__ . "/bootstrap/console/start.php";
+
+echo "Hello, world!\r\n";

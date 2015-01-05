@@ -6,12 +6,12 @@
  */
 namespace Project\HTTP\Bootstrappers\Routing;
 use RDev\Applications\Bootstrappers;
+use RDev\HTTP\Routing;
+use RDev\HTTP\Routing\Compilers;
+use RDev\HTTP\Routing\Compilers\Parsers;
+use RDev\HTTP\Routing\Dispatchers;
+use RDev\HTTP\Routing\URL;
 use RDev\IoC;
-use RDev\Routing;
-use RDev\Routing\Compilers;
-use RDev\Routing\Compilers\Parsers;
-use RDev\Routing\Dispatchers;
-use RDev\Routing\URL;
 
 class Router implements Bootstrappers\IBootstrapper
 {
@@ -40,8 +40,8 @@ class Router implements Bootstrappers\IBootstrapper
             "Project\\HTTP\\Controllers\\Page"
         );
         $urlGenerator = new URL\URLGenerator($router->getRoutes(), $parser);
-        $this->container->bind("RDev\\Routing\\URL\\URLGenerator", $urlGenerator);
-        $this->container->bind("RDev\\Routing\\Router", $router);
-        $this->container->bind("RDev\\Routing\\Compilers\\ICompiler", $compiler);
+        $this->container->bind("RDev\\HTTP\\Routing\\URL\\URLGenerator", $urlGenerator);
+        $this->container->bind("RDev\\HTTP\\Routing\\Router", $router);
+        $this->container->bind("RDev\\HTTP\\Routing\\Compilers\\ICompiler", $compiler);
     }
 }

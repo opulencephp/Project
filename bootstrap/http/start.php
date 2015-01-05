@@ -4,7 +4,7 @@
  *
  * Boots up our application with an HTTP kernel
  */
-use RDev\Applications\Kernels\HTTP\Kernel;
+use RDev\HTTP\Kernels\Kernel;
 use RDev\HTTP\Requests\Request;
 use RDev\HTTP\Routing\Router;
 

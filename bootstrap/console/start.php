@@ -4,8 +4,8 @@
  *
  * Boots up our application with a console kernel
  */
-use RDev\Applications\Kernels\Console\Kernel;
 use RDev\Console\Commands\Commands;
+use RDev\Console\Kernels\Kernel;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once __DIR__ . "/../../configs/php.php";

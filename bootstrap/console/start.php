@@ -6,8 +6,8 @@
  */
 use RDev\Console\Commands\Commands;
 use RDev\Console\Commands\Compilers\ICompiler;
-use RDev\Console\Requests\Parsers\IParser;
 use RDev\Console\Kernels\Kernel;
+use RDev\Console\Requests\Parsers\IParser;
 
 require_once __DIR__ . "/../../vendor/autoload.php";
 require_once __DIR__ . "/../../configs/php.php";

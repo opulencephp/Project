@@ -38,12 +38,12 @@ class SayHello extends Commands\Command
                 Requests\ArgumentTypes::REQUIRED,
                 "The name to say hello to"
             ))
-        ->addOption(new Requests\Option(
-            "yell",
-            "y",
-            Requests\OptionTypes::OPTIONAL_VALUE,
-            "Yells hello",
-            "yes"
-        ));
+            ->addOption(new Requests\Option(
+                "yell",
+                "y",
+                Requests\OptionTypes::OPTIONAL_VALUE,
+                "Yells hello",
+                "yes"
+            ));
     }
 }

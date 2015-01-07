@@ -27,6 +27,5 @@ $commands = new Commands();
 require_once __DIR__ . "/../../configs/commands.php";
 
 // Handle the input
-$input = implode(" ", $argv);
-(new Kernel($commandCompiler, $commands, $application->getLogger()))->handle($requestParser, $input);
+(new Kernel($commandCompiler, $commands, $application->getLogger()))->handle($requestParser, $argv);
 $application->shutdown();

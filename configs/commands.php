@@ -4,3 +4,6 @@
  * 
  * Defines the console command config
  */
+use Project\Console\Commands;
+
+$commands->add(new Commands\SayHello());

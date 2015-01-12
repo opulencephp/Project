@@ -2,8 +2,8 @@
 /**
  * Copyright (C) 2015 David Young
  * 
- * Defines the console command config
+ * Defines the list of console command classes to load
  */
-use Project\Console\Commands;
-
-$commands->add(new Commands\SayHello());
+return [
+    "Project\\Console\\Commands\\SayHello"
+];

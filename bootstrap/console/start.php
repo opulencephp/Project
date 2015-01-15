@@ -35,5 +35,9 @@ foreach($commandClasses as $commandClass)
 }
 
 // Handle the input
-(new Kernel($commandCompiler, $commands, $application->getLogger()))->handle($requestParser, $argv);
+$kernel = new Kernel($commandCompiler, $commands, $application->getLogger(), $application->getVersion());
+$statusCode = $kernel->handle($requestParser, $argv);
+
+// Shut her down
 $application->shutdown();
+exit($statusCode);

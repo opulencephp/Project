@@ -7,5 +7,7 @@
 // Order here matters
 return [
     "Project\\Console\\Bootstrappers\\Commands",
-    "Project\\Console\\Bootstrappers\\Requests"
+    "Project\\Console\\Bootstrappers\\Requests",
+    // Needed so we can flush compiled views via the console
+    "Project\\HTTP\\Bootstrappers\\Views\\Template"
 ];

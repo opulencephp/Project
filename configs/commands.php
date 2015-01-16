@@ -5,5 +5,5 @@
  * Defines the list of console command classes to load
  */
 return [
-    "Project\\Console\\Commands\\SayHello"
+    "Project\\Console\\Commands\\FlushViewCache"
 ];

@@ -6,5 +6,5 @@
  */
 // Order here matters
 return [
-    "Project\\HTTP\\Bootstrappers\\Views\\Builders"
+    "Project\\HTTP\\Views\\Bootstrappers\\Builders"
 ];

@@ -23,11 +23,13 @@ $container->bind("RDev\\Sessions\\ISession", $session);
 $container->bind("RDev\\Databases\\SQL\\ConnectionPool", $sql);
 
 /**
- * To bind a Redis connection, uncomment the following lines
- *
- * $redis = require_once __DIR__ . "/redis.php";
- * $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
+ * To bind a Redis connection, move the following code out of the "if" statement
  */
+if(false)
+{
+    $redis = require_once __DIR__ . "/redis.php";
+    $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
+}
 
 $application = new Application($logger, $environment, $container, $session);
 $application->registerBootstrappers(require_once __DIR__ . "/bootstrappers.php");

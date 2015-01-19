@@ -1,10 +1,10 @@
 <?php
 /**
  * Copyright (C) 2015 David Young
- * 
+ *
  * Defines the ORM bootstrapper
  */
-namespace Project\Bootstrappers\ORM;
+namespace Project\ORM\Bootstrappers;
 use RDev\Applications\Bootstrappers;
 use RDev\Databases\SQL;
 use RDev\ORM as RDevORM;

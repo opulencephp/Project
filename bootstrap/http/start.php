@@ -8,23 +8,44 @@ use RDev\HTTP\Kernels\Kernel;
 use RDev\HTTP\Requests\Request;
 use RDev\HTTP\Routing\Router;
 
-require_once __DIR__ . "/../../vendor/autoload.php";
-require_once __DIR__ . "/../../configs/php.php";
+require_once __DIR__ . "/../start.php";
 
-$request = Request::createFromGlobals();
+/**
+ * ==========================================================
+ * Let RDev do any setup that it needs to do
+ * ==========================================================
+ */
+require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/http/start.php";
 
-// Setup the application
-$application = require_once __DIR__ . "/../../configs/application.php";
-$application->getIoCContainer()->bind("RDev\\HTTP\\Requests\\Request", $request);
+/**
+ * ==========================================================
+ * Let's get started
+ * ==========================================================
+ */
 $application->registerBootstrappers(require_once __DIR__ . "/../../configs/http/bootstrappers.php");
 $application->start();
 
-// Setup the router
+/**
+ * ==========================================================
+ * Setup the router
+ * ==========================================================
+ */
 /** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
 require_once __DIR__ . "/../../configs/routing.php";
 
-// Handle the request
+/**
+ * ==========================================================
+ * Handle the request
+ * ==========================================================
+ */
+/** @var Request $request */
 $response = (new Kernel($router, $application->getLogger()))->handle($request);
 $response->send();
+
+/**
+ * ==========================================================
+ * Shut her down
+ * ==========================================================
+ */
 $application->shutdown();

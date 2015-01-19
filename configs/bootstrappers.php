@@ -6,6 +6,6 @@
  */
 // Order here matters
 return [
-    "Project\\Bootstrappers\\Authentication\\Credentials",
-    "Project\\Bootstrappers\\ORM\\ORM"
+    "Project\\Authentication\\Bootstrappers\\Credentials",
+    "Project\\ORM\\Bootstrappers\\ORM"
 ];

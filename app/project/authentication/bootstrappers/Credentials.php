@@ -1,10 +1,10 @@
 <?php
 /**
  * Copyright (C) 2015 David Young
- * 
+ *
  * Defines the credentials bootstrapper
  */
-namespace Project\Bootstrappers\Authentication;
+namespace Project\Authentication\Bootstrappers;
 use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 

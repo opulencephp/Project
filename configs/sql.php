@@ -8,7 +8,11 @@ use RDev\Databases\SQL\PDO\PostgreSQL\Driver;
 use RDev\Databases\SQL\Server;
 use RDev\Databases\SQL\SingleServerConnectionPool;
 
-// Choose the correct server for this environment
+/**
+ * ----------------------------------------------------------
+ * Configure SQL for the correct environment
+ * ----------------------------------------------------------
+ */
 switch($environment->getName())
 {
     case "development":

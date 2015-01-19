@@ -4,6 +4,11 @@
  *
  * Sets up PHPUnit tests
  */
+/**
+ * ----------------------------------------------------------
+ * Configure PHPUnit
+ * ----------------------------------------------------------
+ */
 $paths = require_once __DIR__ . "/paths.php";
 require_once $paths["vendor"] . "/autoload.php";
 

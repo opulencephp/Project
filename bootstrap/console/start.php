@@ -9,27 +9,26 @@ use RDev\Console\Commands\Compilers\ICompiler;
 use RDev\Console\Kernels\Kernel;
 use RDev\Console\Requests\Parsers\IParser;
 
-require_once __DIR__ . "/../start.php";
-
 /**
- * ==========================================================
- * Let RDev do any setup that it needs to do
- * ==========================================================
+ * ----------------------------------------------------------
+ * Do some setup
+ * ----------------------------------------------------------
  */
+require_once __DIR__ . "/../start.php";
 require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/console/start.php";
 
 /**
- * ==========================================================
+ * ----------------------------------------------------------
  * Let's get started
- * ==========================================================
+ * ----------------------------------------------------------
  */
 $application->registerBootstrappers(require_once __DIR__ . "/../../configs/console/bootstrappers.php");
 $application->start();
 
 /**
- * ==========================================================
+ * ----------------------------------------------------------
  * Setup the commands
- * ==========================================================
+ * ----------------------------------------------------------
  */
 /**
  * @var Commands $commands, @var IParser $requestParser
@@ -48,17 +47,17 @@ foreach($commandClasses as $commandClass)
 }
 
 /**
- * ==========================================================
+ * ----------------------------------------------------------
  * Handle the input
- * ==========================================================
+ * ----------------------------------------------------------
  */
 $kernel = new Kernel($commandCompiler, $commands, $application->getLogger(), $application->getVersion());
 $statusCode = $kernel->handle($requestParser, $argv);
 
 /**
- * ==========================================================
+ * ----------------------------------------------------------
  * Shut her down
- * ==========================================================
+ * ----------------------------------------------------------
  */
 $application->shutdown();
 exit($statusCode);

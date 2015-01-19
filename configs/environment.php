@@ -7,6 +7,11 @@
 use RDev\Applications\Environments\Environment;
 use RDev\Applications\Environments\EnvironmentDetector;
 
+/**
+ * ----------------------------------------------------------
+ * Create the environment configuration
+ * ----------------------------------------------------------
+ */
 $detector = new EnvironmentDetector();
 $config = [
     "production" => [

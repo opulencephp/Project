@@ -6,7 +6,11 @@
  */
 use RDev\Framework\Paths;
 
-// Specify any path constants here
+/**
+ * ----------------------------------------------------------
+ * List any paths used by our application
+ * ----------------------------------------------------------
+ */
 $pathsConfig = [
     // The path toe the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",

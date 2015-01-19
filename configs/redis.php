@@ -8,7 +8,11 @@ use RDev\Databases\NoSQL\Redis\RDevPHPRedis;
 use RDev\Databases\NoSQL\Redis\Server;
 use RDev\Databases\NoSQL\Redis\TypeMapper;
 
-// Choose the correct server for this environment
+/**
+ * ----------------------------------------------------------
+ * Configure Redis for the correct environment
+ * ----------------------------------------------------------
+ */
 switch($environment->getName())
 {
     case "development":

@@ -4,6 +4,11 @@
  *
  * Defines the routing config
  */
+/**
+ * ----------------------------------------------------------
+ * Create all of the routes for the HTTP kernel
+ * ----------------------------------------------------------
+ */
 $router->group(["controllerNamespace" => "Project\\HTTP\\Controllers"], function() use ($router)
 {
     $router->get("/", [

@@ -6,4 +6,9 @@
  */
 use RDev\IoC\Container;
 
+/**
+ * ----------------------------------------------------------
+ * Create a dependency injection container
+ * ----------------------------------------------------------
+ */
 return new Container();

@@ -9,7 +9,7 @@
  * Create all of the routes for the HTTP kernel
  * ----------------------------------------------------------
  */
-$router->group(["controllerNamespace" => "Project\\HTTP\\Controllers"], function() use ($router)
+$router->group(["controllerNamespace" => "Project\\HTTP\\Routing\\Controllers"], function() use ($router)
 {
     $router->get("/", [
         "controller" => "Page@showHomePage",

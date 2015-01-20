@@ -11,7 +11,7 @@
 </p>
 <h3>Routes</h3>
 <p>
-    Create new routes in <b>configs/routing.php</b>.  To handle each route, add methods to <b>app/project/http/controllers/Page.php</b>.
+    Create new routes in <b>configs/routing.php</b>.  To handle each route, add methods to <b>app/project/http/routing/controllers/Page.php</b>.
 </p>
 <h3>Namespace</h3>
 <p>

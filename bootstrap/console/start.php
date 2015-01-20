@@ -31,7 +31,7 @@ $application->start();
  * ----------------------------------------------------------
  */
 /**
- * @var Commands $commands, @var IParser $requestParser
+ * @var Commands $commands
  * @var IParser $requestParser
  * @var ICompiler $commandCompiler
  */

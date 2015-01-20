@@ -29,9 +29,9 @@ $container->bind("RDev\\Databases\\SQL\\ConnectionPool", $sql);
  * (Optional) Bind a Redis instance
  * ----------------------------------------------------------
  */
-// Move the code out of the "if" statement to enable Redis
 if(false)
 {
+    // Move this out of the "if" statement to enable Redis
     $redis = require_once __DIR__ . "/redis.php";
     $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
 }

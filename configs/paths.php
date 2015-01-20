@@ -13,7 +13,7 @@ use RDev\Framework\Paths;
  */
 $pathsConfig = [
     // The directory of this project's root directory
-    "root" => __DIR__ . "/../",
+    "root" => __DIR__ . "/..",
     // The path toe the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
     // The path to the view directory

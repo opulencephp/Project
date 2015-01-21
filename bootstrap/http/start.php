@@ -21,7 +21,7 @@ require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/http/start.php";
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->registerBootstrappers(require_once __DIR__ . "/../../configs/http/bootstrappers.php");
+$application->registerBootstrappers(require_once $paths["configs"] . "/http/bootstrappers.php");
 $application->start();
 
 /**
@@ -31,7 +31,7 @@ $application->start();
  */
 /** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
-require_once __DIR__ . "/../../configs/routing.php";
+require_once $paths["configs"] . "/routing.php";
 
 /**
  * ----------------------------------------------------------

@@ -22,7 +22,7 @@ require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/console/start.php
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->registerBootstrappers(require_once __DIR__ . "/../../configs/console/bootstrappers.php");
+$application->registerBootstrappers(require_once $paths["configs"] . "/console/bootstrappers.php");
 $application->start();
 
 /**
@@ -38,7 +38,7 @@ $application->start();
 $commands = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Commands");
 $requestParser = $application->getIoCContainer()->makeShared("RDev\\Console\\Requests\\Parsers\\IParser");
 $commandCompiler = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Compilers\\ICompiler");
-$commandClasses = require_once __DIR__ . "/../../configs/commands.php";
+$commandClasses = require_once $paths["configs"] . "/commands.php";
 
 // Instantiate each command class
 foreach($commandClasses as $commandClass)

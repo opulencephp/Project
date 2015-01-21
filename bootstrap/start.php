@@ -20,4 +20,4 @@ require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/setupcheck.php";
  * ----------------------------------------------------------
  */
 /** @var Application $application */
-$application = require_once __DIR__ . "/../configs/application.php";
+$application = require_once $paths["configs"] . "/application.php";

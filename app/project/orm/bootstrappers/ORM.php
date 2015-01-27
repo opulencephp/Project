@@ -12,22 +12,25 @@ use RDev\IoC;
 
 class ORM extends Bootstrappers\Bootstrapper
 {
+    /** @var RDevORM\UnitOfWork */
+    private $unitOfWork = null;
+
     /**
      * {@inheritdoc}
      */
     public function registerBindings(IoC\IContainer $container)
     {
-        $container->bind("RDev\\ORM\\UnitOfWork", new RDevORM\UnitOfWork(new RDevORM\EntityRegistry()));
+        $this->unitOfWork = new RDevORM\UnitOfWork(new RDevORM\EntityRegistry());
+        $container->bind("RDev\\ORM\\UnitOfWork", $this->unitOfWork);
     }
 
     /**
      * Binds the SQL connection to a new unit of work
      *
-     * @param RDevORM\UnitOfWork $unitOfWork The unit of work whose connection needs setting
      * @param SQL\ConnectionPool $connectionPool The SQL connection pool
      */
-    public function run(RDevORM\UnitOfWork $unitOfWork, SQL\ConnectionPool $connectionPool)
+    public function run(SQL\ConnectionPool $connectionPool)
     {
-        $unitOfWork->setConnection($connectionPool->getWriteConnection());
+        $this->unitOfWork->setConnection($connectionPool->getWriteConnection());
     }
 }

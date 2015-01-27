@@ -39,6 +39,6 @@ class HelloWorld extends Commands\Command
             $message = strtoupper($message);
         }
 
-        $response->writeln($message);
+        $response->writeln("<info>$message</info>");
     }
 }

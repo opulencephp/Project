@@ -10,29 +10,24 @@ use RDev\Databases\SQL;
 use RDev\ORM as RDevORM;
 use RDev\IoC;
 
-class ORM implements Bootstrappers\IBootstrapper
+class ORM extends Bootstrappers\Bootstrapper
 {
-    /** @var IoC\IContainer The dependency injection container to use */
-    private $container = null;
-    /** @var SQL\ConnectionPool The SQL connection pool */
-    private $connectionPool = null;
-
-    /**
-     * @param IoC\IContainer $container The dependency injection container to use
-     * @param SQL\ConnectionPool $connectionPool The SQL connection pool
-     */
-    public function __construct(IoC\IContainer $container, SQL\ConnectionPool $connectionPool)
-    {
-        $this->container = $container;
-        $this->connectionPool = $connectionPool;
-    }
-
     /**
      * {@inheritdoc}
      */
-    public function run()
+    public function registerBindings(IoC\IContainer $container)
     {
-        $unitOfWork = new RDevORM\UnitOfWork($this->connectionPool->getWriteConnection(), new RDevORM\EntityRegistry());
-        $this->container->bind("RDev\\ORM\\UnitOfWork", $unitOfWork);
+        $container->bind("RDev\\ORM\\UnitOfWork", new RDevORM\UnitOfWork(new RDevORM\EntityRegistry()));
+    }
+
+    /**
+     * Binds the SQL connection to a new unit of work
+     *
+     * @param RDevORM\UnitOfWork $unitOfWork The unit of work whose connection needs setting
+     * @param SQL\ConnectionPool $connectionPool The SQL connection pool
+     */
+    public function run(RDevORM\UnitOfWork $unitOfWork, SQL\ConnectionPool $connectionPool)
+    {
+        $unitOfWork->setConnection($connectionPool->getWriteConnection());
     }
 }

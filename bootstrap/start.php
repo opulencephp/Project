@@ -4,8 +4,6 @@
  * 
  * Defines the common starting point for RDev applications
  */
-use RDev\Applications\Application;
-
 /**
  * ----------------------------------------------------------
  * Create our paths and check our setup
@@ -19,5 +17,4 @@ require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/setupcheck.php";
  * Setup the application
  * ----------------------------------------------------------
  */
-/** @var Application $application */
 $application = require_once $paths["configs"] . "/application.php";

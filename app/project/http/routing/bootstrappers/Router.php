@@ -9,25 +9,14 @@ use RDev\Applications\Bootstrappers;
 use RDev\HTTP\Routing;
 use RDev\IoC;
 
-class Router implements Bootstrappers\IBootstrapper
+class Router extends Bootstrappers\Bootstrapper
 {
-    /** @var IoC\IContainer The dependency injection container to use */
-    private $container = null;
-
-    /**
-     * @param IoC\IContainer $container The dependency injection container to use
-     */
-    public function __construct(IoC\IContainer $container)
-    {
-        $this->container = $container;
-    }
-
     /**
      * {@inheritdoc}
      */
-    public function run()
+    public function registerBindings(IoC\IContainer $container)
     {
-        $router = $this->container->makeShared("RDev\\HTTP\\Routing\\Router");
+        $router = $container->makeShared("RDev\\HTTP\\Routing\\Router");
         $router->setMissedRouteControllerName("Project\\HTTP\\Routing\\Controllers\\Page");
     }
 }

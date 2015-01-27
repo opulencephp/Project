@@ -9,33 +9,24 @@ use Project\HTTP\Views\Builders as ViewBuilders;
 use RDev\Applications\Bootstrappers;
 use RDev\Views\Factories;
 
-class Builders implements Bootstrappers\IBootstrapper
+class Builders extends Bootstrappers\Bootstrapper
 {
-    /** @var Factories\ITemplateFactory The template factory to use */
-    private $templateFactory = null;
-
     /**
+     * Registers view builders to the factory
+     *
      * @param Factories\ITemplateFactory $templateFactory The template factory to use
      */
-    public function __construct(Factories\ITemplateFactory $templateFactory)
+    public function run(Factories\ITemplateFactory $templateFactory)
     {
-        $this->templateFactory = $templateFactory;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function run()
-    {
-        $this->templateFactory->registerBuilder("Master.php", function()
+        $templateFactory->registerBuilder("Master.php", function()
         {
             return new ViewBuilders\Master();
         });
-        $this->templateFactory->registerBuilder("Home.php", function()
+        $templateFactory->registerBuilder("Home.php", function()
         {
             return new ViewBuilders\Home();
         });
-        $this->templateFactory->registerBuilder("Edit.php", function()
+        $templateFactory->registerBuilder("Edit.php", function()
         {
             return new ViewBuilders\Edit();
         });

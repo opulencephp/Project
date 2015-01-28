@@ -10,5 +10,22 @@
  * ----------------------------------------------------------
  */
 return [
+    /**
+     * ----------------------------------------------------------
+     * RDev Bootstrappers
+     * ----------------------------------------------------------
+     *
+     * Keep these bootstrappers unless you want to customize anything that they bind
+     */
+    "RDev\\Framework\\HTTP\\Views\\Bootstrappers\\Template",
+    "RDev\\Framework\\HTTP\\Routing\\Bootstrappers\\Router",
+    "RDev\\Framework\\HTTP\\Views\\Bootstrappers\\TemplateFunctions",
+    /**
+     * ----------------------------------------------------------
+     * Your Bootstrappers
+     * ----------------------------------------------------------
+     *
+     * List any console bootstrappers you'd like here
+     */
     "Project\\HTTP\\Views\\Bootstrappers\\Builders"
 ];

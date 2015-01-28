@@ -17,6 +17,6 @@ class Router extends Bootstrappers\Bootstrapper
      */
     public function run(Routing\Router $router)
     {
-        $router->setMissedRouteControllerName("ClarityBid\\HTTP\\Routing\\Controllers\\Page");
+        $router->setMissedRouteControllerName("Project\\HTTP\\Routing\\Controllers\\Page");
     }
 }

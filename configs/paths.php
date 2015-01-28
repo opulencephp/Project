@@ -4,7 +4,7 @@
  * 
  * Defines the list of paths needed by this application
  */
-use RDev\Framework\Paths;
+use RDev\Applications\Paths;
 
 /**
  * ----------------------------------------------------------

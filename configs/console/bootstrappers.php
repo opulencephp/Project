@@ -10,5 +10,21 @@
  * ----------------------------------------------------------
  */
 return [
-    // List any fully-qualified console bootstrapper classes here
+    /**
+     * ----------------------------------------------------------
+     * RDev Bootstrappers
+     * ----------------------------------------------------------
+     *
+     * Keep these bootstrappers unless you want to customize anything that they bind
+     */
+    "RDev\\Framework\\HTTP\\Views\\Bootstrappers\\Template",
+    "RDev\\Framework\\Console\\Bootstrappers\\Commands",
+    "RDev\\Framework\\Console\\Bootstrappers\\Requests",
+    /**
+     * ----------------------------------------------------------
+     * Your Bootstrappers
+     * ----------------------------------------------------------
+     *
+     * List any console bootstrappers you'd like here
+     */
 ];

@@ -14,7 +14,8 @@ use RDev\HTTP\Routing\Router;
  * ----------------------------------------------------------
  */
 require_once __DIR__ . "/../start.php";
-require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/http/start.php";
+$request = Request::createFromGlobals();
+$application->getIoCContainer()->bind("RDev\\HTTP\\Requests\\Request", $request);
 
 /**
  * ----------------------------------------------------------
@@ -28,17 +29,17 @@ $application->start();
  * ----------------------------------------------------------
  * Setup the router
  * ----------------------------------------------------------
+ *
+ * @var Router $router
  */
-/** @var Router $router */
 $router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
-require_once $paths["configs"] . "/routing.php";
+require_once $paths["configs"] . "/http/routing.php";
 
 /**
  * ----------------------------------------------------------
  * Handle the request
  * ----------------------------------------------------------
  */
-/** @var Request $request */
 $response = (new Kernel($router, $application->getLogger()))->handle($request);
 $response->send();
 

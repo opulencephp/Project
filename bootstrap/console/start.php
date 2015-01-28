@@ -15,7 +15,6 @@ use RDev\Console\Requests\Parsers\IParser;
  * ----------------------------------------------------------
  */
 require_once __DIR__ . "/../start.php";
-require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/console/start.php";
 
 /**
  * ----------------------------------------------------------
@@ -29,8 +28,7 @@ $application->start();
  * ----------------------------------------------------------
  * Setup the commands
  * ----------------------------------------------------------
- */
-/**
+ *
  * @var Commands $commands
  * @var IParser $requestParser
  * @var ICompiler $commandCompiler
@@ -38,7 +36,7 @@ $application->start();
 $commands = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Commands");
 $requestParser = $application->getIoCContainer()->makeShared("RDev\\Console\\Requests\\Parsers\\IParser");
 $commandCompiler = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Compilers\\ICompiler");
-$commandClasses = require_once $paths["configs"] . "/commands.php";
+$commandClasses = require_once $paths["configs"] . "/console/commands.php";
 
 // Instantiate each command class
 foreach($commandClasses as $commandClass)

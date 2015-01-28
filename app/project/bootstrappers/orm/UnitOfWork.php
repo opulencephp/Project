@@ -2,15 +2,15 @@
 /**
  * Copyright (C) 2015 David Young
  *
- * Defines the ORM bootstrapper
+ * Defines the unit of work bootstrapper
  */
-namespace Project\ORM\Bootstrappers;
+namespace Project\Bootstrappers\ORM;
 use RDev\Applications\Bootstrappers;
 use RDev\Databases\SQL;
 use RDev\IoC;
 use RDev\ORM as RDevORM;
 
-class ORM extends Bootstrappers\Bootstrapper
+class UnitOfWork extends Bootstrappers\Bootstrapper
 {
     /** @var RDevORM\UnitOfWork */
     private $unitOfWork = null;

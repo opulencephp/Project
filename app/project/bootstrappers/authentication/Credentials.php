@@ -4,7 +4,7 @@
  *
  * Defines the credentials bootstrapper
  */
-namespace Project\Authentication\Bootstrappers;
+namespace Project\Bootstrappers\Authentication;
 use RDev\Applications\Bootstrappers;
 use RDev\IoC;
 

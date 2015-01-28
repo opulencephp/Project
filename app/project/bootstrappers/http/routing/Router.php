@@ -4,7 +4,7 @@
  * 
  * Defines the router bootstrapper
  */
-namespace Project\HTTP\Routing\Bootstrappers;
+namespace Project\Bootstrappers\HTTP\Routing;
 use RDev\Applications\Bootstrappers;
 use RDev\HTTP\Routing;
 

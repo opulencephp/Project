@@ -7,11 +7,11 @@
     To change the contents of each page, change the templates in the <b>views</b> directory.
 </p>
 <p>
-    If you want to create <i>Builders</i> for your templates, add them to <b>app/project/http/views/builders</b>.  Then, register each <i>Builder</i> to the appropriate template in <b>app/project/http/views/bootstrappers/Builders.php</b>.
+    If you want to create <i>Builders</i> for your templates, add them to <b>app/project/http/views/builders</b>.  Then, register each <i>Builder</i> to the appropriate template in <b>app/project/bootstrappers/http/views/Builders.php</b>.
 </p>
 <h3>Routes</h3>
 <p>
-    Create new routes in <b>configs/http/routing.php</b>.  To handle each route, add methods to <b>app/project/http/routing/controllers/Page.php</b>.
+    Create new routes in <b>configs/http/routing.php</b>.  To handle each route, add methods to <b>app/project/http/routing/Page.php</b>.
 </p>
 <h3>Console Commands</h3>
 <p>

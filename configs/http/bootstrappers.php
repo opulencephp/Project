@@ -25,7 +25,7 @@ return [
      * Your Bootstrappers
      * ----------------------------------------------------------
      *
-     * List any console bootstrappers you'd like here
+     * List any HTTP bootstrappers you'd like here
      */
     "Project\\Bootstrappers\\HTTP\\Views\\Builders"
 ];

@@ -1,3 +1,5 @@
 .idea
 phpunit.phar
 vendor/
+.env.*.php
+!configs/environment/.env.example.php

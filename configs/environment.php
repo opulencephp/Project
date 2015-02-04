@@ -29,4 +29,23 @@ $config = [
     ]
 ];
 
-return new Environment($detector->detect($config));
+$environmentName = $detector->detect($config);
+$environment = new Environment($environmentName);
+
+/**
+ * ----------------------------------------------------------
+ * Load environment variables for non-production environments
+ * ----------------------------------------------------------
+ *
+ * Note:  For performance in production, it's highly suggested
+ * you set environment variables on the server itself
+ */
+if($environmentName != "production")
+{
+    foreach(glob(__DIR__ . "/environment/.env.*.php") as $environmentFile)
+    {
+        require_once $environmentFile;
+    }
+}
+
+return $environment;

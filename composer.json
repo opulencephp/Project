@@ -8,6 +8,7 @@
       "role": "Architect"
     }
   ],
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "Project\\": [

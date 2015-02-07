@@ -23,7 +23,9 @@ $pathsConfig = [
     // The path to the view directory
     "views" => __DIR__ . "/../views",
     // The path to the compiled view directory
-    "compiledViews" => __DIR__ . "/../views/compiled"
+    "compiledViews" => __DIR__ . "/../tmp/http/views",
+    // The path to the logs directory
+    "logs" => __DIR__ . "/../tmp/logs"
 ];
 
 // Get the autoloader

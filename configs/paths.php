@@ -20,6 +20,8 @@ $pathsConfig = [
     "configs" => __DIR__,
     // The path toe the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
+    // The path to the resources directory
+    "resources" => __DIR__ . "/../resources",
     // The path to the view directory
     "views" => __DIR__ . "/../resources/views",
     // The path to the compiled view directory

@@ -5,10 +5,8 @@
  * Defines an example controller
  */
 namespace Project\HTTP\Controllers;
-use RDev\HTTP\Requests;
 use RDev\HTTP\Responses;
 use RDev\HTTP\Routing;
-use RDev\Views;
 use RDev\Views\Compilers;
 use RDev\Views\Factories;
 
@@ -20,18 +18,11 @@ class Page extends Routing\Controller
     protected $templateFactory = null;
 
     /**
-     * @param Requests\Request $request The HTTP connection
      * @param Compilers\ICompiler $compiler The template compiler to use
      * @param Factories\ITemplateFactory $templateFactory The factory to use to create templates
      */
-    public function __construct(
-        Requests\Request $request,
-        Compilers\ICompiler $compiler,
-        Factories\ITemplateFactory $templateFactory
-    )
+    public function __construct(Compilers\ICompiler $compiler, Factories\ITemplateFactory $templateFactory)
     {
-        parent::__construct($request);
-
         $this->compiler = $compiler;
         $this->templateFactory = $templateFactory;
     }

@@ -21,7 +21,7 @@ $pathsConfig = [
     // The path toe the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
     // The path to the view directory
-    "views" => __DIR__ . "/../views",
+    "views" => __DIR__ . "/../resources/views",
     // The path to the compiled view directory
     "compiledViews" => __DIR__ . "/../tmp/http/views",
     // The path to the logs directory

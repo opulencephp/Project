@@ -7,7 +7,7 @@
     <body>
         <header>
             <h1><a href="{{route('home')}}" title="Home">{{projectName}}</a></h1>
-            <nav>
+            <nav class="main">
                 <ul>
                     <li><a href="{{route('home')}}" title="Home">Home</a></li>
                     <li><a href="{{route('edit')}}" title="How to edit this project">How to Edit This Project</a></li>

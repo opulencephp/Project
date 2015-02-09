@@ -167,15 +167,24 @@ header.main nav ul, footer.main nav ul
 
 header.main nav ul li, footer.main nav ul li
 {
-    padding: 0 5px;
+    padding: 0 10px;
     display: inline-block;
     line-height: 2em;
     font-size: 1.2em;
 }
 
+header.main nav ul li:first-child, footer.main nav ul li:first-child
+{
+    padding-left: 0;
+}
+
+header.main nav ul li:last-child, footer.main nav ul li:last-child
+{
+    padding-right: 0;
+}
+
 header.main nav a, header.main nav a:link, header.main nav a:active, header.main nav a:visited
 {
-    padding: 0 10px;
     color: #fff;
 }
 
@@ -191,6 +200,7 @@ header.main nav a:first-child
 
 footer.main
 {
+    padding: 30px 0;
     text-align: center;
     background-color: #f1f1f1;
     color: #888;

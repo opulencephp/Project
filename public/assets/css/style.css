@@ -157,14 +157,6 @@ main
     padding: 10px 10px 50px;
 }
 
-/**
- * Setup page-specific components
- */
-#site-title
-{
-    color: #7cf;
-}
-
 header.main nav, footer.main nav
 {
     width: 1024px;

@@ -1,7 +1,9 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
 html
 {
-    font-family: 'Segoe UI', arial, sans-serif;;
-    font-size: 13px;
+    font-family: 'Open Sans', 'Segoe UI', arial, sans-serif;;
+    font-size: 14px;
     color: #111;
     background-color: #f1f1f1;
 }
@@ -9,10 +11,7 @@ html
 body
 {
     position: relative;
-    width: 1024px;
-    padding: 0 10px;
     margin: 0 auto;
-    box-shadow: 0 0 10px #888;
     background-color: #fff;
     min-height: 600px;
 }
@@ -22,22 +21,58 @@ body, div
     box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6
+{
+    color: #555;
+    font-weight: 300;
+}
+
+h1
+{
+    font-size: 30px;
+    margin: 0 0 20px;
+}
+
+h2, h3, h4, h5, h6
+{
+    margin: 0 0 10px;
+}
+
+h2
+{
+    font-size: 24px;
+}
+
+h3
+{
+    font-size: 22px;
+}
+
+h4
+{
+    font-size: 18px;
+}
+
+h5
+{
+    font-size: 16px;
+}
+
+h6
+{
+    font-size: 14px;
+}
+
 a, a:link, a:active, a:visited
 {
-    color: #369;
+    color: #69c;
     text-decoration: none;
     cursor: pointer;
 }
 
 a:hover
 {
-    color: #147;
-}
-
-h1
-{
-    padding: 0;
-    margin: 0 0 10px 0;
+    color: #49a;
 }
 
 img
@@ -47,7 +82,7 @@ img
 
 ul, ol
 {
-    padding: 0 1em;
+    padding: 10px 1em;
     margin: 0;
 }
 
@@ -104,23 +139,44 @@ table
     border-collapse: collapse;;
 }
 
-nav.main
+header.main
 {
     background-color: #369;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 34px;
 }
 
-nav.main a, nav.main a:link, nav.main a:active, nav.main a:visited
+main
 {
-    padding: 0 10px;
-    color: #fff;
+    width: 1024px;
+    margin: 34px auto 0 auto;
+    padding: 10px 10px 50px;
 }
 
-nav.main a:hover
+/**
+ * Setup page-specific components
+ */
+#site-title
 {
-    color: #def;
+    color: #7cf;
 }
 
-nav.main ul li
+header.main nav, footer.main nav
+{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+header.main nav ul, footer.main nav ul
+{
+    padding: 0;
+}
+
+header.main nav ul li, footer.main nav ul li
 {
     padding: 0 5px;
     display: inline-block;
@@ -128,7 +184,23 @@ nav.main ul li
     font-size: 1.2em;
 }
 
-footer
+header.main nav a, header.main nav a:link, header.main nav a:active, header.main nav a:visited
+{
+    padding: 0 10px;
+    color: #fff;
+}
+
+header.main nav a:hover
+{
+    color: #def;
+}
+
+header.main nav a:first-child
+{
+    padding-left: 0;
+}
+
+footer.main
 {
     text-align: center;
     position: absolute;
@@ -138,4 +210,14 @@ footer
     line-height: 40px;
     background-color: #f1f1f1;
     color: #888;
+}
+
+footer.main nav a, footer.main nav a:link, footer.main nav a:visited
+{
+    color: #888;
+}
+
+footer.main nav a:hover
+{
+    color: #777;
 }

@@ -1,6 +1,6 @@
 html
 {
-    font-family: 'Open Sans', 'Segoe UI', arial, sans-serif;;
+    font-family: 'Open Sans', 'Segoe UI', arial, sans-serif;
     font-size: 14px;
     color: #111;
     background-color: #f1f1f1;
@@ -101,7 +101,7 @@ button
     color: #333;
     border: 1px solid #333;
     border-radius: 5px;
-    font-family: 'Segoe UI', arial, sans-serif;;
+    font-family: 'Segoe UI', arial, sans-serif;
 }
 
 button:hover
@@ -118,7 +118,7 @@ input::-moz-focus-inner, button::-moz-focus-inner
 
 input, select, textarea
 {
-    font-family: 'Segoe UI', arial, sans-serif;;
+    font-family: 'Segoe UI', arial, sans-serif;
 }
 
 input[type=text], input[type=password], input[type=email]
@@ -133,7 +133,7 @@ table
 {
     width: 100%;
     border-spacing: 0;
-    border-collapse: collapse;;
+    border-collapse: collapse;
 }
 
 header.main
@@ -202,6 +202,11 @@ header.main nav a:first-child
 header.main nav li.current
 {
     background-color: #5ad;
+}
+
+section:not(:first-child)
+{
+    margin-top: 20px;
 }
 
 footer.main

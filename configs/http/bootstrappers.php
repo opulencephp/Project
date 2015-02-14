@@ -17,9 +17,9 @@ return [
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
-    "RDev\\Framework\\HTTP\\Bootstrappers\\Views\\Template",
-    "RDev\\Framework\\HTTP\\Bootstrappers\\Routing\\Router",
-    "RDev\\Framework\\HTTP\\Bootstrappers\\Views\\TemplateFunctions",
+    "RDev\\Framework\\Bootstrappers\\HTTP\\Views\\Template",
+    "RDev\\Framework\\Bootstrappers\\HTTP\\Routing\\Router",
+    "RDev\\Framework\\Bootstrappers\\HTTP\\Views\\TemplateFunctions",
     /**
      * ----------------------------------------------------------
      * Your Bootstrappers

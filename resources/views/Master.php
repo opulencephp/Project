@@ -10,7 +10,7 @@
         <header class="main">
             {% include("MainNav.php") %}
         </header>
-        <main class="{{!$mainClasses!}}">
+        <main class="main">
             {% show("content") %}
         </main>
         <footer class="main">

@@ -17,9 +17,9 @@ return [
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
-    "RDev\\Framework\\HTTP\\Bootstrappers\\Views\\Template",
-    "RDev\\Framework\\Console\\Bootstrappers\\Commands\\Commands",
-    "RDev\\Framework\\Console\\Bootstrappers\\Requests\\Requests",
+    "RDev\\Framework\\Bootstrappers\\HTTP\\Views\\Template",
+    "RDev\\Framework\\Bootstrappers\\Console\\Commands\\Commands",
+    "RDev\\Framework\\Bootstrappers\\Console\\Requests\\Requests",
     /**
      * ----------------------------------------------------------
      * Your Bootstrappers

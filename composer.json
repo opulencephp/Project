@@ -20,7 +20,7 @@
   },
   "require": {
     "php": ">=5.5.10",
-    "rdev/rdev": "0.2.*@dev"
+    "rdev/rdev": "0.3.*@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "4.2.*",

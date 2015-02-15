@@ -39,8 +39,10 @@ require_once $paths["configs"] . "/http/routing.php";
  * ----------------------------------------------------------
  * Handle the request
  * ----------------------------------------------------------
- */
-$response = (new Kernel($router, $application->getLogger()))->handle($request);
+*/
+$kernel = new Kernel($application->getIoCContainer(), $router, $application->getLogger());
+$kernel->addMiddleware(require_once $paths["configs"] . "/http/middleware.php");
+$response = $kernel->handle($request);
 $response->send();
 
 /**

@@ -8,7 +8,7 @@ use RDev\Sessions\Session;
 
 /**
  * ----------------------------------------------------------
- * Configure The user session
+ * Configure the user session
  * ----------------------------------------------------------
  */
 return new Session();

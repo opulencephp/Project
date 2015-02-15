@@ -17,9 +17,16 @@ class SQL extends Bootstrappers\Bootstrapper
      */
     public function registerBindings(IoC\IContainer $container)
     {
-        // Set the environment variable for the SQL config
-        $environment = $this->environment;
-        $connectionPool = require_once $this->paths["configs"] . "/sql.php";
+        $connectionPool = new SQLDatabases\SingleServerConnectionPool(
+            new PostgreSQL\Driver(),
+            new SQLDatabases\Server(
+                $this->environment->getVariable("DB_HOST"),
+                $this->environment->getVariable("DB_USER"),
+                $this->environment->getVariable("DB_PASSWORD"),
+                $this->environment->getVariable("DB_NAME"),
+                $this->environment->getVariable("DB_PORT")
+            )
+        );
         $container->bind("RDev\\Databases\\SQL\\ConnectionPool", $connectionPool);
     }
 }

@@ -12,7 +12,7 @@
 return [
     /**
      * ----------------------------------------------------------
-     * RDev Bootstrappers
+     * RDev bootstrappers
      * ----------------------------------------------------------
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
@@ -22,7 +22,7 @@ return [
     "RDev\\Framework\\Bootstrappers\\Console\\Requests\\Requests",
     /**
      * ----------------------------------------------------------
-     * Your Bootstrappers
+     * Your bootstrappers
      * ----------------------------------------------------------
      *
      * List any console bootstrappers you'd like here

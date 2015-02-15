@@ -16,9 +16,14 @@ class Redis extends Bootstrappers\Bootstrapper
      */
     public function registerBindings(IoC\IContainer $container)
     {
-        // Set the environment variable for the Redis config
-        $environment = $this->environment;
-        $redis = require_once $this->paths["configs"] . "/redis.php";
+        $redis = new RedisDatabases\RDevPHPRedis(
+            new RedisDatabases\Server(
+                $this->environment->getVariable("REDIS_HOST"),
+                $this->environment->getVariable("REDIS_PASSWORD"),
+                $this->environment->getVariable("REDIS_PORT")
+            ),
+            new RedisDatabases\TypeMapper()
+        );
         $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
     }
 }

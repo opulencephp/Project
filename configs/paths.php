@@ -18,8 +18,10 @@ $pathsConfig = [
     "app" => __DIR__ . "/../app",
     // The configs directory
     "configs" => __DIR__,
-    // The path toe the vendor (Composer) directory
+    // The path to the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
+    // The path to the public directory
+    "public" => __DIR__ . "/../public",
     // The path to the resources directory
     "resources" => __DIR__ . "/../resources",
     // The path to the view directory

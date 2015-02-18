@@ -9,11 +9,6 @@ use RDev\Console\Commands\Compilers\ICompiler;
 use RDev\Console\Kernels\Kernel;
 use RDev\Console\Requests\Parsers\IParser;
 
-/**
- * ----------------------------------------------------------
- * Do some setup
- * ----------------------------------------------------------
- */
 require_once __DIR__ . "/../start.php";
 
 /**
@@ -22,8 +17,7 @@ require_once __DIR__ . "/../start.php";
  * ----------------------------------------------------------
  */
 $application->registerBootstrappers(require_once $paths["configs"] . "/console/bootstrappers.php");
-$statusCode = 0;
-$application->start(function () use ($application, &$statusCode)
+$statusCode = $application->start(function () use ($application)
 {
     global $argv;
 
@@ -53,7 +47,8 @@ $application->start(function () use ($application, &$statusCode)
      * ----------------------------------------------------------
      */
     $kernel = new Kernel($commandCompiler, $commands, $application->getLogger(), $application->getVersion());
-    $statusCode = $kernel->handle($requestParser, $argv);
+
+    return $kernel->handle($requestParser, $argv);
 });
 
 /**

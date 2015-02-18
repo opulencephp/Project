@@ -8,14 +8,7 @@ use RDev\HTTP\Kernels\Kernel;
 use RDev\HTTP\Requests\Request;
 use RDev\HTTP\Routing\Router;
 
-/**
- * ----------------------------------------------------------
- * Do some setup
- * ----------------------------------------------------------
- */
 require_once __DIR__ . "/../start.php";
-$request = Request::createFromGlobals();
-$application->getIoCContainer()->bind("RDev\\HTTP\\Requests\\Request", $request);
 
 /**
  * ----------------------------------------------------------
@@ -23,27 +16,32 @@ $application->getIoCContainer()->bind("RDev\\HTTP\\Requests\\Request", $request)
  * ----------------------------------------------------------
  */
 $application->registerBootstrappers(require_once $paths["configs"] . "/http/bootstrappers.php");
-$application->start();
+$application->start(function() use ($application)
+{
+    /**
+     * ----------------------------------------------------------
+     * Setup the router
+     * ----------------------------------------------------------
+     *
+     * @var Router $router
+     */
+    $paths = $application->getPaths();
+    $router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
+    require_once $paths["configs"] . "/http/routing.php";
 
-/**
- * ----------------------------------------------------------
- * Setup the router
- * ----------------------------------------------------------
- *
- * @var Router $router
- */
-$router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
-require_once $paths["configs"] . "/http/routing.php";
-
-/**
- * ----------------------------------------------------------
- * Handle the request
- * ----------------------------------------------------------
-*/
-$kernel = new Kernel($application->getIoCContainer(), $router, $application->getLogger());
-$kernel->addMiddleware(require_once $paths["configs"] . "/http/middleware.php");
-$response = $kernel->handle($request);
-$response->send();
+    /**
+     * ----------------------------------------------------------
+     * Handle the request
+     * ----------------------------------------------------------
+     *
+     * @var Request $request
+     */
+    $request = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Requests\\Request");
+    $kernel = new Kernel($application->getIoCContainer(), $router, $application->getLogger());
+    $kernel->addMiddleware(require_once $paths["configs"] . "/http/middleware.php");
+    $response = $kernel->handle($request);
+    $response->send();
+});
 
 /**
  * ----------------------------------------------------------

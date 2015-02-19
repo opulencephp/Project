@@ -33,8 +33,8 @@ class Page extends Routing\Controller
     public function showHTTPError($statusCode)
     {
         $this->template = $this->templateFactory->create("HTTPError.php");
-        $this->template->setVar("title", $statusCode . " Error Page");
-        $this->template->setTag("errorMessage", "Custom " . $statusCode . " Page");
+        $this->template->setVar("title", $statusCode . " Error");
+        $this->template->setTag("errorTitle", $statusCode . " Error");
 
         return new Responses\Response($this->compiler->compile($this->template), $statusCode);
     }

@@ -1,6 +1,6 @@
 {% extends("Master.php") %}
 
 {% part("content") %}
-<h2>{{errorMessage}}</h2>
-This is a custom error page.
+<h2>{{errorTitle}}</h2>
+Something went wrong.
 {% endpart %}

@@ -14,8 +14,10 @@ class Master implements Views\IBuilder
      */
     public function build(Views\ITemplate $template)
     {
-        // Default to empty meta keywords
+        // Default to empty meta data
         $template->setVar("metaKeywords", []);
+        $template->setVar("metaDescription", "");
+        // Set default variable values
         $template->setVar("css", "assets/css/style.css");
 
         return $template;

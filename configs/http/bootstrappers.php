@@ -28,5 +28,6 @@ return [
      *
      * List any HTTP bootstrappers you'd like here
      */
+    "Project\\Bootstrappers\\HTTP\\Routing\\Router",
     "Project\\Bootstrappers\\HTTP\\Views\\Builders"
 ];

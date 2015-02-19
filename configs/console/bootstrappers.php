@@ -27,4 +27,5 @@ return [
      *
      * List any console bootstrappers you'd like here
      */
+    "Project\\Bootstrappers\\Console\\Commands\\Commands"
 ];

@@ -15,7 +15,7 @@ require_once __DIR__ . "/../start.php";
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->registerBootstrappers(require_once $paths["configs"] . "/http/bootstrappers.php");
+$application->registerBootstrappers(require_once $application->getPaths()["configs"] . "/http/bootstrappers.php");
 $application->start(function() use ($application)
 {
     /**

@@ -16,7 +16,7 @@ require_once __DIR__ . "/../start.php";
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->registerBootstrappers(require_once $paths["configs"] . "/console/bootstrappers.php");
+$application->registerBootstrappers(require_once $application->getPaths()["configs"] . "/console/bootstrappers.php");
 $statusCode = $application->start(function () use ($application)
 {
     global $argv;

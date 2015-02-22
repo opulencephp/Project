@@ -20,6 +20,7 @@ return [
     "RDev\\Framework\\Bootstrappers\\HTTP\\Views\\Template",
     "RDev\\Framework\\Bootstrappers\\Console\\Commands\\Commands",
     "RDev\\Framework\\Bootstrappers\\Console\\Requests\\Requests",
+    "RDev\\Framework\\Bootstrappers\\Console\\Composer\\Composer",
     /**
      * ----------------------------------------------------------
      * Your bootstrappers

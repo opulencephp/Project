@@ -5,14 +5,15 @@
  * Defines the edit page template builder
  */
 namespace Project\HTTP\Views\Builders;
-use RDev\Views;
+use RDev\Views\IBuilder;
+use RDev\Views\ITemplate;
 
-class Edit implements Views\IBuilder
+class Edit implements IBuilder
 {
     /**
      * {@inheritdoc}
      */
-    public function build(Views\ITemplate $template)
+    public function build(ITemplate $template)
     {
         $template->setVar("title", "Editing This Project");
 

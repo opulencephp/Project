@@ -5,15 +5,15 @@
  * Defines the credentials bootstrapper
  */
 namespace Project\Bootstrappers\Authentication;
-use RDev\Applications\Bootstrappers;
-use RDev\IoC;
+use RDev\Applications\Bootstrappers\Bootstrapper;
+use RDev\IoC\IContainer;
 
-class Credentials extends Bootstrappers\Bootstrapper
+class Credentials extends Bootstrapper
 {
     /**
      * {@inheritdoc}
      */
-    public function registerBindings(IoC\IContainer $container)
+    public function registerBindings(IContainer $container)
     {
         $container->bind(
             "RDev\\Authentication\\Credentials\\ICredentials",

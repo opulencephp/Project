@@ -5,14 +5,15 @@
  * Defines the home page template builder
  */
 namespace Project\HTTP\Views\Builders;
-use RDev\Views;
+use RDev\Views\IBuilder;
+use RDev\Views\ITemplate;
 
-class Home implements Views\IBuilder
+class Home implements IBuilder
 {
     /**
      * {@inheritdoc}
      */
-    public function build(Views\ITemplate $template)
+    public function build(ITemplate $template)
     {
         $template->setVar("title", "My First RDev Application");
 

@@ -5,17 +5,17 @@
  * Defines the router bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Routing;
-use RDev\Applications\Bootstrappers;
-use RDev\HTTP\Routing;
+use RDev\Applications\Bootstrappers\Bootstrapper;
+use RDev\HTTP\Routing\Router as HTTPRouter;
 
-class Router extends Bootstrappers\Bootstrapper
+class Router extends Bootstrapper
 {
     /**
      * Sets the missed route controller
      *
-     * @param Routing\Router $router The router to set the missed route controller on
+     * @param HTTPRouter $router The router to set the missed route controller on
      */
-    public function run(Routing\Router $router)
+    public function run(HTTPRouter $router)
     {
         $router->setMissedRouteControllerName("Project\\HTTP\\Controllers\\Page");
         require_once $this->paths["configs"] . "/http/routing.php";

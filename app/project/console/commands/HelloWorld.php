@@ -5,11 +5,12 @@
  * Defines an example "Hello, world" command
  */
 namespace Project\Console\Commands;
-use RDev\Console\Commands;
-use RDev\Console\Requests;
-use RDev\Console\Responses;
+use RDev\Console\Commands\Command;
+use RDev\Console\Requests\Option;
+use RDev\Console\Requests\OptionTypes;
+use RDev\Console\Responses\IResponse;
 
-class HelloWorld extends Commands\Command
+class HelloWorld extends Command
 {
     /**
      * {@inheritdoc}
@@ -18,10 +19,10 @@ class HelloWorld extends Commands\Command
     {
         $this->setName("hello:world")
             ->setDescription("Defines an example console command")
-            ->addOption(new Requests\Option(
+            ->addOption(new Option(
                 "yell",
                 "y",
-                Requests\OptionTypes::OPTIONAL_VALUE,
+                OptionTypes::OPTIONAL_VALUE,
                 "Whether or not to yell",
                 "yes"
             ));
@@ -30,7 +31,7 @@ class HelloWorld extends Commands\Command
     /**
      * {@inheritdoc}
      */
-    protected function doExecute(Responses\IResponse $response)
+    protected function doExecute(IResponse $response)
     {
         $message = "Hello, world!";
 

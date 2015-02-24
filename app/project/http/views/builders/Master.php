@@ -5,14 +5,15 @@
  * Defines the master template builder
  */
 namespace Project\HTTP\Views\Builders;
-use RDev\Views;
+use RDev\Views\IBuilder;
+use RDev\Views\ITemplate;
 
-class Master implements Views\IBuilder
+class Master implements IBuilder
 {
     /**
      * {@inheritdoc}
      */
-    public function build(Views\ITemplate $template)
+    public function build(ITemplate $template)
     {
         // Default to empty meta data
         $template->setVar("metaKeywords", []);

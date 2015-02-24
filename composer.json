@@ -36,5 +36,7 @@
       "dev-master": "0.1.x-dev"
     }
   },
-  "minimum-stability": "dev"
+  "config": {
+    "prefer-install": "dist"
+  }
 }

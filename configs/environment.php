@@ -44,7 +44,10 @@ if($environmentName != "production")
 {
     foreach(glob(__DIR__ . "/environment/.env.*.php") as $environmentFile)
     {
-        require_once $environmentFile;
+        if(basename($environmentFile) != ".env.example.php")
+        {
+            require_once $environmentFile;
+        }
     }
 }
 

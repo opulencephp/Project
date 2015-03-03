@@ -27,3 +27,10 @@ $environment->setVariable("DB_PORT", 5432);
 $environment->setVariable("REDIS_HOST", "localhost");
 $environment->setVariable("REDIS_PASSWORD", null);
 $environment->setVariable("REDIS_PORT", 6379);
+
+/**
+ * ----------------------------------------------------------
+ * Set the encryption key
+ * ----------------------------------------------------------
+ */
+$environment->setVariable("ENCRYPTION_KEY", "");

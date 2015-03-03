@@ -11,8 +11,20 @@
  */
 return [
     /**
-     * To enable Redis, add the following bootstrapper:
-     * "Project\\Bootstrappers\\Databases\\Redis"
+     * ----------------------------------------------------------
+     * RDev bootstrappers
+     * ----------------------------------------------------------
+     *
+     * Keep these bootstrappers unless you want to customize anything that they bind
+     */
+    "RDev\\Framework\\Bootstrappers\\Cryptography\\Cryptography",
+    /**
+     * ----------------------------------------------------------
+     * Your bootstrappers
+     * ----------------------------------------------------------
+     *
+     * List any console bootstrappers you'd like here
+     * To enable Redis, add "Project\\Bootstrappers\\Databases\\Redis"
      */
     "Project\\Bootstrappers\\Authentication\\Credentials",
     "Project\\Bootstrappers\\Databases\\SQL",

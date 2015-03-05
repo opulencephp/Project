@@ -19,6 +19,5 @@ class Credentials extends Bootstrapper
             "RDev\\Authentication\\Credentials\\ICredentials",
             "RDev\\Authentication\\Credentials\\Credentials"
         );
-        $container->bind("RDev\\Cryptography\\IHasher", "RDev\\Cryptography\\BCryptHasher");
     }
 }

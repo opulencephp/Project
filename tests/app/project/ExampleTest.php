@@ -15,7 +15,7 @@ class ExampleTest extends HTTPApplicationTestCase
     {
         $this->route("GET", "/doesNotExist");
         $this->checkMasterTemplateSetup();
-        $this->assertResponseNotFound();
+        $this->assertResponseIsNotFound();
         $this->assertTemplateVarEquals("title", "404 Error");
     }
 
@@ -26,7 +26,7 @@ class ExampleTest extends HTTPApplicationTestCase
     {
         $this->route("GET", "/edit");
         $this->checkMasterTemplateSetup();
-        $this->assertResponseOK();
+        $this->assertResponseIsOK();
         $this->assertTemplateVarEquals("title", "Editing This Project");
     }
 
@@ -37,7 +37,7 @@ class ExampleTest extends HTTPApplicationTestCase
     {
         $this->route("GET", "/");
         $this->checkMasterTemplateSetup();
-        $this->assertResponseOK();
+        $this->assertResponseIsOK();
         $this->assertTemplateVarEquals("title", "My First RDev Application");
     }
 

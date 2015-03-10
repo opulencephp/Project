@@ -9,12 +9,12 @@
  * Create our paths and check our setup
  * ----------------------------------------------------------
  */
-$paths = require_once __DIR__ . "/../configs/paths.php";
-require_once $paths["vendor"] . "/rdev/rdev/app/rdev/framework/setupcheck.php";
+$paths = require __DIR__ . "/../configs/paths.php";
+require $paths["vendor"] . "/rdev/rdev/app/rdev/framework/setupcheck.php";
 
 /**
  * ----------------------------------------------------------
  * Setup the application
  * ----------------------------------------------------------
  */
-$application = require_once $paths["configs"] . "/application.php";
+$application = require $paths["configs"] . "/application.php";

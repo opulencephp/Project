@@ -46,7 +46,7 @@ if($environmentName != "production")
     {
         if(basename($environmentFile) != ".env.example.php")
         {
-            require_once $environmentFile;
+            require $environmentFile;
         }
     }
 }

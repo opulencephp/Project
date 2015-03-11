@@ -6,9 +6,9 @@
  */
 namespace Project\Console;
 use RDev\Applications\Application;
-use RDev\Framework\Tests\ConsoleApplicationTestCase as BaseTestCase;
+use RDev\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
 
-class ConsoleApplicationTestCase extends BaseTestCase
+class ApplicationTestCase extends BaseTestCase
 {
     /**
      * {@inheritdoc}

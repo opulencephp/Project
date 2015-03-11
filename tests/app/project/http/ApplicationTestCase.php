@@ -6,9 +6,9 @@
  */
 namespace Project\HTTP;
 use RDev\Applications\Application;
-use RDev\Framework\Tests\HTTPApplicationTestCase as BaseTestCase;
+use RDev\Framework\Tests\HTTP\ApplicationTestCase as BaseTestCase;
 
-class HTTPApplicationTestCase extends BaseTestCase
+class ApplicationTestCase extends BaseTestCase
 {
     /**
      * {@inheritdoc}

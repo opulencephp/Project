@@ -6,7 +6,7 @@
  */
 namespace Project\HTTP;
 
-class PagesTest extends HTTPApplicationTestCase
+class PagesTest extends ApplicationTestCase
 {
     /**
      * Tests that the 404 template is set up correctly

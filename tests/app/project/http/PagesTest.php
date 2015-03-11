@@ -2,11 +2,11 @@
 /**
  * Copyright (C) 2015 David Young
  * 
- * Defines an example test
+ * Defines the page tests
  */
-namespace Project;
+namespace Project\HTTP;
 
-class ExampleTest extends HTTPApplicationTestCase
+class PagesTest extends HTTPApplicationTestCase
 {
     /**
      * Tests that the 404 template is set up correctly

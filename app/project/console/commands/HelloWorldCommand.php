@@ -10,7 +10,7 @@ use RDev\Console\Requests\Option;
 use RDev\Console\Requests\OptionTypes;
 use RDev\Console\Responses\IResponse;
 
-class HelloWorld extends Command
+class HelloWorldCommand extends Command
 {
     /**
      * {@inheritdoc}

@@ -26,14 +26,14 @@ $statusCode = $application->start(function () use ($application)
      * Handle the request
      * ----------------------------------------------------------
      *
-     * @var Commands $commands
+     * @var Commands $commandCollection
      * @var IParser $requestParser
      * @var ICompiler $commandCompiler
      */
-    $commands = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Commands");
+    $commandCollection = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\CommandCollection");
     $requestParser = $application->getIoCContainer()->makeShared("RDev\\Console\\Requests\\Parsers\\IParser");
     $commandCompiler = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Compilers\\ICompiler");
-    $kernel = new Kernel($requestParser, $commandCompiler, $commands, $application->getLogger(), $application->getVersion());
+    $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $application->getLogger(), $application->getVersion());
 
     return $kernel->handle($argv);
 });

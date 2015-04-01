@@ -6,7 +6,7 @@
  */
 namespace Project\Console;
 
-class HelloWorldTest extends ApplicationTestCase
+class HelloWorldCommandTest extends ApplicationTestCase
 {
     /**
      * Tests calling the command without options

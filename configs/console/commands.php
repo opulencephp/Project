@@ -10,5 +10,5 @@
  * ----------------------------------------------------------
  */
 return [
-    "Project\\Console\\Commands\\HelloWorld"
+    "Project\\Console\\Commands\\HelloWorldCommand"
 ];

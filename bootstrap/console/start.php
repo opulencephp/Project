@@ -4,7 +4,7 @@
  *
  * Boots up our application with a console kernel
  */
-use RDev\Console\Commands\Commands;
+use RDev\Console\Commands\CommandCollection;
 use RDev\Console\Commands\Compilers\ICompiler;
 use RDev\Console\Kernels\Kernel;
 use RDev\Console\Requests\Parsers\IParser;
@@ -26,7 +26,7 @@ $statusCode = $application->start(function () use ($application)
      * Handle the request
      * ----------------------------------------------------------
      *
-     * @var Commands $commandCollection
+     * @var CommandCollection $commandCollection
      * @var IParser $requestParser
      * @var ICompiler $commandCompiler
      */

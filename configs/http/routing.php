@@ -4,7 +4,7 @@
  *
  * Defines the routing config
  */
-use RDev\HTTP\Routing\Router;
+use RDev\Routing\Router;
 
 /**
  * ----------------------------------------------------------

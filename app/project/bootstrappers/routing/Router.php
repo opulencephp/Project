@@ -4,9 +4,9 @@
  * 
  * Defines the router bootstrapper
  */
-namespace Project\Bootstrappers\HTTP\Routing;
+namespace Project\Bootstrappers\Routing;
 use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\HTTP\Routing\Router as HTTPRouter;
+use RDev\Routing\Router as HTTPRouter;
 
 class Router extends Bootstrapper
 {

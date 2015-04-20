@@ -4,9 +4,9 @@
  *
  * Boots up our application with an HTTP kernel
  */
-use RDev\HTTP\Kernels\Kernel;
+use RDev\Framework\HTTP\Kernel;
 use RDev\HTTP\Requests\Request;
-use RDev\HTTP\Routing\Router;
+use RDev\Routing\Router;
 
 require_once __DIR__ . "/../start.php";
 
@@ -26,7 +26,7 @@ $application->start(function() use ($application)
      * @var Router $router
      * @var Request $request
      */
-    $router = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Routing\\Router");
+    $router = $application->getIoCContainer()->makeShared("RDev\\Routing\\Router");
     $request = $application->getIoCContainer()->makeShared("RDev\\HTTP\\Requests\\Request");
     $kernel = new Kernel($application->getIoCContainer(), $router, $application->getLogger());
     $kernel->addMiddleware(require $application->getPaths()["configs"] . "/http/middleware.php");

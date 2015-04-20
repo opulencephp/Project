@@ -6,7 +6,7 @@
  */
 namespace Project\HTTP\Controllers;
 use RDev\HTTP\Responses\Response;
-use RDev\HTTP\Routing\Controller;
+use RDev\Routing\Controller;
 use RDev\Views\Compilers\ICompiler;
 use RDev\Views\Factories\ITemplateFactory;
 

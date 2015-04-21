@@ -17,7 +17,7 @@ class Router extends Bootstrapper
      */
     public function run(HTTPRouter $router)
     {
-        $router->setMissedRouteControllerName("Project\\HTTP\\Controllers\\Page");
+        $router->setMissedRouteController("Project\\HTTP\\Controllers\\Page");
         require $this->paths["configs"] . "/http/routing.php";
     }
 }

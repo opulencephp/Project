@@ -9,6 +9,7 @@ v0.3.0
     * `RDev\HTTP\Routing\Router` to `RDev\Routing\Router`
 * Changed `Project\Bootstrappers\HTTP\Routing\Router` to `Project\Bootstrappers\Routing\Router`
 * Changed all references to `RDev\HTTP\Routing` namespace to `RDev\Routing`
+* Changed `setMissedRouteControllerName()` to `setMissedRouteController()` in `app/project/bootstrappers/routing/Router.php`
 * Removed `session.php` and all mentions of sessions from `configs/application.php`
 * Renamed `Project\Console\Commands\HelloWorld` to `Project\Console\Commands\HelloWorldCommand`
 * Updated `configs/console/commands.php` to reflect `HelloWorldCommand` name change

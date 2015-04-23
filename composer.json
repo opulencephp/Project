@@ -39,13 +39,14 @@
   "scripts": {
     "post-create-project-cmd": [
       "php -r \"copy('configs/environment/.env.example.php', 'configs/environment/.env.app.php');\"",
+      "composer dump-autoload -o",
       "php rdev encryption:generatekey"
     ],
     "post-install-cmd": [
-      "php rdev composer:dump-autoload"
+      "composer dump-autoload -o"
     ],
     "post-update-cmd": [
-      "php rdev composer:dump-autoload"
+      "composer dump-autoload -o"
     ]
   },
   "config": {

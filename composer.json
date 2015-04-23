@@ -42,10 +42,10 @@
       "php rdev encryption:generatekey"
     ],
     "post-install-cmd": [
-      "composer dump-autoload -o"
+      "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\""
     ],
     "post-update-cmd": [
-      "composer dump-autoload -o"
+      "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\""
     ]
   },
   "config": {

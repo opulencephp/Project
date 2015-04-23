@@ -40,6 +40,12 @@
     "post-create-project-cmd": [
       "php -r \"copy('configs/environment/.env.example.php', 'configs/environment/.env.app.php');\"",
       "php rdev encryption:generatekey"
+    ],
+    "post-install-cmd": [
+      "composer dump-autoload -o"
+    ],
+    "post-update-cmd": [
+      "composer dump-autoload -o"
     ]
   },
   "config": {

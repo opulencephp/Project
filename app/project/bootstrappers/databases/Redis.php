@@ -6,10 +6,10 @@
  */
 namespace Project\Bootstrappers\Databases;
 use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Databases\NoSQL\Redis\RDevPHPRedis;
-use RDev\Databases\NoSQL\Redis\Server;
-use RDev\Databases\NoSQL\Redis\TypeMapper;
 use RDev\IoC\IContainer;
+use RDev\Redis\RDevPHPRedis;
+use RDev\Redis\Server;
+use RDev\Redis\TypeMapper;
 
 class Redis extends Bootstrapper
 {
@@ -26,6 +26,6 @@ class Redis extends Bootstrapper
             ),
             new TypeMapper()
         );
-        $container->bind("RDev\\Databases\\NoSQL\\Redis\\IRedis", $redis);
+        $container->bind("RDev\\Redis\\IRedis", $redis);
     }
 }

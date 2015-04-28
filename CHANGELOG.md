@@ -8,6 +8,9 @@ v0.3.0
     * `RDev\HTTP\Kernels\Kernel` to `RDev\Framework\HTTP\Kernel`
     * `RDev\HTTP\Routing\Router` to `RDev\Routing\Router`
 * Changed `Project\Bootstrappers\HTTP\Routing\Router` to `Project\Bootstrappers\Routing\Router`
+* Changed all references to `RDev\Databases\NoSQL\Memcached` namespace to `RDev\Memcached`
+* Changed all references to `RDev\Databases\NoSQL\Redis` namespace to `RDev\Redis`
+* Changed all references to `RDev\Databases\SQL` namespace to `RDev\Databases`
 * Changed all references to `RDev\HTTP\Routing` namespace to `RDev\Routing`
 * Changed `setMissedRouteControllerName()` to `setMissedRouteController()` in `app/project/bootstrappers/routing/Router.php`
 * Removed `session.php` and all mentions of sessions from `configs/application.php`

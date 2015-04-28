@@ -6,9 +6,9 @@
  */
 namespace Project\Bootstrappers\Databases;
 use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Databases\SQL\PDO\PostgreSQL\Driver;
-use RDev\Databases\SQL\Server;
-use RDev\Databases\SQL\SingleServerConnectionPool;
+use RDev\Databases\PDO\PostgreSQL\Driver;
+use RDev\Databases\Server;
+use RDev\Databases\SingleServerConnectionPool;
 use RDev\IoC\IContainer;
 
 class SQL extends Bootstrapper
@@ -28,6 +28,6 @@ class SQL extends Bootstrapper
                 $this->environment->getVariable("DB_PORT")
             )
         );
-        $container->bind("RDev\\Databases\\SQL\\ConnectionPool", $connectionPool);
+        $container->bind("RDev\\Databases\\ConnectionPool", $connectionPool);
     }
 }

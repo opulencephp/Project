@@ -6,7 +6,7 @@
  */
 namespace Project\Bootstrappers\ORM;
 use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Databases\SQL\ConnectionPool;
+use RDev\Databases\ConnectionPool;
 use RDev\IoC\IContainer;
 use RDev\ORM\EntityRegistry;
 use RDev\ORM\UnitOfWork as ORMUnitOfWork;

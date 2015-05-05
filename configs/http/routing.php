@@ -15,12 +15,6 @@ use RDev\Routing\Router;
  */
 $router->group(["controllerNamespace" => "Project\\HTTP\\Controllers"], function() use ($router)
 {
-    $router->get("/", [
-        "controller" => "Page@showHomePage",
-        "name" => "home"
-    ]);
-    $router->get("/edit", [
-        "controller" => "Page@showEditPage",
-        "name" => "edit"
-    ]);
+    $router->get("/", "Page@showHomePage", ["name" => "home"]);
+    $router->get("/edit", "Page@showEditPage", ["name" => "edit"]);
 });

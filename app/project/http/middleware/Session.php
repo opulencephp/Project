@@ -22,7 +22,7 @@ class Session extends BaseSession
     {
         $this->loadConfig();
 
-        if(rand(1, $this->config["gcTotal"]) <= $this->config["gcChance"])
+        if(rand(1, $this->config["gc.divisor"]) <= $this->config["gc.chance"])
         {
             $this->sessionHandler->gc($this->config["lifetime"]);
         }

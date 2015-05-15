@@ -1,4 +1,5 @@
 # RDev Empty Project
+[![Build Status](https://travis-ci.org/ramblingsofadev/Project.svg?branch=master)](https://travis-ci.org/ramblingsofadev/Project)
 [![Latest Stable Version](https://poser.pugx.org/rdev/project/v/stable.svg)](https://packagist.org/packages/rdev/project)
 [![Latest Unstable Version](https://poser.pugx.org/rdev/project/v/unstable.svg)](https://packagist.org/packages/rdev/project)
 [![License](https://poser.pugx.org/rdev/project/license.svg)](https://packagist.org/packages/rdev/project)

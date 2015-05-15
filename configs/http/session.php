@@ -22,7 +22,7 @@ return [
     "gcChance" => 1,
     // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
     "gcTotal" => 100,
-    // The lifetime of session in seconds
+    // The lifetime of the session in seconds
     "lifetime" => 7200,
     // The name of the session
     "name" => "__rdev_session"

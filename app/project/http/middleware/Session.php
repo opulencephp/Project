@@ -39,7 +39,7 @@ class Session extends BaseSession
         $sessionCookie = new Cookie(
             $this->session->getName(),
             $this->session->getId(),
-            new DateTime("+" . $this->config["lifetime"] . " seconds"),
+            new DateTime("+{$this->config["lifetime"]} seconds"),
             $this->config["cookie.path"],
             $this->config["cookie.domain"],
             $this->config["cookie.isSecure"],

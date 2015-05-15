@@ -22,7 +22,7 @@ $environment->setVariable("DB_PORT", 5432);
 
 /**
  * ----------------------------------------------------------
- * Set session driver
+ * Set the session driver
  * ----------------------------------------------------------
  */
 $environment->setVariable("SESSION_HANDLER", FileSessionHandler::class);

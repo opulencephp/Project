@@ -13,6 +13,14 @@ class ApplicationTestCase extends BaseTestCase
     /**
      * {@inheritdoc}
      */
+    protected function getGlobalMiddleware()
+    {
+        require __DIR__ . "/../../../../configs/http/middleware.php";
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     protected function setApplication()
     {
         /** @var Application $application */

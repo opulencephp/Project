@@ -5,10 +5,10 @@
  * Defines the list of bootstrapper classes to load for a console application
  */
 use Project\Bootstrappers\Console\Commands\Commands as ProjectCommands;
+use Project\Bootstrappers\HTTP\Views\Template;
 use RDev\Framework\Bootstrappers\Console\Commands\Commands as RDevCommands;
 use RDev\Framework\Bootstrappers\Console\Requests\Requests;
 use RDev\Framework\Bootstrappers\Console\Composer\Composer;
-use RDev\Framework\Bootstrappers\HTTP\Views\Template;
 
 /**
  * ----------------------------------------------------------

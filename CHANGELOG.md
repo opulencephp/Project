@@ -1,6 +1,9 @@
 v0.3.0
 <hr>
 * Updated to RDev 0.5.0
+* Added `RDev\Framework\HTTP\Middleware\Session` to `configs/http/middleware.php`
+* Added `Project\Bootstrappers\HTTP\Sessions\Session` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Sessions\Session` bootstrapper in `configs/http/bootstrappers.php`
+* Added `Project\Bootstrappers\HTTP\Views\Template` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Views\Template` bootstrapper in `configs/http/bootstrappers.php`
 * In `bootstrap/console/start.php`, changed:
     * `RDev\Console\Kernels\Kernel` to `RDev\Framework\Console\Kernel`
     * `$commands` to `$commandCollection`, set it to `$application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\CommandCollection")`

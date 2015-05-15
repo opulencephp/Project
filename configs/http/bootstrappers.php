@@ -25,8 +25,8 @@ return [
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
-    Request::class,
     Session::class,
+    Request::class,
     Template::class,
     RDevRouter::class,
     TemplateFunctions::class,

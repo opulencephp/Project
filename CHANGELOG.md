@@ -2,6 +2,7 @@
 
 <h3>General</h3>
 * Updated to RDev 0.5.0
+* Jumped to version 0.5.0 to match RDev version
 * Added this changelog
 * Added changelog to .gitattributes `export-ignore`
 

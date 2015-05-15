@@ -5,8 +5,8 @@
  * Defines the session bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Sessions;
-use RDev\Files\FileSystem;
 use RDev\Framework\Bootstrappers\HTTP\Sessions\Session as BaseSession;
+use RDev\IoC\IContainer;
 use RDev\Sessions\Handlers\FileSessionHandler;
 use RDev\Sessions\ISession;
 use RDev\Sessions\Session as RDevSession;
@@ -20,9 +20,10 @@ class Session extends BaseSession
     /**
      * Gets the session object to use
      *
+     * @param IContainer $container The IoC Container
      * @return ISession The session to use
      */
-    protected function getSession()
+    protected function getSession(IContainer $container)
     {
         $this->loadConfig();
         $session = new RDevSession();
@@ -34,13 +35,19 @@ class Session extends BaseSession
     /**
      * Gets the session handler object to use
      *
+     * @param IContainer $container The IoC Container
      * @return SessionHandlerInterface The session handler to use
      */
-    protected function getSessionHandler()
+    protected function getSessionHandler(IContainer $container)
     {
         $this->loadConfig();
+        $handlerClass = $this->environment->getVariable("SESSION_HANDLER");
 
-        return new FileSessionHandler(new FileSystem(), $this->config["filePath"]);
+        switch($handlerClass)
+        {
+            default:
+                return $container->makeShared(FileSessionHandler::class, [$this->config["file.path"]]);
+        }
     }
 
     /**

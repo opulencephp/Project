@@ -40,9 +40,9 @@ class Session extends BaseSession
             $this->session->getName(),
             $this->session->getId(),
             new DateTime("+" . $this->config["lifetime"] . " seconds"),
-            $this->config["cookiePath"],
-            $this->config["domain"],
-            $this->config["isSecure"],
+            $this->config["cookie.path"],
+            $this->config["cookie.domain"],
+            $this->config["cookie.isSecure"],
             false
         );
         $response->getHeaders()->setCookie($sessionCookie);

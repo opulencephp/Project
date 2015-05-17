@@ -23,7 +23,6 @@ return [
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
-    Template::class,
     RDevCommands::class,
     Requests::class,
     Composer::class,
@@ -34,5 +33,6 @@ return [
      *
      * List any console bootstrappers you'd like here
      */
+    Template::class,
     ProjectCommands::class
 ];

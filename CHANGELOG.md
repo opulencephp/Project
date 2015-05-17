@@ -7,6 +7,7 @@
 * Added changelog to .gitattributes `export-ignore`
 
 <h3>Console</h3>
+* Renamed `RDev\Console\Commands\Commands` to `RDev\Console\Commands\CommandCollection`
 * In `bootstrap/console/start.php`, changed:
   * `RDev\Console\Kernels\Kernel` to `RDev\Framework\Console\Kernel`
   * `$commands` to `$commandCollection`, set it to `$application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\CommandCollection")`
@@ -29,12 +30,17 @@
   
 <h3>Routing</h3>
 * Changed all references to `RDev\HTTP\Routing` namespace to `RDev\Routing`
-* Changed `setMissedRouteControllerName()` to `setMissedRouteController()` in `app/project/bootstrappers/routing/Router.php`
+* Moved "controller" option out of array into the second parameter in `Router` methods
+* Changed `setMissedRouteControllerName()` to `setMissedRouteController()` in `app/project/bootstrappers/http/routing/Router.php`
 
 <h3>Sessions</h3>
 * Removed `session.php` and all mentions of sessions from `configs/application.php`
+* Aded `configs/http/sessions.php`
 * Added `RDev\Framework\HTTP\Middleware\Session` to `configs/http/middleware.php`
 * Added `Project\Bootstrappers\HTTP\Sessions\Session` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Sessions\Session` bootstrapper in `configs/http/bootstrappers.php`
 
 <h3>Templates</h3>
 * Added `Project\Bootstrappers\HTTP\Views\Template` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Views\Template` bootstrapper in `configs/http/bootstrappers.php`
+
+<h3>Tests</h3>
+* Added `Project\HTTP\ApplicationTestCase::getGlobalMiddleware()`

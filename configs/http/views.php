@@ -10,10 +10,22 @@
  * ----------------------------------------------------------
  */
 return [
-    // The lifetime of cached templates
-    "cacheLifetime" => 3600,
-    // The chance that garbage collection will be run
-    "gcChance" => 1,
-    // The number the chance will be divided by to calculate the probability (default is 1 in 100 chance)
-    "gcTotal" => 100
+    /**
+     * ----------------------------------------------------------
+     * General settings
+     * ----------------------------------------------------------
+     *
+     * "cache.lifetime" => Lifetime of the cached views in seconds
+     */
+    "cache.lifetime" => 3600,
+    /**
+     * ----------------------------------------------------------
+     * Garbage collection settings
+     * ----------------------------------------------------------
+     *
+     * "gc.chance" => The chance that garbage collection will be run
+     * "gc.divisor" => The divisor to calculate the probability (default is 1 in 100 chance)
+     */
+    "gc.chance" => 1,
+    "gc.divisor" => 100
 ];

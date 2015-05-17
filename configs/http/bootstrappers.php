@@ -27,7 +27,6 @@ return [
      */
     Session::class,
     Request::class,
-    Template::class,
     RDevRouter::class,
     TemplateFunctions::class,
     /**
@@ -37,6 +36,7 @@ return [
      *
      * List any HTTP bootstrappers you'd like here
      */
+    Template::class,
     Builders::class,
     ProjectRouter::class
 ];

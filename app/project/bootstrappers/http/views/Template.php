@@ -9,7 +9,7 @@ use RDev\Files\FileSystem;
 use RDev\Framework\Bootstrappers\HTTP\Views\Template as BaseTemplate;
 use RDev\IoC\IContainer;
 use RDev\Views\Caching\Cache;
-use RDev\Views\Cache\ICache;
+use RDev\Views\Caching\ICache;
 
 class Template extends BaseTemplate
 {
@@ -28,9 +28,9 @@ class Template extends BaseTemplate
         return new Cache(
             $fileSystem,
             $this->paths["compiledViews"],
-            $cacheConfig["cacheLifetime"],
-            $cacheConfig["gcChance"],
-            $cacheConfig["gcTotal"]
+            $cacheConfig["cache.lifetime"],
+            $cacheConfig["gc.chance"],
+            $cacheConfig["gc.divisor"]
         );
     }
     

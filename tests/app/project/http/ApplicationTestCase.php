@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- * 
  * Defines the HTTP application test case
  */
 namespace Project\HTTP;

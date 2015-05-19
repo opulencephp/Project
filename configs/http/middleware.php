@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Defines the list of global middleware to be run on all routes
  */
 use Project\HTTP\Middleware\Session;

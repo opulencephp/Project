@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- * 
  * Defines the list of paths needed by this application
  */
 use RDev\Applications\Paths;

@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Defines the home page template builder
  */
 namespace Project\HTTP\Views\Builders;

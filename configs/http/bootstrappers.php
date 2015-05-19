@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Defines the list of bootstrapper classes to load for an HTTP application
  */
 use Project\Bootstrappers\HTTP\Routing\Router as ProjectRouter;

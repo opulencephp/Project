@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Boots up our application with a console kernel
  */
 use RDev\Console\Commands\CommandCollection;

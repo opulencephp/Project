@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- * 
  * Defines the session bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Sessions;

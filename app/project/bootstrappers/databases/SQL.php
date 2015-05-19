@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- * 
  * Defines the SQL bootstrapper
  */
 namespace Project\Bootstrappers\Databases;

@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Defines an example controller
  */
 namespace Project\HTTP\Controllers;

@@ -1,7 +1,5 @@
 <?php
 /**
- * Copyright (C) 2015 David Young
- *
  * Defines the logging config
  */
 use Monolog\Handler\ErrorLogHandler;

@@ -41,6 +41,10 @@
 
 <h3>Templates</h3>
 * Added `Project\Bootstrappers\HTTP\Views\Template` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Views\Template` bootstrapper in `configs/http/bootstrappers.php`
+* Updated the following config settings in `configs/http/views.php`:
+  * `cacheLifetime` renamed to `cache.lifetime`
+  * `gcChance` renamed to `gc.chance`
+  * `gcTotal` renamed to `gc.total`
 
 <h3>Tests</h3>
 * Added `Project\HTTP\ApplicationTestCase::getGlobalMiddleware()`

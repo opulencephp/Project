@@ -23,7 +23,6 @@ return [
      *
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
-    Session::class,
     Request::class,
     RDevRouter::class,
     TemplateFunctions::class,
@@ -34,6 +33,7 @@ return [
      *
      * List any HTTP bootstrappers you'd like here
      */
+    Session::class,
     Template::class,
     Builders::class,
     ProjectRouter::class

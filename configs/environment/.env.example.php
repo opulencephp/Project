@@ -5,12 +5,11 @@
 use RDev\Applications\Environments\Environment;
 use RDev\Sessions\Handlers\FileSessionHandler;
 
+/** @var Environment $environment */
 /**
  * ----------------------------------------------------------
  * Set SQL database connection info
  * ----------------------------------------------------------
- *
- * @var Environment $environment
  */
 $environment->setVariable("DB_HOST", "localhost");
 $environment->setVariable("DB_USER", "myuser");

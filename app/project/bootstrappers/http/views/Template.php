@@ -31,5 +31,4 @@ class Template extends BaseTemplate
             $cacheConfig["gc.divisor"]
         );
     }
-    
 }

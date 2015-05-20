@@ -1,4 +1,4 @@
-<h2>v0.3.0</h2>
+<h2>v0.5.0</h2>
 
 <h3>General</h3>
 * Updated to RDev 0.5.0

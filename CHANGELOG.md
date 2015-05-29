@@ -6,6 +6,13 @@
 * Added this changelog
 * Added changelog to .gitattributes `export-ignore`
 
+<h3>Bootstrappers</h3>
+* Added code to register and dispatch bootstrappers in `bootstrap/console/start.php`, `bootstrap/http/start.php`, and `configs/application.php`
+
+<h3>Configs</h3>
+* Added `tmp.framework` to `configs/paths.php`
+* Renamed `compiledViews` path in `configs/paths.php` to `views.compiled`
+
 <h3>Console</h3>
 * Renamed `RDev\Console\Commands\Commands` to `RDev\Console\Commands\CommandCollection`
 * In `bootstrap/console/start.php`, changed:

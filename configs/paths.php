@@ -12,8 +12,6 @@ use RDev\Applications\Paths;
 $pathsConfig = [
     // The application directory
     "app" => __DIR__ . "/../app",
-    // The path to the compiled view directory
-    "compiledViews" => __DIR__ . "/../tmp/http/views",
     // The configs directory
     "configs" => __DIR__,
     // The path to the logs directory
@@ -28,10 +26,14 @@ $pathsConfig = [
     "tests" => __DIR__ . "/../tests/app",
     // The path to the temporary directory
     "tmp" => __DIR__ . "/../tmp",
+    // The framework's temporary directory
+    "tmp.framework" => __DIR__ . "/../tmp/framework",
     // The path to the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
     // The path to the view directory
-    "views" => __DIR__ . "/../resources/views"
+    "views" => __DIR__ . "/../resources/views",
+    // The path to the compiled view directory
+    "views.compiled" => __DIR__ . "/../tmp/http/views"
 ];
 
 // Get the autoloader

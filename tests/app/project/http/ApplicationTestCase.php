@@ -4,6 +4,8 @@
  */
 namespace Project\HTTP;
 use RDev\Applications\Application;
+use RDev\Applications\Bootstrappers\Dispatchers\IDispatcher;
+use RDev\Applications\Bootstrappers\IO\BootstrapperIO;
 use RDev\Framework\Tests\HTTP\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
@@ -22,8 +24,17 @@ class ApplicationTestCase extends BaseTestCase
     protected function setApplication()
     {
         /** @var Application $application */
+        /** @var BootstrapperIO $bootstrapperIO */
+        /** @var IDispatcher $bootstrapperDispatcher */
         require __DIR__ . "/../../../../bootstrap/start.php";
-        $application->registerBootstrappers(require $application->getPaths()["configs"] . "/http/bootstrappers.php");
+        $httpBootstrapperClasses = require $application->getPaths()["configs"] . "/http/bootstrappers.php";
+        $bootstrapperIO->registerBootstrapperClasses($httpBootstrapperClasses);
+        $application->registerPreStartTask(function() use ($bootstrapperDispatcher, &$bootstrapperIO)
+        {
+            $bootstrapperDispatcher->dispatch(
+                $bootstrapperIO->read(BootstrapperIO::CACHED_HTTP_BOOTSTRAPPER_REGISTRY_FILE_NAME)
+            );
+        });
         $this->application = $application;
     }
 }

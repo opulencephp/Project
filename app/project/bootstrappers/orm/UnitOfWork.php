@@ -4,12 +4,13 @@
  */
 namespace Project\Bootstrappers\ORM;
 use RDev\Applications\Bootstrappers\Bootstrapper;
+use RDev\Applications\Bootstrappers\ILazyBootstrapper;
 use RDev\Databases\ConnectionPool;
 use RDev\IoC\IContainer;
 use RDev\ORM\EntityRegistry;
 use RDev\ORM\UnitOfWork as ORMUnitOfWork;
 
-class UnitOfWork extends Bootstrapper
+class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
 {
     /** @var ORMUnitOfWork */
     private $unitOfWork = null;
@@ -17,10 +18,18 @@ class UnitOfWork extends Bootstrapper
     /**
      * {@inheritdoc}
      */
+    public function getBoundClasses()
+    {
+        return [ORMUnitOfWork::class];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function registerBindings(IContainer $container)
     {
         $this->unitOfWork = new ORMUnitOfWork(new EntityRegistry());
-        $container->bind("RDev\\ORM\\UnitOfWork", $this->unitOfWork);
+        $container->bind(ORMUnitOfWork::class, $this->unitOfWork);
     }
 
     /**

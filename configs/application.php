@@ -3,6 +3,9 @@
  * Defines the application config
  */
 use RDev\Applications\Application;
+use RDev\Applications\Bootstrappers\Dispatchers\Dispatcher;
+use RDev\Applications\Bootstrappers\Dispatchers\IDispatcher;
+use RDev\Applications\Bootstrappers\IO\BootstrapperIO;
 
 /**
  * ----------------------------------------------------------
@@ -25,6 +28,22 @@ $container->bind("RDev\\IoC\\IContainer", $container);
  * ----------------------------------------------------------
  */
 $application = new Application($paths, $logger, $environment, $container);
-$application->registerBootstrappers(require __DIR__ . "/bootstrappers.php");
+
+/**
+ * ----------------------------------------------------------
+ * Setup the bootstrappers
+ * ----------------------------------------------------------
+ *
+ * To disable lazy loading of of bootstrappers, set the forceEagerLoading()
+ * parameter to true. If you override the dispatcher or registry classes, make
+ * sure they implement IDispatcher and IBootstrapperRegistry, respectively.
+ */
+$bootstrapperDispatcher = new Dispatcher($application);
+$bootstrapperDispatcher->forceEagerLoading(false);
+$bootstrapperIO = new BootstrapperIO($paths, $environment);
+$bootstrapperIO->registerBootstrapperClasses(require __DIR__ . "/bootstrappers.php");
+// Bind them to the container so they can be injected by the container to any components that need them
+$container->bind(IDispatcher::class, $bootstrapperDispatcher);
+$container->bind(BootstrapperIO::class, $bootstrapperIO);
 
 return $application;

@@ -52,11 +52,9 @@ return [
      * Cache-backed session settings
      * ----------------------------------------------------------
      *
-     * "cache.bridge" => The name of the cache bridge that implements RDev\Cache\ICacheBridge
-     * "cache.keyPrefix" => The prefix to use on all cache keys
+     * "cache.keyPrefix" => The prefix to use on all cache keys to avoid naming collisions
      */
-    "cache.bridge" => FileBridge::class,
-    "cache.keyPrefix" => "",
+    "cache.keyPrefix" => "rdev:",
 
     /**
      * ----------------------------------------------------------

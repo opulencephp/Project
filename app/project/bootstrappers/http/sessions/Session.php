@@ -63,7 +63,7 @@ class Session extends BaseSession
      */
     private function getCacheBridge(IContainer $container)
     {
-        switch($this->config["cache.bridge"])
+        switch($this->environment->getVariable("SESSION_CACHE_BRIDGE"))
         {
             case ArrayBridge::class:
                 return new ArrayBridge();

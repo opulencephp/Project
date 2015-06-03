@@ -40,7 +40,7 @@ $application = new Application($paths, $logger, $environment, $container);
  */
 $bootstrapperDispatcher = new Dispatcher($application);
 $bootstrapperDispatcher->forceEagerLoading(false);
-$bootstrapperIO = new BootstrapperIO($paths, $environment);
+$bootstrapperIO = new BootstrapperIO($paths["tmp.framework"], $paths, $environment);
 $bootstrapperIO->registerBootstrapperClasses(require __DIR__ . "/bootstrappers.php");
 // Bind them to the container so they can be injected by the container to any components that need them
 $container->bind(IDispatcher::class, $bootstrapperDispatcher);

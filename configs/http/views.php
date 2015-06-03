@@ -16,6 +16,7 @@ return [
      * "cache.lifetime" => Lifetime of the cached views in seconds
      */
     "cache.lifetime" => 3600,
+
     /**
      * ----------------------------------------------------------
      * Garbage collection settings

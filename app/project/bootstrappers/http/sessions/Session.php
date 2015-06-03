@@ -3,8 +3,14 @@
  * Defines the session bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Sessions;
+use RDev\Cache\ArrayBridge;
+use RDev\Cache\FileBridge;
+use RDev\Cache\ICacheBridge;
+use RDev\Cache\MemcachedBridge;
+use RDev\Cache\RedisBridge;
 use RDev\Framework\Bootstrappers\HTTP\Sessions\Session as BaseSession;
 use RDev\IoC\IContainer;
+use RDev\Sessions\Handlers\CacheSessionHandler;
 use RDev\Sessions\Handlers\FileSessionHandler;
 use RDev\Sessions\ISession;
 use RDev\Sessions\Session as RDevSession;
@@ -39,12 +45,34 @@ class Session extends BaseSession
     protected function getSessionHandler(IContainer $container)
     {
         $this->loadConfig();
-        $handlerClass = $this->environment->getVariable("SESSION_HANDLER");
 
-        switch($handlerClass)
+        switch($this->environment->getVariable("SESSION_HANDLER"))
         {
-            default:
+            case CacheSessionHandler::class:
+                return new CacheSessionHandler($this->getCacheBridge($container), $this->config["lifetime"]);
+            default: // FileSessionHandler
                 return $container->makeShared(FileSessionHandler::class, [$this->config["file.path"]]);
+        }
+    }
+
+    /**
+     * Gets the cache bridge to use for a cache session handler
+     *
+     * @param IContainer $container The IoC container
+     * @return ICacheBridge The cache bridge
+     */
+    private function getCacheBridge(IContainer $container)
+    {
+        switch($this->config["cache.bridge"])
+        {
+            case ArrayBridge::class:
+                return new ArrayBridge();
+            case MemcachedBridge::class:
+                return $container->makeShared(MemcachedBridge::class, [$this->config["cache.keyPrefix"]]);
+            case RedisBridge::class:
+                return $container->makeShared(RedisBridge::class, [$this->config["cache.keyPrefix"]]);
+            default: // FileBridge
+                return new FileBridge($this->config["file.path"]);
         }
     }
 

@@ -20,6 +20,7 @@ return [
      * Keep these bootstrappers unless you want to customize anything that they bind
      */
     Cryptography::class,
+
     /**
      * ----------------------------------------------------------
      * Your bootstrappers

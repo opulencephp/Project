@@ -26,6 +26,7 @@ return [
     Request::class,
     RDevRouter::class,
     TemplateFunctions::class,
+
     /**
      * ----------------------------------------------------------
      * Your bootstrappers

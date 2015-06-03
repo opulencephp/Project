@@ -33,7 +33,7 @@ $pathsConfig = [
     // The path to the view directory
     "views" => __DIR__ . "/../resources/views",
     // The path to the compiled view directory
-    "views.compiled" => __DIR__ . "/../tmp/http/views"
+    "views.compiled" => __DIR__ . "/../tmp/framework/http/views"
 ];
 
 // Get the autoloader

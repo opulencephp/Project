@@ -63,5 +63,5 @@ return [
      *
      * "file.path" => The path of the session file
      */
-    "file.path" => __DIR__ . "../../tmp/framework/http/sessions"
+    "file.path" => __DIR__ . "/../../tmp/framework/http/sessions"
 ];

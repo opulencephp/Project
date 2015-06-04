@@ -3,9 +3,8 @@
  * Defines the console application test case
  */
 namespace Project\Console;
+use Closure;
 use RDev\Applications\Application;
-use RDev\Applications\Bootstrappers\Dispatchers\IDispatcher;
-use RDev\Applications\Bootstrappers\IO\BootstrapperIO;
 use RDev\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
@@ -16,17 +15,22 @@ class ApplicationTestCase extends BaseTestCase
     protected function setApplication()
     {
         /** @var Application $application */
-        /** @var BootstrapperIO $bootstrapperIO */
-        /** @var IDispatcher $bootstrapperDispatcher */
         require __DIR__ . "/../../../../bootstrap/start.php";
-        $consoleBootstrapperClasses = require $application->getPaths()["configs"] . "/console/bootstrappers.php";
-        $bootstrapperIO->registerBootstrapperClasses($consoleBootstrapperClasses);
-        $application->registerPreStartTask(function() use ($bootstrapperDispatcher, &$bootstrapperIO)
-        {
-            $bootstrapperDispatcher->dispatch(
-                $bootstrapperIO->read(BootstrapperIO::CACHED_CONSOLE_BOOTSTRAPPER_REGISTRY_FILE_NAME)
-            );
-        });
         $this->application = $application;
+
+        /**
+         * ----------------------------------------------------------
+         * Setup the bootstrappers
+         * ----------------------------------------------------------
+         *
+         * @var Closure $configureBootstrappers
+         */
+        $configureBootstrappers = require __DIR__ . "/../../../../bootstrap/configureBootstrappers.php";
+        $configureBootstrappers(
+            $this->application,
+            require $application->getPaths()["configs"] . "/console/bootstrappers.php",
+            false,
+            false
+        );
     }
 }

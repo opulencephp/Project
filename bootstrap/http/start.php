@@ -11,16 +11,19 @@ require_once __DIR__ . "/../start.php";
 
 /**
  * ----------------------------------------------------------
- * Finish setting up the bootstrappers
+ * Setup the bootstrappers
  * ----------------------------------------------------------
+ *
+ * @var Closure $configureBootstrappers
  */
-$bootstrapperIO->registerBootstrapperClasses(require $application->getPaths()["configs"] . "/http/bootstrappers.php");
-$application->registerPreStartTask(function() use ($bootstrapperDispatcher, &$bootstrapperIO)
-{
-    $bootstrapperDispatcher->dispatch(
-        $bootstrapperIO->read(BootstrapperIO::CACHED_HTTP_BOOTSTRAPPER_REGISTRY_FILE_NAME)
-    );
-});
+$configureBootstrappers = require __DIR__ . "/../configureBootstrappers.php";
+$configureBootstrappers(
+    $application,
+    require $application->getPaths()["configs"] . "/http/bootstrappers.php",
+    false,
+    true,
+    $application->getPaths()["tmp.framework.http"] . "/" . BootstrapperIO::DEFAULT_CACHED_REGISTRY_FILE_NAME
+);
 
 /**
  * ----------------------------------------------------------

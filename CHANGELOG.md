@@ -9,10 +9,8 @@
 * Moved tmp/http/* to tmp/framework/http/*
 * Added tmp/framework/console
 
-<h3>Bootstrappers</h3>
-* Added code to register and dispatch bootstrappers in `bootstrap/configureBootstrappers.php`
-
 <h3>Configs</h3>
+* Added `configs/tasks.php`
 * Added `tmp.framework.console` to `configs/paths.php`
 * Added `tmp.framework.http` to `configs/paths.php`
 * Renamed `compiledViews` path in `configs/paths.php` to `views.compiled`
@@ -38,6 +36,9 @@
 * In `bootstrap/http/start.php`, changed:
   * `RDev\HTTP\Kernels\Kernel` to `RDev\Framework\HTTP\Kernel`
   * `RDev\HTTP\Routing\Router` to `RDev\Routing\Router`
+  
+<h3>Logging</h3>
+* Split `configs/logging.php` into kernel-specific configs:  `configs/console/logging.php` and `configs/http/logging.php`
   
 <h3>Routing</h3>
 * Changed all references to `RDev\HTTP\Routing` namespace to `RDev\Routing`

@@ -1,6 +1,6 @@
 <?php
 /**
- * Defines the logging config
+ * Defines the logging config for HTTP applications
  */
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Logger;

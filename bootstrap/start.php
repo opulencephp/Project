@@ -15,4 +15,4 @@ require $paths["vendor"] . "/rdev/rdev/app/rdev/framework/setupcheck.php";
  * Setup the application
  * ----------------------------------------------------------
  */
-$application = require $paths["configs"] . "/application.php";
+$application = require __DIR__ . "/../configs/application.php";

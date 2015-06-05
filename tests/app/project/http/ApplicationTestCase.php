@@ -3,8 +3,8 @@
  * Defines the HTTP application test case
  */
 namespace Project\HTTP;
-use Closure;
 use RDev\Applications\Application;
+use RDev\Applications\Bootstrappers\ApplicationBinder;
 use RDev\Framework\Tests\HTTP\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
@@ -14,7 +14,15 @@ class ApplicationTestCase extends BaseTestCase
      */
     protected function getGlobalMiddleware()
     {
-        require __DIR__ . "/../../../../configs/http/middleware.php";
+        return require __DIR__ . "/../../../../configs/http/middleware.php";
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getKernelLogger()
+    {
+        return require __DIR__ . "/../../../../configs/http/logging.php";
     }
 
     /**
@@ -28,15 +36,13 @@ class ApplicationTestCase extends BaseTestCase
 
         /**
          * ----------------------------------------------------------
-         * Setup the bootstrappers
+         * Finish configuring the bootstrappers for the HTTP kernel
          * ----------------------------------------------------------
          *
-         * @var Closure $configureBootstrappers
+         * @var ApplicationBinder $applicationBinder
          */
-        $configureBootstrappers = require __DIR__ . "/../../../../bootstrap/configureBootstrappers.php";
-        $configureBootstrappers(
-            $this->application,
-            require $application->getPaths()["configs"] . "/http/bootstrappers.php",
+        $applicationBinder->bindToApplication(
+            require __DIR__ . "/../../../../configs/http/bootstrappers.php",
             false,
             false
         );

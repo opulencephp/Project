@@ -2,7 +2,8 @@
 /**
  * Boots up our application with a console kernel
  */
-use RDev\Applications\Bootstrappers\IO\BootstrapperIO;
+use RDev\Applications\Bootstrappers\ApplicationBinder;
+use RDev\Applications\Bootstrappers\IO\IBootstrapperIO;
 use RDev\Console\Commands\CommandCollection;
 use RDev\Console\Commands\Compilers\ICompiler;
 use RDev\Console\Requests\Parsers\IParser;
@@ -12,18 +13,16 @@ require_once __DIR__ . "/../start.php";
 
 /**
  * ----------------------------------------------------------
- * Setup the bootstrappers
+ * Finish configuring the bootstrappers for the console kernel
  * ----------------------------------------------------------
  *
- * @var Closure $configureBootstrappers
+ * @var ApplicationBinder $applicationBinder
  */
-$configureBootstrappers = require __DIR__ . "/../configureBootstrappers.php";
-$configureBootstrappers(
-    $application,
-    require $application->getPaths()["configs"] . "/console/bootstrappers.php",
+$applicationBinder->bindToApplication(
+    require __DIR__ . "/../../configs/console/bootstrappers.php",
     false,
     true,
-    $application->getPaths()["tmp.framework.console"] . "/" . BootstrapperIO::DEFAULT_CACHED_REGISTRY_FILE_NAME
+    $application->getPaths()["tmp.framework.console"] . "/" . IBootstrapperIO::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 
 /**
@@ -44,10 +43,11 @@ $statusCode = $application->start(function () use ($application)
      * @var IParser $requestParser
      * @var ICompiler $commandCompiler
      */
-    $commandCollection = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\CommandCollection");
-    $requestParser = $application->getIoCContainer()->makeShared("RDev\\Console\\Requests\\Parsers\\IParser");
-    $commandCompiler = $application->getIoCContainer()->makeShared("RDev\\Console\\Commands\\Compilers\\ICompiler");
-    $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $application->getLogger(), $application->getVersion());
+    $commandCollection = $application->getIoCContainer()->makeShared(CommandCollection::class);
+    $requestParser = $application->getIoCContainer()->makeShared(IParser::class);
+    $commandCompiler = $application->getIoCContainer()->makeShared(ICompiler::class);
+    $logger = require __DIR__ . "/../../configs/console/logging.php";
+    $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $logger, $application->getVersion());
 
     return $kernel->handle($argv);
 });

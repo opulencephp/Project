@@ -3,12 +3,20 @@
  * Defines the console application test case
  */
 namespace Project\Console;
-use Closure;
 use RDev\Applications\Application;
+use RDev\Applications\Bootstrappers\ApplicationBinder;
 use RDev\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected function getKernelLogger()
+    {
+        return require __DIR__ . "/../../../../configs/console/logging.php";
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -20,15 +28,13 @@ class ApplicationTestCase extends BaseTestCase
 
         /**
          * ----------------------------------------------------------
-         * Setup the bootstrappers
+         * Finish configuring the bootstrappers for the console kernel
          * ----------------------------------------------------------
          *
-         * @var Closure $configureBootstrappers
+         * @var ApplicationBinder $applicationBinder
          */
-        $configureBootstrappers = require __DIR__ . "/../../../../bootstrap/configureBootstrappers.php";
-        $configureBootstrappers(
-            $this->application,
-            require $application->getPaths()["configs"] . "/console/bootstrappers.php",
+        $applicationBinder->bindToApplication(
+            require __DIR__ . "/../../../../configs/console/bootstrappers.php",
             false,
             false
         );

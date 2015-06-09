@@ -32,10 +32,10 @@ $pathsConfig = [
     "tmp.framework.http" => __DIR__ . "/../tmp/framework/http",
     // The path to the vendor (Composer) directory
     "vendor" => __DIR__ . "/../vendor",
-    // The path to the view directory
-    "views" => __DIR__ . "/../resources/views",
     // The path to the compiled view directory
-    "views.compiled" => __DIR__ . "/../tmp/framework/http/views"
+    "views.compiled" => __DIR__ . "/../tmp/framework/http/views",
+    // The path to the raw views directory
+    "views.raw" => __DIR__ . "/../resources/views"
 ];
 
 // Get the autoloader

@@ -14,6 +14,7 @@
 * Added `tmp.framework.console` to `configs/paths.php`
 * Added `tmp.framework.http` to `configs/paths.php`
 * Renamed `compiledViews` path in `configs/paths.php` to `views.compiled`
+* Renamed `views` path in `configs/paths.php` to `views.raw`
 
 <h3>Console</h3>
 * Renamed `RDev\Console\Commands\Commands` to `RDev\Console\Commands\CommandCollection`

@@ -18,7 +18,7 @@ class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
     /**
      * {@inheritdoc}
      */
-    public function getBoundClasses()
+    public function getBindings()
     {
         return [ORMUnitOfWork::class];
     }

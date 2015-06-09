@@ -51,7 +51,7 @@ class Session extends BaseSession
             case CacheSessionHandler::class:
                 return new CacheSessionHandler($this->getCacheBridge($container), $this->config["lifetime"]);
             default: // FileSessionHandler
-                return $container->makeShared(FileSessionHandler::class, [$this->config["file.path"]]);
+                return new FileSessionHandler($this->config["file.path"]);
         }
     }
 

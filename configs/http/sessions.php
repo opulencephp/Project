@@ -2,8 +2,6 @@
 /**
  * Defines the session config
  */
-use RDev\Cache\FileBridge;
-
 /**
  * ----------------------------------------------------------
  * Defines session properties
@@ -17,9 +15,11 @@ return [
      *
      * "lifetime" => Lifetime of the session in seconds
      * "name" => The name of the session
+     * "isEncrypted" => Whether or not the session data is encrypted when stored
      */
     "lifetime" => 7200,
     "name" => "__rdev_session",
+    "isEncrypted" => false,
 
     /**
      * ----------------------------------------------------------

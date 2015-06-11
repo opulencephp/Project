@@ -8,10 +8,12 @@ use RDev\Cache\FileBridge;
 use RDev\Cache\ICacheBridge;
 use RDev\Cache\MemcachedBridge;
 use RDev\Cache\RedisBridge;
+use RDev\Cryptography\Encryption\IEncrypter;
 use RDev\Framework\Bootstrappers\HTTP\Sessions\Session as BaseSession;
 use RDev\IoC\IContainer;
 use RDev\Sessions\Handlers\CacheSessionHandler;
 use RDev\Sessions\Handlers\FileSessionHandler;
+use RDev\Sessions\Handlers\IEncryptableSessionHandler;
 use RDev\Sessions\ISession;
 use RDev\Sessions\Session as RDevSession;
 use SessionHandlerInterface;
@@ -49,10 +51,19 @@ class Session extends BaseSession
         switch($this->environment->getVariable("SESSION_HANDLER"))
         {
             case CacheSessionHandler::class:
-                return new CacheSessionHandler($this->getCacheBridge($container), $this->config["lifetime"]);
+                $handler = new CacheSessionHandler($this->getCacheBridge($container), $this->config["lifetime"]);
+                break;
             default: // FileSessionHandler
-                return new FileSessionHandler($this->config["file.path"]);
+                $handler = new FileSessionHandler($this->config["file.path"]);
         }
+
+        if($this->config["isEncrypted"] && $handler instanceof IEncryptableSessionHandler)
+        {
+            $handler->useEncryption(true);
+            $handler->setEncrypter($container->makeShared(IEncrypter::class));
+        }
+
+        return $handler;
     }
 
     /**

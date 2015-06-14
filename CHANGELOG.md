@@ -51,6 +51,7 @@
 * Aded `configs/http/sessions.php`
 * Added `RDev\Framework\HTTP\Middleware\Session` to `configs/http/middleware.php`
 * Added `Project\Bootstrappers\HTTP\Sessions\Session` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Sessions\Session` bootstrapper with it in `configs/console/bootstrappers.php` and `configs/http/bootstrappers.php`
+* Added `Project\HTTP\Middleware\CheckCSRFToken` class
 
 <h3>Templates</h3>
 * Added `Project\Bootstrappers\HTTP\Views\Template` bootstrapper, replaced `RDev\Framework\Bootstrappers\HTTP\Views\Template` bootstrapper in `configs/http/bootstrappers.php`

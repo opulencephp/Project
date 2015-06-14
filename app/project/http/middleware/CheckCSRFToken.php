@@ -1,48 +1,37 @@
 <?php
 /**
- * Defines the session middleware
+ * Defines the middleware that checks the CSRF token
  */
 namespace Project\HTTP\Middleware;
 use DateTime;
-use RDev\Framework\HTTP\Middleware\Session as BaseSession;
+use RDev\Framework\HTTP\CSRFTokenChecker;
+use RDev\Framework\HTTP\Middleware\CheckCSRFToken as BaseMiddleware;
 use RDev\HTTP\Responses\Cookie;
 use RDev\HTTP\Responses\Response;
 
-class Session extends BaseSession
+class CheckCSRFToken extends BaseMiddleware
 {
     /** @var array|null The config array */
     private $config = null;
 
     /**
-     * Runs garbage collection, if necessary
-     */
-    protected function gc()
-    {
-        $this->loadConfig();
-
-        if(rand(1, $this->config["gc.divisor"]) <= $this->config["gc.chance"])
-        {
-            $this->sessionHandler->gc($this->config["lifetime"]);
-        }
-    }
-
-    /**
-     * Writes any session data needed in the response
+     * Writes data to the response
      *
      * @param Response $response The response to write to
-     * @return Response The response with data written to it
+     * @return Response The response with the data written to it
      */
     protected function writeToResponse(Response $response)
     {
         $this->loadConfig();
+        // Add an XSRF cookie for JavaScript frameworks to use
         $response->getHeaders()->setCookie(
             new Cookie(
-                $this->session->getName(),
-                $this->session->getId(),
-                new DateTime("+{$this->config["lifetime"]} seconds"),
+                "XSRF-TOKEN",
+                $this->session->get(CSRFTokenChecker::TOKEN_INPUT_NAME),
+                new DateTime("+{$this->config["xsrfcookie.lifetime"]} seconds"),
                 $this->config["cookie.path"],
                 $this->config["cookie.domain"],
-                $this->config["cookie.isSecure"],
+                false,
                 false
             )
         );

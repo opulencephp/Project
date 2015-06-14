@@ -63,5 +63,14 @@ return [
      *
      * "file.path" => The path of the session file
      */
-    "file.path" => __DIR__ . "/../../tmp/framework/http/sessions"
+    "file.path" => __DIR__ . "/../../tmp/framework/http/sessions",
+
+    /**
+     * ----------------------------------------------------------
+     * XSRF cookie settings
+     * ----------------------------------------------------------
+     *
+     * "xsrfcookie.lifetime" => Lifetime of the XSRF cookie in seconds
+     */
+    "xsrfcookie.lifetime" => 7200
 ];

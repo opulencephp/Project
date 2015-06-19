@@ -1,3 +1,11 @@
+<h2>v0.5.1</h2>
+
+<h3>Events</h3>
+* Added `Project\Bootstrappers\Events\Dispatcher`
+* Added `Project\Events\Events` and `Project\Events\Listeners` directories
+* Added `configs/events.php`
+* Added `Dispatcher::class` to `configs/bootstrappers.php`
+
 <h2>v0.5.0</h2>
 
 <h3>General</h3>

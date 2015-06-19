@@ -10,7 +10,7 @@ This project is a useful starting point for projects that use the **RDev** frame
 RDev can be installed using Composer:
 
 ```
-composer create-project rdev/project --prefer-dist
+composer create-project rdev/project DESIRED_SERVER_PATH --prefer-dist
 ```
 
 ## Learn More

@@ -1,8 +1,13 @@
+<h2>v0.5.2</h2>
+
+<h3>Events</h3>
+* Removed `app/project/events/events` directory (event classes should just go in `app/project/events`
+
 <h2>v0.5.1</h2>
 
 <h3>Events</h3>
 * Added `Project\Bootstrappers\Events\Dispatcher`
-* Added `Project\Events\Events` and `Project\Events\Listeners` directories
+* Added `app/project/events/events` and `app/project/events/listeners` directories
 * Added `configs/events.php`
 * Added `Dispatcher::class` to `configs/bootstrappers.php`
 

@@ -18,6 +18,4 @@ notifications:
     - dbyoung2@gmail.com
 
 matrix:
-  allow_failures:
-    - php: 7.0
   fast_finish: true

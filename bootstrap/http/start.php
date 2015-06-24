@@ -4,6 +4,7 @@
  */
 use RDev\Applications\Bootstrappers\ApplicationBinder;
 use RDev\Applications\Bootstrappers\Caching\ICache;
+use RDev\Applications\Environments\Environment;
 use RDev\Framework\HTTP\Kernel;
 use RDev\HTTP\Requests\Request;
 use RDev\Routing\Router;
@@ -20,7 +21,7 @@ require_once __DIR__ . "/../start.php";
 $applicationBinder->bindToApplication(
     require __DIR__ . "/../../configs/http/bootstrappers.php",
     false,
-    true,
+    $application->getEnvironment()->getName() == Environment::PRODUCTION,
     $application->getPaths()["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 

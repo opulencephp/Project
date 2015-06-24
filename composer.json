@@ -40,7 +40,7 @@
     "post-create-project-cmd": [
       "php -r \"copy('configs/environment/.env.example.php', 'configs/environment/.env.app.php');\"",
       "php rdev encryption:generatekey",
-      "php -r \"echo 'Important: make ' . __DIR__ . '/tmp writable';\""
+      "php -r \"echo 'Important: make ' . __DIR__ . '/tmp writable\n';\""
     ],
     "post-install-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",

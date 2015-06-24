@@ -1,3 +1,10 @@
+<h2>v0.5.3</h2>
+
+<h3>Routing</h3>
+* Renamed `configs/http/routing.php` to `routes.php`
+* Added `configs/http/routing.php` to hold router settings
+* Added caching ability to `Project\Bootstrappers\HTTP\Routing\Router`
+
 <h2>v0.5.2</h2>
 
 <h3>Events</h3>

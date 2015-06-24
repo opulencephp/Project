@@ -4,11 +4,6 @@
  */
 use Project\Console\Commands\HelloWorldCommand;
 
-/**
- * ----------------------------------------------------------
- * List of command classes
- * ----------------------------------------------------------
- */
 return [
     HelloWorldCommand::class
 ];

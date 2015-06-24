@@ -12,7 +12,7 @@
 </section>
 <section id="routes">
     <h3>Routes</h3>
-    Create new routes in <b>configs/http/routing.php</b>.  To handle each route, add methods to <b>app/project/http/controllers/Page.php</b>.
+    Create new routes in <b>configs/http/routes.php</b>.  To handle each route, add methods to <b>app/project/http/controllers/Page.php</b>.
 </section>
 <section id="templates">
     <h3>Templates</h3>

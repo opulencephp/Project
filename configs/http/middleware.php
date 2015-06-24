@@ -5,11 +5,6 @@
 use Project\HTTP\Middleware\Session;
 use Project\HTTP\Middleware\CheckCSRFToken;
 
-/**
- * ----------------------------------------------------------
- * List of HTTP-specific middleware
- * ----------------------------------------------------------
- */
 return [
     /**
      * ----------------------------------------------------------

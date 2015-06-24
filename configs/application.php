@@ -5,10 +5,10 @@
 use RDev\Applications\Application;
 use RDev\Applications\Bootstrappers\ApplicationBinder;
 use RDev\Applications\Bootstrappers\BootstrapperRegistry;
+use RDev\Applications\Bootstrappers\Caching\Cache;
+use RDev\Applications\Bootstrappers\Caching\ICache;
 use RDev\Applications\Bootstrappers\Dispatchers\Dispatcher as BootstrapperDispatcher;
 use RDev\Applications\Bootstrappers\Dispatchers\IDispatcher as IBootstrapperDispatcher;
-use RDev\Applications\Bootstrappers\IO\BootstrapperIO;
-use RDev\Applications\Bootstrappers\IO\IBootstrapperIO;
 use RDev\Applications\Bootstrappers\IBootstrapperRegistry;
 use RDev\Applications\Environments\Environment;
 use RDev\Applications\Paths;
@@ -35,11 +35,11 @@ $application = new Application($paths, $taskDispatcher, $environment, $container
  */
 $bootstrapperRegistry = new BootstrapperRegistry($paths, $environment);
 $bootstrapperDispatcher = new BootstrapperDispatcher($taskDispatcher, $container);
-$bootstrapperIO = new BootstrapperIO($paths);
+$bootstrapperCache = new Cache($paths);
 $applicationBinder = new ApplicationBinder(
     $bootstrapperRegistry,
     $bootstrapperDispatcher,
-    $bootstrapperIO,
+    $bootstrapperCache,
     $taskDispatcher,
     require __DIR__ . "/bootstrappers.php"
 );
@@ -58,6 +58,6 @@ $container->bind(Environment::class, $environment);
 $container->bind(IContainer::class, $container);
 $container->bind(IBootstrapperRegistry::class, $bootstrapperRegistry);
 $container->bind(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
-$container->bind(IBootstrapperIO::class, $bootstrapperIO);
+$container->bind(ICache::class, $bootstrapperCache);
 
 return $application;

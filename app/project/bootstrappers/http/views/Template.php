@@ -4,12 +4,12 @@
  */
 namespace Project\Bootstrappers\HTTP\Views;
 use RDev\Files\FileSystem;
-use RDev\Framework\Bootstrappers\HTTP\Views\Template as BaseTemplate;
+use RDev\Framework\Bootstrappers\HTTP\Views\Template as BaseBootstrapper;
 use RDev\IoC\IContainer;
 use RDev\Views\Caching\Cache;
 use RDev\Views\Caching\ICache;
 
-class Template extends BaseTemplate
+class Template extends BaseBootstrapper
 {
     /**
      * Gets the view cache
@@ -21,7 +21,7 @@ class Template extends BaseTemplate
     protected function getViewCache(IContainer $container)
     {
         $fileSystem = $container->makeShared(FileSystem::class);
-        $cacheConfig = require_once $this->paths["configs"] . "/http/views.php";
+        $cacheConfig = require_once "{$this->paths["configs.http"]}/views.php";
 
         return new Cache(
             $fileSystem,

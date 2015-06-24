@@ -3,7 +3,7 @@
  * Boots up our application with an HTTP kernel
  */
 use RDev\Applications\Bootstrappers\ApplicationBinder;
-use RDev\Applications\Bootstrappers\IO\IBootstrapperIO;
+use RDev\Applications\Bootstrappers\Caching\ICache;
 use RDev\Framework\HTTP\Kernel;
 use RDev\HTTP\Requests\Request;
 use RDev\Routing\Router;
@@ -21,7 +21,7 @@ $applicationBinder->bindToApplication(
     require __DIR__ . "/../../configs/http/bootstrappers.php",
     false,
     true,
-    $application->getPaths()["tmp.framework.http"] . "/" . IBootstrapperIO::DEFAULT_CACHED_REGISTRY_FILE_NAME
+    $application->getPaths()["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 
 /**

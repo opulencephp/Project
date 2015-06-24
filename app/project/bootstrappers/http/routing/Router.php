@@ -4,19 +4,32 @@
  */
 namespace Project\Bootstrappers\HTTP\Routing;
 use Project\HTTP\Controllers\Page;
-use RDev\Applications\Bootstrappers\Bootstrapper;
+use RDev\Framework\Bootstrappers\HTTP\Routing\Router as BaseBootstrapper;
 use RDev\Routing\Router as HTTPRouter;
+use RDev\Routing\Routes\Caching\ICache;
 
-class Router extends Bootstrapper
+class Router extends BaseBootstrapper
 {
     /**
-     * Sets the missed route controller
+     * Configures the router, which is useful for things like caching
      *
-     * @param HTTPRouter $router The router to set the missed route controller on
+     * @param HTTPRouter $router The router to configure
      */
-    public function run(HTTPRouter $router)
+    protected function configureRouter(HTTPRouter $router)
     {
         $router->setMissedRouteController(Page::class);
-        require $this->paths["configs"] . "/http/routing.php";
+        $routingConfig = require "{$this->paths["configs.http"]}/routing.php";
+        $routesConfigPath = "{$this->paths["configs.http"]}/routes.php";
+
+        if($routingConfig["cache"])
+        {
+            $cachedRoutesPath = "{$this->paths["routes.cache"]}/" . ICache::DEFAULT_CACHED_ROUTES_FILE_NAME;
+            $routes = $this->cache->get($cachedRoutesPath, $router, $routesConfigPath);
+            $router->setRouteCollection($routes);
+        }
+        else
+        {
+            require $routesConfigPath;
+        }
     }
 }

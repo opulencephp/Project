@@ -3,7 +3,7 @@
  * Boots up our application with a console kernel
  */
 use RDev\Applications\Bootstrappers\ApplicationBinder;
-use RDev\Applications\Bootstrappers\IO\IBootstrapperIO;
+use RDev\Applications\Bootstrappers\Caching\ICache;
 use RDev\Console\Commands\CommandCollection;
 use RDev\Console\Commands\Compilers\ICompiler;
 use RDev\Console\Requests\Parsers\IParser;
@@ -22,7 +22,7 @@ $applicationBinder->bindToApplication(
     require __DIR__ . "/../../configs/console/bootstrappers.php",
     false,
     true,
-    $application->getPaths()["tmp.framework.console"] . "/" . IBootstrapperIO::DEFAULT_CACHED_REGISTRY_FILE_NAME
+    $application->getPaths()["tmp.framework.console"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 
 /**

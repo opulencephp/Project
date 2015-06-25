@@ -4,30 +4,30 @@
  */
 use RDev\Applications\Environments\Environment;
 use RDev\Applications\Environments\EnvironmentDetector;
+use RDev\Applications\Environments\Hosts\Host;
+use RDev\Applications\Environments\Hosts\HostRegistry;
 
 /**
  * ----------------------------------------------------------
- * Create the environment configuration
+ * Create the environment registry
  * ----------------------------------------------------------
  */
 $detector = new EnvironmentDetector();
-$config = [
-    "production" => [
-        // By default, all servers are listed as production
-        ["type" => "regex", "value" => "/^.*$/"]
-    ],
-    "staging" => [
-        // The list of staging servers
-    ],
-    "testing" => [
-        // The list of testing servers
-    ],
-    "development" => [
-        // The list of development servers
-    ]
-];
-
-$environmentName = $detector->detect($config);
+$registry = new HostRegistry();
+$registry->registerHost("production", [
+    // Add any production hosts here
+    new Host("#^.*$#", true)
+]);
+$registry->registerHost("staging", [
+    // Add any staging hosts here
+]);
+$registry->registerHost("testing", [
+    // Add any testing hosts here
+]);
+$registry->registerHost("development", [
+    // Add any development hosts here
+]);
+$environmentName = $detector->detect($registry);
 $environment = new Environment($environmentName);
 
 /**

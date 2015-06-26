@@ -1,4 +1,4 @@
-<h2>v0.5.3</h2>
+<h2>v0.5.4</h2>
 
 <h3>Configs</h3>
 * Updated environment config to latest RDev

@@ -4,8 +4,7 @@
  */
 use RDev\Applications\Environments\Environment;
 use RDev\Applications\Environments\EnvironmentDetector;
-use RDev\Applications\Environments\Hosts\Host;
-use RDev\Applications\Environments\Hosts\HostRegistry;
+use RDev\Applications\Environments\Host;
 
 /**
  * ----------------------------------------------------------
@@ -13,21 +12,20 @@ use RDev\Applications\Environments\Hosts\HostRegistry;
  * ----------------------------------------------------------
  */
 $detector = new EnvironmentDetector();
-$registry = new HostRegistry();
-$registry->registerHost("production", [
+$detector->registerHost("production", [
     // Add any production hosts here
     new Host("#^.*$#", true)
 ]);
-$registry->registerHost("staging", [
+$detector->registerHost("staging", [
     // Add any staging hosts here
 ]);
-$registry->registerHost("testing", [
+$detector->registerHost("testing", [
     // Add any testing hosts here
 ]);
-$registry->registerHost("development", [
+$detector->registerHost("development", [
     // Add any development hosts here
 ]);
-$environmentName = $detector->detect($registry);
+$environmentName = $detector->detect();
 $environment = new Environment($environmentName);
 
 /**

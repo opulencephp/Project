@@ -14,7 +14,7 @@ use RDev\Applications\Environments\Hosts\HostRegex;
 $detector = new EnvironmentDetector();
 $detector->registerHost("production", [
     // Add any production hosts here
-    new HostRegex("^.*$", true)
+    new HostRegex("^.*$")
 ]);
 $detector->registerHost("staging", [
     // Add any staging hosts here

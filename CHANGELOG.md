@@ -1,3 +1,8 @@
+<h2>v0.5.6</h2>
+
+<h3>Configs</h3>
+* Fixed an erroneous comment
+
 <h2>v0.5.5</h2>
 
 <h3>Configs</h3>

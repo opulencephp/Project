@@ -1,3 +1,8 @@
+<h2>v0.5.7</h2>
+
+<h3>Configs</h3>
+* Removed an unnecessary boolean
+
 <h2>v0.5.6</h2>
 
 <h3>Configs</h3>

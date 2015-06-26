@@ -8,7 +8,7 @@ use RDev\Applications\Environments\Hosts\HostRegex;
 
 /**
  * ----------------------------------------------------------
- * Create the environment registry
+ * Register the hosts
  * ----------------------------------------------------------
  */
 $detector = new EnvironmentDetector();

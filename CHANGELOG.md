@@ -1,5 +1,10 @@
 <h2>v0.5.3</h2>
 
+<h3>Configs</h3>
+* Updated environment config to latest RDev
+
+<h2>v0.5.3</h2>
+
 <h3>Routing</h3>
 * Renamed `configs/http/routing.php` to `routes.php`
 * Added `configs/http/routing.php` to hold router settings

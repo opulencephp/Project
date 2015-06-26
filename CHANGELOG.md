@@ -1,3 +1,8 @@
+<h2>v0.5.5</h2>
+
+<h3>Configs</h3>
+* Updated environment host classes to latest RDev
+
 <h2>v0.5.4</h2>
 
 <h3>Configs</h3>

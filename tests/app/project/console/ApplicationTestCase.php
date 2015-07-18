@@ -3,9 +3,9 @@
  * Defines the console application test case
  */
 namespace Project\Console;
-use RDev\Applications\Application;
-use RDev\Applications\Bootstrappers\ApplicationBinder;
-use RDev\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
+use Opulence\Applications\Application;
+use Opulence\Applications\Bootstrappers\ApplicationBinder;
+use Opulence\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
 {

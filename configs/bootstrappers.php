@@ -5,7 +5,7 @@
 use Project\Bootstrappers\Databases\SQL;
 use Project\Bootstrappers\Events\Dispatcher;
 use Project\Bootstrappers\ORM\UnitOfWork;
-use RDev\Framework\Bootstrappers\Cryptography\Cryptography;
+use Opulence\Framework\Bootstrappers\Cryptography\Cryptography;
 
 return [
     Cryptography::class,

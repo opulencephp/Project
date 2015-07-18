@@ -6,8 +6,8 @@ use Project\Bootstrappers\HTTP\Routing\Router;
 use Project\Bootstrappers\HTTP\Sessions\Session;
 use Project\Bootstrappers\HTTP\Views\Builders;
 use Project\Bootstrappers\HTTP\Views\Template;
-use RDev\Framework\Bootstrappers\HTTP\Requests\Request;
-use RDev\Framework\Bootstrappers\HTTP\Views\TemplateFunctions;
+use Opulence\Framework\Bootstrappers\HTTP\Requests\Request;
+use Opulence\Framework\Bootstrappers\HTTP\Views\TemplateFunctions;
 
 return [
     Request::class,

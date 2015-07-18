@@ -4,9 +4,9 @@
  */
 namespace Project\HTTP\Middleware;
 use DateTime;
-use RDev\Framework\HTTP\Middleware\Session as BaseSession;
-use RDev\HTTP\Responses\Cookie;
-use RDev\HTTP\Responses\Response;
+use Opulence\Framework\HTTP\Middleware\Session as BaseSession;
+use Opulence\HTTP\Responses\Cookie;
+use Opulence\HTTP\Responses\Response;
 
 class Session extends BaseSession
 {

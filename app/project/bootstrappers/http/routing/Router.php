@@ -4,10 +4,10 @@
  */
 namespace Project\Bootstrappers\HTTP\Routing;
 use Project\HTTP\Controllers\Page;
-use RDev\Applications\Environments\Environment;
-use RDev\Framework\Bootstrappers\HTTP\Routing\Router as BaseBootstrapper;
-use RDev\Routing\Router as HTTPRouter;
-use RDev\Routing\Routes\Caching\ICache;
+use Opulence\Applications\Environments\Environment;
+use Opulence\Framework\Bootstrappers\HTTP\Routing\Router as BaseBootstrapper;
+use Opulence\Routing\Router as HTTPRouter;
+use Opulence\Routing\Routes\Caching\ICache;
 
 class Router extends BaseBootstrapper
 {

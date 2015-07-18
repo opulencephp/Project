@@ -2,7 +2,7 @@
 /**
  * Defines the dependency injection config
  */
-use RDev\IoC\Container;
+use Opulence\IoC\Container;
 
 /**
  * ----------------------------------------------------------

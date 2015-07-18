@@ -2,12 +2,12 @@
 /**
  * Boots up our application with an HTTP kernel
  */
-use RDev\Applications\Bootstrappers\ApplicationBinder;
-use RDev\Applications\Bootstrappers\Caching\ICache;
-use RDev\Applications\Environments\Environment;
-use RDev\Framework\HTTP\Kernel;
-use RDev\HTTP\Requests\Request;
-use RDev\Routing\Router;
+use Opulence\Applications\Bootstrappers\ApplicationBinder;
+use Opulence\Applications\Bootstrappers\Caching\ICache;
+use Opulence\Applications\Environments\Environment;
+use Opulence\Framework\HTTP\Kernel;
+use Opulence\HTTP\Requests\Request;
+use Opulence\Routing\Router;
 
 require_once __DIR__ . "/../start.php";
 

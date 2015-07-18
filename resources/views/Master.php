@@ -11,14 +11,14 @@
     </head>
     <body>
         <header class="main">
-            {% include("MainNav.php") %}
+            <% include("MainNav.php") %>
         </header>
         <main class="main">
-            {% show("content") %}
+            <% show("content") %>
         </main>
         <footer class="main">
-            {% include("MainNav.php") %}
-            My First RDev Project
+            <% include("MainNav.php") %>
+            My First Opulence Project
         </footer>
     </body>
 </html>

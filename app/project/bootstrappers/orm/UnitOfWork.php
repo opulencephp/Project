@@ -3,12 +3,12 @@
  * Defines the unit of work bootstrapper
  */
 namespace Project\Bootstrappers\ORM;
-use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Applications\Bootstrappers\ILazyBootstrapper;
-use RDev\Databases\ConnectionPool;
-use RDev\IoC\IContainer;
-use RDev\ORM\EntityRegistry;
-use RDev\ORM\UnitOfWork as ORMUnitOfWork;
+use Opulence\Applications\Bootstrappers\Bootstrapper;
+use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
+use Opulence\Databases\ConnectionPool;
+use Opulence\IoC\IContainer;
+use Opulence\ORM\EntityRegistry;
+use Opulence\ORM\UnitOfWork as ORMUnitOfWork;
 
 class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
 {

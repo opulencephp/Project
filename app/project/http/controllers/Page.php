@@ -3,10 +3,10 @@
  * Defines an example controller
  */
 namespace Project\HTTP\Controllers;
-use RDev\HTTP\Responses\Response;
-use RDev\Routing\Controller;
-use RDev\Views\Compilers\ICompiler;
-use RDev\Views\Factories\ITemplateFactory;
+use Opulence\HTTP\Responses\Response;
+use Opulence\Routing\Controller;
+use Opulence\Views\Compilers\ICompiler;
+use Opulence\Views\Factories\ITemplateFactory;
 
 class Page extends Controller
 {

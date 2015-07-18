@@ -4,10 +4,10 @@
  */
 namespace Project\HTTP\Middleware;
 use DateTime;
-use RDev\Framework\HTTP\CSRFTokenChecker;
-use RDev\Framework\HTTP\Middleware\CheckCSRFToken as BaseMiddleware;
-use RDev\HTTP\Responses\Cookie;
-use RDev\HTTP\Responses\Response;
+use Opulence\Framework\HTTP\CSRFTokenChecker;
+use Opulence\Framework\HTTP\Middleware\CheckCSRFToken as BaseMiddleware;
+use Opulence\HTTP\Responses\Cookie;
+use Opulence\HTTP\Responses\Response;
 
 class CheckCSRFToken extends BaseMiddleware
 {

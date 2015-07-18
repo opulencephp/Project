@@ -3,11 +3,11 @@
  * Defines the template bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
-use RDev\Files\FileSystem;
-use RDev\Framework\Bootstrappers\HTTP\Views\Template as BaseBootstrapper;
-use RDev\IoC\IContainer;
-use RDev\Views\Caching\Cache;
-use RDev\Views\Caching\ICache;
+use Opulence\Files\FileSystem;
+use Opulence\Framework\Bootstrappers\HTTP\Views\Template as BaseBootstrapper;
+use Opulence\IoC\IContainer;
+use Opulence\Views\Caching\Cache;
+use Opulence\Views\Caching\ICache;
 
 class Template extends BaseBootstrapper
 {

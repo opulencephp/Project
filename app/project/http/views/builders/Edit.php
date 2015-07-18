@@ -3,8 +3,8 @@
  * Defines the edit page template builder
  */
 namespace Project\HTTP\Views\Builders;
-use RDev\Views\IBuilder;
-use RDev\Views\ITemplate;
+use Opulence\Views\IBuilder;
+use Opulence\Views\ITemplate;
 
 class Edit implements IBuilder
 {

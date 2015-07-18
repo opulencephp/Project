@@ -1,3 +1,9 @@
+<h2>v0.6.0</h2>
+
+<h3>General</h3>
+* Updated to Opulence (formerly RDev) 0.6
+* Renamed console start file `rdev` to `opulence`
+
 <h2>v0.5.7</h2>
 
 <h3>Configs</h3>

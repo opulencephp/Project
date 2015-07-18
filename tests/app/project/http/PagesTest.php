@@ -36,7 +36,7 @@ class PagesTest extends ApplicationTestCase
         $this->route("GET", "/");
         $this->checkMasterTemplateSetup();
         $this->assertResponseIsOK();
-        $this->assertTemplateVarEquals("title", "My First RDev Application");
+        $this->assertTemplateVarEquals("title", "My First Opulence Application");
     }
 
     /**

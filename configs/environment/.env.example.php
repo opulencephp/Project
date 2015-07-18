@@ -2,9 +2,9 @@
 /**
  * Defines an example environment config
  */
-use RDev\Applications\Environments\Environment;
-use RDev\Cache\FileBridge;
-use RDev\Sessions\Handlers\FileSessionHandler;
+use Opulence\Applications\Environments\Environment;
+use Opulence\Cache\FileBridge;
+use Opulence\Sessions\Handlers\FileSessionHandler;
 
 /** @var Environment $environment */
 /**

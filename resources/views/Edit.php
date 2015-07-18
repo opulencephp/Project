@@ -1,10 +1,10 @@
-{% extends("Master.php") %}
+<% extends("Master.php") %>
 
-{% part("content") %}
+<% part("content") %>
 <h2>Editing This Project</h2>
 <section id="console-commands">
     <h3>Console Commands</h3>
-    You can run console commands running "<i>php rdev</i>" from your project's root directory.  To create a custom command, create a class that extends <i>RDev\Console\Commands\Command</i>, and put it in the <b>app/project/console/commands</b> directory.  Then, add the fully-qualified name of your command class to <b>app/configs/console/commands.php</b>.
+    You can run console commands running "<i>php opulence</i>" from your project's root directory.  To create a custom command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>app/project/console/commands</b> directory.  Then, add the fully-qualified name of your command class to <b>app/configs/console/commands.php</b>.
 </section>
 <section id="changing-namespaces">
     <h3>Renaming Your Application</h3>
@@ -25,6 +25,6 @@
 </section>
 <section id="official-docs">
     <h3>Learn More</h3>
-    Read the <a href="http://www.rdevphp.com/docs" target="_blank" title="Read the official documentation">official documentation</a>.
+    Read the <a href="http://www.opulencephp.com/docs" target="_blank" title="Read the official documentation">official documentation</a>.
 </section>
-{% endpart %}
+<% endpart %>

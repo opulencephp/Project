@@ -1,6 +1,6 @@
-{% extends("Master.php") %}
+<% extends("Master.php") %>
 
-{% part("content") %}
+<% part("content") %>
 <h2>{{errorTitle}}</h2>
 Something went wrong.
-{% endpart %}
+<% endpart %>

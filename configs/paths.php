@@ -2,7 +2,7 @@
 /**
  * Defines the list of paths needed by this application
  */
-use RDev\Applications\Paths;
+use Opulence\Applications\Paths;
 
 $pathsConfig = [
     /**

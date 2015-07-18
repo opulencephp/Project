@@ -13,7 +13,7 @@ return [
      * "isEncrypted" => Whether or not the session data is encrypted when stored
      */
     "lifetime" => 7200,
-    "name" => "__rdev_session",
+    "name" => "__opulence_session",
     "isEncrypted" => false,
 
     /**
@@ -49,7 +49,7 @@ return [
      *
      * "cache.keyPrefix" => The prefix to use on all cache keys to avoid naming collisions
      */
-    "cache.keyPrefix" => "rdev:",
+    "cache.keyPrefix" => "opulence:",
 
     /**
      * ----------------------------------------------------------

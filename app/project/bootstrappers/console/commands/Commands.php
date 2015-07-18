@@ -3,9 +3,9 @@
  * Defines the command bootstrapper
  */
 namespace Project\Bootstrappers\Console\Commands;
-use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Console\Commands\CommandCollection;
-use RDev\IoC\IContainer;
+use Opulence\Applications\Bootstrappers\Bootstrapper;
+use Opulence\Console\Commands\CommandCollection;
+use Opulence\IoC\IContainer;
 
 class Commands extends Bootstrapper
 {

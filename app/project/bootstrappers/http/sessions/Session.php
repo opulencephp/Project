@@ -3,19 +3,19 @@
  * Defines the session bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Sessions;
-use RDev\Cache\ArrayBridge;
-use RDev\Cache\FileBridge;
-use RDev\Cache\ICacheBridge;
-use RDev\Cache\MemcachedBridge;
-use RDev\Cache\RedisBridge;
-use RDev\Cryptography\Encryption\IEncrypter;
-use RDev\Framework\Bootstrappers\HTTP\Sessions\Session as BaseBootstrapper;
-use RDev\IoC\IContainer;
-use RDev\Sessions\Handlers\CacheSessionHandler;
-use RDev\Sessions\Handlers\FileSessionHandler;
-use RDev\Sessions\Handlers\IEncryptableSessionHandler;
-use RDev\Sessions\ISession;
-use RDev\Sessions\Session as RDevSession;
+use Opulence\Cache\ArrayBridge;
+use Opulence\Cache\FileBridge;
+use Opulence\Cache\ICacheBridge;
+use Opulence\Cache\MemcachedBridge;
+use Opulence\Cache\RedisBridge;
+use Opulence\Cryptography\Encryption\IEncrypter;
+use Opulence\Framework\Bootstrappers\HTTP\Sessions\Session as BaseBootstrapper;
+use Opulence\IoC\IContainer;
+use Opulence\Sessions\Handlers\CacheSessionHandler;
+use Opulence\Sessions\Handlers\FileSessionHandler;
+use Opulence\Sessions\Handlers\IEncryptableSessionHandler;
+use Opulence\Sessions\ISession;
+use Opulence\Sessions\Session as OpulenceSession;
 use SessionHandlerInterface;
 
 class Session extends BaseBootstrapper
@@ -32,7 +32,7 @@ class Session extends BaseBootstrapper
     protected function getSession(IContainer $container)
     {
         $this->loadConfig();
-        $session = new RDevSession();
+        $session = new OpulenceSession();
         $session->setName($this->config["name"]);
 
         return $session;

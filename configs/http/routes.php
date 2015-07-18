@@ -2,7 +2,7 @@
 /**
  * Defines the routes for the application
  */
-use RDev\Routing\Router;
+use Opulence\Routing\Router;
 
 /**
  * ----------------------------------------------------------

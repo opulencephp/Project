@@ -6,8 +6,8 @@ namespace Project\Bootstrappers\HTTP\Views;
 use Project\HTTP\Views\Builders\Edit;
 use Project\HTTP\Views\Builders\Home;
 use Project\HTTP\Views\Builders\Master;
-use RDev\Applications\Bootstrappers\Bootstrapper;
-use RDev\Views\Factories\ITemplateFactory;
+use Opulence\Applications\Bootstrappers\Bootstrapper;
+use Opulence\Views\Factories\ITemplateFactory;
 
 class Builders extends Bootstrapper
 {

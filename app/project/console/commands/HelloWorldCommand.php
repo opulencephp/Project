@@ -3,10 +3,10 @@
  * Defines an example "Hello, world" command
  */
 namespace Project\Console\Commands;
-use RDev\Console\Commands\Command;
-use RDev\Console\Requests\Option;
-use RDev\Console\Requests\OptionTypes;
-use RDev\Console\Responses\IResponse;
+use Opulence\Console\Commands\Command;
+use Opulence\Console\Requests\Option;
+use Opulence\Console\Requests\OptionTypes;
+use Opulence\Console\Responses\IResponse;
 
 class HelloWorldCommand extends Command
 {

@@ -2,9 +2,9 @@
 /**
  * Defines the environment config
  */
-use RDev\Applications\Environments\Environment;
-use RDev\Applications\Environments\EnvironmentDetector;
-use RDev\Applications\Environments\Hosts\HostRegex;
+use Opulence\Applications\Environments\Environment;
+use Opulence\Applications\Environments\EnvironmentDetector;
+use Opulence\Applications\Environments\Hosts\HostRegex;
 
 /**
  * ----------------------------------------------------------

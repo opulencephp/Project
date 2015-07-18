@@ -2,12 +2,12 @@
 /**
  * Boots up our application with a console kernel
  */
-use RDev\Applications\Bootstrappers\ApplicationBinder;
-use RDev\Applications\Bootstrappers\Caching\ICache;
-use RDev\Console\Commands\CommandCollection;
-use RDev\Console\Commands\Compilers\ICompiler;
-use RDev\Console\Requests\Parsers\IParser;
-use RDev\Framework\Console\Kernel;
+use Opulence\Applications\Bootstrappers\ApplicationBinder;
+use Opulence\Applications\Bootstrappers\Caching\ICache;
+use Opulence\Console\Commands\CommandCollection;
+use Opulence\Console\Commands\Compilers\ICompiler;
+use Opulence\Console\Requests\Parsers\IParser;
+use Opulence\Framework\Console\Kernel;
 
 require_once __DIR__ . "/../start.php";
 

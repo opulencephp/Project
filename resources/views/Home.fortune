@@ -1,4 +1,4 @@
-<% extends("Master.php") %>
+<% extends("Master.fortune") %>
 
 <% part("content") %>
 <section id="congratulations">

@@ -4,14 +4,14 @@
  */
 namespace Project\HTTP\Views\Builders;
 use Opulence\Views\IBuilder;
-use Opulence\Views\ITemplate;
+use Opulence\Views\IView;
 
 class Edit implements IBuilder
 {
     /**
      * {@inheritdoc}
      */
-    public function build(ITemplate $template)
+    public function build(IView $template)
     {
         $template->setVar("title", "Editing This Project");
 

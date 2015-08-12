@@ -4,14 +4,14 @@
  */
 namespace Project\HTTP\Views\Builders;
 use Opulence\Views\IBuilder;
-use Opulence\Views\ITemplate;
+use Opulence\Views\IView;
 
 class Home implements IBuilder
 {
     /**
      * {@inheritdoc}
      */
-    public function build(ITemplate $template)
+    public function build(IView $template)
     {
         $template->setVar("title", "My First Opulence Application");
 

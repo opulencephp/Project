@@ -4,6 +4,12 @@
 * Updated to Opulence (formerly RDev) 0.6
 * Renamed console start file `rdev` to `opulence`
 
+<h3>Bootstrappers</h3>
+* Renamed `Project\Bootstrappers\HTTP\Views\Template` to `View` and `TemplateFunctions` to `ViewFunctions`
+
+<h3>Views</h3>
+* Updated references to `ITemplate`, `Template`, `TemplateFactory`, and `ITemplateFactory` to `IView`, `View`, `ViewFactory`, and `IViewFactory`, respectively
+
 <h2>v0.5.7</h2>
 
 <h3>Configs</h3>

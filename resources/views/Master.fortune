@@ -11,13 +11,13 @@
     </head>
     <body>
         <header class="main">
-            <% include("MainNav.php") %>
+            <% include("MainNav.fortune") %>
         </header>
         <main class="main">
             <% show("content") %>
         </main>
         <footer class="main">
-            <% include("MainNav.php") %>
+            <% include("MainNav.fortune") %>
             My First Opulence Project
         </footer>
     </body>

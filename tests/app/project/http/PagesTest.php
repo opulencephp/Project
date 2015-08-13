@@ -14,7 +14,7 @@ class PagesTest extends ApplicationTestCase
         $this->route("GET", "/doesNotExist");
         $this->checkMasterTemplateSetup();
         $this->assertResponseIsNotFound();
-        $this->assertTemplateVarEquals("title", "404 Error");
+        $this->assertViewVarEquals("title", "404 Error");
     }
 
     /**
@@ -25,7 +25,7 @@ class PagesTest extends ApplicationTestCase
         $this->route("GET", "/edit");
         $this->checkMasterTemplateSetup();
         $this->assertResponseIsOK();
-        $this->assertTemplateVarEquals("title", "Editing This Project");
+        $this->assertViewVarEquals("title", "Editing This Project");
     }
 
     /**
@@ -36,7 +36,7 @@ class PagesTest extends ApplicationTestCase
         $this->route("GET", "/");
         $this->checkMasterTemplateSetup();
         $this->assertResponseIsOK();
-        $this->assertTemplateVarEquals("title", "My First Opulence Application");
+        $this->assertViewVarEquals("title", "My First Opulence Application");
     }
 
     /**
@@ -44,8 +44,8 @@ class PagesTest extends ApplicationTestCase
      */
     private function checkMasterTemplateSetup()
     {
-        $this->assertTemplateVarEquals("metaKeywords", []);
-        $this->assertTemplateVarEquals("metaDescription", "");
-        $this->assertTemplateVarEquals("css", "assets/css/style.css");
+        $this->assertViewVarEquals("metaKeywords", []);
+        $this->assertViewVarEquals("metaDescription", "");
+        $this->assertViewVarEquals("css", "assets/css/style.css");
     }
 }

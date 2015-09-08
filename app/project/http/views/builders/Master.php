@@ -3,10 +3,10 @@
  * Defines the master template builder
  */
 namespace Project\HTTP\Views\Builders;
-use Opulence\Views\IBuilder;
+use Opulence\Views\Factories\IViewBuilder;
 use Opulence\Views\IView;
 
-class Master implements IBuilder
+class Master implements IViewBuilder
 {
     /**
      * {@inheritdoc}

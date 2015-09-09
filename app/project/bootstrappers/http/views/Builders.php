@@ -18,15 +18,15 @@ class Builders extends Bootstrapper
      */
     public function run(IViewFactory $templateFactory)
     {
-        $templateFactory->registerBuilder("Master.fortune", function()
+        $templateFactory->registerBuilder("Master", function()
         {
             return new Master();
         });
-        $templateFactory->registerBuilder("Home.fortune", function()
+        $templateFactory->registerBuilder("Home", function()
         {
             return new Home();
         });
-        $templateFactory->registerBuilder("Edit.fortune", function()
+        $templateFactory->registerBuilder("Edit", function()
         {
             return new Edit();
         });

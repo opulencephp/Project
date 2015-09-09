@@ -1,6 +1,6 @@
-<% extends("Master.fortune") %>
+<% extends("Master") %>
 
 <% part("content") %>
-<h2>{{$errorTitle}}</h2>
-Something went wrong.
+    <h2>{{$errorTitle}}</h2>
+    Something went wrong.
 <% endpart %>

@@ -11,13 +11,13 @@
     </head>
     <body>
         <header class="main">
-            <% include("MainNav.fortune") %>
+            <% include("MainNav") %>
         </header>
         <main class="main">
             <% show("content") %>
         </main>
         <footer class="main">
-            <% include("MainNav.fortune") %>
+            <% include("MainNav") %>
             My First Opulence Project
         </footer>
     </body>

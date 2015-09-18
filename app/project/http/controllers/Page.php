@@ -32,7 +32,7 @@ class Page extends Controller
      */
     public function showEditPage()
     {
-        $this->view = $this->viewFactory->create("Edit.fortune");
+        $this->view = $this->viewFactory->create("Edit");
 
         return new Response($this->compiler->compile($this->view));
     }
@@ -42,7 +42,7 @@ class Page extends Controller
      */
     public function showHTTPError($statusCode)
     {
-        $this->view = $this->viewFactory->create("HTTPError.fortune");
+        $this->view = $this->viewFactory->create("HTTPError");
         $this->view->setVar("title", $statusCode . " Error");
         $this->view->setVar("errorTitle", $statusCode . " Error");
 
@@ -56,7 +56,7 @@ class Page extends Controller
      */
     public function showHomePage()
     {
-        $this->view = $this->viewFactory->create("Home.fortune");
+        $this->view = $this->viewFactory->create("Home");
 
         return new Response($this->compiler->compile($this->view));
     }

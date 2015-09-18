@@ -1,6 +1,11 @@
 <h2>v0.6.0</h2>
 
 <h3>General</h3>
+* Removed unnecessary extensions in `ViewFactory` calls
+
+<h2>v0.6.0</h2>
+
+<h3>General</h3>
 * Updated to Opulence (formerly RDev) 0.6
 * Renamed console start file `rdev` to `opulence`
 

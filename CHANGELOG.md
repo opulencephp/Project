@@ -1,3 +1,8 @@
+<h2>v0.6.2</h2>
+
+<h3>General</h3>
+* Removed "Edit" page to simplify the process of getting started
+
 <h2>v0.6.1</h2>
 
 <h3>General</h3>

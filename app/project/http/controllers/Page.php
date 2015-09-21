@@ -11,7 +11,7 @@ use Opulence\Views\Factories\IViewFactory;
 class Page extends Controller
 {
     /** @var ICompiler The view compiler to use */
-    protected $compiler = null;
+    protected $viewCompiler = null;
     /** @var IViewFactory The factory to use to create views */
     protected $viewFactory = null;
 
@@ -21,20 +21,8 @@ class Page extends Controller
      */
     public function __construct(ICompiler $compiler, IViewFactory $viewFactory)
     {
-        $this->compiler = $compiler;
+        $this->viewCompiler = $compiler;
         $this->viewFactory = $viewFactory;
-    }
-
-    /**
-     * Shows the edit page
-     *
-     * @return Response The response
-     */
-    public function showEditPage()
-    {
-        $this->view = $this->viewFactory->create("Edit");
-
-        return new Response($this->compiler->compile($this->view));
     }
 
     /**
@@ -46,7 +34,7 @@ class Page extends Controller
         $this->view->setVar("title", $statusCode . " Error");
         $this->view->setVar("errorTitle", $statusCode . " Error");
 
-        return new Response($this->compiler->compile($this->view), $statusCode);
+        return new Response($this->viewCompiler->compile($this->view), $statusCode);
     }
 
     /**
@@ -58,6 +46,6 @@ class Page extends Controller
     {
         $this->view = $this->viewFactory->create("Home");
 
-        return new Response($this->compiler->compile($this->view));
+        return new Response($this->viewCompiler->compile($this->view));
     }
 }

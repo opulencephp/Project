@@ -17,8 +17,7 @@
             <% show("content") %>
         </main>
         <footer class="main">
-            <% include("MainNav") %>
-            My First Opulence Project
+            &copy; {{ date("Y") }} My First Opulence Project
         </footer>
     </body>
 </html>

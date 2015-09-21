@@ -18,17 +18,6 @@ class PagesTest extends ApplicationTestCase
     }
 
     /**
-     * Tests that the edit template is set up correctly
-     */
-    public function testEditPageIsSetUpCorrectly()
-    {
-        $this->route("GET", "/edit");
-        $this->checkMasterTemplateSetup();
-        $this->assertResponseIsOK();
-        $this->assertViewVarEquals("title", "Editing This Project");
-    }
-
-    /**
      * Tests that the home template is set up correctly
      */
     public function testHomePageIsSetUpCorrectly()

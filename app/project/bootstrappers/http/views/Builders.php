@@ -3,7 +3,6 @@
  * Defines the view builders bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
-use Project\HTTP\Views\Builders\Edit;
 use Project\HTTP\Views\Builders\Home;
 use Project\HTTP\Views\Builders\Master;
 use Opulence\Applications\Bootstrappers\Bootstrapper;
@@ -25,10 +24,6 @@ class Builders extends Bootstrapper
         $templateFactory->registerBuilder("Home", function()
         {
             return new Home();
-        });
-        $templateFactory->registerBuilder("Edit", function()
-        {
-            return new Edit();
         });
     }
 }

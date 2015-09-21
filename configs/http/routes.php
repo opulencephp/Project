@@ -14,5 +14,4 @@ use Opulence\Routing\Router;
 $router->group(["controllerNamespace" => "Project\\HTTP\\Controllers"], function() use ($router)
 {
     $router->get("/", "Page@showHomePage", ["name" => "home"]);
-    $router->get("/edit", "Page@showEditPage", ["name" => "edit"]);
 });

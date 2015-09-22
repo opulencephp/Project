@@ -1,3 +1,12 @@
+<h2>v0.6.3</h2>
+
+<h3>General</h3>
+* Fixed various PHPDoc
+
+<h3>Views</h3>
+* Added "Builder" suffix to `ViewBuilder` classes
+* Updated references of "template" to "view"
+
 <h2>v0.6.2</h2>
 
 <h3>General</h3>

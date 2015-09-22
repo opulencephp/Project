@@ -14,7 +14,7 @@ use Opulence\Redis\TypeMapper;
 class Redis extends Bootstrapper implements ILazyBootstrapper
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getBindings()
     {
@@ -22,7 +22,7 @@ class Redis extends Bootstrapper implements ILazyBootstrapper
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function registerBindings(IContainer $container)
     {

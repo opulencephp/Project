@@ -5,28 +5,11 @@
 namespace Project\HTTP\Controllers;
 use Opulence\HTTP\Responses\Response;
 use Opulence\Routing\Controller;
-use Opulence\Views\Compilers\ICompiler;
-use Opulence\Views\Factories\IViewFactory;
 
 class Page extends Controller
 {
-    /** @var ICompiler The view compiler to use */
-    protected $viewCompiler = null;
-    /** @var IViewFactory The factory to use to create views */
-    protected $viewFactory = null;
-
     /**
-     * @param ICompiler $compiler The view compiler to use
-     * @param IViewFactory $viewFactory The factory to use to create views
-     */
-    public function __construct(ICompiler $compiler, IViewFactory $viewFactory)
-    {
-        $this->viewCompiler = $compiler;
-        $this->viewFactory = $viewFactory;
-    }
-
-    /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function showHTTPError($statusCode)
     {

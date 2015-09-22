@@ -16,7 +16,7 @@ class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
     private $unitOfWork = null;
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function getBindings()
     {
@@ -24,7 +24,7 @@ class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     public function registerBindings(IContainer $container)
     {

@@ -3,8 +3,8 @@
  * Defines the view builders bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
-use Project\HTTP\Views\Builders\Home;
-use Project\HTTP\Views\Builders\Master;
+use Project\HTTP\Views\Builders\HomeBuilder;
+use Project\HTTP\Views\Builders\MasterBuilder;
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 
@@ -13,17 +13,17 @@ class Builders extends Bootstrapper
     /**
      * Registers view builders to the factory
      *
-     * @param IViewFactory $templateFactory The template factory to use
+     * @param IViewFactory $viewFactory The view factory to use
      */
-    public function run(IViewFactory $templateFactory)
+    public function run(IViewFactory $viewFactory)
     {
-        $templateFactory->registerBuilder("Master", function()
+        $viewFactory->registerBuilder("Master", function()
         {
-            return new Master();
+            return new MasterBuilder();
         });
-        $templateFactory->registerBuilder("Home", function()
+        $viewFactory->registerBuilder("Home", function()
         {
-            return new Home();
+            return new HomeBuilder();
         });
     }
 }

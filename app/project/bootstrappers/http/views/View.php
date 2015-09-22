@@ -1,6 +1,6 @@
 <?php
 /**
- * Defines the template bootstrapper
+ * Defines the view bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
 use Opulence\Files\FileSystem;

@@ -11,7 +11,7 @@ use Opulence\Console\Responses\IResponse;
 class HelloWorldCommand extends Command
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function define()
     {
@@ -27,7 +27,7 @@ class HelloWorldCommand extends Command
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function doExecute(IResponse $response)
     {

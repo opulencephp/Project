@@ -28,9 +28,9 @@ class Redis extends Bootstrapper implements ILazyBootstrapper
     {
         $redis = new OpulencePHPRedis(
             new Server(
-                $this->environment->getVariable("REDIS_HOST"),
-                $this->environment->getVariable("REDIS_PASSWORD"),
-                $this->environment->getVariable("REDIS_PORT")
+                $this->environment->getVar("REDIS_HOST"),
+                $this->environment->getVar("REDIS_PASSWORD"),
+                $this->environment->getVar("REDIS_PORT")
             ),
             new TypeMapper()
         );

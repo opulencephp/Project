@@ -1,3 +1,8 @@
+<h2>v0.6.4</h2>
+
+<h3>Environments</h3>
+* Changed `Environment::getVariable()` and `setVariable()` to `getVar()` and `setVar()`, respectively
+
 <h2>v0.6.3</h2>
 
 <h3>General</h3>

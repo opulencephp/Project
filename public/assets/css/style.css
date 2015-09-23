@@ -99,16 +99,15 @@ button
     cursor: pointer;
     background-color: #ddd;
     color: #333;
-    border: 1px solid #333;
-    border-radius: 5px;
+    border: 1px solid #777;
+    border-radius: 2px;
     font-family: 'Segoe UI', arial, sans-serif;
 }
 
 button:hover
 {
     color: #111;
-    background-color: #ccc;
-    border-color: #111;
+    background-color: #d7d7d7;
 }
 
 input::-moz-focus-inner, button::-moz-focus-inner

@@ -29,11 +29,11 @@ class SQL extends Bootstrapper implements ILazyBootstrapper
         $connectionPool = new SingleServerConnectionPool(
             new Driver(),
             new Server(
-                $this->environment->getVariable("DB_HOST"),
-                $this->environment->getVariable("DB_USER"),
-                $this->environment->getVariable("DB_PASSWORD"),
-                $this->environment->getVariable("DB_NAME"),
-                $this->environment->getVariable("DB_PORT")
+                $this->environment->getVar("DB_HOST"),
+                $this->environment->getVar("DB_USER"),
+                $this->environment->getVar("DB_PASSWORD"),
+                $this->environment->getVar("DB_NAME"),
+                $this->environment->getVar("DB_PORT")
             )
         );
         $container->bind(ConnectionPool::class, $connectionPool);

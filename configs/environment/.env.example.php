@@ -12,40 +12,40 @@ use Opulence\Sessions\Handlers\FileSessionHandler;
  * Set SQL database connection info
  * ----------------------------------------------------------
  */
-$environment->setVariable("DB_HOST", "localhost");
-$environment->setVariable("DB_USER", "myuser");
-$environment->setVariable("DB_PASSWORD", "mypassword");
-$environment->setVariable("DB_NAME", "public");
-$environment->setVariable("DB_PORT", 5432);
+$environment->setVar("DB_HOST", "localhost");
+$environment->setVar("DB_USER", "myuser");
+$environment->setVar("DB_PASSWORD", "mypassword");
+$environment->setVar("DB_NAME", "public");
+$environment->setVar("DB_PORT", 5432);
 
 /**
  * ----------------------------------------------------------
  * Set the session handler and cache bridge
  * ----------------------------------------------------------
  */
-$environment->setVariable("SESSION_HANDLER", FileSessionHandler::class);
-$environment->setVariable("SESSION_CACHE_BRIDGE", FileBridge::class);
+$environment->setVar("SESSION_HANDLER", FileSessionHandler::class);
+$environment->setVar("SESSION_CACHE_BRIDGE", FileBridge::class);
 
 /**
  * ----------------------------------------------------------
  * Set Memcached connection info
  * ----------------------------------------------------------
  */
-$environment->setVariable("MEMCACHED_HOST", "localhost");
-$environment->setVariable("MEMCACHED_PORT", 11211);
+$environment->setVar("MEMCACHED_HOST", "localhost");
+$environment->setVar("MEMCACHED_PORT", 11211);
 
 /**
  * ----------------------------------------------------------
  * Set Redis connection info
  * ----------------------------------------------------------
  */
-$environment->setVariable("REDIS_HOST", "localhost");
-$environment->setVariable("REDIS_PASSWORD", null);
-$environment->setVariable("REDIS_PORT", 6379);
+$environment->setVar("REDIS_HOST", "localhost");
+$environment->setVar("REDIS_PASSWORD", null);
+$environment->setVar("REDIS_PORT", 6379);
 
 /**
  * ----------------------------------------------------------
  * Set the encryption key
  * ----------------------------------------------------------
  */
-$environment->setVariable("ENCRYPTION_KEY", "");
+$environment->setVar("ENCRYPTION_KEY", "");

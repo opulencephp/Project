@@ -35,6 +35,6 @@ class PagesTest extends ApplicationTestCase
     {
         $this->assertViewVarEquals("metaKeywords", []);
         $this->assertViewVarEquals("metaDescription", "");
-        $this->assertViewVarEquals("css", "assets/css/style.css");
+        $this->assertViewVarEquals("css", "/assets/css/style.css");
     }
 }

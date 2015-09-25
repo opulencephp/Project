@@ -17,7 +17,7 @@ class MasterBuilder implements IViewBuilder
         $view->setVar("metaKeywords", []);
         $view->setVar("metaDescription", "");
         // Set default variable values
-        $view->setVar("css", "assets/css/style.css");
+        $view->setVar("css", "/assets/css/style.css");
 
         return $view;
     }

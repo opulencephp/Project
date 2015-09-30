@@ -3,6 +3,9 @@
 <h3>Environments</h3>
 * Changed `Environment::getVariable()` and `setVariable()` to `getVar()` and `setVar()`, respectively
 
+<h3>Logging</h3>
+* Bound `Monolog\Logger` to the IoC container
+
 <h2>v0.6.3</h2>
 
 <h3>General</h3>

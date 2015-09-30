@@ -2,6 +2,7 @@
 /**
  * Boots up our application with an HTTP kernel
  */
+use Monolog\Logger;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\Caching\ICache;
 use Opulence\Applications\Environments\Environment;
@@ -43,6 +44,7 @@ $application->start(function() use ($application)
     $router = $application->getIoCContainer()->makeShared(Router::class);
     $request = $application->getIoCContainer()->makeShared(Request::class);
     $logger = require __DIR__ . "/../../configs/http/logging.php";
+    $application->getIoCContainer()->bind(Logger::class, $logger);
     $kernel = new Kernel($application->getIoCContainer(), $router, $logger);
     $kernel->addMiddleware(require __DIR__ . "/../../configs/http/middleware.php");
     $response = $kernel->handle($request);

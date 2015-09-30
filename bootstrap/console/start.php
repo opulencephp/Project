@@ -2,6 +2,7 @@
 /**
  * Boots up our application with a console kernel
  */
+use Monolog\Logger;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\Caching\ICache;
 use Opulence\Console\Commands\CommandCollection;
@@ -47,6 +48,7 @@ $statusCode = $application->start(function () use ($application)
     $requestParser = $application->getIoCContainer()->makeShared(IParser::class);
     $commandCompiler = $application->getIoCContainer()->makeShared(ICompiler::class);
     $logger = require __DIR__ . "/../../configs/console/logging.php";
+    $application->getIoCContainer()->bind(Logger::class, $logger);
     $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $logger, $application->getVersion());
 
     return $kernel->handle($argv);

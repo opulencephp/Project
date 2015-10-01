@@ -3,6 +3,7 @@
  * Defines the session bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Sessions;
+
 use Opulence\Cache\ArrayBridge;
 use Opulence\Cache\FileBridge;
 use Opulence\Cache\ICacheBridge;

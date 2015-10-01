@@ -3,6 +3,7 @@
  * Defines the unit of work bootstrapper
  */
 namespace Project\Bootstrappers\ORM;
+
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPool;

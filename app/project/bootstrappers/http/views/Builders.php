@@ -3,6 +3,7 @@
  * Defines the view builders bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
+
 use Project\HTTP\Views\Builders\HomeBuilder;
 use Project\HTTP\Views\Builders\MasterBuilder;
 use Opulence\Applications\Bootstrappers\Bootstrapper;

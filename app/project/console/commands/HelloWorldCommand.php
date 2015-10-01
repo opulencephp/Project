@@ -3,6 +3,7 @@
  * Defines an example "Hello, world" command
  */
 namespace Project\Console\Commands;
+
 use Opulence\Console\Commands\Command;
 use Opulence\Console\Requests\Option;
 use Opulence\Console\Requests\OptionTypes;

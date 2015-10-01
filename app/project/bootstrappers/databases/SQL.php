@@ -3,6 +3,7 @@
  * Defines the SQL bootstrapper
  */
 namespace Project\Bootstrappers\Databases;
+
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPool;

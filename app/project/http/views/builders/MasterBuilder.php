@@ -3,6 +3,7 @@
  * Defines the master view builder
  */
 namespace Project\HTTP\Views\Builders;
+
 use Opulence\Views\Factories\IViewBuilder;
 use Opulence\Views\IView;
 

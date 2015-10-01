@@ -3,6 +3,7 @@
  * Defines the session middleware
  */
 namespace Project\HTTP\Middleware;
+
 use DateTime;
 use Opulence\Framework\HTTP\Middleware\Session as BaseSession;
 use Opulence\HTTP\Responses\Cookie;

@@ -3,6 +3,7 @@
  * Defines the event dispatcher bootstrapper
  */
 namespace Project\Bootstrappers\Events;
+
 use Opulence\Framework\Bootstrappers\Events\Dispatcher as BaseBootstrapper;
 
 class Dispatcher extends BaseBootstrapper

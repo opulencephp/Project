@@ -3,6 +3,7 @@
  * Defines the router bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Routing;
+
 use Project\HTTP\Controllers\Page;
 use Opulence\Applications\Environments\Environment;
 use Opulence\Framework\Bootstrappers\HTTP\Routing\Router as BaseBootstrapper;

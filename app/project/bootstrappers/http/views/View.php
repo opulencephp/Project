@@ -3,6 +3,7 @@
  * Defines the view bootstrapper
  */
 namespace Project\Bootstrappers\HTTP\Views;
+
 use Opulence\Files\FileSystem;
 use Opulence\Framework\Bootstrappers\HTTP\Views\View as BaseBootstrapper;
 use Opulence\IoC\IContainer;

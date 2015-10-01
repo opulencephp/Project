@@ -3,6 +3,7 @@
  * Defines the console application test case
  */
 namespace Project\Console;
+
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;

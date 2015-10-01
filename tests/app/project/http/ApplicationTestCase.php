@@ -3,6 +3,7 @@
  * Defines the HTTP application test case
  */
 namespace Project\HTTP;
+
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Framework\Tests\HTTP\ApplicationTestCase as BaseTestCase;

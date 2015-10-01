@@ -3,6 +3,7 @@
  * Defines the Redis bootstrapper
  */
 namespace Project\Bootstrappers\Databases;
+
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\IoC\IContainer;

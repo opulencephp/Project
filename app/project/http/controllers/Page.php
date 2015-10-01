@@ -3,6 +3,7 @@
  * Defines an example controller
  */
 namespace Project\HTTP\Controllers;
+
 use Opulence\HTTP\Responses\Response;
 use Opulence\Routing\Controller;
 

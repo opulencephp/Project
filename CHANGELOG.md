@@ -1,3 +1,8 @@
+<h2>v0.6.5</h2>
+
+<h3>General</h3>
+* Switched to PSR-2 spacing between `namespace` and `use` statements
+
 <h2>v0.6.4</h2>
 
 <h3>Environments</h3>

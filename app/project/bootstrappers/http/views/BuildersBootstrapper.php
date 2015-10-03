@@ -9,7 +9,7 @@ use Project\HTTP\Views\Builders\MasterBuilder;
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 
-class Builders extends Bootstrapper
+class BuildersBootstrapper extends Bootstrapper
 {
     /**
      * Registers view builders to the factory

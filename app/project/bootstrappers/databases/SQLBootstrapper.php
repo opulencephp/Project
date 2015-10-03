@@ -12,7 +12,7 @@ use Opulence\Databases\Server;
 use Opulence\Databases\SingleServerConnectionPool;
 use Opulence\IoC\IContainer;
 
-class SQL extends Bootstrapper implements ILazyBootstrapper
+class SQLBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /**
      * @inheritdoc

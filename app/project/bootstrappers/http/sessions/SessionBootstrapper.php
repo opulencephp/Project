@@ -10,7 +10,7 @@ use Opulence\Cache\ICacheBridge;
 use Opulence\Cache\MemcachedBridge;
 use Opulence\Cache\RedisBridge;
 use Opulence\Cryptography\Encryption\IEncrypter;
-use Opulence\Framework\Bootstrappers\HTTP\Sessions\Session as BaseBootstrapper;
+use Opulence\Framework\Bootstrappers\HTTP\Sessions\SessionBootstrapper as BaseBootstrapper;
 use Opulence\IoC\IContainer;
 use Opulence\Sessions\Handlers\CacheSessionHandler;
 use Opulence\Sessions\Handlers\FileSessionHandler;
@@ -19,7 +19,7 @@ use Opulence\Sessions\ISession;
 use Opulence\Sessions\Session as OpulenceSession;
 use SessionHandlerInterface;
 
-class Session extends BaseBootstrapper
+class SessionBootstrapper extends BaseBootstrapper
 {
     /** @var array|null The config array */
     private $config = null;

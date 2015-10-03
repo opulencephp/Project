@@ -11,7 +11,7 @@ use Opulence\IoC\IContainer;
 use Opulence\ORM\EntityRegistry;
 use Opulence\ORM\UnitOfWork as ORMUnitOfWork;
 
-class UnitOfWork extends Bootstrapper implements ILazyBootstrapper
+class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /** @var ORMUnitOfWork */
     private $unitOfWork = null;

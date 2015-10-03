@@ -12,7 +12,7 @@ use Opulence\Redis\OpulencePHPRedis;
 use Opulence\Redis\Server;
 use Opulence\Redis\TypeMapper;
 
-class Redis extends Bootstrapper implements ILazyBootstrapper
+class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /**
      * @inheritdoc

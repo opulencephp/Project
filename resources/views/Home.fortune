@@ -15,7 +15,7 @@
             To change the contents of each page, change the views in the <b>resources/views</b> directory.  To change the CSS, edit <b>public/assets/css/style.css</b>.
         </p>
         <p>
-            If you want to create <i>ViewBuilders</i>, add them to <b>app/project/http/views/builders</b>.  Then, register each <i>ViewBuilder</i> to the appropriate template in <b>app/project/bootstrappers/http/views/Builders.php</b>.
+            If you want to create <i>ViewBuilders</i>, add them to <b>app/project/http/views/builders</b>.  Then, register each <i>ViewBuilder</i> to the appropriate template in <b>app/project/bootstrappers/http/views/BuildersBootstrapper.php</b>.
         </p>
     </section>
     <section id="changing-namespaces">

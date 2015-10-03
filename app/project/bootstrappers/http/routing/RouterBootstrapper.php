@@ -6,11 +6,11 @@ namespace Project\Bootstrappers\HTTP\Routing;
 
 use Project\HTTP\Controllers\Page;
 use Opulence\Applications\Environments\Environment;
-use Opulence\Framework\Bootstrappers\HTTP\Routing\Router as BaseBootstrapper;
+use Opulence\Framework\Bootstrappers\HTTP\Routing\RouterBootstrapper as BaseBootstrapper;
 use Opulence\Routing\Router as HTTPRouter;
 use Opulence\Routing\Routes\Caching\ICache;
 
-class Router extends BaseBootstrapper
+class RouterBootstrapper extends BaseBootstrapper
 {
     /**
      * Configures the router, which is useful for things like caching

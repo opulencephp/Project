@@ -2,14 +2,14 @@
 /**
  * Defines the list of bootstrapper classes to load
  */
-use Project\Bootstrappers\Databases\SQL;
-use Project\Bootstrappers\Events\Dispatcher;
-use Project\Bootstrappers\ORM\UnitOfWork;
-use Opulence\Framework\Bootstrappers\Cryptography\Cryptography;
+use Project\Bootstrappers\Databases\SQLBootstrapper;
+use Project\Bootstrappers\Events\DispatcherBootstrapper;
+use Project\Bootstrappers\ORM\UnitOfWorkBootstrapper;
+use Opulence\Framework\Bootstrappers\Cryptography\CryptographyBootstrapper;
 
 return [
-    Cryptography::class,
-    Dispatcher::class,
-    SQL::class,
-    UnitOfWork::class
+    CryptographyBootstrapper::class,
+    DispatcherBootstrapper::class,
+    SQLBootstrapper::class,
+    UnitOfWorkBootstrapper::class
 ];

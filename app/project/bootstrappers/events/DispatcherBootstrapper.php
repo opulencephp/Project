@@ -4,9 +4,9 @@
  */
 namespace Project\Bootstrappers\Events;
 
-use Opulence\Framework\Bootstrappers\Events\Dispatcher as BaseBootstrapper;
+use Opulence\Framework\Bootstrappers\Events\DispatcherBootstrapper as BaseBootstrapper;
 
-class Dispatcher extends BaseBootstrapper
+class DispatcherBootstrapper extends BaseBootstrapper
 {
     /**
      * Gets the list of event names to the list of listeners, which can be callables or "className@method" strings

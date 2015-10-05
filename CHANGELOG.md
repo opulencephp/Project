@@ -1,3 +1,8 @@
+<h2>v0.6.7</h2>
+
+<h3>Bootstrappers</h3>
+* Removed unnecessary aliases
+
 <h2>v0.6.6</h2>
 
 <h3>Bootstrappers</h3>

@@ -7,7 +7,7 @@ namespace Project\Bootstrappers\HTTP\Routing;
 use Project\HTTP\Controllers\Page;
 use Opulence\Applications\Environments\Environment;
 use Opulence\Framework\Bootstrappers\HTTP\Routing\RouterBootstrapper as BaseBootstrapper;
-use Opulence\Routing\Router as HTTPRouter;
+use Opulence\Routing\Router;
 use Opulence\Routing\Routes\Caching\ICache;
 
 class RouterBootstrapper extends BaseBootstrapper
@@ -15,9 +15,9 @@ class RouterBootstrapper extends BaseBootstrapper
     /**
      * Configures the router, which is useful for things like caching
      *
-     * @param HTTPRouter $router The router to configure
+     * @param Router $router The router to configure
      */
-    protected function configureRouter(HTTPRouter $router)
+    protected function configureRouter(Router $router)
     {
         $router->setMissedRouteController(Page::class);
         $routingConfig = require "{$this->paths["configs.http"]}/routing.php";

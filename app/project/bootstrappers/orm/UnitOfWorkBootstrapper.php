@@ -9,11 +9,11 @@ use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPool;
 use Opulence\IoC\IContainer;
 use Opulence\ORM\EntityRegistry;
-use Opulence\ORM\UnitOfWork as ORMUnitOfWork;
+use Opulence\ORM\UnitOfWork;
 
 class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
-    /** @var ORMUnitOfWork */
+    /** @var UnitOfWork */
     private $unitOfWork = null;
 
     /**
@@ -21,7 +21,7 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function getBindings()
     {
-        return [ORMUnitOfWork::class];
+        return [UnitOfWork::class];
     }
 
     /**
@@ -29,8 +29,8 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function registerBindings(IContainer $container)
     {
-        $this->unitOfWork = new ORMUnitOfWork(new EntityRegistry());
-        $container->bind(ORMUnitOfWork::class, $this->unitOfWork);
+        $this->unitOfWork = new UnitOfWork(new EntityRegistry());
+        $container->bind(UnitOfWork::class, $this->unitOfWork);
     }
 
     /**

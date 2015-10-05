@@ -16,7 +16,7 @@ use Opulence\Sessions\Handlers\CacheSessionHandler;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 use Opulence\Sessions\Handlers\IEncryptableSessionHandler;
 use Opulence\Sessions\ISession;
-use Opulence\Sessions\Session as OpulenceSession;
+use Opulence\Sessions\Session;
 use SessionHandlerInterface;
 
 class SessionBootstrapper extends BaseBootstrapper
@@ -33,7 +33,7 @@ class SessionBootstrapper extends BaseBootstrapper
     protected function getSession(IContainer $container)
     {
         $this->loadConfig();
-        $session = new OpulenceSession();
+        $session = new Session();
         $session->setName($this->config["name"]);
 
         return $session;

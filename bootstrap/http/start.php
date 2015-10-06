@@ -31,8 +31,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->start(function() use ($application)
-{
+$application->start(function () use ($application) {
     /**
      * ----------------------------------------------------------
      * Handle the request

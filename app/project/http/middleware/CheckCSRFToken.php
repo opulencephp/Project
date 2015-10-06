@@ -45,8 +45,7 @@ class CheckCSRFToken extends BaseMiddleware
      */
     private function loadConfig()
     {
-        if($this->config === null)
-        {
+        if ($this->config === null) {
             $this->config = require "{$this->paths["configs.http"]}/sessions.php";
         }
     }

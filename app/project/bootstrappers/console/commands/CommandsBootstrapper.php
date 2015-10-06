@@ -21,8 +21,7 @@ class CommandsBootstrapper extends Bootstrapper
         $commandClasses = require "{$this->paths["configs.console"]}/commands.php";
 
         // Instantiate each command class
-        foreach($commandClasses as $commandClass)
-        {
+        foreach ($commandClasses as $commandClass) {
             $commandCollection->add($container->makeShared($commandClass));
         }
     }

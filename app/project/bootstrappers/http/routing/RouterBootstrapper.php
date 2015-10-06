@@ -23,14 +23,11 @@ class RouterBootstrapper extends BaseBootstrapper
         $routingConfig = require "{$this->paths["configs.http"]}/routing.php";
         $routesConfigPath = "{$this->paths["configs.http"]}/routes.php";
 
-        if($routingConfig["cache"] && $this->environment->getName() == Environment::PRODUCTION)
-        {
+        if ($routingConfig["cache"] && $this->environment->getName() == Environment::PRODUCTION) {
             $cachedRoutesPath = "{$this->paths["routes.cache"]}/" . ICache::DEFAULT_CACHED_ROUTES_FILE_NAME;
             $routes = $this->cache->get($cachedRoutesPath, $router, $routesConfigPath);
             $router->setRouteCollection($routes);
-        }
-        else
-        {
+        }else {
             require $routesConfigPath;
         }
     }

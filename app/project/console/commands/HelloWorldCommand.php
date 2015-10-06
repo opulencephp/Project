@@ -34,8 +34,7 @@ class HelloWorldCommand extends Command
     {
         $message = "Hello, world!";
 
-        if($this->getOptionValue("yell") == "yes")
-        {
+        if ($this->getOptionValue("yell") == "yes") {
             $message = strtoupper($message);
         }
 

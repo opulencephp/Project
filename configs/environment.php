@@ -36,12 +36,9 @@ $environment = new Environment($environmentName);
  * Note:  For performance in production, it's highly suggested
  * you set environment variables on the server itself
  */
-if($environmentName != "production")
-{
-    foreach(glob(__DIR__ . "/environment/.env.*.php") as $environmentFile)
-    {
-        if(basename($environmentFile) != ".env.example.php")
-        {
+if ($environmentName != "production") {
+    foreach (glob(__DIR__ . "/environment/.env.*.php") as $environmentFile) {
+        if (basename($environmentFile) != ".env.example.php") {
             require $environmentFile;
         }
     }

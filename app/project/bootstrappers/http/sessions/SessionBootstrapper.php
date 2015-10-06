@@ -49,8 +49,7 @@ class SessionBootstrapper extends BaseBootstrapper
     {
         $this->loadConfig();
 
-        switch($this->environment->getVar("SESSION_HANDLER"))
-        {
+        switch ($this->environment->getVar("SESSION_HANDLER")) {
             case CacheSessionHandler::class:
                 $handler = new CacheSessionHandler($this->getCacheBridge($container), $this->config["lifetime"]);
                 break;
@@ -58,8 +57,7 @@ class SessionBootstrapper extends BaseBootstrapper
                 $handler = new FileSessionHandler($this->config["file.path"]);
         }
 
-        if($this->config["isEncrypted"] && $handler instanceof IEncryptableSessionHandler)
-        {
+        if ($this->config["isEncrypted"] && $handler instanceof IEncryptableSessionHandler) {
             $handler->useEncryption(true);
             $handler->setEncrypter($container->makeShared(IEncrypter::class));
         }
@@ -75,8 +73,7 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     private function getCacheBridge(IContainer $container)
     {
-        switch($this->environment->getVar("SESSION_CACHE_BRIDGE"))
-        {
+        switch ($this->environment->getVar("SESSION_CACHE_BRIDGE")) {
             case ArrayBridge::class:
                 return new ArrayBridge();
             case MemcachedBridge::class:
@@ -93,8 +90,7 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     private function loadConfig()
     {
-        if($this->config === null)
-        {
+        if ($this->config === null) {
             $this->config = require "{$this->paths["configs.http"]}/sessions.php";
         }
     }

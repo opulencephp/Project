@@ -1,3 +1,8 @@
+<h2>v0.6.8</h2>
+
+<h3>General</h3>
+* Switched to PSR-2
+
 <h2>v0.6.7</h2>
 
 <h3>Bootstrappers</h3>

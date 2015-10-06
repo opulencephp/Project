@@ -31,8 +31,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$statusCode = $application->start(function () use ($application)
-{
+$statusCode = $application->start(function () use ($application) {
     global $argv;
 
     /**

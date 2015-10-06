@@ -21,8 +21,7 @@ class Session extends BaseSession
     {
         $this->loadConfig();
 
-        if(rand(1, $this->config["gc.divisor"]) <= $this->config["gc.chance"])
-        {
+        if (rand(1, $this->config["gc.divisor"]) <= $this->config["gc.chance"]) {
             $this->sessionHandler->gc($this->config["lifetime"]);
         }
     }
@@ -56,8 +55,7 @@ class Session extends BaseSession
      */
     private function loadConfig()
     {
-        if($this->config === null)
-        {
+        if ($this->config === null) {
             $this->config = require "{$this->paths["configs.http"]}/sessions.php";
         }
     }

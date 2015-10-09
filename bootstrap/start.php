@@ -4,7 +4,7 @@
  */
 /**
  * ----------------------------------------------------------
- * Create our paths and check our setup
+ * Create our paths
  * ----------------------------------------------------------
  */
 $paths = require __DIR__ . "/../configs/paths.php";

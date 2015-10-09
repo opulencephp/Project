@@ -27,7 +27,7 @@ class RouterBootstrapper extends BaseBootstrapper
             $cachedRoutesPath = "{$this->paths["routes.cache"]}/" . ICache::DEFAULT_CACHED_ROUTES_FILE_NAME;
             $routes = $this->cache->get($cachedRoutesPath, $router, $routesConfigPath);
             $router->setRouteCollection($routes);
-        }else {
+        } else {
             require $routesConfigPath;
         }
     }

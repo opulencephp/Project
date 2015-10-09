@@ -8,7 +8,6 @@
  * ----------------------------------------------------------
  */
 $paths = require __DIR__ . "/../configs/paths.php";
-require $paths["vendor"] . "/opulence/opulence/app/opulence/framework/setupcheck.php";
 
 /**
  * ----------------------------------------------------------

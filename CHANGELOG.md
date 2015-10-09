@@ -1,3 +1,12 @@
+<h2>v0.6.9</h2>
+
+<h3>Bootstrappers</h3>
+* Added `Opulence\Framework\Bootstrappers\PHP\PHPBootstrapper`
+* Removed `setupcheck.php` call
+
+<h3>Views</h3>
+* Updated to use latest `ViewFactory::registerBuilder()` implementation
+
 <h2>v0.6.8</h2>
 
 <h3>General</h3>

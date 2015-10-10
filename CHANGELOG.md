@@ -1,3 +1,8 @@
+<h2>v0.6.10</h2>
+
+<h3>Environments</h3>
+* Updated to latest changes in Opulence v0.6.14
+
 <h2>v0.6.9</h2>
 
 <h3>Bootstrappers</h3>

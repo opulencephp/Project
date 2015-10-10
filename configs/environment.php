@@ -3,30 +3,29 @@
  * Defines the environment config
  */
 use Opulence\Applications\Environments\Environment;
-use Opulence\Applications\Environments\EnvironmentDetector;
 use Opulence\Applications\Environments\Hosts\HostRegex;
+use Opulence\Applications\Environments\Resolvers\EnvironmentResolver;
 
 /**
  * ----------------------------------------------------------
  * Register the hosts
  * ----------------------------------------------------------
  */
-$detector = new EnvironmentDetector();
-$detector->registerHost("production", [
+$environmentResolver = new EnvironmentResolver();
+$environmentResolver->registerHost("production", [
     // Add any production hosts here
     new HostRegex("^.*$")
 ]);
-$detector->registerHost("staging", [
+$environmentResolver->registerHost("staging", [
     // Add any staging hosts here
 ]);
-$detector->registerHost("testing", [
+$environmentResolver->registerHost("testing", [
     // Add any testing hosts here
 ]);
-$detector->registerHost("development", [
+$environmentResolver->registerHost("development", [
     // Add any development hosts here
 ]);
-$environmentName = $detector->detect();
-$environment = new Environment($environmentName);
+$environment = new Environment($environmentResolver->resolve(gethostname()));
 
 /**
  * ----------------------------------------------------------
@@ -36,7 +35,7 @@ $environment = new Environment($environmentName);
  * Note:  For performance in production, it's highly suggested
  * you set environment variables on the server itself
  */
-if ($environmentName != "production") {
+if ($environment->getName() != "production") {
     foreach (glob(__DIR__ . "/environment/.env.*.php") as $environmentFile) {
         if (basename($environmentFile) != ".env.example.php") {
             require $environmentFile;

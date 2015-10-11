@@ -39,16 +39,16 @@
   "scripts": {
     "post-create-project-cmd": [
       "php -r \"copy('configs/environment/.env.example.php', 'configs/environment/.env.app.php');\"",
-      "php opulence encryption:generatekey",
+      "php apex encryption:generatekey",
       "php -r \"echo 'Important: make ' . __DIR__ . '/tmp writable\n';\""
     ],
     "post-install-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",
-      "php opulence framework:flushcache"
+      "php apex framework:flushcache"
     ],
     "post-update-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",
-      "php opulence framework:flushcache"
+      "php apex framework:flushcache"
     ]
   },
   "config": {

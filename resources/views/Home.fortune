@@ -24,7 +24,7 @@
     </section>
     <section id="console-commands">
         <h3>Console Commands</h3>
-        You can run console commands running "<i>php opulence</i>" from your project's root directory.  To create a custom command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>app/project/console/commands</b> directory.  Then, add the fully-qualified name of your command class to <b>app/configs/console/commands.php</b>.
+        You can run console commands running "<i>php apex</i>" from your project's root directory.  To create a custom command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>app/project/console/commands</b> directory.  Then, add the fully-qualified name of your command class to <b>app/configs/console/commands.php</b>.
     </section>
     <section id="official-docs">
         <h3>Learn More</h3>

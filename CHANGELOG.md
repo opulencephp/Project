@@ -1,3 +1,9 @@
+<h2>v0.6.13</h2>
+
+<h3>Console</h3>
+* Officially titled the console library "Apex"
+* Renamed `opulence` file to `apex`
+
 <h2>v0.6.12</h2>
 
 <h3>Sessions</h3>

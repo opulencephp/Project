@@ -40,8 +40,8 @@ $environment->setVar("MEMCACHED_PORT", 11211);
  * ----------------------------------------------------------
  */
 $environment->setVar("REDIS_HOST", "localhost");
-$environment->setVar("REDIS_PASSWORD", null);
 $environment->setVar("REDIS_PORT", 6379);
+$environment->setVar("REDIS_DATABASE", 0);
 
 /**
  * ----------------------------------------------------------

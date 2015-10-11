@@ -1,3 +1,13 @@
+<h2>v0.6.11</h2>
+
+<h3>Redis</h3>
+* Updated `Project\Bootstrappers\Databases\RedisBootstrapper` to use latest `Opulence\Redis\Redis`
+* Added `REDIS_DATABASE` environment variable
+
+<h3>Sessions</h3>
+* Added `cache.clientName` to `configs/http/sessions.php`
+* Added client name parameter when making `MemcachedBridge` and `RedisBridge` for cache-backed sessions
+
 <h2>v0.6.10</h2>
 
 <h3>Environments</h3>

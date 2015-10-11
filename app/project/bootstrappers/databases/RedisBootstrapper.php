@@ -7,10 +7,9 @@ namespace Project\Bootstrappers\Databases;
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\IoC\IContainer;
-use Opulence\Redis\IRedis;
-use Opulence\Redis\OpulencePHPRedis;
-use Opulence\Redis\Server;
+use Opulence\Redis\Redis;
 use Opulence\Redis\TypeMapper;
+use Redis as Client;
 
 class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
@@ -19,7 +18,7 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function getBindings()
     {
-        return [IRedis::class];
+        return [Redis::class];
     }
 
     /**
@@ -27,14 +26,16 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function registerBindings(IContainer $container)
     {
-        $redis = new OpulencePHPRedis(
-            new Server(
-                $this->environment->getVar("REDIS_HOST"),
-                $this->environment->getVar("REDIS_PASSWORD"),
-                $this->environment->getVar("REDIS_PORT")
-            ),
+        $client = new Client();
+        $client->connect(
+            $this->environment->getVar("REDIS_HOST"),
+            $this->environment->getVar("REDIS_PORT")
+        );
+        $client->select($this->environment->getVar("REDIS_DATABASE"));
+        $redis = new Redis(
+            $client,
             new TypeMapper()
         );
-        $container->bind([IRedis::class, OpulencePHPRedis::class], $redis);
+        $container->bind([Redis::class], $redis);
     }
 }

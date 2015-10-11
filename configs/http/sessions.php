@@ -47,8 +47,10 @@ return [
      * Cache-backed session settings
      * ----------------------------------------------------------
      *
+     * "cache.clientName" => The name of the client to use in your cache bridge
      * "cache.keyPrefix" => The prefix to use on all cache keys to avoid naming collisions
      */
+    "cache.clientName" => "default",
     "cache.keyPrefix" => "opulence:",
 
     /**

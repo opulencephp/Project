@@ -2,6 +2,7 @@
 /**
  * Defines the list of bootstrapper classes to load
  */
+use Project\Bootstrappers\Databases\RedisBootstrapper;
 use Project\Bootstrappers\Databases\SQLBootstrapper;
 use Project\Bootstrappers\Events\DispatcherBootstrapper;
 use Project\Bootstrappers\ORM\UnitOfWorkBootstrapper;
@@ -13,5 +14,6 @@ return [
     CryptographyBootstrapper::class,
     DispatcherBootstrapper::class,
     SQLBootstrapper::class,
+    RedisBootstrapper::class,
     UnitOfWorkBootstrapper::class
 ];

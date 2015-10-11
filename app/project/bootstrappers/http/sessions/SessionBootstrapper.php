@@ -77,9 +77,15 @@ class SessionBootstrapper extends BaseBootstrapper
             case ArrayBridge::class:
                 return new ArrayBridge();
             case MemcachedBridge::class:
-                return $container->makeShared(MemcachedBridge::class, ["default", $this->config["cache.keyPrefix"]]);
+                return $container->makeShared(
+                    MemcachedBridge::class,
+                    [$this->config["cache.clientName"], $this->config["cache.keyPrefix"]]
+                );
             case RedisBridge::class:
-                return $container->makeShared(RedisBridge::class, ["default", $this->config["cache.keyPrefix"]]);
+                return $container->makeShared(
+                    RedisBridge::class,
+                    [$this->config["cache.clientName"], $this->config["cache.keyPrefix"]]
+                );
             default: // FileBridge
                 return new FileBridge($this->config["file.path"]);
         }

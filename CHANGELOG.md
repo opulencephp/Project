@@ -1,3 +1,8 @@
+<h2>v0.6.12</h2>
+
+<h3>Sessions</h3>
+* Fixed `SessionBootstrapper` so that it respects cache client name
+
 <h2>v0.6.11</h2>
 
 <h3>Redis</h3>

@@ -5,7 +5,7 @@
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\BootstrapperRegistry;
-use Opulence\Applications\Bootstrappers\Caching\Cache;
+use Opulence\Applications\Bootstrappers\Caching\FileCache;
 use Opulence\Applications\Bootstrappers\Caching\ICache;
 use Opulence\Applications\Bootstrappers\Dispatchers\Dispatcher as BootstrapperDispatcher;
 use Opulence\Applications\Bootstrappers\Dispatchers\IDispatcher as IBootstrapperDispatcher;
@@ -35,7 +35,7 @@ $application = new Application($paths, $taskDispatcher, $environment, $container
  */
 $bootstrapperRegistry = new BootstrapperRegistry($paths, $environment);
 $bootstrapperDispatcher = new BootstrapperDispatcher($taskDispatcher, $container);
-$bootstrapperCache = new Cache($paths);
+$bootstrapperCache = new FileCache($paths);
 $applicationBinder = new ApplicationBinder(
     $bootstrapperRegistry,
     $bootstrapperDispatcher,

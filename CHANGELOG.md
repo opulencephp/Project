@@ -1,3 +1,8 @@
+<h2>v0.6.15</h2>
+
+<h3>General</h3>
+* Fixed bad "use" statement in `configs/application.php`
+
 <h2>v0.6.14</h2>
 
 <h3>Databases</h3>

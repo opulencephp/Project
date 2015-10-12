@@ -6,10 +6,10 @@ namespace Project\Bootstrappers\Databases;
 
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
-use Opulence\Databases\ConnectionPool;
+use Opulence\Databases\ConnectionPools\ConnectionPool;
+use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\PDO\PostgreSQL\Driver;
 use Opulence\Databases\Server;
-use Opulence\Databases\SingleServerConnectionPool;
 use Opulence\IoC\IContainer;
 
 class SQLBootstrapper extends Bootstrapper implements ILazyBootstrapper

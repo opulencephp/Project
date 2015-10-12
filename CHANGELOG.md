@@ -1,3 +1,12 @@
+<h2>v0.6.14</h2>
+
+<h3>Databases</h3>
+* Updated connection pools to use latest `Opulence\Databases\ConnectionPools` namespace (Opulence v0.6.17)
+
+<h3>Views</h3>
+* Updated `ViewBootstrapper` to instantiate `FileCache` class, not `Cache`
+* Removed `$fileSystem` parameter from `FileCache`
+
 <h2>v0.6.13</h2>
 
 <h3>Console</h3>

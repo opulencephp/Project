@@ -20,7 +20,7 @@
   },
   "require": {
     "php": ">=5.5.10",
-    "opulence/opulence": "0.6.*@dev"
+    "opulence/opulence": "1.0.*@dev"
   },
   "require-dev": {
     "phpunit/phpunit": "4.5.*",
@@ -33,7 +33,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "0.6.x-dev"
+      "dev-master": "1.0.x-dev"
     }
   },
   "scripts": {

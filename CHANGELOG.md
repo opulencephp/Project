@@ -1,3 +1,9 @@
+<h2>v1.0.0-alpha3</h2>
+
+<h3>Views</h3>
+* Changed wording on homepage
+* Changed all views to have `.fortune.php` extensions
+
 <h2>v1.0.0-alpha2</h2>
 
 <h3>ORM</h3>

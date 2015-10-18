@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha2</h2>
+
+<h3>ORM</h3>
+* Updated `UnitOfWorkBootstrapper` to use changes in Opulence v1.0.0-alpha3
+
 <h2>v1.0.0-alpha1</h2>
 
 <h3>General</h3>

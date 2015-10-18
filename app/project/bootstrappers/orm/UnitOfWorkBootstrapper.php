@@ -8,7 +8,11 @@ use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPool;
 use Opulence\IoC\IContainer;
+use Opulence\ORM\ChangeTracking\ChangeTracker;
+use Opulence\ORM\ChangeTracking\IChangeTracker;
 use Opulence\ORM\EntityRegistry;
+use Opulence\ORM\Ids\IdAccessorRegistry;
+use Opulence\ORM\Ids\IIdAccessorRegistry;
 use Opulence\ORM\UnitOfWork;
 
 class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
@@ -21,7 +25,11 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function getBindings()
     {
-        return [UnitOfWork::class];
+        return [
+            IChangeTracker::class,
+            IIdAccessorRegistry::class,
+            UnitOfWork::class
+        ];
     }
 
     /**
@@ -29,7 +37,12 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function registerBindings(IContainer $container)
     {
-        $this->unitOfWork = new UnitOfWork(new EntityRegistry());
+        $idAccessorRegistry = new IdAccessorRegistry();
+        $changeTracker = new ChangeTracker();
+        $entityRegistry = new EntityRegistry($idAccessorRegistry, $changeTracker);
+        $this->unitOfWork = new UnitOfWork($entityRegistry, $idAccessorRegistry, $changeTracker);
+        $container->bind(IIdAccessorRegistry::class, $idAccessorRegistry);
+        $container->bind(IChangeTracker::class, $changeTracker);
         $container->bind(UnitOfWork::class, $this->unitOfWork);
     }
 

@@ -11,7 +11,7 @@ use Opulence\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
 class ApplicationTestCase extends BaseTestCase
 {
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function getKernelLogger()
     {
@@ -19,7 +19,7 @@ class ApplicationTestCase extends BaseTestCase
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      */
     protected function setApplication()
     {

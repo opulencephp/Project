@@ -35,7 +35,7 @@
 </section>
 <section id="official-docs">
     <h3>Learn More</h3>
-    Read the <a href="http://www.opulencephp.com/docs" target="_blank" title="Read the official documentation">official
+    Read the <a href="https://www.opulencephp.com/docs" target="_blank" title="Read the official documentation">official
         documentation</a>.
 </section>
 <% endpart %>

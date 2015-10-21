@@ -14,4 +14,4 @@ composer create-project opulence/project DESIRED_SERVER_PATH --prefer-dist
 ```
 
 ## Learn More
-To learn more about how to use Opulence, [visit its website](http://www.opulencephp.com) or [browse its repository](https://github.com/opulencephp/Opulence).
+To learn more about how to use Opulence, [visit its website](https://www.opulencephp.com) or [browse its repository](https://github.com/opulencephp/Opulence).

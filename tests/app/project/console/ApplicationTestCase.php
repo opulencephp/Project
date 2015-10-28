@@ -6,7 +6,7 @@ namespace Project\Console;
 
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
-use Opulence\Framework\Tests\Console\ApplicationTestCase as BaseTestCase;
+use Opulence\Framework\Testing\PHPUnit\Console\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
 {

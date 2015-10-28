@@ -6,7 +6,7 @@ namespace Project\HTTP;
 
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
-use Opulence\Framework\Tests\HTTP\ApplicationTestCase as BaseTestCase;
+use Opulence\Framework\Testing\PHPUnit\HTTP\ApplicationTestCase as BaseTestCase;
 
 class ApplicationTestCase extends BaseTestCase
 {

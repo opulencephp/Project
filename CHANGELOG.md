@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha4</h2>
+
+<h3>Tests</h3>
+* Updated references from `Opulence\Framework\Tests` to `Opulence\Framework\Testing\PHPUnit`
+
 <h2>v1.0.0-alpha3</h2>
 
 <h3>Views</h3>

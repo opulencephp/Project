@@ -1,20 +1,20 @@
 <?php
-/**
- * Defines the unit of work bootstrapper
- */
-namespace Project\Bootstrappers\ORM;
+namespace Project\Bootstrappers\Orm;
 
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
-use Opulence\Databases\ConnectionPool;
-use Opulence\IoC\IContainer;
-use Opulence\ORM\ChangeTracking\ChangeTracker;
-use Opulence\ORM\ChangeTracking\IChangeTracker;
-use Opulence\ORM\EntityRegistry;
-use Opulence\ORM\Ids\IdAccessorRegistry;
-use Opulence\ORM\Ids\IIdAccessorRegistry;
-use Opulence\ORM\UnitOfWork;
+use Opulence\Databases\ConnectionPools\ConnectionPool;
+use Opulence\Ioc\IContainer;
+use Opulence\Orm\ChangeTracking\ChangeTracker;
+use Opulence\Orm\ChangeTracking\IChangeTracker;
+use Opulence\Orm\EntityRegistry;
+use Opulence\Orm\Ids\IdAccessorRegistry;
+use Opulence\Orm\Ids\IIdAccessorRegistry;
+use Opulence\Orm\UnitOfWork;
 
+/**
+ * Defines the unit of work bootstrapper
+ */
 class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /** @var UnitOfWork */

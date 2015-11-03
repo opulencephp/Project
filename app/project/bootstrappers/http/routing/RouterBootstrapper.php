@@ -1,15 +1,15 @@
 <?php
-/**
- * Defines the router bootstrapper
- */
-namespace Project\Bootstrappers\HTTP\Routing;
+namespace Project\Bootstrappers\Http\Routing;
 
-use Project\HTTP\Controllers\Page;
+use Project\Http\Controllers\Page;
 use Opulence\Applications\Environments\Environment;
-use Opulence\Framework\Bootstrappers\HTTP\Routing\RouterBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Bootstrappers\Http\Routing\RouterBootstrapper as BaseBootstrapper;
 use Opulence\Routing\Router;
 use Opulence\Routing\Routes\Caching\ICache;
 
+/**
+ * Defines the router bootstrapper
+ */
 class RouterBootstrapper extends BaseBootstrapper
 {
     /**

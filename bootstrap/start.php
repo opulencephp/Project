@@ -1,8 +1,5 @@
 <?php
 /**
- * Defines the common starting point for Opulence applications
- */
-/**
  * ----------------------------------------------------------
  * Create our paths
  * ----------------------------------------------------------

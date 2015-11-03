@@ -7,7 +7,7 @@
 </section>
 <section id="routes">
     <h3>Routes</h3>
-    Create new routes in <b>configs/http/routes.php</b>. To handle each route, add methods to <b>app/project/http/controllers/Page.php</b>.
+    Create new routes in <b>configs/http/routes.php</b>. To handle each route, add methods to <b>app/Project/Http/Controllers/Page.php</b>.
 </section>
 <section id="views">
     <h3>Views</h3>
@@ -18,8 +18,8 @@
     </p>
 
     <p>
-        If you want to create <i>ViewBuilders</i>, add them to <b>app/project/http/views/builders</b>. Then, register
-        each <i>ViewBuilder</i> to the appropriate template in <b>app/project/bootstrappers/http/views/BuildersBootstrapper.php</b>.
+        If you want to create <i>ViewBuilders</i>, add them to <b>app/Project/Http/Views/Builders</b>. Then, register
+        each <i>ViewBuilder</i> to the appropriate template in <b>app/Project/Bootstrappers/Http/Views/BuildersBootstrapper.php</b>.
     </p>
 </section>
 <section id="changing-namespaces">
@@ -30,7 +30,7 @@
 <section id="console-commands">
     <h3>Console Commands</h3>
     You can run console commands running "<i>php apex</i>" from your project's root directory. To create a custom
-    command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>app/project/console/commands</b>
+    command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>app/Project/Console/Commands</b>
     directory. Then, add the fully-qualified name of your command class to <b>app/configs/console/commands.php</b>.
 </section>
 <section id="official-docs">

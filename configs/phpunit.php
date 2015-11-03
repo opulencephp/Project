@@ -1,6 +1,8 @@
 <?php
 /**
- * Defines the PHPUnit config
+ * ----------------------------------------------------------
+ * Define the PHPUnit config
+ * ----------------------------------------------------------
  */
 $paths = require __DIR__ . "/paths.php";
 require_once $paths["vendor"] . "/autoload.php";

@@ -1,11 +1,13 @@
 <?php
-/**
- * Defines the list of global middleware to be run on all routes
- */
-use Project\HTTP\Middleware\Session;
-use Project\HTTP\Middleware\CheckCSRFToken;
+use Project\Http\Middleware\Session;
+use Project\Http\Middleware\CheckCsrfToken;
 
+/**
+ * ----------------------------------------------------------
+ * Define the list of middleware to be run on all routes
+ * ----------------------------------------------------------
+ */
 return [
     Session::class,
-    CheckCSRFToken::class
+    CheckCsrfToken::class
 ];

@@ -1,13 +1,13 @@
 <?php
-/**
- * Defines the HTTP application test case
- */
-namespace Project\HTTP;
+namespace Project\Http;
 
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
-use Opulence\Framework\Testing\PHPUnit\HTTP\ApplicationTestCase as BaseTestCase;
+use Opulence\Framework\Testing\PhpUnit\Http\ApplicationTestCase as BaseTestCase;
 
+/**
+ * Defines the Http application test case
+ */
 class ApplicationTestCase extends BaseTestCase
 {
     /**
@@ -37,7 +37,7 @@ class ApplicationTestCase extends BaseTestCase
 
         /**
          * ----------------------------------------------------------
-         * Finish configuring the bootstrappers for the HTTP kernel
+         * Finish configuring the bootstrappers for the Http kernel
          * ----------------------------------------------------------
          *
          * @var ApplicationBinder $applicationBinder

@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines the application config
- */
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\BootstrapperRegistry;
@@ -13,7 +10,7 @@ use Opulence\Applications\Bootstrappers\IBootstrapperRegistry;
 use Opulence\Applications\Environments\Environment;
 use Opulence\Applications\Paths;
 use Opulence\Applications\Tasks\Dispatchers\IDispatcher as ITaskDispatcher;
-use Opulence\IoC\IContainer;
+use Opulence\Ioc\IContainer;
 
 /**
  * ----------------------------------------------------------

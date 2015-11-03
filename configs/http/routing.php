@@ -1,6 +1,10 @@
 <?php
 /**
- * Defines the routing config
+ * ----------------------------------------------------------
+ * Define the routing config
+ * ----------------------------------------------------------
+ *
+ * Note:  To actually add routes, see configs/http/routes.php
  */
 return [
     /**

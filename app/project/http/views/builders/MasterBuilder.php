@@ -1,12 +1,12 @@
 <?php
-/**
- * Defines the master view builder
- */
-namespace Project\HTTP\Views\Builders;
+namespace Project\Http\Views\Builders;
 
 use Opulence\Views\Factories\IViewBuilder;
 use Opulence\Views\IView;
 
+/**
+ * Defines the master view builder
+ */
 class MasterBuilder implements IViewBuilder
 {
     /**

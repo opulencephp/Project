@@ -1,11 +1,11 @@
 <?php
-/**
- * Defines the event dispatcher bootstrapper
- */
 namespace Project\Bootstrappers\Events;
 
 use Opulence\Framework\Bootstrappers\Events\DispatcherBootstrapper as BaseBootstrapper;
 
+/**
+ * Defines the event dispatcher bootstrapper
+ */
 class DispatcherBootstrapper extends BaseBootstrapper
 {
     /**

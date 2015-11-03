@@ -1,8 +1,5 @@
 <?php
-/**
- * Defines the dependency injection config
- */
-use Opulence\IoC\Container;
+use Opulence\Ioc\Container;
 
 /**
  * ----------------------------------------------------------

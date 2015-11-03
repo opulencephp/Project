@@ -1,13 +1,13 @@
 <?php
-/**
- * Defines the console application test case
- */
 namespace Project\Console;
 
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
-use Opulence\Framework\Testing\PHPUnit\Console\ApplicationTestCase as BaseTestCase;
+use Opulence\Framework\Testing\PhpUnit\Console\ApplicationTestCase as BaseTestCase;
 
+/**
+ * Defines the console application test case
+ */
 class ApplicationTestCase extends BaseTestCase
 {
     /**

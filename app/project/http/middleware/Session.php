@@ -1,14 +1,14 @@
 <?php
+namespace Project\Http\Middleware;
+
+use DateTime;
+use Opulence\Framework\Http\Middleware\Session as BaseSession;
+use Opulence\Http\Responses\Cookie;
+use Opulence\Http\Responses\Response;
+
 /**
  * Defines the session middleware
  */
-namespace Project\HTTP\Middleware;
-
-use DateTime;
-use Opulence\Framework\HTTP\Middleware\Session as BaseSession;
-use Opulence\HTTP\Responses\Cookie;
-use Opulence\HTTP\Responses\Response;
-
 class Session extends BaseSession
 {
     /** @var array|null The config array */

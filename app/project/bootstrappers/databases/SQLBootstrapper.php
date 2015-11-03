@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines the SQL bootstrapper
- */
 namespace Project\Bootstrappers\Databases;
 
 use Opulence\Applications\Bootstrappers\Bootstrapper;
@@ -10,9 +7,12 @@ use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\PDO\PostgreSQL\Driver;
 use Opulence\Databases\Server;
-use Opulence\IoC\IContainer;
+use Opulence\Ioc\IContainer;
 
-class SQLBootstrapper extends Bootstrapper implements ILazyBootstrapper
+/**
+ * Defines the SQL bootstrapper
+ */
+class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /**
      * @inheritdoc

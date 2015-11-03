@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines the environment config
- */
 use Opulence\Applications\Environments\Environment;
 use Opulence\Applications\Environments\Hosts\HostRegex;
 use Opulence\Applications\Environments\Resolvers\EnvironmentResolver;

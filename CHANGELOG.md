@@ -1,3 +1,10 @@
+<h2>v1.0.0-alpha5</h2>
+
+<h3>General</h3>
+* Changed formatting of PHPDoc
+* Changed capitalization of namespace/class name/variable acronyms to follow pascal case
+* Changed all directory names to match namespace capitalization
+
 <h2>v1.0.0-alpha4</h2>
 
 <h3>Tests</h3>

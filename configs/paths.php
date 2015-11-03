@@ -1,9 +1,11 @@
 <?php
-/**
- * Defines the list of paths needed by this application
- */
 use Opulence\Applications\Paths;
 
+/**
+ * ----------------------------------------------------------
+ * Define the list of paths needed by this application
+ * ----------------------------------------------------------
+ */
 $pathsConfig = [
     /**
      * ----------------------------------------------------------
@@ -21,7 +23,7 @@ $pathsConfig = [
      *
      * "configs" => The configs directory
      * "configs.console" => The console config directory
-     * "configs.http" => The HTTP config directory
+     * "configs.http" => The Http config directory
      */
     "configs" => __DIR__,
     "configs.console" => __DIR__ . "/console",
@@ -88,7 +90,7 @@ $pathsConfig = [
      *
      * "tmp" => The temporary directory
      * "tmp.framework.console" => The framework's temporary console directory
-     * "tmp.framework.http" => The framework's temporary HTTP directory
+     * "tmp.framework.http" => The framework's temporary Http directory
      */
     "tmp" => __DIR__ . "/../tmp",
     "tmp.framework.console" => __DIR__ . "/../tmp/framework/console",

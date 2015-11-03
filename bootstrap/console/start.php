@@ -1,7 +1,4 @@
 <?php
-/**
- * Boots up our application with a console kernel
- */
 use Monolog\Logger;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\Caching\ICache;
@@ -14,7 +11,7 @@ require_once __DIR__ . "/../start.php";
 
 /**
  * ----------------------------------------------------------
- * Finish configuring the bootstrappers for the console kernel
+ * Configure the bootstrappers for the console kernel
  * ----------------------------------------------------------
  *
  * @var ApplicationBinder $applicationBinder

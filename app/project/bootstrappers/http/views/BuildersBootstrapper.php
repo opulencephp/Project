@@ -1,15 +1,15 @@
 <?php
-/**
- * Defines the view builders bootstrapper
- */
-namespace Project\Bootstrappers\HTTP\Views;
+namespace Project\Bootstrappers\Http\Views;
 
-use Project\HTTP\Views\Builders\HomeBuilder;
-use Project\HTTP\Views\Builders\MasterBuilder;
+use Project\Http\Views\Builders\HomeBuilder;
+use Project\Http\Views\Builders\MasterBuilder;
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 use Opulence\Views\IView;
 
+/**
+ * Defines the view builders bootstrapper
+ */
 class BuildersBootstrapper extends Bootstrapper
 {
     /**

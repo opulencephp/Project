@@ -1,20 +1,20 @@
 <?php
+namespace Project\Http\Controllers;
+
+use Opulence\Http\Responses\Response;
+use Opulence\Routing\Controller;
+
 /**
  * Defines an example controller
  */
-namespace Project\HTTP\Controllers;
-
-use Opulence\HTTP\Responses\Response;
-use Opulence\Routing\Controller;
-
 class Page extends Controller
 {
     /**
      * @inheritdoc
      */
-    public function showHTTPError($statusCode)
+    public function showHttpError($statusCode)
     {
-        $this->view = $this->viewFactory->create("HTTPError");
+        $this->view = $this->viewFactory->create("HttpError");
         $this->view->setVar("title", $statusCode . " Error");
         $this->view->setVar("errorTitle", $statusCode . " Error");
 

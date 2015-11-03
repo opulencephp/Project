@@ -1,20 +1,17 @@
 <?php
-/**
- * Boots up our application with an HTTP kernel
- */
 use Monolog\Logger;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Applications\Bootstrappers\Caching\ICache;
 use Opulence\Applications\Environments\Environment;
-use Opulence\Framework\HTTP\Kernel;
-use Opulence\HTTP\Requests\Request;
+use Opulence\Framework\Http\Kernel;
+use Opulence\Http\Requests\Request;
 use Opulence\Routing\Router;
 
 require_once __DIR__ . "/../start.php";
 
 /**
  * ----------------------------------------------------------
- * Finish configuring the bootstrappers for the HTTP kernel
+ * Configure the bootstrappers for the Http kernel
  * ----------------------------------------------------------
  *
  * @var ApplicationBinder $applicationBinder

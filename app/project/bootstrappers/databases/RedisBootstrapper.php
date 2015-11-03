@@ -1,16 +1,16 @@
 <?php
-/**
- * Defines the Redis bootstrapper
- */
 namespace Project\Bootstrappers\Databases;
 
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
-use Opulence\IoC\IContainer;
+use Opulence\Ioc\IContainer;
 use Opulence\Redis\Redis;
 use Opulence\Redis\TypeMapper;
 use Redis as Client;
 
+/**
+ * Defines the Redis bootstrapper
+ */
 class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
     /**

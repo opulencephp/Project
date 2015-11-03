@@ -1,9 +1,9 @@
 <?php
+namespace Project\Http;
+
 /**
  * Defines the page tests
  */
-namespace Project\HTTP;
-
 class PagesTest extends ApplicationTestCase
 {
     /**

@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines an example environment config
- */
 use Opulence\Applications\Environments\Environment;
 use Opulence\Cache\FileBridge;
 use Opulence\Sessions\Handlers\FileSessionHandler;

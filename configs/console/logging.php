@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines the logging config for console applications
- */
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Logger;
 

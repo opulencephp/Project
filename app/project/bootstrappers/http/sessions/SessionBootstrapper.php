@@ -1,8 +1,5 @@
 <?php
-/**
- * Defines the session bootstrapper
- */
-namespace Project\Bootstrappers\HTTP\Sessions;
+namespace Project\Bootstrappers\Http\Sessions;
 
 use Opulence\Cache\ArrayBridge;
 use Opulence\Cache\FileBridge;
@@ -10,8 +7,8 @@ use Opulence\Cache\ICacheBridge;
 use Opulence\Cache\MemcachedBridge;
 use Opulence\Cache\RedisBridge;
 use Opulence\Cryptography\Encryption\IEncrypter;
-use Opulence\Framework\Bootstrappers\HTTP\Sessions\SessionBootstrapper as BaseBootstrapper;
-use Opulence\IoC\IContainer;
+use Opulence\Framework\Bootstrappers\Http\Sessions\SessionBootstrapper as BaseBootstrapper;
+use Opulence\Ioc\IContainer;
 use Opulence\Sessions\Handlers\CacheSessionHandler;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 use Opulence\Sessions\Handlers\IEncryptableSessionHandler;
@@ -19,6 +16,9 @@ use Opulence\Sessions\ISession;
 use Opulence\Sessions\Session;
 use SessionHandlerInterface;
 
+/**
+ * Defines the session bootstrapper
+ */
 class SessionBootstrapper extends BaseBootstrapper
 {
     /** @var array|null The config array */
@@ -27,7 +27,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the session object to use
      *
-     * @param IContainer $container The IoC Container
+     * @param IContainer $container The Ioc Container
      * @return ISession The session to use
      */
     protected function getSession(IContainer $container)
@@ -42,7 +42,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the session handler object to use
      *
-     * @param IContainer $container The IoC Container
+     * @param IContainer $container The Ioc Container
      * @return SessionHandlerInterface The session handler to use
      */
     protected function getSessionHandler(IContainer $container)
@@ -68,7 +68,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the cache bridge to use for a cache session handler
      *
-     * @param IContainer $container The IoC container
+     * @param IContainer $container The Ioc container
      * @return ICacheBridge The cache bridge
      */
     private function getCacheBridge(IContainer $container)

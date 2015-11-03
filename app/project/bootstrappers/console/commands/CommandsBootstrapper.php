@@ -1,13 +1,13 @@
 <?php
-/**
- * Defines the command bootstrapper
- */
 namespace Project\Bootstrappers\Console\Commands;
 
 use Opulence\Applications\Bootstrappers\Bootstrapper;
 use Opulence\Console\Commands\CommandCollection;
-use Opulence\IoC\IContainer;
+use Opulence\Ioc\IContainer;
 
+/**
+ * Defines the command bootstrapper
+ */
 class CommandsBootstrapper extends Bootstrapper
 {
     /**

@@ -1,16 +1,16 @@
 <?php
+namespace Project\Http\Middleware;
+
+use DateTime;
+use Opulence\Framework\Http\CsrfTokenChecker;
+use Opulence\Framework\Http\Middleware\CheckCsrfToken as BaseMiddleware;
+use Opulence\Http\Responses\Cookie;
+use Opulence\Http\Responses\Response;
+
 /**
  * Defines the middleware that checks the CSRF token
  */
-namespace Project\HTTP\Middleware;
-
-use DateTime;
-use Opulence\Framework\HTTP\CSRFTokenChecker;
-use Opulence\Framework\HTTP\Middleware\CheckCSRFToken as BaseMiddleware;
-use Opulence\HTTP\Responses\Cookie;
-use Opulence\HTTP\Responses\Response;
-
-class CheckCSRFToken extends BaseMiddleware
+class CheckCsrfToken extends BaseMiddleware
 {
     /** @var array|null The config array */
     private $config = null;

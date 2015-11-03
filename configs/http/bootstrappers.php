@@ -1,14 +1,16 @@
 <?php
-/**
- * Defines the list of bootstrapper classes to load for an HTTP application
- */
-use Project\Bootstrappers\HTTP\Routing\RouterBootstrapper;
-use Project\Bootstrappers\HTTP\Sessions\SessionBootstrapper;
-use Project\Bootstrappers\HTTP\Views\BuildersBootstrapper;
-use Project\Bootstrappers\HTTP\Views\ViewBootstrapper;
-use Opulence\Framework\Bootstrappers\HTTP\Requests\RequestBootstrapper;
-use Opulence\Framework\Bootstrappers\HTTP\Views\ViewFunctionsBootstrapper;
+use Project\Bootstrappers\Http\Routing\RouterBootstrapper;
+use Project\Bootstrappers\Http\Sessions\SessionBootstrapper;
+use Project\Bootstrappers\Http\Views\BuildersBootstrapper;
+use Project\Bootstrappers\Http\Views\ViewBootstrapper;
+use Opulence\Framework\Bootstrappers\Http\Requests\RequestBootstrapper;
+use Opulence\Framework\Bootstrappers\Http\Views\ViewFunctionsBootstrapper;
 
+/**
+ * ----------------------------------------------------------
+ * Define the bootstrapper classes for an Http application
+ * ----------------------------------------------------------
+ */
 return [
     RequestBootstrapper::class,
     RouterBootstrapper::class,

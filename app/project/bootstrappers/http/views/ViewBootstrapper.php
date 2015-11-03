@@ -1,14 +1,14 @@
 <?php
-/**
- * Defines the view bootstrapper
- */
-namespace Project\Bootstrappers\HTTP\Views;
+namespace Project\Bootstrappers\Http\Views;
 
-use Opulence\Framework\Bootstrappers\HTTP\Views\ViewBootstrapper as BaseBootstrapper;
-use Opulence\IoC\IContainer;
+use Opulence\Framework\Bootstrappers\Http\Views\ViewBootstrapper as BaseBootstrapper;
+use Opulence\Ioc\IContainer;
 use Opulence\Views\Caching\FileCache;
 use Opulence\Views\Caching\ICache;
 
+/**
+ * Defines the view bootstrapper
+ */
 class ViewBootstrapper extends BaseBootstrapper
 {
     /**

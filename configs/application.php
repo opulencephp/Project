@@ -20,7 +20,7 @@ use Opulence\Ioc\IContainer;
 $taskDispatcher = require __DIR__ . "/tasks.php";
 $environment = require __DIR__ . "/environment.php";
 $container = require __DIR__ . "/ioc.php";
-$application = new Application($paths, $taskDispatcher, $environment, $container);
+$application = new Application($taskDispatcher, $environment);
 
 /**
  * ----------------------------------------------------------

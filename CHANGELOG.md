@@ -1,3 +1,11 @@
+<h2>v1.0.0-alpha6</h2>
+
+<h3>Applications</h3>
+* Removed `Application::getIocContainer()` and `Application::getPaths()` calls
+
+<h3>Testing</h3>
+* Updated `ApplicationTestCase::setApplication()` to `setApplicationAndIocContainer()`
+
 <h2>v1.0.0-alpha5</h2>
 
 <h3>General</h3>

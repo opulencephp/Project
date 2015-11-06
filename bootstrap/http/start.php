@@ -20,7 +20,7 @@ $applicationBinder->bindToApplication(
     require __DIR__ . "/../../configs/http/bootstrappers.php",
     false,
     $application->getEnvironment()->getName() == Environment::PRODUCTION,
-    $application->getPaths()["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+    $paths["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 
 /**
@@ -28,7 +28,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->start(function () use ($application) {
+$application->start(function () use ($application, $container) {
     /**
      * ----------------------------------------------------------
      * Handle the request
@@ -37,11 +37,11 @@ $application->start(function () use ($application) {
      * @var Router $router
      * @var Request $request
      */
-    $router = $application->getIoCContainer()->makeShared(Router::class);
-    $request = $application->getIoCContainer()->makeShared(Request::class);
+    $router = $container->makeShared(Router::class);
+    $request = $container->makeShared(Request::class);
     $logger = require __DIR__ . "/../../configs/http/logging.php";
-    $application->getIoCContainer()->bind(Logger::class, $logger);
-    $kernel = new Kernel($application->getIoCContainer(), $router, $logger);
+    $container->bind(Logger::class, $logger);
+    $kernel = new Kernel($container, $router, $logger);
     $kernel->addMiddleware(require __DIR__ . "/../../configs/http/middleware.php");
     $response = $kernel->handle($request);
     $response->send();

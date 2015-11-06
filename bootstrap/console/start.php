@@ -20,7 +20,7 @@ $applicationBinder->bindToApplication(
     require __DIR__ . "/../../configs/console/bootstrappers.php",
     false,
     true,
-    $application->getPaths()["tmp.framework.console"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+    $paths["tmp.framework.console"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
 );
 
 /**
@@ -28,7 +28,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$statusCode = $application->start(function () use ($application) {
+$statusCode = $application->start(function () use ($application, $container) {
     global $argv;
 
     /**
@@ -40,11 +40,11 @@ $statusCode = $application->start(function () use ($application) {
      * @var IParser $requestParser
      * @var ICompiler $commandCompiler
      */
-    $commandCollection = $application->getIoCContainer()->makeShared(CommandCollection::class);
-    $requestParser = $application->getIoCContainer()->makeShared(IParser::class);
-    $commandCompiler = $application->getIoCContainer()->makeShared(ICompiler::class);
+    $commandCollection = $container->makeShared(CommandCollection::class);
+    $requestParser = $container->makeShared(IParser::class);
+    $commandCompiler = $container->makeShared(ICompiler::class);
     $logger = require __DIR__ . "/../../configs/console/logging.php";
-    $application->getIoCContainer()->bind(Logger::class, $logger);
+    $container->bind(Logger::class, $logger);
     $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $logger, $application->getVersion());
 
     return $kernel->handle($argv);

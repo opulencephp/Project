@@ -4,9 +4,10 @@ namespace Project\Http;
 use Opulence\Applications\Application;
 use Opulence\Applications\Bootstrappers\ApplicationBinder;
 use Opulence\Framework\Testing\PhpUnit\Http\ApplicationTestCase as BaseTestCase;
+use Opulence\Ioc\IContainer;
 
 /**
- * Defines the Http application test case
+ * Defines the HTTP application test case
  */
 class ApplicationTestCase extends BaseTestCase
 {
@@ -29,15 +30,17 @@ class ApplicationTestCase extends BaseTestCase
     /**
      * @inheritdoc
      */
-    protected function setApplication()
+    protected function setApplicationAndIocContainer()
     {
         /** @var Application $application */
         require __DIR__ . "/../../../../bootstrap/start.php";
         $this->application = $application;
+        /** @var IContainer $container */
+        $this->container = $container;
 
         /**
          * ----------------------------------------------------------
-         * Finish configuring the bootstrappers for the Http kernel
+         * Finish configuring the bootstrappers for the HTTP kernel
          * ----------------------------------------------------------
          *
          * @var ApplicationBinder $applicationBinder

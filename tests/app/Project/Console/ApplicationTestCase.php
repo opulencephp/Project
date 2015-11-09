@@ -2,7 +2,7 @@
 namespace Project\Console;
 
 use Opulence\Applications\Application;
-use Opulence\Applications\Bootstrappers\ApplicationBinder;
+use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Framework\Testing\PhpUnit\Console\ApplicationTestCase as BaseTestCase;
 use Opulence\Ioc\IContainer;
 

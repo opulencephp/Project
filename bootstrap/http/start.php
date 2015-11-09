@@ -1,8 +1,8 @@
 <?php
 use Monolog\Logger;
-use Opulence\Applications\Bootstrappers\ApplicationBinder;
-use Opulence\Applications\Bootstrappers\Caching\ICache;
 use Opulence\Applications\Environments\Environment;
+use Opulence\Bootstrappers\ApplicationBinder;
+use Opulence\Bootstrappers\Caching\ICache;
 use Opulence\Framework\Http\Kernel;
 use Opulence\Http\Requests\Request;
 use Opulence\Routing\Router;

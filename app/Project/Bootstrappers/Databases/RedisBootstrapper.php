@@ -1,8 +1,8 @@
 <?php
 namespace Project\Bootstrappers\Databases;
 
-use Opulence\Applications\Bootstrappers\Bootstrapper;
-use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
+use Opulence\Bootstrappers\Bootstrapper;
+use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Redis\Redis;
 use Opulence\Redis\TypeMapper;

@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha7</h2>
+
+<h3>Bootstrappers</h3>
+* Changed `Opulence\Applications\Bootstrappers` namespace to `Opulence\Bootstrappers`
+
 <h2>v1.0.0-alpha6</h2>
 
 <h3>Applications</h3>

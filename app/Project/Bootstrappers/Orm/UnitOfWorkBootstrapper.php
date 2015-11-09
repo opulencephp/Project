@@ -1,8 +1,8 @@
 <?php
 namespace Project\Bootstrappers\Orm;
 
-use Opulence\Applications\Bootstrappers\Bootstrapper;
-use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
+use Opulence\Bootstrappers\Bootstrapper;
+use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Ioc\IContainer;
 use Opulence\Orm\ChangeTracking\ChangeTracker;

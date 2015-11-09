@@ -3,7 +3,7 @@ namespace Project\Bootstrappers\Http\Views;
 
 use Project\Http\Views\Builders\HomeBuilder;
 use Project\Http\Views\Builders\MasterBuilder;
-use Opulence\Applications\Bootstrappers\Bootstrapper;
+use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 use Opulence\Views\IView;
 

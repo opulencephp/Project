@@ -1,7 +1,7 @@
 <?php
 namespace Project\Bootstrappers\Console\Commands;
 
-use Opulence\Applications\Bootstrappers\Bootstrapper;
+use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Console\Commands\CommandCollection;
 use Opulence\Ioc\IContainer;
 

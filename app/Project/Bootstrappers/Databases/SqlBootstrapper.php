@@ -1,8 +1,8 @@
 <?php
 namespace Project\Bootstrappers\Databases;
 
-use Opulence\Applications\Bootstrappers\Bootstrapper;
-use Opulence\Applications\Bootstrappers\ILazyBootstrapper;
+use Opulence\Bootstrappers\Bootstrapper;
+use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\PDO\PostgreSQL\Driver;

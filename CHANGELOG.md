@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha8</h2>
+
+<h3>General</h3>
+* Added develop branch
+
 <h2>v1.0.0-alpha7</h2>
 
 <h3>Bootstrappers</h3>

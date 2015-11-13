@@ -5,7 +5,7 @@ use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Redis\Redis;
-use Opulence\Redis\TypeMapper;
+use Opulence\Redis\Types\TypeMapper;
 use Redis as Client;
 
 /**
@@ -18,7 +18,7 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function getBindings()
     {
-        return [Redis::class];
+        return [Redis::class, TypeMapper::class];
     }
 
     /**
@@ -32,10 +32,8 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
             $this->environment->getVar("REDIS_PORT")
         );
         $client->select($this->environment->getVar("REDIS_DATABASE"));
-        $redis = new Redis(
-            $client,
-            new TypeMapper()
-        );
-        $container->bind([Redis::class], $redis);
+        $redis = new Redis($client);
+        $container->bind(Redis::class, $redis);
+        $container->bind(TypeMapper::class, new TypeMapper());
     }
 }

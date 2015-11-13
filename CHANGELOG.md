@@ -2,6 +2,15 @@
 
 <h3>General</h3>
 * Added develop branch
+* Renamed `/app` directory to `/src`
+* Renamed `/tests/app` directory to `/tests/src`
+
+<h3>Databases</h3>
+* Added `TypeMapperFactory` binding to `SqlBootstrapper`
+ 
+<h3>Redis</h3>
+* Added `TypeMapper` binding to `RedisBootstrapper`
+* Removed `TypeMapper` from `Opulence\Redis\Redis::__construct()`
 
 <h2>v1.0.0-alpha7</h2>
 

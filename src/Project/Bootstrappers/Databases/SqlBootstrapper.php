@@ -3,9 +3,10 @@ namespace Project\Bootstrappers\Databases;
 
 use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Bootstrappers\ILazyBootstrapper;
+use Opulence\Databases\Adapters\Pdo\PostgreSql\Driver;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
-use Opulence\Databases\PDO\PostgreSQL\Driver;
+use Opulence\Databases\Providers\Types\Factories\TypeMapperFactory;
 use Opulence\Databases\Server;
 use Opulence\Ioc\IContainer;
 
@@ -19,7 +20,7 @@ class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function getBindings()
     {
-        return [ConnectionPool::class];
+        return [ConnectionPool::class, TypeMapperFactory::class];
     }
 
     /**
@@ -38,5 +39,6 @@ class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
             )
         );
         $container->bind(ConnectionPool::class, $connectionPool);
+        $container->bind(TypeMapperFactory::class, new TypeMapperFactory());
     }
 }

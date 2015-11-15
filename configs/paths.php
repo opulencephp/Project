@@ -1,5 +1,5 @@
 <?php
-use Opulence\Applications\Paths;
+use Opulence\Bootstrappers\Paths;
 
 /**
  * ----------------------------------------------------------

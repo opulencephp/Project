@@ -1,5 +1,13 @@
 <h2>v1.0.0-alpha8</h2>
 
+<h3>Bootstrap</h3>
+* Changed `Opulence\Applications\Application::shutdown()` to `shutDown()`
+
+<h3>Configs</h3>
+* Changed `Opulence\Applications\Paths` to `Opulence\Bootstrappers\Paths`
+
+<h2>v1.0.0-alpha8</h2>
+
 <h3>General</h3>
 * Added develop branch
 * Renamed `/app` directory to `/src`

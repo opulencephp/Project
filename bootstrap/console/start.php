@@ -55,5 +55,5 @@ $statusCode = $application->start(function () use ($application, $container) {
  * Shut her down
  * ----------------------------------------------------------
  */
-$application->shutdown();
+$application->shutDown();
 exit($statusCode);

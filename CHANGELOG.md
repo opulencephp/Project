@@ -1,4 +1,4 @@
-<h2>v1.0.0-alpha8</h2>
+<h2>v1.0.0-alpha9</h2>
 
 <h3>Bootstrap</h3>
 * Changed `Opulence\Applications\Application::shutdown()` to `shutDown()`

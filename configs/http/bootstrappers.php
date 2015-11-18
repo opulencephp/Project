@@ -8,7 +8,7 @@ use Project\Bootstrappers\Http\Views\ViewBootstrapper;
 
 /**
  * ----------------------------------------------------------
- * Define the bootstrapper classes for an Http application
+ * Define the bootstrapper classes for an HTTP application
  * ----------------------------------------------------------
  */
 return [

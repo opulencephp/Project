@@ -3,7 +3,7 @@ use Opulence\Routing\Router;
 
 /**
  * ----------------------------------------------------------
- * Create all of the routes for the Http kernel
+ * Create all of the routes for the HTTP kernel
  * ----------------------------------------------------------
  *
  * @var Router $router

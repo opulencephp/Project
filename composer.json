@@ -20,6 +20,7 @@
   },
   "require": {
     "php": ">=5.5.10",
+    "monolog/monolog": "1.12.*@dev",
     "opulence/opulence": "1.0.*@dev"
   },
   "require-dev": {

@@ -10,18 +10,6 @@ use Opulence\Routing\Controller;
 class Page extends Controller
 {
     /**
-     * @inheritdoc
-     */
-    public function showHttpError($statusCode)
-    {
-        $this->view = $this->viewFactory->create("HttpError");
-        $this->view->setVar("title", $statusCode . " Error");
-        $this->view->setVar("errorTitle", $statusCode . " Error");
-
-        return new Response($this->viewCompiler->compile($this->view), $statusCode);
-    }
-
-    /**
      * Shows the homepage
      *
      * @return Response The response

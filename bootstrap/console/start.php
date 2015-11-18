@@ -1,5 +1,4 @@
 <?php
-use Monolog\Logger;
 use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Bootstrappers\Caching\ICache;
 use Opulence\Console\Commands\CommandCollection;
@@ -7,7 +6,27 @@ use Opulence\Console\Commands\Compilers\ICompiler;
 use Opulence\Console\Requests\Parsers\IParser;
 use Opulence\Framework\Console\Kernel;
 
-require_once __DIR__ . "/../start.php";
+/**
+ * ----------------------------------------------------------
+ * Create our paths
+ * ----------------------------------------------------------
+ */
+require_once __DIR__ . "/../../configs/paths.php";
+
+/**
+ * ----------------------------------------------------------
+ * Set the console exception renderer
+ * ----------------------------------------------------------
+ */
+$exceptionRenderer = require_once __DIR__ . "/../../configs/console/exceptions.php";
+$exceptionHandler = require __DIR__ . "/../../configs/exceptions.php";
+
+/**
+ * ----------------------------------------------------------
+ * Initialize some application variables
+ * ----------------------------------------------------------
+ */
+$application = require_once __DIR__ . "/../../configs/application.php";
 
 /**
  * ----------------------------------------------------------
@@ -28,7 +47,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$statusCode = $application->start(function () use ($application, $container) {
+$statusCode = $application->start(function () use ($application, $container, $exceptionHandler, $exceptionRenderer) {
     global $argv;
 
     /**
@@ -43,9 +62,14 @@ $statusCode = $application->start(function () use ($application, $container) {
     $commandCollection = $container->makeShared(CommandCollection::class);
     $requestParser = $container->makeShared(IParser::class);
     $commandCompiler = $container->makeShared(ICompiler::class);
-    $logger = require __DIR__ . "/../../configs/console/logging.php";
-    $container->bind(Logger::class, $logger);
-    $kernel = new Kernel($requestParser, $commandCompiler, $commandCollection, $logger, $application->getVersion());
+    $kernel = new Kernel(
+        $requestParser,
+        $commandCompiler,
+        $commandCollection,
+        $exceptionHandler,
+        $exceptionRenderer,
+        $application->getVersion()
+    );
 
     return $kernel->handle($argv);
 });

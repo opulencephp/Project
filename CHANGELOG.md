@@ -1,3 +1,11 @@
+<h2>v1.0.0-alpha10</h2>
+
+<h3>Console</h3>
+* Changed console kernel to use exception handlers and renderers rather than loggers
+
+<h3>HTTP</h3>
+* Changed HTTP kernel to use exception handlers and renderers rather than loggers
+
 <h2>v1.0.0-alpha9</h2>
 
 <h3>Bootstrap</h3>

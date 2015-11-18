@@ -12,9 +12,7 @@ class PagesTest extends ApplicationTestCase
     public function test404PageIsSetUpCorrectly()
     {
         $this->route("GET", "/doesNotExist");
-        $this->checkMasterTemplateSetup();
         $this->assertResponseIsNotFound();
-        $this->assertViewVarEquals("title", "404 Error");
     }
 
     /**

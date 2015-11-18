@@ -1,8 +1,9 @@
 <?php
 namespace Project\Console;
 
-use Opulence\Applications\Application;
 use Opulence\Bootstrappers\ApplicationBinder;
+use Opulence\Exceptions\ExceptionHandler;
+use Opulence\Framework\Exceptions\Console\IConsoleExceptionRenderer;
 use Opulence\Framework\Testing\PhpUnit\Console\ApplicationTestCase as BaseTestCase;
 use Opulence\Ioc\IContainer;
 
@@ -11,12 +12,38 @@ use Opulence\Ioc\IContainer;
  */
 class ApplicationTestCase extends BaseTestCase
 {
+    /** @var ExceptionHandler The exception handler used by console applications */
+    private $exceptionHandler = null;
+    /** @var IConsoleExceptionRenderer The exception renderer used by console applications */
+    private $exceptionRenderer = null;
+
     /**
      * @inheritdoc
      */
-    protected function getKernelLogger()
+    public function setUp()
     {
-        return require __DIR__ . "/../../../../configs/console/logging.php";
+        /** @var $exceptionRenderer IConsoleExceptionRenderer */
+        $exceptionRenderer = require __DIR__ . "/../../../../configs/console/exceptions.php";
+        $this->exceptionHandler = require __DIR__ . "/../../../../configs/exceptions.php";
+        $this->exceptionRenderer = $exceptionRenderer;
+
+        parent::setUp();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function getExceptionHandler()
+    {
+        return $this->exceptionHandler;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function getExceptionRenderer()
+    {
+        return $this->exceptionRenderer;
     }
 
     /**
@@ -24,9 +51,8 @@ class ApplicationTestCase extends BaseTestCase
      */
     protected function setApplicationAndIocContainer()
     {
-        /** @var Application $application */
-        require __DIR__ . "/../../../../bootstrap/start.php";
-        $this->application = $application;
+        require __DIR__ . "/../../../../configs/paths.php";
+        $this->application = require __DIR__ . "/../../../../configs/application.php";
         /** @var IContainer $container */
         $this->container = $container;
 

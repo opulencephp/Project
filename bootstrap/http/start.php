@@ -1,5 +1,4 @@
 <?php
-use Monolog\Logger;
 use Opulence\Applications\Environments\Environment;
 use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Bootstrappers\Caching\ICache;
@@ -7,11 +6,31 @@ use Opulence\Framework\Http\Kernel;
 use Opulence\Http\Requests\Request;
 use Opulence\Routing\Router;
 
-require_once __DIR__ . "/../start.php";
+/**
+ * ----------------------------------------------------------
+ * Create our paths
+ * ----------------------------------------------------------
+ */
+require_once __DIR__ . "/../../configs/paths.php";
 
 /**
  * ----------------------------------------------------------
- * Configure the bootstrappers for the Http kernel
+ * Set the HTTP exception renderer
+ * ----------------------------------------------------------
+ */
+$exceptionRenderer = require_once __DIR__ . "/../../configs/http/exceptions.php";
+$exceptionHandler = require __DIR__ . "/../../configs/exceptions.php";
+
+/**
+ * ----------------------------------------------------------
+ * Initialize some application variables
+ * ----------------------------------------------------------
+ */
+$application = require_once __DIR__ . "/../../configs/application.php";
+
+/**
+ * ----------------------------------------------------------
+ * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
  *
  * @var ApplicationBinder $applicationBinder
@@ -28,7 +47,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$application->start(function () use ($application, $container) {
+$application->start(function () use ($application, $container, $exceptionHandler, $exceptionRenderer) {
     /**
      * ----------------------------------------------------------
      * Handle the request
@@ -39,9 +58,7 @@ $application->start(function () use ($application, $container) {
      */
     $router = $container->makeShared(Router::class);
     $request = $container->makeShared(Request::class);
-    $logger = require __DIR__ . "/../../configs/http/logging.php";
-    $container->bind(Logger::class, $logger);
-    $kernel = new Kernel($container, $router, $logger);
+    $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
     $kernel->addMiddleware(require __DIR__ . "/../../configs/http/middleware.php");
     $response = $kernel->handle($request);
     $response->send();

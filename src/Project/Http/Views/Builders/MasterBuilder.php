@@ -14,6 +14,7 @@ class MasterBuilder implements IViewBuilder
      */
     public function build(IView $view)
     {
+        $view->setVar("title", "Welcome");
         // Default to empty meta data
         $view->setVar("metaKeywords", []);
         $view->setVar("metaDescription", "");

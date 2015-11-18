@@ -120,4 +120,4 @@ $pathsConfig = [
 // Get the autoloader
 require $pathsConfig["vendor"] . "/autoload.php";
 
-return new Paths($pathsConfig);
+$paths = new Paths($pathsConfig);

@@ -1,7 +1,6 @@
 <?php
 namespace Project\Bootstrappers\Http\Routing;
 
-use Project\Http\Controllers\Page;
 use Opulence\Applications\Environments\Environment;
 use Opulence\Framework\Bootstrappers\Http\Routing\RouterBootstrapper as BaseBootstrapper;
 use Opulence\Routing\Router;
@@ -19,7 +18,6 @@ class RouterBootstrapper extends BaseBootstrapper
      */
     protected function configureRouter(Router $router)
     {
-        $router->setMissedRouteController(Page::class);
         $routingConfig = require "{$this->paths["configs.http"]}/routing.php";
         $routesConfigPath = "{$this->paths["configs.http"]}/routes.php";
 

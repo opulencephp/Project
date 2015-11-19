@@ -1,11 +1,12 @@
 <?php
 namespace Project\Bootstrappers\Http\Views;
 
-use Project\Http\Views\Builders\HomeBuilder;
-use Project\Http\Views\Builders\MasterBuilder;
 use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 use Opulence\Views\IView;
+use Project\Http\Views\Builders\ErrorBuilder;
+use Project\Http\Views\Builders\HomeBuilder;
+use Project\Http\Views\Builders\MasterBuilder;
 
 /**
  * Defines the view builders bootstrapper
@@ -24,6 +25,9 @@ class BuildersBootstrapper extends Bootstrapper
         });
         $viewFactory->registerBuilder("Home", function (IView $view) {
             return (new HomeBuilder())->build($view);
+        });
+        $viewFactory->registerBuilder("errors/Error", function (IView $view) {
+            return (new ErrorBuilder())->build($view);
         });
     }
 }

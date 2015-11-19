@@ -11,15 +11,18 @@ use Opulence\Framework\Console\Kernel;
  * Create our paths
  * ----------------------------------------------------------
  */
-require_once __DIR__ . "/../../configs/paths.php";
+$paths = require_once __DIR__ . "/../../configs/paths.php";
 
 /**
  * ----------------------------------------------------------
- * Set the console exception renderer
+ * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
-$exceptionRenderer = require_once __DIR__ . "/../../configs/console/exceptions.php";
-$exceptionHandler = require __DIR__ . "/../../configs/exceptions.php";
+$exceptionRenderer = require_once __DIR__ . "/../../configs/console/exceptionRenderer.php";
+$exceptionHandler = require_once __DIR__ . "/../../configs/exceptionHandler.php";
+$errorHandler = require_once __DIR__ . "/../../configs/errorHandler.php";
+$exceptionHandler->register();
+$errorHandler->register();
 
 /**
  * ----------------------------------------------------------
@@ -36,7 +39,7 @@ $application = require_once __DIR__ . "/../../configs/application.php";
  * @var ApplicationBinder $applicationBinder
  */
 $applicationBinder->bindToApplication(
-    require __DIR__ . "/../../configs/console/bootstrappers.php",
+    require_once __DIR__ . "/../../configs/console/bootstrappers.php",
     false,
     true,
     $paths["tmp.framework.console"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME

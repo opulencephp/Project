@@ -2,8 +2,9 @@
 namespace Project\Console;
 
 use Opulence\Bootstrappers\ApplicationBinder;
-use Opulence\Exceptions\ExceptionHandler;
-use Opulence\Framework\Exceptions\Console\IConsoleExceptionRenderer;
+use Opulence\Debug\Errors\Handlers\IErrorHandler;
+use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
+use Opulence\Framework\Debug\Exceptions\Handlers\Console\IConsoleExceptionRenderer;
 use Opulence\Framework\Testing\PhpUnit\Console\ApplicationTestCase as BaseTestCase;
 use Opulence\Ioc\IContainer;
 
@@ -12,19 +13,25 @@ use Opulence\Ioc\IContainer;
  */
 class ApplicationTestCase extends BaseTestCase
 {
-    /** @var ExceptionHandler The exception handler used by console applications */
-    private $exceptionHandler = null;
     /** @var IConsoleExceptionRenderer The exception renderer used by console applications */
     private $exceptionRenderer = null;
+    /** @var IExceptionHandler The exception handler used by console applications */
+    private $exceptionHandler = null;
 
     /**
      * @inheritdoc
      */
     public function setUp()
     {
-        /** @var $exceptionRenderer IConsoleExceptionRenderer */
-        $exceptionRenderer = require __DIR__ . "/../../../../configs/console/exceptions.php";
-        $this->exceptionHandler = require __DIR__ . "/../../../../configs/exceptions.php";
+        /** @var IConsoleExceptionRenderer $exceptionRenderer */
+        /** @var IExceptionHandler $exceptionHandler */
+        /** @var IErrorHandler $errorHandler */
+        $exceptionRenderer = require __DIR__ . "/../../../../configs/console/exceptionRenderer.php";
+        $exceptionHandler = require __DIR__ . "/../../../../configs/exceptionHandler.php";
+        $errorHandler = require __DIR__ . "/../../../../configs/errorHandler.php";
+        $exceptionHandler->register();
+        $errorHandler->register();
+        $this->exceptionHandler = $exceptionHandler;
         $this->exceptionRenderer = $exceptionRenderer;
 
         parent::setUp();
@@ -51,7 +58,7 @@ class ApplicationTestCase extends BaseTestCase
      */
     protected function setApplicationAndIocContainer()
     {
-        require __DIR__ . "/../../../../configs/paths.php";
+        $paths = require __DIR__ . "/../../../../configs/paths.php";
         $this->application = require __DIR__ . "/../../../../configs/application.php";
         /** @var IContainer $container */
         $this->container = $container;

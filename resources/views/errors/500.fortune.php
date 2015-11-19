@@ -4,5 +4,9 @@
     Something broke
 <% endpart %>
 <% part("errorDescription") %>
-    Sorry about that.
+    <% if($__environment->getName() == "development") %>
+        {{ $__exception->getMessage() }}
+    <% else %>
+        Sorry about that. We will look into what happened.
+    <% endif %>
 <% endpart %>

@@ -11,15 +11,18 @@ use Opulence\Routing\Router;
  * Create our paths
  * ----------------------------------------------------------
  */
-require_once __DIR__ . "/../../configs/paths.php";
+$paths = require_once __DIR__ . "/../../configs/paths.php";
 
 /**
  * ----------------------------------------------------------
- * Set the HTTP exception renderer
+ * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
-$exceptionRenderer = require_once __DIR__ . "/../../configs/http/exceptions.php";
-$exceptionHandler = require __DIR__ . "/../../configs/exceptions.php";
+$exceptionRenderer = require_once __DIR__ . "/../../configs/http/exceptionRenderer.php";
+$exceptionHandler = require_once __DIR__ . "/../../configs/exceptionHandler.php";
+$errorHandler = require_once __DIR__ . "/../../configs/errorHandler.php";
+$exceptionHandler->register();
+$errorHandler->register();
 
 /**
  * ----------------------------------------------------------
@@ -36,7 +39,7 @@ $application = require_once __DIR__ . "/../../configs/application.php";
  * @var ApplicationBinder $applicationBinder
  */
 $applicationBinder->bindToApplication(
-    require __DIR__ . "/../../configs/http/bootstrappers.php",
+    require_once __DIR__ . "/../../configs/http/bootstrappers.php",
     false,
     $application->getEnvironment()->getName() == Environment::PRODUCTION,
     $paths["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
@@ -59,7 +62,7 @@ $application->start(function () use ($application, $container, $exceptionHandler
     $router = $container->makeShared(Router::class);
     $request = $container->makeShared(Request::class);
     $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
-    $kernel->addMiddleware(require __DIR__ . "/../../configs/http/middleware.php");
+    $kernel->addMiddleware(require_once __DIR__ . "/../../configs/http/middleware.php");
     $response = $kernel->handle($request);
     $response->send();
 });

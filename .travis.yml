@@ -17,5 +17,7 @@ notifications:
   email:
     - dbyoung2@gmail.com
 
+sudo: false
+
 matrix:
   fast_finish: true

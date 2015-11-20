@@ -2,9 +2,7 @@
 
 <h3>Configs</h3>
 * Changed `/configs` to `/config`
-
-<h3>Console</h3>
-* Changed console kernel to use exception handlers and renderers rather than loggers
+* Added `/config/exceptions.php` and `/config/errors.php`
 
 <h3>HTTP</h3>
 * Changed HTTP kernel to use exception handlers and renderers rather than loggers

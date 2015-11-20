@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=1024" />
+        <meta name="viewport" content="width=1024"/>
         {{! charset("utf-8") !}}
         {{! pageTitle($title) !}}
         {{! css("http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700") !}}

@@ -46,7 +46,7 @@ $applicationBinder->bindToApplication(
  * Let's get started
  * ----------------------------------------------------------
  */
-$statusCode = $application->start(function () use ($application, $container, $exceptionHandler, $exceptionRenderer) {
+$statusCode = $application->start(function () use ($application, $container) {
     global $argv;
 
     /**
@@ -65,8 +65,6 @@ $statusCode = $application->start(function () use ($application, $container, $ex
         $requestParser,
         $commandCompiler,
         $commandCollection,
-        $exceptionHandler,
-        $exceptionRenderer,
         $application->getVersion()
     );
 

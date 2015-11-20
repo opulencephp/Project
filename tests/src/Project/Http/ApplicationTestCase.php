@@ -28,9 +28,8 @@ class ApplicationTestCase extends BaseTestCase
         /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */
-        $exceptionRenderer = require __DIR__ . "/../../../../config/http/exceptionRenderer.php";
-        $exceptionHandler = require __DIR__ . "/../../../../config/exceptionHandler.php";
-        $errorHandler = require __DIR__ . "/../../../../config/errorHandler.php";
+        $exceptionHandler = require __DIR__ . "/../../../../config/http/exceptions.php";
+        $errorHandler = require __DIR__ . "/../../../../config/http/errors.php";
         $exceptionHandler->register();
         $errorHandler->register();
         $this->exceptionHandler = $exceptionHandler;

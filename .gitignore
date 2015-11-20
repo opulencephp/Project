@@ -2,4 +2,4 @@
 phpunit.phar
 vendor/
 .env.*.php
-!configs/environment/.env.example.php
+!config/environment/.env.example.php

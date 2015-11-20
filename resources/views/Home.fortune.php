@@ -7,7 +7,7 @@
     </section>
     <section id="routes">
         <h3>Routes</h3>
-        Create new routes in <b>configs/http/routes.php</b>. To handle each route, add methods to <b>src/Project/Http/Controllers/Page.php</b>.
+        Create new routes in <b>config/http/routes.php</b>. To handle each route, add methods to <b>src/Project/Http/Controllers/Page.php</b>.
     </section>
     <section id="views">
         <h3>Views</h3>
@@ -31,7 +31,7 @@
         <h3>Console Commands</h3>
         You can run console commands running "<i>php apex</i>" from your project's root directory. To create a custom
         command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>src/Project/Console/Commands</b>
-        directory. Then, add the fully-qualified name of your command class to <b>configs/console/commands.php</b>.
+        directory. Then, add the fully-qualified name of your command class to <b>config/console/commands.php</b>.
     </section>
     <section id="official-docs">
         <h3>Learn More</h3>

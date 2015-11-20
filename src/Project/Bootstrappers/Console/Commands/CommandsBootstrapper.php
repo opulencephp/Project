@@ -18,7 +18,7 @@ class CommandsBootstrapper extends Bootstrapper
      */
     public function run(CommandCollection $commandCollection, IContainer $container)
     {
-        $commandClasses = require "{$this->paths["configs.console"]}/commands.php";
+        $commandClasses = require "{$this->paths["config.console"]}/commands.php";
 
         // Instantiate each command class
         foreach ($commandClasses as $commandClass) {

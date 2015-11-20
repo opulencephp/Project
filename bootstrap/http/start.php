@@ -11,16 +11,23 @@ use Opulence\Routing\Router;
  * Create our paths
  * ----------------------------------------------------------
  */
-$paths = require_once __DIR__ . "/../../configs/paths.php";
+$paths = require_once __DIR__ . "/../../config/paths.php";
+
+/**
+ * ----------------------------------------------------------
+ * Set up the environment
+ * ----------------------------------------------------------
+ */
+$environment = require __DIR__ . "/../../config/environment.php";
 
 /**
  * ----------------------------------------------------------
  * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
-$exceptionRenderer = require_once __DIR__ . "/../../configs/http/exceptionRenderer.php";
-$exceptionHandler = require_once __DIR__ . "/../../configs/exceptionHandler.php";
-$errorHandler = require_once __DIR__ . "/../../configs/errorHandler.php";
+$exceptionRenderer = require_once __DIR__ . "/../../config/http/exceptionRenderer.php";
+$exceptionHandler = require_once __DIR__ . "/../../config/exceptionHandler.php";
+$errorHandler = require_once __DIR__ . "/../../config/errorHandler.php";
 $exceptionHandler->register();
 $errorHandler->register();
 
@@ -29,7 +36,7 @@ $errorHandler->register();
  * Initialize some application variables
  * ----------------------------------------------------------
  */
-$application = require_once __DIR__ . "/../../configs/application.php";
+$application = require_once __DIR__ . "/../../config/application.php";
 
 /**
  * ----------------------------------------------------------
@@ -39,7 +46,7 @@ $application = require_once __DIR__ . "/../../configs/application.php";
  * @var ApplicationBinder $applicationBinder
  */
 $applicationBinder->bindToApplication(
-    require_once __DIR__ . "/../../configs/http/bootstrappers.php",
+    require_once __DIR__ . "/../../config/http/bootstrappers.php",
     false,
     $application->getEnvironment()->getName() == Environment::PRODUCTION,
     $paths["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
@@ -62,7 +69,7 @@ $application->start(function () use ($application, $container, $exceptionHandler
     $router = $container->makeShared(Router::class);
     $request = $container->makeShared(Request::class);
     $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
-    $kernel->addMiddleware(require_once __DIR__ . "/../../configs/http/middleware.php");
+    $kernel->addMiddleware(require_once __DIR__ . "/../../config/http/middleware.php");
     $response = $kernel->handle($request);
     $response->send();
 });

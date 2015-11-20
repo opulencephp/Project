@@ -1,5 +1,8 @@
 <h2>v1.0.0-alpha10</h2>
 
+<h3>Configs</h3>
+* Changed `/configs` to `/config`
+
 <h3>Console</h3>
 * Changed console kernel to use exception handlers and renderers rather than loggers
 

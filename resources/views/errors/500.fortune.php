@@ -4,7 +4,7 @@
     Something broke
 <% endpart %>
 <% part("errorDescription") %>
-    <% if($__environment->getName() == "development") %>
+    <% if($__inDevelopmentEnvironment) %>
         {{ $__exception->getMessage() }}
     <% else %>
         Sorry about that. We will look into what happened.

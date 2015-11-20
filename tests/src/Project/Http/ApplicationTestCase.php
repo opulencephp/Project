@@ -4,7 +4,7 @@ namespace Project\Http;
 use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Debug\Errors\Handlers\IErrorHandler;
 use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
-use Opulence\Framework\Debug\Exceptions\Handlers\Http\IHttpExceptionRenderer;
+use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
 use Opulence\Framework\Testing\PhpUnit\Http\ApplicationTestCase as BaseTestCase;
 use Opulence\Ioc\IContainer;
 
@@ -15,7 +15,7 @@ class ApplicationTestCase extends BaseTestCase
 {
     /** @var IExceptionHandler The exception handler used by HTTP applications */
     private $exceptionHandler = null;
-    /** @var IHttpExceptionRenderer The exception renderer used by HTTP applications */
+    /** @var IExceptionRenderer The exception renderer used by HTTP applications */
     private $exceptionRenderer = null;
 
     /**
@@ -23,16 +23,34 @@ class ApplicationTestCase extends BaseTestCase
      */
     public function setUp()
     {
-        /** @var IHttpExceptionRenderer $exceptionRenderer */
+        $paths = require __DIR__ . "/../../../../config/paths.php";
+        $environment = require __DIR__ . "/../../../../config/environment.php";
+        /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */
-        $exceptionRenderer = require __DIR__ . "/../../../../configs/http/exceptionRenderer.php";
-        $exceptionHandler = require __DIR__ . "/../../../../configs/exceptionHandler.php";
-        $errorHandler = require __DIR__ . "/../../../../configs/errorHandler.php";
+        $exceptionRenderer = require __DIR__ . "/../../../../config/http/exceptionRenderer.php";
+        $exceptionHandler = require __DIR__ . "/../../../../config/exceptionHandler.php";
+        $errorHandler = require __DIR__ . "/../../../../config/errorHandler.php";
         $exceptionHandler->register();
         $errorHandler->register();
         $this->exceptionHandler = $exceptionHandler;
         $this->exceptionRenderer = $exceptionRenderer;
+        $this->application = require __DIR__ . "/../../../../config/application.php";
+        /** @var IContainer $container */
+        $this->container = $container;
+
+        /**
+         * ----------------------------------------------------------
+         * Finish configuring the bootstrappers for the HTTP kernel
+         * ----------------------------------------------------------
+         *
+         * @var ApplicationBinder $applicationBinder
+         */
+        $applicationBinder->bindToApplication(
+            require __DIR__ . "/../../../../config/http/bootstrappers.php",
+            false,
+            false
+        );
 
         parent::setUp();
     }
@@ -58,30 +76,6 @@ class ApplicationTestCase extends BaseTestCase
      */
     protected function getGlobalMiddleware()
     {
-        return require __DIR__ . "/../../../../configs/http/middleware.php";
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function setApplicationAndIocContainer()
-    {
-        $paths = require __DIR__ . "/../../../../configs/paths.php";
-        $this->application = require __DIR__ . "/../../../../configs/application.php";
-        /** @var IContainer $container */
-        $this->container = $container;
-
-        /**
-         * ----------------------------------------------------------
-         * Finish configuring the bootstrappers for the HTTP kernel
-         * ----------------------------------------------------------
-         *
-         * @var ApplicationBinder $applicationBinder
-         */
-        $applicationBinder->bindToApplication(
-            require __DIR__ . "/../../../../configs/http/bootstrappers.php",
-            false,
-            false
-        );
+        return require __DIR__ . "/../../../../config/http/middleware.php";
     }
 }

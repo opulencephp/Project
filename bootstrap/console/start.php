@@ -3,24 +3,31 @@ use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Bootstrappers\Caching\ICache;
 use Opulence\Console\Commands\CommandCollection;
 use Opulence\Console\Commands\Compilers\ICompiler;
+use Opulence\Console\Kernel;
 use Opulence\Console\Requests\Parsers\IParser;
-use Opulence\Framework\Console\Kernel;
 
 /**
  * ----------------------------------------------------------
  * Create our paths
  * ----------------------------------------------------------
  */
-$paths = require_once __DIR__ . "/../../configs/paths.php";
+$paths = require_once __DIR__ . "/../../config/paths.php";
+
+/**
+ * ----------------------------------------------------------
+ * Set up the environment
+ * ----------------------------------------------------------
+ */
+$environment = require __DIR__ . "/../../config/environment.php";
 
 /**
  * ----------------------------------------------------------
  * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
-$exceptionRenderer = require_once __DIR__ . "/../../configs/console/exceptionRenderer.php";
-$exceptionHandler = require_once __DIR__ . "/../../configs/exceptionHandler.php";
-$errorHandler = require_once __DIR__ . "/../../configs/errorHandler.php";
+$exceptionRenderer = require_once __DIR__ . "/../../config/console/exceptionRenderer.php";
+$exceptionHandler = require_once __DIR__ . "/../../config/exceptionHandler.php";
+$errorHandler = require_once __DIR__ . "/../../config/errorHandler.php";
 $exceptionHandler->register();
 $errorHandler->register();
 
@@ -29,7 +36,7 @@ $errorHandler->register();
  * Initialize some application variables
  * ----------------------------------------------------------
  */
-$application = require_once __DIR__ . "/../../configs/application.php";
+$application = require_once __DIR__ . "/../../config/application.php";
 
 /**
  * ----------------------------------------------------------
@@ -39,7 +46,7 @@ $application = require_once __DIR__ . "/../../configs/application.php";
  * @var ApplicationBinder $applicationBinder
  */
 $applicationBinder->bindToApplication(
-    require_once __DIR__ . "/../../configs/console/bootstrappers.php",
+    require_once __DIR__ . "/../../config/console/bootstrappers.php",
     false,
     true,
     $paths["tmp.framework.console"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME

@@ -1,9 +1,9 @@
 <?php
-use Opulence\Framework\Debug\Exceptions\Handlers\Http\ExceptionRenderer;
+use Opulence\Console\Debug\Exceptions\Handlers\ExceptionRenderer;
 
 /**
  * ----------------------------------------------------------
- * Set the HTTP exception renderer
+ * Set the console exception renderer
  * ----------------------------------------------------------
  */
 return new ExceptionRenderer();

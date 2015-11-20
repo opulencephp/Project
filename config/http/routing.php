@@ -4,7 +4,7 @@
  * Define the routing config
  * ----------------------------------------------------------
  *
- * Note:  To actually add routes, see configs/http/routes.php
+ * Note:  To actually add routes, see config/http/routes.php
  */
 return [
     /**

@@ -56,7 +56,7 @@ class Session extends BaseSession
     private function loadConfig()
     {
         if ($this->config === null) {
-            $this->config = require "{$this->paths["configs.http"]}/sessions.php";
+            $this->config = require "{$this->paths["config.http"]}/sessions.php";
         }
     }
 }

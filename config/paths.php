@@ -12,13 +12,13 @@ $pathsConfig = [
      * Configs
      * ----------------------------------------------------------
      *
-     * "configs" => The configs directory
-     * "configs.console" => The console config directory
-     * "configs.http" => The Http config directory
+     * "config" => The config directory
+     * "config.console" => The console config directory
+     * "config.http" => The Http config directory
      */
-    "configs" => __DIR__,
-    "configs.console" => __DIR__ . "/console",
-    "configs.http" => __DIR__ . "/http",
+    "config" => __DIR__,
+    "config.console" => __DIR__ . "/console",
+    "config.http" => __DIR__ . "/http",
 
     /**
      * ----------------------------------------------------------

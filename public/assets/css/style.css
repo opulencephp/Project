@@ -60,6 +60,11 @@ h6
     font-size: 14px;
 }
 
+pre
+{
+    word-wrap: break-word;
+}
+
 a, a:link, a:active, a:visited
 {
     color: #69c;
@@ -91,6 +96,11 @@ ul
 ol
 {
     list-style-position: inside;
+}
+
+ul.errors
+{
+    list-style: disc;
 }
 
 button

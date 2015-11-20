@@ -1,3 +1,13 @@
+<h2>v1.0.0-alpha12</h2>
+
+<h3>Views</h3>
+* Improved formatting of exceptions
+
+<h2>v1.0.0-alpha11</h2>
+
+<h2>PHPUnit</h2>
+* Re-added `phpunit.xml`
+
 <h2>v1.0.0-alpha10</h2>
 
 <h3>Configs</h3>

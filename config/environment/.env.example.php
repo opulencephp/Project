@@ -1,6 +1,6 @@
 <?php
-use Opulence\Applications\Environments\Environment;
 use Opulence\Cache\FileBridge;
+use Opulence\Environments\Environment;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 
 /** @var Environment $environment */

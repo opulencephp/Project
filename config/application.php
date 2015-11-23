@@ -1,6 +1,5 @@
 <?php
 use Opulence\Applications\Application;
-use Opulence\Applications\Environments\Environment;
 use Opulence\Applications\Tasks\Dispatchers\IDispatcher as ITaskDispatcher;
 use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Bootstrappers\BootstrapperRegistry;
@@ -10,6 +9,7 @@ use Opulence\Bootstrappers\Dispatchers\Dispatcher as BootstrapperDispatcher;
 use Opulence\Bootstrappers\Dispatchers\IDispatcher as IBootstrapperDispatcher;
 use Opulence\Bootstrappers\IBootstrapperRegistry;
 use Opulence\Bootstrappers\Paths;
+use Opulence\Environments\Environment;
 use Opulence\Ioc\IContainer;
 
 /**
@@ -19,7 +19,7 @@ use Opulence\Ioc\IContainer;
  */
 $taskDispatcher = require __DIR__ . "/tasks.php";
 $container = require __DIR__ . "/ioc.php";
-$application = new Application($taskDispatcher, $environment);
+$application = new Application($taskDispatcher);
 
 /**
  * ----------------------------------------------------------

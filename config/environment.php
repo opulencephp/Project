@@ -1,7 +1,7 @@
 <?php
-use Opulence\Applications\Environments\Environment;
-use Opulence\Applications\Environments\Hosts\HostRegex;
-use Opulence\Applications\Environments\Resolvers\EnvironmentResolver;
+use Opulence\Environments\Environment;
+use Opulence\Environments\Hosts\HostRegex;
+use Opulence\Environments\Resolvers\EnvironmentResolver;
 
 /**
  * ----------------------------------------------------------

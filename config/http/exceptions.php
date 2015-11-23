@@ -1,6 +1,6 @@
 <?php
-use Opulence\Applications\Environments\Environment;
 use Opulence\Debug\Exceptions\Handlers\ExceptionHandler;
+use Opulence\Environments\Environment;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\ExceptionRenderer;
 use Opulence\Http\HttpException;
 

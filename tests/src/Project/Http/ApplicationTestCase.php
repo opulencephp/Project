@@ -24,7 +24,7 @@ class ApplicationTestCase extends BaseTestCase
     public function setUp()
     {
         $paths = require __DIR__ . "/../../../../config/paths.php";
-        $environment = require __DIR__ . "/../../../../config/environment.php";
+        $this->environment = require __DIR__ . "/../../../../config/environment.php";
         /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */

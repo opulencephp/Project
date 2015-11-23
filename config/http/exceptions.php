@@ -14,7 +14,7 @@ use Opulence\Http\HttpException;
 $exceptionRenderer = new ExceptionRenderer($environment->getName() == Environment::DEVELOPMENT);
 
 return new ExceptionHandler(
-    require __DIR__ . "/logging.php",
+    $logger,
     $exceptionRenderer,
     [
         HttpException::class

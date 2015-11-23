@@ -7,6 +7,7 @@ use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
 use Opulence\Framework\Testing\PhpUnit\Http\ApplicationTestCase as BaseTestCase;
 use Opulence\Ioc\IContainer;
+use Psr\Log\LoggerInterface;
 
 /**
  * Defines the HTTP application test case
@@ -25,9 +26,11 @@ class ApplicationTestCase extends BaseTestCase
     {
         $paths = require __DIR__ . "/../../../../config/paths.php";
         $this->environment = require __DIR__ . "/../../../../config/environment.php";
+        /** @var LoggerInterface $logger */
         /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */
+        $logger = require __DIR__ . "/../../../../config/http/logging.php";
         $exceptionHandler = require __DIR__ . "/../../../../config/http/exceptions.php";
         $errorHandler = require __DIR__ . "/../../../../config/http/errors.php";
         $exceptionHandler->register();

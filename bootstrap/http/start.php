@@ -25,6 +25,7 @@ $environment = require __DIR__ . "/../../config/environment.php";
  * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
+$logger = require __DIR__ . "/../../config/http/logging.php";
 $exceptionHandler = require_once __DIR__ . "/../../config/http/exceptions.php";
 $errorHandler = require_once __DIR__ . "/../../config/http/errors.php";
 $exceptionHandler->register();

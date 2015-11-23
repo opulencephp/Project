@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha14</h2>
+
+<h3>Debug</h3>
+* Added `LoggerInterface` to `ErrorHandler`
+
 <h2>v1.0.0-alpha13</h2>
 
 <h3>Environments</h3>

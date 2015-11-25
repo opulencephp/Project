@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha15</h2>
+
+<h3>Views</h3>
+* Fixed formatting of `resources/views/Home.fortune.php`
+
 <h2>v1.0.0-alpha14</h2>
 
 <h3>Debug</h3>

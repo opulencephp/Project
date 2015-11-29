@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha16</h2>
+
+<h3>ORM</h3>
+* Added support for Id generators in the unit of work
+
 <h2>v1.0.0-alpha15</h2>
 
 <h3>Views</h3>

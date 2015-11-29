@@ -12,6 +12,7 @@ use Opulence\Orm\Ids\Accessors\IdAccessorRegistry;
 use Opulence\Orm\Ids\Accessors\IIdAccessorRegistry;
 use Opulence\Orm\Ids\Generators\IdGeneratorRegistry;
 use Opulence\Orm\Ids\Generators\IIdGeneratorRegistry;
+use Opulence\Orm\IUnitOfWork;
 use Opulence\Orm\UnitOfWork;
 
 /**
@@ -19,7 +20,7 @@ use Opulence\Orm\UnitOfWork;
  */
 class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
-    /** @var UnitOfWork */
+    /** @var IUnitOfWork */
     private $unitOfWork = null;
 
     /**
@@ -31,7 +32,7 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
             IChangeTracker::class,
             IIdAccessorRegistry::class,
             IIdGeneratorRegistry::class,
-            UnitOfWork::class
+            IUnitOfWork::class
         ];
     }
 
@@ -50,7 +51,7 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
         $container->bind(IIdAccessorRegistry::class, $idAccessorRegistry);
         $container->bind(IIdGeneratorRegistry::class, $idGeneratorRegistry);
         $container->bind(IChangeTracker::class, $changeTracker);
-        $container->bind(UnitOfWork::class, $this->unitOfWork);
+        $container->bind(IUnitOfWork::class, $this->unitOfWork);
     }
 
     /**

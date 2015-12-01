@@ -27,7 +27,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the session object to use
      *
-     * @param IContainer $container The Ioc Container
+     * @param IContainer $container The IoC Container
      * @return ISession The session to use
      */
     protected function getSession(IContainer $container)
@@ -42,7 +42,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the session handler object to use
      *
-     * @param IContainer $container The Ioc Container
+     * @param IContainer $container The IoC Container
      * @return SessionHandlerInterface The session handler to use
      */
     protected function getSessionHandler(IContainer $container)
@@ -68,7 +68,7 @@ class SessionBootstrapper extends BaseBootstrapper
     /**
      * Gets the cache bridge to use for a cache session handler
      *
-     * @param IContainer $container The Ioc container
+     * @param IContainer $container The IoC container
      * @return ICacheBridge The cache bridge
      */
     private function getCacheBridge(IContainer $container)
@@ -79,11 +79,13 @@ class SessionBootstrapper extends BaseBootstrapper
             case MemcachedBridge::class:
                 return $container->makeShared(
                     MemcachedBridge::class,
+                    null,
                     [$this->config["cache.clientName"], $this->config["cache.keyPrefix"]]
                 );
             case RedisBridge::class:
                 return $container->makeShared(
                     RedisBridge::class,
+                    null,
                     [$this->config["cache.clientName"], $this->config["cache.keyPrefix"]]
                 );
             default: // FileBridge

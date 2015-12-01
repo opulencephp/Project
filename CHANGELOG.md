@@ -3,10 +3,14 @@
 <h3>ORM</h3>
 * Added support for Id generators in the unit of work
 
+<h3>Session</h3>
+* Updated calls to include target for `Container::makeShared()` in `Project\Bootstrappers\Http\Sessions::getCacheBridge()` 
+
 <h2>v1.0.0-alpha15</h2>
 
 <h3>Views</h3>
 * Fixed formatting of `resources/views/Home.fortune.php`
+* Bound `Opulence\Orm\IUnitOfWork` rather than `UnitOfWork`
 
 <h2>v1.0.0-alpha14</h2>
 

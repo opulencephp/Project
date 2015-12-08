@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha17</h2>
+
+<h3>Testing</h3>
+* Updated HTTP tests to use `RequestBuilder` rather than call `route()` directly
+
 <h2>v1.0.0-alpha16</h2>
 
 <h3>ORM</h3>

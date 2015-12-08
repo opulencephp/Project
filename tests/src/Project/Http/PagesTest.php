@@ -11,8 +11,9 @@ class PagesTest extends ApplicationTestCase
      */
     public function test404PageIsSetUpCorrectly()
     {
-        $this->route("GET", "/doesNotExist");
-        $this->assertResponseIsNotFound();
+        $this->get("/doesNotExist")
+            ->go()
+            ->assertResponseIsNotFound();
     }
 
     /**
@@ -20,10 +21,11 @@ class PagesTest extends ApplicationTestCase
      */
     public function testHomePageIsSetUpCorrectly()
     {
-        $this->route("GET", "/");
+        $this->get("/")
+            ->go()
+            ->assertResponseIsOK()
+            ->assertViewVarEquals("title", "My First Opulence Application");
         $this->checkMasterTemplateSetup();
-        $this->assertResponseIsOK();
-        $this->assertViewVarEquals("title", "My First Opulence Application");
     }
 
     /**

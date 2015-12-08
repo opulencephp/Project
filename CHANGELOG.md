@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha18</h2>
+
+<h3>General</h3>
+* Fixed typos
+
 <h2>v1.0.0-alpha17</h2>
 
 <h3>Testing</h3>

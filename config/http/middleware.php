@@ -1,6 +1,6 @@
 <?php
-use Project\Http\Middleware\Session;
 use Project\Http\Middleware\CheckCsrfToken;
+use Project\Http\Middleware\Session;
 
 /**
  * ----------------------------------------------------------

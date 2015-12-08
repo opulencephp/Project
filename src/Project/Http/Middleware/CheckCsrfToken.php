@@ -28,7 +28,7 @@ class CheckCsrfToken extends BaseMiddleware
         $response->getHeaders()->setCookie(
             new Cookie(
                 "XSRF-TOKEN",
-                $this->session->get(CSRFTokenChecker::TOKEN_INPUT_NAME),
+                $this->session->get(CsrfTokenChecker::TOKEN_INPUT_NAME),
                 new DateTime("+{$this->config["xsrfcookie.lifetime"]} seconds"),
                 $this->config["cookie.path"],
                 $this->config["cookie.domain"],

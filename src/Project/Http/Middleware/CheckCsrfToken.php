@@ -1,7 +1,6 @@
 <?php
 namespace Project\Http\Middleware;
 
-use DateTime;
 use Opulence\Framework\Http\CsrfTokenChecker;
 use Opulence\Framework\Http\Middleware\CheckCsrfToken as BaseMiddleware;
 use Opulence\Http\Responses\Cookie;
@@ -29,7 +28,7 @@ class CheckCsrfToken extends BaseMiddleware
             new Cookie(
                 "XSRF-TOKEN",
                 $this->session->get(CsrfTokenChecker::TOKEN_INPUT_NAME),
-                new DateTime("+{$this->config["xsrfcookie.lifetime"]} seconds"),
+                time() + $this->config["xsrfcookie.lifetime"],
                 $this->config["cookie.path"],
                 $this->config["cookie.domain"],
                 false,

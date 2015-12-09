@@ -1,7 +1,6 @@
 <?php
 namespace Project\Http\Middleware;
 
-use DateTime;
 use Opulence\Framework\Http\Middleware\Session as BaseSession;
 use Opulence\Http\Responses\Cookie;
 use Opulence\Http\Responses\Response;
@@ -39,7 +38,7 @@ class Session extends BaseSession
             new Cookie(
                 $this->session->getName(),
                 $this->session->getId(),
-                new DateTime("+{$this->config["lifetime"]} seconds"),
+                time() + $this->config["lifetime"],
                 $this->config["cookie.path"],
                 $this->config["cookie.domain"],
                 $this->config["cookie.isSecure"],

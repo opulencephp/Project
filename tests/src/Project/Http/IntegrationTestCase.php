@@ -5,14 +5,14 @@ use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Debug\Errors\Handlers\IErrorHandler;
 use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
-use Opulence\Framework\Testing\PhpUnit\Http\ApplicationTestCase as BaseTestCase;
+use Opulence\Framework\Testing\PhpUnit\Http\IntegrationTestCase as BaseIntegrationTestCase;
 use Opulence\Ioc\IContainer;
 use Psr\Log\LoggerInterface;
 
 /**
- * Defines the HTTP application test case
+ * Defines the HTTP integration test
  */
-class ApplicationTestCase extends BaseTestCase
+class IntegrationTestCase extends BaseIntegrationTestCase
 {
     /** @var IExceptionHandler The exception handler used by HTTP applications */
     private $exceptionHandler = null;

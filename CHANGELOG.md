@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha21</h2>
+
+<h3>Testing</h3>
+* Renamed all `ApplicationTestCase` instances to `IntegrationTestCase`
+
 <h2>v1.0.0-alpha20</h2>
 
 <h3>Testing</h3>

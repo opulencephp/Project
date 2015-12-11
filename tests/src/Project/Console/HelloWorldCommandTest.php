@@ -4,7 +4,7 @@ namespace Project\Console;
 /**
  * Defines the hello world command tests
  */
-class HelloWorldCommandTest extends ApplicationTestCase
+class HelloWorldCommandTest extends IntegrationTestCase
 {
     /**
      * Tests calling the command without options

@@ -1,4 +1,5 @@
 <?php
+use Opulence\Framework\Http\Middleware\CheckMaintenanceMode;
 use Project\Http\Middleware\CheckCsrfToken;
 use Project\Http\Middleware\Session;
 
@@ -8,6 +9,7 @@ use Project\Http\Middleware\Session;
  * ----------------------------------------------------------
  */
 return [
+    CheckMaintenanceMode::class,
     Session::class,
     CheckCsrfToken::class
 ];

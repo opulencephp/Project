@@ -13,7 +13,8 @@ class PagesTest extends ApplicationTestCase
     {
         $this->get("/doesNotExist")
             ->go()
-            ->assertResponseIsNotFound();
+            ->assertResponse
+            ->isNotFound();
     }
 
     /**
@@ -23,8 +24,9 @@ class PagesTest extends ApplicationTestCase
     {
         $this->get("/")
             ->go()
-            ->assertResponseIsOK()
-            ->assertViewVarEquals("title", "My First Opulence Application");
+            ->assertResponse
+            ->isOK();
+        $this->assertView->varEquals("title", "My First Opulence Application");
         $this->checkMasterTemplateSetup();
     }
 
@@ -33,8 +35,8 @@ class PagesTest extends ApplicationTestCase
      */
     private function checkMasterTemplateSetup()
     {
-        $this->assertViewVarEquals("metaKeywords", []);
-        $this->assertViewVarEquals("metaDescription", "");
-        $this->assertViewVarEquals("css", "/assets/css/style.css");
+        $this->assertView->varEquals("metaKeywords", [])
+            ->varEquals("metaDescription", "")
+            ->varEquals("css", "/assets/css/style.css");
     }
 }

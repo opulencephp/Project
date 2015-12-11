@@ -14,7 +14,7 @@ class ErrorBuilder implements IViewBuilder
      */
     public function build(IView $view)
     {
-        $view->setVar("title", "Something broke");
+        $view->setVar("title", "Error");
 
         return $view;
     }

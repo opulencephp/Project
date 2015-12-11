@@ -1,5 +1,5 @@
 <?php
-namespace Project\Bootstrappers\Databases;
+namespace Project\Bootstrappers\Cache;
 
 use Opulence\Bootstrappers\Bootstrapper;
 use Opulence\Bootstrappers\ILazyBootstrapper;

@@ -1,7 +1,6 @@
 <?php
 use Opulence\Framework\Bootstrappers\Cryptography\CryptographyBootstrapper;
-use Opulence\Framework\Bootstrappers\Php\PhpBootstrapper;
-use Project\Bootstrappers\Databases\RedisBootstrapper;
+use Project\Bootstrappers\Cache\RedisBootstrapper;
 use Project\Bootstrappers\Databases\SqlBootstrapper;
 use Project\Bootstrappers\Events\DispatcherBootstrapper;
 use Project\Bootstrappers\Orm\UnitOfWorkBootstrapper;
@@ -12,7 +11,6 @@ use Project\Bootstrappers\Orm\UnitOfWorkBootstrapper;
  * ----------------------------------------------------------
  */
 return [
-    PhpBootstrapper::class,
     CryptographyBootstrapper::class,
     DispatcherBootstrapper::class,
     SqlBootstrapper::class,

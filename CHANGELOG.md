@@ -1,3 +1,15 @@
+<h2>v1.0.0-alpha19</h2>
+
+<h3>Bootstrappers</h3>
+* Removed `Opulence\Framework\Bootstrappers\Php\PhpBootstrapper`
+* Renamed `Project\Bootstrappers\Databases\RedisBootstrapper` to `Project\Bootstrappers\Cache\RedisBootstrapper`
+
+<h3>Middleware</h3>
+* Added `Opulence\Framework\Http\Middleware\CheckMaintenanceMode` to global middleware in `config/http/middleware.php`
+
+<h3>Views</h3>
+* Added `resources/views/errors/503.fortune.php`
+
 <h2>v1.0.0-alpha18</h2>
 
 <h3>General</h3>

@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha20</h2>
+
+<h3>Testing</h3>
+* Updated console syntax
+
 <h2>v1.0.0-alpha19</h2>
 
 <h3>Bootstrappers</h3>

@@ -11,7 +11,9 @@ class HelloWorldCommandTest extends ApplicationTestCase
      */
     public function testWithoutOptions()
     {
-        $this->call("hello:world", [], [], [], false)
+        $this->command("hello:world")
+            ->withStyle(false)
+            ->execute()
             ->assertResponse
             ->outputEquals("Hello, world!" . PHP_EOL);
     }
@@ -21,7 +23,10 @@ class HelloWorldCommandTest extends ApplicationTestCase
      */
     public function testYelling()
     {
-        $this->call("hello:world", [], ["--yell"], [], false)
+        $this->command("hello:world")
+            ->withOptions("--yell")
+            ->withStyle(false)
+            ->execute()
             ->assertResponse
             ->outputEquals("HELLO, WORLD!" . PHP_EOL);
     }

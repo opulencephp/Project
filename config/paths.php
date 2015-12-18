@@ -44,8 +44,12 @@ $pathsConfig = [
      * ----------------------------------------------------------
      *
      * "resources" => The resources directory
+     * "resources.lang" => The language resources directory
+     * "resources.lang.en" => The English language resources directory
      */
     "resources" => __DIR__ . "/../resources",
+    "resources.lang" => __DIR__ . "/../resources/lang",
+    "resources.lang.en" => __DIR__ . "/../resources/lang/en",
 
     /**
      * ----------------------------------------------------------

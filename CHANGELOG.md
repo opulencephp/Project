@@ -1,3 +1,9 @@
+<h2>v1.0.0-alpha22</h2>
+
+<h3>Validation</h3>
+* Added `resources/lang/en/validation.php`
+* Added `Project\Bootstrappers\Validation\ValidatorBootstrapper`
+
 <h2>v1.0.0-alpha21</h2>
 
 <h3>Testing</h3>

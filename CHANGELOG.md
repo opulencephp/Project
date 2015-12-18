@@ -2,6 +2,7 @@
 
 <h3>Validation</h3>
 * Added `resources/lang/en/validation.php`
+* Added `resources.lang` and `resources.lang.en` to `config/paths.php`
 * Added `Project\Bootstrappers\Validation\ValidatorBootstrapper`
 
 <h2>v1.0.0-alpha21</h2>

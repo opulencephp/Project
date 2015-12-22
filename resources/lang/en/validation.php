@@ -9,7 +9,7 @@ return [
     "alphaNumeric" => "The :field field must only contain alpha-numeric characters",
     "between" => "The :field field must be between :min and :max",
     "callback" => "The :field field is invalid",
-    "email" => "The :field must be a valid email address",
+    "email" => "The :field field must be a valid email address",
     "equals" => "The :field field did not match the expected value",
     "equalsField" => "The :field did not match the :other field",
     "in" => "The :field field is invalid",

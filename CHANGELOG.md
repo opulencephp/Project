@@ -5,6 +5,10 @@
 * Added `resources.lang` and `resources.lang.en` to `config/paths.php`
 * Added `Project\Bootstrappers\Validation\ValidatorBootstrapper`
 
+<h3>Views</h3>
+* Moved `resources/views/errors` to `resources/views/errors/html`
+* Added `resources/views/errors/json` and views under that directory
+
 <h2>v1.0.0-alpha21</h2>
 
 <h3>Testing</h3>

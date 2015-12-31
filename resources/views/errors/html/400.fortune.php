@@ -1,8 +1,8 @@
-<% extends("errors/Error") %>
+<% extends("errors/html/Error") %>
 
 <% part("errorTitle") %>
     Bad request
 <% endpart %>
-<% part("errorDescription") %>
+<% part("errorMessage") %>
     That request you made was invalid.
 <% endpart %>

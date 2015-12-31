@@ -1,0 +1,1 @@
+{{! json_encode(["error" => ["code" => $__errorCode, "message" => $__errorMessage]]) !}}

@@ -5,9 +5,9 @@ use Opulence\Views\Factories\IViewBuilder;
 use Opulence\Views\IView;
 
 /**
- * Defines the error page view builder
+ * Defines the HTML error page view builder
  */
-class ErrorBuilder implements IViewBuilder
+class HtmlErrorBuilder implements IViewBuilder
 {
     /**
      * @inheritdoc

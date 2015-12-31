@@ -1,0 +1,1 @@
+<% include("errors/json/Error", ["__errorCode" => 404, "__errorMessage" => "The resource does not exist"]) %>

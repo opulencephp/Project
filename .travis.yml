@@ -3,6 +3,9 @@ language: php
 php:
   - 7.0
 
+env:
+  - ENCRYPTION_KEY=test
+
 before_script:
   - composer self-update
   - composer install

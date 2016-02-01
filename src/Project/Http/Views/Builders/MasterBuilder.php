@@ -12,7 +12,7 @@ class MasterBuilder implements IViewBuilder
     /**
      * @inheritdoc
      */
-    public function build(IView $view)
+    public function build(IView $view) : IView
     {
         $view->setVar("title", "Welcome");
         // Default to empty meta data

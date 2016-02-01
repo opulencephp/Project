@@ -18,7 +18,7 @@ class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
     /**
      * @inheritdoc
      */
-    public function getBindings()
+    public function getBindings() : array
     {
         return [ConnectionPool::class, TypeMapperFactory::class];
     }

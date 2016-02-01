@@ -60,7 +60,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
     /**
      * @inheritdoc
      */
-    protected function getExceptionHandler()
+    protected function getExceptionHandler() : IExceptionHandler
     {
         return $this->exceptionHandler;
     }
@@ -68,7 +68,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
     /**
      * @inheritdoc
      */
-    protected function getExceptionRenderer()
+    protected function getExceptionRenderer() : IExceptionRenderer
     {
         return $this->exceptionRenderer;
     }
@@ -76,7 +76,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
     /**
      * @inheritdoc
      */
-    protected function getGlobalMiddleware()
+    protected function getGlobalMiddleware() : array
     {
         return require __DIR__ . "/../../../../config/http/middleware.php";
     }

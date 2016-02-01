@@ -18,9 +18,9 @@ class ViewBootstrapper extends BaseBootstrapper
      * @param IContainer $container The dependency injection container
      * @return ICache The view cache
      */
-    protected function getViewCache(IContainer $container)
+    protected function getViewCache(IContainer $container) : ICache
     {
-        $cacheConfig = require_once "{$this->paths["config.http"]}/views.php";
+        $cacheConfig = require "{$this->paths["config.http"]}/views.php";
 
         return new FileCache(
             $this->paths["views.compiled"],

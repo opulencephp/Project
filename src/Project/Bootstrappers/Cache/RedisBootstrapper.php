@@ -16,8 +16,8 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
     /**
      * @inheritdoc
      */
-    public function getBindings()
-    {
+    public function getBindings() : array
+        {
         return [Redis::class, TypeMapper::class];
     }
 

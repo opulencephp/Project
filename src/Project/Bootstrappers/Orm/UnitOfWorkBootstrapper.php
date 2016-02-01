@@ -26,7 +26,7 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
     /**
      * @inheritdoc
      */
-    public function getBindings()
+    public function getBindings() : array
     {
         return [
             IChangeTracker::class,

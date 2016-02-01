@@ -30,7 +30,7 @@ class SessionBootstrapper extends BaseBootstrapper
      * @param IContainer $container The IoC Container
      * @return ISession The session to use
      */
-    protected function getSession(IContainer $container)
+    protected function getSession(IContainer $container) : ISession
     {
         $this->loadConfig();
         $session = new Session();
@@ -45,7 +45,7 @@ class SessionBootstrapper extends BaseBootstrapper
      * @param IContainer $container The IoC Container
      * @return SessionHandlerInterface The session handler to use
      */
-    protected function getSessionHandler(IContainer $container)
+    protected function getSessionHandler(IContainer $container) : SessionHandlerInterface
     {
         $this->loadConfig();
 
@@ -71,7 +71,7 @@ class SessionBootstrapper extends BaseBootstrapper
      * @param IContainer $container The IoC container
      * @return ICacheBridge The cache bridge
      */
-    private function getCacheBridge(IContainer $container)
+    private function getCacheBridge(IContainer $container) : ICacheBridge
     {
         switch ($this->environment->getVar("SESSION_CACHE_BRIDGE")) {
             case ArrayBridge::class:

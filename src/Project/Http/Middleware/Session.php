@@ -31,7 +31,7 @@ class Session extends BaseSession
      * @param Response $response The response to write to
      * @return Response The response with data written to it
      */
-    protected function writeToResponse(Response $response)
+    protected function writeToResponse(Response $response) : Response
     {
         $this->loadConfig();
         $response->getHeaders()->setCookie(

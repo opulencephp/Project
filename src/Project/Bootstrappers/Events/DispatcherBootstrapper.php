@@ -13,7 +13,7 @@ class DispatcherBootstrapper extends BaseBootstrapper
      *
      * @return array The event listener config
      */
-    protected function getEventListenerConfig()
+    protected function getEventListenerConfig() : array
     {
         return require "{$this->paths["config"]}/events.php";
     }

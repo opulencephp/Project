@@ -20,7 +20,7 @@ class CheckCsrfToken extends BaseMiddleware
      * @param Response $response The response to write to
      * @return Response The response with the data written to it
      */
-    protected function writeToResponse(Response $response)
+    protected function writeToResponse(Response $response) : Response
     {
         $this->loadConfig();
         // Add an XSRF cookie for JavaScript frameworks to use

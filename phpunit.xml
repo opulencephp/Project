@@ -4,4 +4,7 @@
     <testsuite name="Project">
         <directory>tests</directory>
     </testsuite>
+    <php>
+        <env name="ENCRYPTION_KEY" value="test"/>
+    </php>
 </phpunit>

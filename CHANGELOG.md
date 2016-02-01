@@ -1,3 +1,8 @@
+<h2>v1.0.0-alpha23</h2>
+
+<h3>General</h3>
+* Updated to PHP 7
+
 <h2>v1.0.0-alpha22</h2>
 
 <h3>Validation</h3>

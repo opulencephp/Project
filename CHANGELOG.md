@@ -3,6 +3,9 @@
 <h3>General</h3>
 * Updated to PHP 7
 
+<h3>Views</h3>
+* Updated calls to `ViewFactory::create()` to `createView()`
+
 <h2>v1.0.0-alpha22</h2>
 
 <h3>Validation</h3>

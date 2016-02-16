@@ -16,7 +16,7 @@ class Page extends Controller
      */
     public function showHomePage() : Response
     {
-        $this->view = $this->viewFactory->create("Home");
+        $this->view = $this->viewFactory->createView("Home");
 
         return new Response($this->viewCompiler->compile($this->view));
     }

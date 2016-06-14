@@ -48,12 +48,12 @@ $applicationBinder = new ApplicationBinder(
  * We don't do this in a bootstrapper because we need them
  * bound before bootstrappers are even run
  */
-$container->bind(Paths::class, $paths);
-$container->bind(ITaskDispatcher::class, $taskDispatcher);
-$container->bind(Environment::class, $environment);
-$container->bind(IContainer::class, $container);
-$container->bind(IBootstrapperRegistry::class, $bootstrapperRegistry);
-$container->bind(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
-$container->bind(ICache::class, $bootstrapperCache);
+$container->bindInstance(Paths::class, $paths);
+$container->bindInstance(ITaskDispatcher::class, $taskDispatcher);
+$container->bindInstance(Environment::class, $environment);
+$container->bindInstance(IContainer::class, $container);
+$container->bindInstance(IBootstrapperRegistry::class, $bootstrapperRegistry);
+$container->bindInstance(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
+$container->bindInstance(ICache::class, $bootstrapperCache);
 
 return $application;

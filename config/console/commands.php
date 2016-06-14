@@ -1,5 +1,5 @@
 <?php
-use Project\Console\Commands\HelloWorldCommand;
+use Project\Application\Console\Commands\HelloWorldCommand;
 
 /**
  * ----------------------------------------------------------

@@ -58,9 +58,9 @@ $statusCode = $application->start(function () use ($application, $container) {
      * @var IParser $requestParser
      * @var ICompiler $commandCompiler
      */
-    $commandCollection = $container->makeShared(CommandCollection::class);
-    $requestParser = $container->makeShared(IParser::class);
-    $commandCompiler = $container->makeShared(ICompiler::class);
+    $commandCollection = $container->resolve(CommandCollection::class);
+    $requestParser = $container->resolve(IParser::class);
+    $commandCompiler = $container->resolve(ICompiler::class);
     $kernel = new Kernel(
         $requestParser,
         $commandCompiler,

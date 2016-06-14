@@ -2,9 +2,9 @@
 use Opulence\Framework\Bootstrappers\Console\Commands\CommandsBootstrapper as OpulenceCommandsBootstrapper;
 use Opulence\Framework\Bootstrappers\Console\Requests\RequestsBootstrapper;
 use Opulence\Framework\Bootstrappers\Console\Composer\ComposerBootstrapper;
-use Project\Bootstrappers\Console\Commands\CommandsBootstrapper as ProjectCommandsBootstrapper;
-use Project\Bootstrappers\Http\Routing\RouterBootstrapper;
-use Project\Bootstrappers\Http\Views\ViewBootstrapper;
+use Project\Application\Bootstrappers\Console\Commands\CommandsBootstrapper as ProjectCommandsBootstrapper;
+use Project\Application\Bootstrappers\Http\Routing\RouterBootstrapper;
+use Project\Application\Bootstrappers\Http\Views\ViewBootstrapper;
 
 /**
  * ----------------------------------------------------------

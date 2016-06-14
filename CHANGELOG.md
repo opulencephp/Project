@@ -2,6 +2,17 @@
 
 <h3>General</h3>
 * Updated to PHP 7
+* Updated to PHPUnit 5.2
+* Restructured directories to better match with domain-driven design philosophy
+  * Added `Application`, `Domain`, and `Infrastructure` directories under `src/Project`
+
+<h3>Bootstrappers</h3>
+* Updated to use the new IoC container (see below)
+* Updated `Project\Application\Bootstrappers\Http\Session\SessionBootstrapper` to inject an `Opulence\Session\Handlers\ISessionEncrypter` encrypter if the session is using encryption (formerly was using Opulence's cryptography library) 
+
+<h3>IoC</h3>
+* Completely rewrote the container, which is not backwards-compatible
+* Please refer to Opulence changelog to see what changed
 
 <h3>Views</h3>
 * Updated calls to `ViewFactory::create()` to `createView()`

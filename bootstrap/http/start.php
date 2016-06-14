@@ -66,8 +66,8 @@ $application->start(function () use ($container, $exceptionHandler, $exceptionRe
      * @var Router $router
      * @var Request $request
      */
-    $router = $container->makeShared(Router::class);
-    $request = $container->makeShared(Request::class);
+    $router = $container->resolve(Router::class);
+    $request = $container->resolve(Request::class);
     $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
     $kernel->addMiddleware(require_once __DIR__ . "/../../config/http/middleware.php");
     $response = $kernel->handle($request);

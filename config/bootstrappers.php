@@ -1,10 +1,10 @@
 <?php
 use Opulence\Framework\Bootstrappers\Cryptography\CryptographyBootstrapper;
-use Project\Bootstrappers\Cache\RedisBootstrapper;
-use Project\Bootstrappers\Databases\SqlBootstrapper;
-use Project\Bootstrappers\Events\DispatcherBootstrapper;
-use Project\Bootstrappers\Orm\UnitOfWorkBootstrapper;
-use Project\Bootstrappers\Validation\ValidatorBootstrapper;
+use Project\Application\Bootstrappers\Cache\RedisBootstrapper;
+use Project\Application\Bootstrappers\Databases\SqlBootstrapper;
+use Project\Application\Bootstrappers\Events\DispatcherBootstrapper;
+use Project\Application\Bootstrappers\Orm\UnitOfWorkBootstrapper;
+use Project\Application\Bootstrappers\Validation\ValidatorBootstrapper;
 
 /**
  * ----------------------------------------------------------

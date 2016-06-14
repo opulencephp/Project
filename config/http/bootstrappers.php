@@ -1,10 +1,10 @@
 <?php
 use Opulence\Framework\Bootstrappers\Http\Requests\RequestBootstrapper;
 use Opulence\Framework\Bootstrappers\Http\Views\ViewFunctionsBootstrapper;
-use Project\Bootstrappers\Http\Routing\RouterBootstrapper;
-use Project\Bootstrappers\Http\Sessions\SessionBootstrapper;
-use Project\Bootstrappers\Http\Views\BuildersBootstrapper;
-use Project\Bootstrappers\Http\Views\ViewBootstrapper;
+use Project\Application\Bootstrappers\Http\Routing\RouterBootstrapper;
+use Project\Application\Bootstrappers\Http\Sessions\SessionBootstrapper;
+use Project\Application\Bootstrappers\Http\Views\BuildersBootstrapper;
+use Project\Application\Bootstrappers\Http\Views\ViewBootstrapper;
 
 /**
  * ----------------------------------------------------------

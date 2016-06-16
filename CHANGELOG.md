@@ -1,3 +1,8 @@
+<h2>v1.0.0-beta1/h2>
+
+<h3>General</h3>
+* First beta
+
 <h2>v1.0.0-alpha24</h2>
 
 <h3>Bootstrappers</h3>

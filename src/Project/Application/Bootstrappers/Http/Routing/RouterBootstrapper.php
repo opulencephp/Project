@@ -2,7 +2,7 @@
 namespace Project\Application\Bootstrappers\Http\Routing;
 
 use Opulence\Environments\Environment;
-use Opulence\Framework\Bootstrappers\Http\Routing\RouterBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Routing\Bootstrappers\RouterBootstrapper as BaseBootstrapper;
 use Opulence\Routing\Router;
 use Opulence\Routing\Routes\Caching\ICache;
 

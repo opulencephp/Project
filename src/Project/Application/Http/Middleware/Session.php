@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Http\Middleware;
 
-use Opulence\Framework\Http\Middleware\Session as BaseSession;
+use Opulence\Framework\Sessions\Http\Middleware\Session as BaseSession;
 use Opulence\Http\Responses\Cookie;
 use Opulence\Http\Responses\Response;
 

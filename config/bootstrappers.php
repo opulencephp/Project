@@ -1,5 +1,5 @@
 <?php
-use Opulence\Framework\Bootstrappers\Cryptography\CryptographyBootstrapper;
+use Opulence\Framework\Cryptography\Bootstrappers\CryptographyBootstrapper;
 use Project\Application\Bootstrappers\Cache\RedisBootstrapper;
 use Project\Application\Bootstrappers\Databases\SqlBootstrapper;
 use Project\Application\Bootstrappers\Events\DispatcherBootstrapper;

@@ -1,4 +1,5 @@
 .idea
+nbproject/
 phpunit.phar
 vendor/
 .env.*.php

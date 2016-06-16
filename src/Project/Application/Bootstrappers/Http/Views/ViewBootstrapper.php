@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Bootstrappers\Http\Views;
 
-use Opulence\Framework\Bootstrappers\Http\Views\ViewBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Views\Bootstrappers\ViewBootstrapper as BaseBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Views\Caching\FileCache;
 use Opulence\Views\Caching\ICache;

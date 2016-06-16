@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Bootstrappers\Events;
 
-use Opulence\Framework\Bootstrappers\Events\DispatcherBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Events\Bootstrappers\DispatcherBootstrapper as BaseBootstrapper;
 
 /**
  * Defines the event dispatcher bootstrapper

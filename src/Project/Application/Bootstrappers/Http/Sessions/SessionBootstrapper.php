@@ -6,7 +6,7 @@ use Opulence\Cache\FileBridge;
 use Opulence\Cache\ICacheBridge;
 use Opulence\Cache\MemcachedBridge;
 use Opulence\Cache\RedisBridge;
-use Opulence\Framework\Bootstrappers\Http\Sessions\SessionBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Sessions\Bootstrappers\SessionBootstrapper as BaseBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Memcached\Memcached;
 use Opulence\Redis\Redis;

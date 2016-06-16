@@ -1,3 +1,11 @@
+<h2>v1.0.0-alpha24</h2>
+
+<h3>Bootstrappers</h3>
+* Updated all bootstrappers to use new namespaces in Opulence v1.0.0-alpha36
+
+<h3>Http</h3>
+* Updated all middleware to use new namespaces in Opulence v1.0.0-alpha36
+
 <h2>v1.0.0-alpha23</h2>
 
 <h3>General</h3>

@@ -1,6 +1,6 @@
 <?php
-use Opulence\Framework\Bootstrappers\Http\Requests\RequestBootstrapper;
-use Opulence\Framework\Bootstrappers\Http\Views\ViewFunctionsBootstrapper;
+use Opulence\Framework\Http\Bootstrappers\RequestBootstrapper;
+use Opulence\Framework\Views\Bootstrappers\ViewFunctionsBootstrapper;
 use Project\Application\Bootstrappers\Http\Routing\RouterBootstrapper;
 use Project\Application\Bootstrappers\Http\Sessions\SessionBootstrapper;
 use Project\Application\Bootstrappers\Http\Views\BuildersBootstrapper;

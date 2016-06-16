@@ -5,7 +5,7 @@ use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Debug\Errors\Handlers\IErrorHandler;
 use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
-use Opulence\Framework\Testing\PhpUnit\Http\IntegrationTestCase as BaseIntegrationTestCase;
+use Opulence\Framework\Http\Testing\PhpUnit\IntegrationTestCase as BaseIntegrationTestCase;
 use Opulence\Ioc\IContainer;
 use Psr\Log\LoggerInterface;
 

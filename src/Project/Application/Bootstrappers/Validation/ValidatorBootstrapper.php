@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Bootstrappers\Validation;
 
-use Opulence\Framework\Bootstrappers\Validation\ValidatorBootstrapper as BaseBootstrapper;
+use Opulence\Framework\Validation\Bootstrappers\ValidatorBootstrapper as BaseBootstrapper;
 use Opulence\Validation\Rules\Errors\ErrorTemplateRegistry;
 use Opulence\Validation\Rules\RuleExtensionRegistry;
 

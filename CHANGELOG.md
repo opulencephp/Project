@@ -1,3 +1,8 @@
+<h2>v1.0.0-beta2/h2>
+
+<h3>Tests</h3>
+* Incremented PHPUnit version from 5.2 to 5.4
+
 <h2>v1.0.0-beta1/h2>
 
 <h3>General</h3>

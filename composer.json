@@ -32,8 +32,10 @@
     }
   },
   "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('config/environment/.env.example.php', 'config/environment/.env.app.php');\""
+    ],
     "post-create-project-cmd": [
-      "php -r \"copy('config/environment/.env.example.php', 'config/environment/.env.app.php');\"",
       "php apex encryption:generatekey",
       "php -r \"echo 'Important: make ' . __DIR__ . '/tmp writable\n';\""
     ],

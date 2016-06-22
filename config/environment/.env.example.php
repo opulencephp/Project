@@ -6,12 +6,10 @@ use Opulence\Sessions\Handlers\FileSessionHandler;
 /** @var Environment $environment */
 /**
  * ----------------------------------------------------------
- * Set authentication info
+ * Set environment metadata
  * ----------------------------------------------------------
- *
- * "CLIENT_ID" => The Id of the client (can remain a static value)
  */
-$environment->setVar("CLIENT_ID", "MyProject");
+$environment->setVar("ENV_NAME", Environment::PRODUCTION);
 
 /**
  * ----------------------------------------------------------

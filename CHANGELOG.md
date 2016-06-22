@@ -1,3 +1,9 @@
+<h2>v1.0.0-beta3</h2>
+
+<h3>Environments</h3>
+* Removed unnecessary "CLIENT_ID" from environment
+* Added "ENV_NAME" rather than relying on resolvers to detect the host
+
 <h2>v1.0.0-beta2/h2>
 
 <h3>General</h3>

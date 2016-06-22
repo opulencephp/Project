@@ -1,32 +1,11 @@
 <?php
 use Opulence\Environments\Environment;
-use Opulence\Environments\Hosts\HostRegex;
-use Opulence\Environments\Resolvers\EnvironmentResolver;
+
+$environment = new Environment();
 
 /**
  * ----------------------------------------------------------
- * Register the hosts
- * ----------------------------------------------------------
- */
-$environmentResolver = new EnvironmentResolver();
-$environmentResolver->registerHost("production", [
-    // Add any production hosts here
-    new HostRegex("^.*$")
-]);
-$environmentResolver->registerHost("staging", [
-    // Add any staging hosts here
-]);
-$environmentResolver->registerHost("testing", [
-    // Add any testing hosts here
-]);
-$environmentResolver->registerHost("development", [
-    // Add any development hosts here
-]);
-$environment = new Environment($environmentResolver->resolve(gethostname()));
-
-/**
- * ----------------------------------------------------------
- * Load environment variables for non-production environments
+ * Load environment config files
  * ----------------------------------------------------------
  *
  * Note:  For performance in production, it's highly suggested
@@ -37,5 +16,7 @@ foreach (glob(__DIR__ . "/environment/.env.*.php") as $environmentFile) {
         require $environmentFile;
     }
 }
+
+$environment->setName($environment->getVar("ENV_NAME") ?? Environment::PRODUCTION);
 
 return $environment;

@@ -26,6 +26,10 @@
         <h3>Console Commands</h3>
         You can run console commands running "<i>php apex</i>" from your project's root directory. To create a custom command, create a class that extends <i>Opulence\Console\Commands\Command</i>, and put it in the <b>src/Project/Application/Console/Commands</b> directory. Then, add the fully-qualified name of your command class to <b>config/console/commands.php</b>.
     </section>
+    <section id="environment">
+        <h3>Your Environment</h3>
+        Your application is currently in the <i>development</i> environment.  To change the environment to production, update <b>config/environment/.env.app.php</b> and change the <i>ENV_NAME</i> value to <i>Environment::PRODUCTION</i>.
+    </section>
     <section id="official-docs">
         <h3>Learn More</h3>
         Read the <a href="https://www.opulencephp.com/docs" target="_blank" title="Read the official documentation">official documentation</a>.

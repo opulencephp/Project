@@ -1,6 +1,7 @@
 <h2>v1.0.0-beta3</h2>
 
 <h3>Environments</h3>
+* Made the default environment "development" rather than "production"
 * Removed unnecessary "CLIENT_ID" from environment
 * Added "ENV_NAME" rather than relying on resolvers to detect the host
 

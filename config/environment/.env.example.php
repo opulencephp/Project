@@ -9,7 +9,7 @@ use Opulence\Sessions\Handlers\FileSessionHandler;
  * Set environment metadata
  * ----------------------------------------------------------
  */
-$environment->setVar("ENV_NAME", Environment::PRODUCTION);
+$environment->setVar("ENV_NAME", Environment::DEVELOPMENT);
 
 /**
  * ----------------------------------------------------------

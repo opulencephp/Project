@@ -19,7 +19,7 @@
     }
   },
   "require": {
-    "php": ">=7.0.0",
+    "php": "^7.0",
     "monolog/monolog": "1.12.*@dev",
     "opulence/opulence": "1.0.*@dev"
   },

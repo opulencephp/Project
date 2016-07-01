@@ -4,7 +4,7 @@ php:
   - 7.0
 
 env:
-  - ENCRYPTION_KEY=test
+  - ENCRYPTION_KEY=48ca7483a0bb52c4d26e9ced9b436552a27ff44e821203104f571bbaff5a394d
 
 before_script:
   - composer self-update

@@ -1,12 +1,12 @@
 <?php
 use Opulence\Applications\Application;
-use Opulence\Applications\Tasks\Dispatchers\IDispatcher as ITaskDispatcher;
+use Opulence\Applications\Tasks\Dispatchers\ITaskDispatcher;
 use Opulence\Bootstrappers\ApplicationBinder;
 use Opulence\Bootstrappers\BootstrapperRegistry;
 use Opulence\Bootstrappers\Caching\FileCache;
 use Opulence\Bootstrappers\Caching\ICache;
-use Opulence\Bootstrappers\Dispatchers\Dispatcher as BootstrapperDispatcher;
-use Opulence\Bootstrappers\Dispatchers\IDispatcher as IBootstrapperDispatcher;
+use Opulence\Bootstrappers\Dispatchers\BootstrapperDispatcher;
+use Opulence\Bootstrappers\Dispatchers\IBootstrapperDispatcher;
 use Opulence\Bootstrappers\IBootstrapperRegistry;
 use Opulence\Bootstrappers\Paths;
 use Opulence\Environments\Environment;

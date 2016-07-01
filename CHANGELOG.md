@@ -1,3 +1,24 @@
+<h2>v1.0.0-beta4</h2>
+
+<h3>General</h3>
+* Since the encryption library has been refactored to provide greater security, the encryption key byte length has been raised from 16 to 32 bytes
+  * Run `php apex encryption:generatekey` to create a new, suitably-long encryption key after updating
+* Updated names of various dispatcher classes to a more descriptive `{Model}Dispatcher`
+
+<h3>Config</h3>
+* In `config/application.php`:
+  * Updated `Opulence\Applications\Tasks\Dispatchers\IDispatcher as ITaskDispatcher` to `Opulence\Applications\Tasks\Dispatchers\ITaskDispatcher`
+  * Updated `Opulence\Bootstrappers\Dispatchers\IDispatcher as IBootstrapperDispatcher` to `Opulence\Bootstrappers\Dispatchers\IBootstrapperDispatcher`
+  * Updated `Opulence\Bootstrappers\Dispatchers\Dispatcher as BootstrapperDispatcher` to `Opulence\Bootstrappers\Dispatchers\BootstrapperDispatcher`
+* In `config/bootstrappers.php`:
+  * Updated `use Project\Application\Bootstrappers\Events\DispatcherBootstrapper;` to `use Project\Application\Bootstrappers\Events\EventDispatcherBootstrapper;`
+* In `config/tasks.php`:
+  * Updated `Opulence\Applications\Tasks\Dispatchers\Dispatcher` to `Opulence\Applications\Tasks\Dispatchers\TaskDispatcher`
+  
+<h3>Bootstrappers</h3>
+* Updated `Project\Application\Bootstrappers\Events\DispatcherBootstrapper` to `EventDispatcherBootstrapper`
+  * Also updated `use Opulence\Framework\Events\Bootstrappers\DispatcherBootstrapper as BaseBootstrapper;` to `use Opulence\Framework\Events\Bootstrappers\EventDispatcherBootstrapper as BaseBootstrapper;`
+
 <h2>v1.0.0-beta3</h2>
 
 <h3>Environments</h3>
@@ -13,7 +34,7 @@
 <h3>Tests</h3>
 * Incremented PHPUnit version from 5.2 to 5.4
 
-<h2>v1.0.0-beta1/h2>
+<h2>v1.0.0-beta1</h2>
 
 <h3>General</h3>
 * First beta

@@ -2,7 +2,7 @@
 use Opulence\Framework\Cryptography\Bootstrappers\CryptographyBootstrapper;
 use Project\Application\Bootstrappers\Cache\RedisBootstrapper;
 use Project\Application\Bootstrappers\Databases\SqlBootstrapper;
-use Project\Application\Bootstrappers\Events\DispatcherBootstrapper;
+use Project\Application\Bootstrappers\Events\EventDispatcherBootstrapper;
 use Project\Application\Bootstrappers\Orm\UnitOfWorkBootstrapper;
 use Project\Application\Bootstrappers\Validation\ValidatorBootstrapper;
 
@@ -13,7 +13,7 @@ use Project\Application\Bootstrappers\Validation\ValidatorBootstrapper;
  */
 return [
     CryptographyBootstrapper::class,
-    DispatcherBootstrapper::class,
+    EventDispatcherBootstrapper::class,
     SqlBootstrapper::class,
     RedisBootstrapper::class,
     UnitOfWorkBootstrapper::class,

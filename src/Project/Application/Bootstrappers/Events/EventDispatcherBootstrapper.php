@@ -6,7 +6,7 @@ use Opulence\Framework\Events\Bootstrappers\DispatcherBootstrapper as BaseBootst
 /**
  * Defines the event dispatcher bootstrapper
  */
-class DispatcherBootstrapper extends BaseBootstrapper
+class EventDispatcherBootstrapper extends BaseBootstrapper
 {
     /**
      * Gets the list of event names to the list of listeners, which can be callables or "className@method" strings

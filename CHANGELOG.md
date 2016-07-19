@@ -1,3 +1,13 @@
+<h2>v1.0.0-beta6</h2>
+
+<h3>Query Builders</h3>
+* Added conditions to `where()`, `andWhere()`, `orWhere()`, `having()`, `andHaving()`, and `orHaving()` methods on various queries (issue #9)
+
+<h2>v1.0.0-beta5</h2>
+
+<h3>General</h3>
+* Fixed `ENCRYPTION_KEY` environment var that's set when running PHPUnit tests
+
 <h2>v1.0.0-beta4</h2>
 
 <h3>General</h3>

@@ -2,6 +2,7 @@
 namespace Project\Application\Bootstrappers\Http\Routing;
 
 use Opulence\Environments\Environment;
+use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Routing\Bootstrappers\RouterBootstrapper as BaseBootstrapper;
 use Opulence\Routing\Router;
 use Opulence\Routing\Routes\Caching\ICache;
@@ -18,11 +19,12 @@ class RouterBootstrapper extends BaseBootstrapper
      */
     protected function configureRouter(Router $router)
     {
-        $routingConfig = require "{$this->paths["config.http"]}/routing.php";
-        $routesConfigPath = "{$this->paths["config.http"]}/routes.php";
+        $httpConfigPath = Config::get("paths", "config.http");
+        $routingConfig = require "$httpConfigPath/routing.php";
+        $routesConfigPath = "$httpConfigPath/routes.php";
 
-        if ($routingConfig["cache"] && $this->environment->getName() == Environment::PRODUCTION) {
-            $cachedRoutesPath = "{$this->paths["routes.cache"]}/" . ICache::DEFAULT_CACHED_ROUTES_FILE_NAME;
+        if ($routingConfig["cache"] && getenv("ENV_NAME") == Environment::PRODUCTION) {
+            $cachedRoutesPath = Config::get("paths", "routes.cache") . "/" . ICache::DEFAULT_CACHED_ROUTES_FILE_NAME;
             $routes = $this->cache->get($cachedRoutesPath, $router, $routesConfigPath);
             $router->setRouteCollection($routes);
         } else {

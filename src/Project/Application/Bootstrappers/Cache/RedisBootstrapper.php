@@ -1,8 +1,8 @@
 <?php
 namespace Project\Application\Bootstrappers\Cache;
 
-use Opulence\Bootstrappers\Bootstrapper;
-use Opulence\Bootstrappers\ILazyBootstrapper;
+use Opulence\Ioc\Bootstrappers\Bootstrapper;
+use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Redis\Redis;
 use Opulence\Redis\Types\TypeMapper;
@@ -28,10 +28,10 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
     {
         $client = new Client();
         $client->connect(
-            $this->environment->getVar("REDIS_HOST"),
-            $this->environment->getVar("REDIS_PORT")
+            getenv("REDIS_HOST"),
+            getenv("REDIS_PORT")
         );
-        $client->select($this->environment->getVar("REDIS_DATABASE"));
+        $client->select(getenv("REDIS_DATABASE"));
         $redis = new Redis($client);
         $container->bindInstance(Redis::class, $redis);
         $container->bindInstance(TypeMapper::class, new TypeMapper());

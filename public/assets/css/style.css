@@ -98,9 +98,9 @@ ol
     list-style-position: inside;
 }
 
-ul.errors
+ol.errors
 {
-    list-style: disc;
+    list-style-position: inside;
 }
 
 button

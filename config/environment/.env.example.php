@@ -29,6 +29,9 @@ $environment->setVar("DB_PORT", 5432);
  */
 $environment->setVar("SESSION_HANDLER", FileSessionHandler::class);
 $environment->setVar("SESSION_CACHE_BRIDGE", FileBridge::class);
+$environment->setVar("SESSION_COOKIE_DOMAIN", "");
+$environment->setVar("SESSION_COOKIE_IS_SECURE", false);
+$environment->setVar("SESSION_COOKIE_PATH", "/");
 
 /**
  * ----------------------------------------------------------

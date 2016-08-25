@@ -1,6 +1,7 @@
 <?php
 namespace Project\Application\Http\Middleware;
 
+use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Http\CsrfTokenChecker;
 use Opulence\Framework\Http\Middleware\CheckCsrfToken as BaseMiddleware;
 use Opulence\Http\Responses\Cookie;
@@ -11,9 +12,6 @@ use Opulence\Http\Responses\Response;
  */
 class CheckCsrfToken extends BaseMiddleware
 {
-    /** @var array|null The config array */
-    private $config = null;
-
     /**
      * Writes data to the response
      *
@@ -22,30 +20,19 @@ class CheckCsrfToken extends BaseMiddleware
      */
     protected function writeToResponse(Response $response) : Response
     {
-        $this->loadConfig();
         // Add an XSRF cookie for JavaScript frameworks to use
         $response->getHeaders()->setCookie(
             new Cookie(
                 "XSRF-TOKEN",
                 $this->session->get(CsrfTokenChecker::TOKEN_INPUT_NAME),
-                time() + $this->config["xsrfcookie.lifetime"],
-                $this->config["cookie.path"],
-                $this->config["cookie.domain"],
+                time() + Config::get("sessions", "xsrfcookie.lifetime"),
+                Config::get("sessions", "cookie.path"),
+                Config::get("sessions", "cookie.domain"),
                 false,
                 false
             )
         );
 
         return $response;
-    }
-
-    /**
-     * Loads the configuration array
-     */
-    private function loadConfig()
-    {
-        if ($this->config === null) {
-            $this->config = require "{$this->paths["config.http"]}/sessions.php";
-        }
     }
 }

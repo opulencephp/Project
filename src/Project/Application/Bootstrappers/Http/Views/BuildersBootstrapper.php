@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Bootstrappers\Http\Views;
 
-use Opulence\Bootstrappers\Bootstrapper;
+use Opulence\Ioc\Bootstrappers\Bootstrapper;
 use Opulence\Views\Factories\IViewFactory;
 use Opulence\Views\IView;
 use Project\Application\Http\Views\Builders\HtmlErrorBuilder;

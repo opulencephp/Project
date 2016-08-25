@@ -1,13 +1,13 @@
 <?php
 namespace Project\Application\Bootstrappers\Databases;
 
-use Opulence\Bootstrappers\Bootstrapper;
-use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\Adapters\Pdo\PostgreSql\Driver;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\Providers\Types\Factories\TypeMapperFactory;
 use Opulence\Databases\Server;
+use Opulence\Ioc\Bootstrappers\Bootstrapper;
+use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
 
 /**
@@ -31,11 +31,11 @@ class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
         $connectionPool = new SingleServerConnectionPool(
             new Driver(),
             new Server(
-                $this->environment->getVar("DB_HOST"),
-                $this->environment->getVar("DB_USER"),
-                $this->environment->getVar("DB_PASSWORD"),
-                $this->environment->getVar("DB_NAME"),
-                $this->environment->getVar("DB_PORT")
+                getenv("DB_HOST"),
+                getenv("DB_USER"),
+                getenv("DB_PASSWORD"),
+                getenv("DB_NAME"),
+                getenv("DB_PORT")
             )
         );
         $container->bindInstance(ConnectionPool::class, $connectionPool);

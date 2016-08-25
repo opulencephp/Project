@@ -1,11 +1,18 @@
 <?php
 namespace Project\Application\Http;
 
-use Opulence\Bootstrappers\ApplicationBinder;
+use Opulence\Applications\Tasks\Dispatchers\ITaskDispatcher;
+use Opulence\Applications\Tasks\TaskTypes;
 use Opulence\Debug\Errors\Handlers\IErrorHandler;
 use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
+use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
 use Opulence\Framework\Http\Testing\PhpUnit\IntegrationTestCase as BaseIntegrationTestCase;
+use Opulence\Ioc\Bootstrappers\Caching\FileCache;
+use Opulence\Ioc\Bootstrappers\Caching\ICache;
+use Opulence\Ioc\Bootstrappers\Dispatchers\BootstrapperDispatcher;
+use Opulence\Ioc\Bootstrappers\Factories\BootstrapperRegistryFactory;
+use Opulence\Ioc\Bootstrappers\IBootstrapperResolver;
 use Opulence\Ioc\IContainer;
 use Psr\Log\LoggerInterface;
 
@@ -43,15 +50,47 @@ class IntegrationTestCase extends BaseIntegrationTestCase
 
         /**
          * ----------------------------------------------------------
-         * Finish configuring the bootstrappers for the HTTP kernel
+         * Load some HTTP-specific config settings
+         * ----------------------------------------------------------
+         */
+        Config::setCategory("routing", require __DIR__ . "/../../../../../config/http/routing.php");
+        Config::setCategory("sessions", require __DIR__ . "/../../../../../config/http/sessions.php");
+
+        /**
+         * ----------------------------------------------------------
+         * Register some HTTP-specific bindings
+         * ----------------------------------------------------------
+         */
+        $bootstrapperCache = new FileCache(
+            Config::get("paths", "tmp.framework.http") . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+        );
+        $container->bindInstance(ICache::class, $bootstrapperCache);
+
+        /**
+         * ----------------------------------------------------------
+         * Configure the bootstrappers for the HTTP kernel
          * ----------------------------------------------------------
          *
-         * @var ApplicationBinder $applicationBinder
+         * @var array $globalBootstrappers
+         * @var IBootstrapperResolver $bootstrapperResolver
+         * @var ITaskDispatcher $taskDispatcher
          */
-        $applicationBinder->bindToApplication(
-            require __DIR__ . "/../../../../../config/http/bootstrappers.php",
-            false,
-            false
+        $httpBootstrappers = require __DIR__ . "/../../../../../config/http/bootstrappers.php";
+        $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
+        $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
+        $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
+        $bootstrapperDispatcher = new BootstrapperDispatcher($container, $bootstrapperRegistry, $bootstrapperResolver);
+        $taskDispatcher->registerTask(
+            TaskTypes::PRE_START,
+            function () use ($bootstrapperDispatcher) {
+                $bootstrapperDispatcher->startBootstrappers(false);
+            }
+        );
+        $taskDispatcher->registerTask(
+            TaskTypes::PRE_SHUTDOWN,
+            function () use ($bootstrapperDispatcher) {
+                $bootstrapperDispatcher->shutDownBootstrappers();
+            }
         );
 
         parent::setUp();

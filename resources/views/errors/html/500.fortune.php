@@ -5,7 +5,7 @@ Something broke
 <% endpart %>
 <% part("errorMessage") %>
 <% if($__inDevelopmentEnvironment) %>
-<ul class="errors">
+<ol class="errors">
     <li>
         <pre>{{ $__exception->getMessage() }}</pre>
     </li>
@@ -15,7 +15,7 @@ Something broke
         <pre>{{ $__exception->getMessage() }}</pre>
     </li>
     <% endwhile %>
-</ul>
+</ol>
 <% else %>
 Sorry about that. We will look into what happened.
 <% endif %>

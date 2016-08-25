@@ -40,9 +40,9 @@ return [
      * "cookie.isSecure" => Whether or not the cookie is secure
      * "cookie.path" => The path of the cookie
      */
-    "cookie.domain" => "",
-    "cookie.isSecure" => false,
-    "cookie.path" => "/",
+    "cookie.domain" => $environment->getVar("SESSION_COOKIE_DOMAIN", ""),
+    "cookie.isSecure" => $environment->getVar("SESSION_COOKIE_IS_SECURE", false),
+    "cookie.path" => $environment->getVar("SESSION_COOKIE_PATH", "/"),
 
     /**
      * ----------------------------------------------------------
@@ -62,7 +62,7 @@ return [
      *
      * "file.path" => The path of the session file
      */
-    "file.path" => __DIR__ . "/../../tmp/framework/http/sessions",
+    "file.path" => realpath(__DIR__ . "/../../tmp/framework/http/sessions"),
 
     /**
      * ----------------------------------------------------------

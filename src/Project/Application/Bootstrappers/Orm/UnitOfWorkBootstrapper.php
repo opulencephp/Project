@@ -1,9 +1,9 @@
 <?php
 namespace Project\Application\Bootstrappers\Orm;
 
-use Opulence\Bootstrappers\Bootstrapper;
-use Opulence\Bootstrappers\ILazyBootstrapper;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
+use Opulence\Ioc\Bootstrappers\Bootstrapper;
+use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Orm\ChangeTracking\ChangeTracker;
 use Opulence\Orm\ChangeTracking\IChangeTracker;

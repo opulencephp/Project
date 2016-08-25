@@ -1,16 +1,20 @@
 <?php
 use Opulence\Applications\Application;
 use Opulence\Applications\Tasks\Dispatchers\ITaskDispatcher;
-use Opulence\Bootstrappers\ApplicationBinder;
-use Opulence\Bootstrappers\BootstrapperRegistry;
-use Opulence\Bootstrappers\Caching\FileCache;
-use Opulence\Bootstrappers\Caching\ICache;
-use Opulence\Bootstrappers\Dispatchers\BootstrapperDispatcher;
-use Opulence\Bootstrappers\Dispatchers\IBootstrapperDispatcher;
-use Opulence\Bootstrappers\IBootstrapperRegistry;
-use Opulence\Bootstrappers\Paths;
 use Opulence\Environments\Environment;
+use Opulence\Framework\Configuration\Config;
+use Opulence\Ioc\Bootstrappers\BootstrapperResolver;
 use Opulence\Ioc\IContainer;
+
+/**
+ * ----------------------------------------------------------
+ * Load some global config settings
+ * ----------------------------------------------------------
+ *
+ * @var array $paths The list of paths
+ */
+Config::setCategory("paths", $paths);
+Config::setCategory("views", require __DIR__ . "/http/views.php");
 
 /**
  * ----------------------------------------------------------
@@ -26,19 +30,10 @@ $application = new Application($taskDispatcher);
  * Set up the bootstrappers
  * ----------------------------------------------------------
  *
- * The following sets up the global bootstrappers and creates
- * application tasks to actually run the bootstrappers
+ * The following starts settings up the bootstrappers
  */
-$bootstrapperRegistry = new BootstrapperRegistry($paths, $environment);
-$bootstrapperDispatcher = new BootstrapperDispatcher($taskDispatcher, $container);
-$bootstrapperCache = new FileCache($paths);
-$applicationBinder = new ApplicationBinder(
-    $bootstrapperRegistry,
-    $bootstrapperDispatcher,
-    $bootstrapperCache,
-    $taskDispatcher,
-    require __DIR__ . "/bootstrappers.php"
-);
+$bootstrapperResolver = new BootstrapperResolver();
+$globalBootstrappers = require __DIR__ . "/bootstrappers.php";
 
 /**
  * ----------------------------------------------------------
@@ -48,12 +43,8 @@ $applicationBinder = new ApplicationBinder(
  * We don't do this in a bootstrapper because we need them
  * bound before bootstrappers are even run
  */
-$container->bindInstance(Paths::class, $paths);
 $container->bindInstance(ITaskDispatcher::class, $taskDispatcher);
 $container->bindInstance(Environment::class, $environment);
 $container->bindInstance(IContainer::class, $container);
-$container->bindInstance(IBootstrapperRegistry::class, $bootstrapperRegistry);
-$container->bindInstance(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
-$container->bindInstance(ICache::class, $bootstrapperCache);
 
 return $application;

@@ -1,9 +1,16 @@
 <?php
-use Opulence\Bootstrappers\ApplicationBinder;
-use Opulence\Bootstrappers\Caching\ICache;
+use Opulence\Applications\Tasks\TaskTypes;
 use Opulence\Environments\Environment;
+use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Http\Kernel;
 use Opulence\Http\Requests\Request;
+use Opulence\Ioc\Bootstrappers\Caching\FileCache;
+use Opulence\Ioc\Bootstrappers\Caching\ICache;
+use Opulence\Ioc\Bootstrappers\Dispatchers\BootstrapperDispatcher;
+use Opulence\Ioc\Bootstrappers\Dispatchers\IBootstrapperDispatcher;
+use Opulence\Ioc\Bootstrappers\Factories\BootstrapperRegistryFactory;
+use Opulence\Ioc\Bootstrappers\Factories\CachedBootstrapperRegistryFactory;
+use Opulence\Ioc\Bootstrappers\IBootstrapperRegistry;
 use Opulence\Routing\Router;
 
 /**
@@ -40,16 +47,54 @@ $application = require_once __DIR__ . "/../../config/application.php";
 
 /**
  * ----------------------------------------------------------
+ * Load some HTTP-specific config settings
+ * ----------------------------------------------------------
+ */
+Config::setCategory("routing", require_once __DIR__ . "/../../config/http/routing.php");
+Config::setCategory("sessions", require_once __DIR__ . "/../../config/http/sessions.php");
+
+/**
+ * ----------------------------------------------------------
+ * Register some HTTP-specific bindings
+ * ----------------------------------------------------------
+ */
+$bootstrapperCache = new FileCache(
+    Config::get("paths", "tmp.framework.http") . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+);
+$container->bindInstance(ICache::class, $bootstrapperCache);
+
+/**
+ * ----------------------------------------------------------
  * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
- *
- * @var ApplicationBinder $applicationBinder
  */
-$applicationBinder->bindToApplication(
-    require_once __DIR__ . "/../../config/http/bootstrappers.php",
-    false,
-    $environment->getName() == Environment::PRODUCTION,
-    $paths["tmp.framework.http"] . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+$httpBootstrappers = require __DIR__ . "/../../config/http/bootstrappers.php";
+$allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
+
+// If we should cache our bootstrapper registry
+if ($environment->getName() == Environment::PRODUCTION) {
+    $container->bindInstance(ICache::class, $bootstrapperCache);
+    $bootstrapperFactory = new CachedBootstrapperRegistryFactory($bootstrapperResolver, $bootstrapperCache);
+    $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
+} else {
+    $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
+    $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
+}
+
+$bootstrapperDispatcher = new BootstrapperDispatcher($container, $bootstrapperRegistry, $bootstrapperResolver);
+$container->bindInstance(IBootstrapperRegistry::class, $bootstrapperRegistry);
+$container->bindInstance(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
+$taskDispatcher->registerTask(
+    TaskTypes::PRE_START,
+    function () use ($bootstrapperDispatcher) {
+        $bootstrapperDispatcher->startBootstrappers(false);
+    }
+);
+$taskDispatcher->registerTask(
+    TaskTypes::PRE_SHUTDOWN,
+    function () use ($bootstrapperDispatcher) {
+        $bootstrapperDispatcher->shutDownBootstrappers();
+    }
 );
 
 /**

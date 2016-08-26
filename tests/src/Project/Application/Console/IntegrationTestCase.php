@@ -34,7 +34,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * ----------------------------------------------------------
          */
         $bootstrapperCache = new FileCache(
-            Config::get("paths", "tmp.framework.console") . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
+            Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json"
         );
         $container->bindInstance(ICache::class, $bootstrapperCache);
 

@@ -8,8 +8,6 @@ use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
 use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Debug\Exceptions\Handlers\Http\IExceptionRenderer;
 use Opulence\Framework\Http\Testing\PhpUnit\IntegrationTestCase as BaseIntegrationTestCase;
-use Opulence\Ioc\Bootstrappers\Caching\FileCache;
-use Opulence\Ioc\Bootstrappers\Caching\ICache;
 use Opulence\Ioc\Bootstrappers\Dispatchers\BootstrapperDispatcher;
 use Opulence\Ioc\Bootstrappers\Factories\BootstrapperRegistryFactory;
 use Opulence\Ioc\Bootstrappers\IBootstrapperResolver;
@@ -55,16 +53,6 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          */
         Config::setCategory("routing", require __DIR__ . "/../../../../../config/http/routing.php");
         Config::setCategory("sessions", require __DIR__ . "/../../../../../config/http/sessions.php");
-
-        /**
-         * ----------------------------------------------------------
-         * Register some HTTP-specific bindings
-         * ----------------------------------------------------------
-         */
-        $bootstrapperCache = new FileCache(
-            Config::get("paths", "tmp.framework.http") . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
-        );
-        $container->bindInstance(ICache::class, $bootstrapperCache);
 
         /**
          * ----------------------------------------------------------

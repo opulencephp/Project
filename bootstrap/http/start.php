@@ -5,7 +5,6 @@ use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Http\Kernel;
 use Opulence\Http\Requests\Request;
 use Opulence\Ioc\Bootstrappers\Caching\FileCache;
-use Opulence\Ioc\Bootstrappers\Caching\ICache;
 use Opulence\Ioc\Bootstrappers\Dispatchers\BootstrapperDispatcher;
 use Opulence\Ioc\Bootstrappers\Dispatchers\IBootstrapperDispatcher;
 use Opulence\Ioc\Bootstrappers\Factories\BootstrapperRegistryFactory;
@@ -55,16 +54,6 @@ Config::setCategory("sessions", require_once __DIR__ . "/../../config/http/sessi
 
 /**
  * ----------------------------------------------------------
- * Register some HTTP-specific bindings
- * ----------------------------------------------------------
- */
-$bootstrapperCache = new FileCache(
-    Config::get("paths", "tmp.framework.http") . "/" . ICache::DEFAULT_CACHED_REGISTRY_FILE_NAME
-);
-$container->bindInstance(ICache::class, $bootstrapperCache);
-
-/**
- * ----------------------------------------------------------
  * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
  */
@@ -73,7 +62,9 @@ $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
 
 // If we should cache our bootstrapper registry
 if ($environment->getName() == Environment::PRODUCTION) {
-    $container->bindInstance(ICache::class, $bootstrapperCache);
+    $bootstrapperCache = new FileCache(
+        Config::get("paths", "tmp.framework.http") . "/cachedBootstrapperRegistry.json"
+    );
     $bootstrapperFactory = new CachedBootstrapperRegistryFactory($bootstrapperResolver, $bootstrapperCache);
     $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
 } else {

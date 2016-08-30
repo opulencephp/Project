@@ -40,7 +40,7 @@ $globalBootstrappers = require __DIR__ . "/bootstrappers.php";
  * Set some bindings
  * ----------------------------------------------------------
  *
- * We don't do this in a bootstrapper because we need them
+ * You don't do this in a bootstrapper because you need them
  * bound before bootstrappers are even run
  */
 $container->bindInstance(ITaskDispatcher::class, $taskDispatcher);

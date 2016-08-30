@@ -14,7 +14,7 @@ use Opulence\Routing\Router;
 
 /**
  * ----------------------------------------------------------
- * Create our paths
+ * Create your paths
  * ----------------------------------------------------------
  */
 $paths = require_once __DIR__ . "/../../config/paths.php";
@@ -49,18 +49,18 @@ $application = require_once __DIR__ . "/../../config/application.php";
  * Load some HTTP-specific config settings
  * ----------------------------------------------------------
  */
-Config::setCategory("routing", require_once __DIR__ . "/../../config/http/routing.php");
-Config::setCategory("sessions", require_once __DIR__ . "/../../config/http/sessions.php");
+Config::setCategory("routing", require_once Config::get("paths", "config.http") . "/routing.php");
+Config::setCategory("sessions", require_once Config::get("paths", "config.http") . "/sessions.php");
 
 /**
  * ----------------------------------------------------------
  * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
  */
-$httpBootstrappers = require __DIR__ . "/../../config/http/bootstrappers.php";
+$httpBootstrappers = require Config::get("paths", "config.http") . "/bootstrappers.php";
 $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
 
-// If we should cache our bootstrapper registry
+// If you should cache your bootstrapper registry
 if ($environment->getName() == Environment::PRODUCTION) {
     $bootstrapperCache = new FileCache(
         Config::get("paths", "tmp.framework.http") . "/cachedBootstrapperRegistry.json"

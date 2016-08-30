@@ -1,7 +1,14 @@
 <h2>v1.0.0-beta6</h2>
 
-<h3>Query Builders</h3>
-* Added conditions to `where()`, `andWhere()`, `orWhere()`, `having()`, `andHaving()`, and `orHaving()` methods on various queries (issue #9)
+<h3>General</h3>
+* Updated files to use `Opulence\Ioc\Bootstrappers` rather than `Opulence\Bootstrappers`
+
+<h3>Config</h3>
+* Completely rewrote the way bootstrappers are run by the application
+* Added lots of uses of `Opulence\Framework\Configuration\Config`
+
+<h3>Sessions</h3>
+* Added a few new environment variables for session handlers and cookies
 
 <h2>v1.0.0-beta5</h2>
 

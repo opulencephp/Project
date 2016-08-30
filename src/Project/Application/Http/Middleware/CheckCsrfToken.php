@@ -28,7 +28,7 @@ class CheckCsrfToken extends BaseMiddleware
                 time() + Config::get("sessions", "xsrfcookie.lifetime"),
                 Config::get("sessions", "cookie.path"),
                 Config::get("sessions", "cookie.domain"),
-                false,
+                Config::get("sessions", "cookie.isSecure"),
                 false
             )
         );

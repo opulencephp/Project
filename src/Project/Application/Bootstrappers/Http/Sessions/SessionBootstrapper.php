@@ -45,7 +45,7 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     protected function getSessionHandler(IContainer $container) : SessionHandlerInterface
     {
-        switch (getenv("SESSION_HANDLER")) {
+        switch (Config::get("sessions", "handler")) {
             case CacheSessionHandler::class:
                 $handler = new CacheSessionHandler(
                     $this->getCacheBridge($container),
@@ -72,7 +72,7 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     private function getCacheBridge(IContainer $container) : ICacheBridge
     {
-        switch (getenv("SESSION_CACHE_BRIDGE")) {
+        switch (Config::get("sessions", "cache.bridge")) {
             case ArrayBridge::class:
                 return new ArrayBridge();
             case MemcachedBridge::class:

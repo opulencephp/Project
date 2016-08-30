@@ -47,7 +47,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $consoleBootstrappers = require __DIR__ . "/../../../../../config/console/bootstrappers.php";
+        $consoleBootstrappers = require Config::get("paths", "config.console") . "/bootstrappers.php";
         $allBootstrappers = array_merge($globalBootstrappers, $consoleBootstrappers);
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
         $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);

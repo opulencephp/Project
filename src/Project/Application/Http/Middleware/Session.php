@@ -37,7 +37,7 @@ class Session extends BaseSession
                 Config::get("sessions", "cookie.path"),
                 Config::get("sessions", "cookie.domain"),
                 Config::get("sessions", "cookie.isSecure"),
-                false
+                Config::get("sessions", "cookie.isHttpOnly")
             )
         );
 

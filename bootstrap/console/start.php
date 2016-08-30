@@ -13,7 +13,7 @@ use Opulence\Ioc\Bootstrappers\IBootstrapperRegistry;
 
 /**
  * ----------------------------------------------------------
- * Create our paths
+ * Create your paths
  * ----------------------------------------------------------
  */
 $paths = require_once __DIR__ . "/../../config/paths.php";
@@ -37,7 +37,7 @@ $application = require_once __DIR__ . "/../../config/application.php";
  * Configure the bootstrappers for the console kernel
  * ----------------------------------------------------------
  */
-$consoleBootstrappers = require __DIR__ . "/../../config/console/bootstrappers.php";
+$consoleBootstrappers = require Config::get("paths", "config.console") . "/bootstrappers.php";
 $allBootstrappers = array_merge($globalBootstrappers, $consoleBootstrappers);
 $bootstrapperCache = new FileCache(
     Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json"

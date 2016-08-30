@@ -51,8 +51,8 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * Load some HTTP-specific config settings
          * ----------------------------------------------------------
          */
-        Config::setCategory("routing", require __DIR__ . "/../../../../../config/http/routing.php");
-        Config::setCategory("sessions", require __DIR__ . "/../../../../../config/http/sessions.php");
+        Config::setCategory("routing", require Config::get("paths", "config.http") . "/routing.php");
+        Config::setCategory("sessions", require Config::get("paths", "config.http") . "/sessions.php");
 
         /**
          * ----------------------------------------------------------
@@ -63,7 +63,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $httpBootstrappers = require __DIR__ . "/../../../../../config/http/bootstrappers.php";
+        $httpBootstrappers = require Config::get("paths", "config.http") . "/bootstrappers.php";
         $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
         $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
@@ -105,6 +105,6 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     protected function getGlobalMiddleware() : array
     {
-        return require __DIR__ . "/../../../../../config/http/middleware.php";
+        return require Config::get("paths", "config.http") . "/middleware.php";
     }
 }

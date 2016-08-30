@@ -105,7 +105,7 @@ $application->start(function () use ($container, $exceptionHandler, $exceptionRe
     $router = $container->resolve(Router::class);
     $request = $container->resolve(Request::class);
     $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
-    $kernel->addMiddleware(require_once __DIR__ . "/../../config/http/middleware.php");
+    $kernel->addMiddleware(require_once Config::get("paths", "config.http") . "/middleware.php");
     $response = $kernel->handle($request);
     $response->send();
 });

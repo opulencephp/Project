@@ -41,10 +41,12 @@
     ],
     "post-install-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",
+      "php -r \"print_r(scandir(__DIR__ . '/config/environment'));\"",
       "php apex framework:flushcache"
     ],
     "post-update-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",
+      "php -r \"print_r(scandir(__DIR__ . '/config/environment'));\"",
       "php apex framework:flushcache"
     ]
   },

@@ -5,7 +5,6 @@ php:
   - 7.1
 
 env:
-  - ENV_NAME=testing
   - ENCRYPTION_KEY=48ca7483a0bb52c4d26e9ced9b436552a27ff44e821203104f571bbaff5a394d
 
 before_install:

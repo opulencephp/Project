@@ -11,7 +11,7 @@ use Opulence\Http\HttpException;
  *
  * The last parameter lists any exceptions you do not want to log
  */
-$exceptionRenderer = new ExceptionRenderer($environment->getName() == Environment::DEVELOPMENT);
+$exceptionRenderer = new ExceptionRenderer(Environment::getVar("ENV_NAME") == Environment::DEVELOPMENT);
 
 return new ExceptionHandler(
     $logger,

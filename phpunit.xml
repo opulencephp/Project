@@ -5,6 +5,7 @@
         <directory>tests</directory>
     </testsuite>
     <php>
+        <env name="ENV_NAME" value="testing"/>
         <env name="ENCRYPTION_KEY" value="74a64db2018d928d351d7bdd257c410efa938a010bc32bcd789155fd8cd75eb9"/>
     </php>
 </phpunit>

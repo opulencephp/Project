@@ -1,4 +1,15 @@
-<h2>v1.0.0-beta6</h2>
+<h2>v1.0.0-beta7 (2016-09-22)</h2>
+
+<h3>Config</h3>
+* Updated all `$environment->setVar(...)` and `$environment->getVar()` to be static, eg `Environment::setVar(...)` and `Environment::getVar()`
+* Removed `$container->bindInstance(Environment::class, $environment);`
+* Completely rewrote `config/environment.php` to not instantiate an `Environment` class
+* Updated all `$environment->getName()` to `Environment::getVar("ENV_NAME")`
+
+<h3>Tests</h3>
+* In `tests/src/Project/Application/Console/IntegrationTestCase` and `tests/src/Project/Application/Http/IntegrationTestCase`, replaced `$this->environment = require __DIR__ . "/../../../../../config/environment.php";` with just `require __DIR__ . "/../../../../../config/environment.php";`
+
+<h2>v1.0.0-beta6 (2016-08-29)</h2>
 
 <h3>General</h3>
 * Updated files to use `Opulence\Ioc\Bootstrappers` rather than `Opulence\Bootstrappers`
@@ -36,14 +47,14 @@
 * Updated `Project\Application\Bootstrappers\Events\DispatcherBootstrapper` to `EventDispatcherBootstrapper`
   * Also updated `use Opulence\Framework\Events\Bootstrappers\DispatcherBootstrapper as BaseBootstrapper;` to `use Opulence\Framework\Events\Bootstrappers\EventDispatcherBootstrapper as BaseBootstrapper;`
 
-<h2>v1.0.0-beta3</h2>
+<h2>v1.0.0-beta3 (2016-06-25)</h2>
 
 <h3>Environments</h3>
 * Made the default environment "development" rather than "production"
 * Removed unnecessary "CLIENT_ID" from environment
 * Added "ENV_NAME" rather than relying on resolvers to detect the host
 
-<h2>v1.0.0-beta2</h2>
+<h2>v1.0.0-beta2 (2016-06-17)</h2>
 
 <h3>General</h3>
 * Fixed installation scripts
@@ -51,7 +62,7 @@
 <h3>Tests</h3>
 * Incremented PHPUnit version from 5.2 to 5.4
 
-<h2>v1.0.0-beta1</h2>
+<h2>v1.0.0-beta1 (2016-06-15)</h2>
 
 <h3>General</h3>
 * First beta

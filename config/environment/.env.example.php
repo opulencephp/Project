@@ -3,56 +3,55 @@ use Opulence\Cache\FileBridge;
 use Opulence\Environments\Environment;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 
-/** @var Environment $environment */
 /**
  * ----------------------------------------------------------
  * Set environment metadata
  * ----------------------------------------------------------
  */
-$environment->setVar("ENV_NAME", Environment::DEVELOPMENT);
+Environment::setVar("ENV_NAME", Environment::DEVELOPMENT);
 
 /**
  * ----------------------------------------------------------
  * Set SQL database connection info
  * ----------------------------------------------------------
  */
-$environment->setVar("DB_HOST", "localhost");
-$environment->setVar("DB_USER", "myuser");
-$environment->setVar("DB_PASSWORD", "mypassword");
-$environment->setVar("DB_NAME", "public");
-$environment->setVar("DB_PORT", 5432);
+Environment::setVar("DB_HOST", "localhost");
+Environment::setVar("DB_USER", "myuser");
+Environment::setVar("DB_PASSWORD", "mypassword");
+Environment::setVar("DB_NAME", "public");
+Environment::setVar("DB_PORT", 5432);
 
 /**
  * ----------------------------------------------------------
  * Set the session handler and cache bridge
  * ----------------------------------------------------------
  */
-$environment->setVar("SESSION_HANDLER", FileSessionHandler::class);
-$environment->setVar("SESSION_CACHE_BRIDGE", FileBridge::class);
-$environment->setVar("SESSION_COOKIE_DOMAIN", "");
-$environment->setVar("SESSION_COOKIE_IS_SECURE", false);
-$environment->setVar("SESSION_COOKIE_PATH", "/");
+Environment::setVar("SESSION_HANDLER", FileSessionHandler::class);
+Environment::setVar("SESSION_CACHE_BRIDGE", FileBridge::class);
+Environment::setVar("SESSION_COOKIE_DOMAIN", "");
+Environment::setVar("SESSION_COOKIE_IS_SECURE", false);
+Environment::setVar("SESSION_COOKIE_PATH", "/");
 
 /**
  * ----------------------------------------------------------
  * Set Memcached connection info
  * ----------------------------------------------------------
  */
-$environment->setVar("MEMCACHED_HOST", "localhost");
-$environment->setVar("MEMCACHED_PORT", 11211);
+Environment::setVar("MEMCACHED_HOST", "localhost");
+Environment::setVar("MEMCACHED_PORT", 11211);
 
 /**
  * ----------------------------------------------------------
  * Set Redis connection info
  * ----------------------------------------------------------
  */
-$environment->setVar("REDIS_HOST", "localhost");
-$environment->setVar("REDIS_PORT", 6379);
-$environment->setVar("REDIS_DATABASE", 0);
+Environment::setVar("REDIS_HOST", "localhost");
+Environment::setVar("REDIS_PORT", 6379);
+Environment::setVar("REDIS_DATABASE", 0);
 
 /**
  * ----------------------------------------------------------
  * Set the encryption key
  * ----------------------------------------------------------
  */
-$environment->setVar("ENCRYPTION_KEY", "");
+Environment::setVar("ENCRYPTION_KEY", "");

@@ -23,7 +23,7 @@ $paths = require_once __DIR__ . "/../../config/paths.php";
  * Set up the environment
  * ----------------------------------------------------------
  */
-$environment = require __DIR__ . "/../../config/environment.php";
+require __DIR__ . "/../../config/environment.php";
 
 /**
  * ----------------------------------------------------------

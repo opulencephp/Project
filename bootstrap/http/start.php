@@ -24,7 +24,7 @@ $paths = require_once __DIR__ . "/../../config/paths.php";
  * Set up the environment
  * ----------------------------------------------------------
  */
-$environment = require __DIR__ . "/../../config/environment.php";
+require __DIR__ . "/../../config/environment.php";
 
 /**
  * ----------------------------------------------------------
@@ -61,7 +61,7 @@ $httpBootstrappers = require Config::get("paths", "config.http") . "/bootstrappe
 $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
 
 // If you should cache your bootstrapper registry
-if ($environment->getName() == Environment::PRODUCTION) {
+if (Environment::getVar("ENV_NAME") == Environment::PRODUCTION) {
     $bootstrapperCache = new FileCache(
         Config::get("paths", "tmp.framework.http") . "/cachedBootstrapperRegistry.json"
     );

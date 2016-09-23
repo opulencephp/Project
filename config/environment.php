@@ -11,6 +11,6 @@ $environmentConfigFiles = [
     __DIR__ . "/environment/.env.app.php"
 ];
 
-foreach ($environmentConfigFiles as $environmentFile) {
-    require $environmentFile;
+foreach ($environmentConfigFiles as $environmentConfigFile) {
+    require $environmentConfigFile;
 }

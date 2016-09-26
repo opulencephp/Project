@@ -26,16 +26,8 @@ class HomeTest extends IntegrationTestCase
             ->go()
             ->assertResponse
             ->isOK();
-        $this->assertView->varEquals("title", "Welcome to Opulence");
-        $this->checkMasterTemplateSetup();
-    }
-
-    /**
-     * Tests that the master template is set up correctly
-     */
-    private function checkMasterTemplateSetup()
-    {
-        $this->assertView->varEquals("metaKeywords", [])
+        $this->assertView->varEquals("title", "Welcome to Opulence")
+            ->varEquals("metaKeywords", [])
             ->varEquals("metaDescription", "")
             ->varEquals("css", "/assets/css/style.css");
     }

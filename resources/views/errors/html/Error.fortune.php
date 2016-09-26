@@ -1,4 +1,4 @@
-<% extends("Master") %>
+<% extends("Home") %>
 
 <% part("content") %>
 <h2><% show("errorTitle") %></h2>

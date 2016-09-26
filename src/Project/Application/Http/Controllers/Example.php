@@ -5,18 +5,18 @@ use Opulence\Http\Responses\Response;
 use Opulence\Routing\Controller;
 
 /**
- * Defines an example controller for the tutorial
+ * Defines an example controller
  */
-class Tutorial extends Controller
+class Example extends Controller
 {
     /**
-     * Shows the tutorial homepage
+     * Shows the homepage
      *
      * @return Response The response
      */
     public function showHomePage() : Response
     {
-        $this->view = $this->viewFactory->createView("Tutorial");
+        $this->view = $this->viewFactory->createView("Home");
 
         return new Response($this->viewCompiler->compile($this->view));
     }

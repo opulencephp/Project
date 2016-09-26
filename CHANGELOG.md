@@ -1,3 +1,9 @@
+<h2>v1.0.0-rc1 (?)</h2>
+
+<h3>General</h3>
+* Updated styling
+* Simplified the page that's displayed upon installation
+
 <h2>v1.0.0-beta7 (2016-09-22)</h2>
 
 <h3>Config</h3>

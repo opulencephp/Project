@@ -2,9 +2,9 @@
 namespace Project\Application\Http;
 
 /**
- * Defines the tutorial tests
+ * Defines the home tests
  */
-class TutorialTest extends IntegrationTestCase
+class HomeTest extends IntegrationTestCase
 {
     /**
      * Tests that the 404 template is set up correctly
@@ -26,7 +26,7 @@ class TutorialTest extends IntegrationTestCase
             ->go()
             ->assertResponse
             ->isOK();
-        $this->assertView->varEquals("title", "My First Opulence Application");
+        $this->assertView->varEquals("title", "Welcome to Opulence");
         $this->checkMasterTemplateSetup();
     }
 

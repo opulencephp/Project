@@ -5,16 +5,16 @@ use Opulence\Views\Factories\IViewBuilder;
 use Opulence\Views\IView;
 
 /**
- * Defines the master view builder
+ * Defines the home view builder
  */
-class MasterBuilder implements IViewBuilder
+class HomeBuilder implements IViewBuilder
 {
     /**
      * @inheritdoc
      */
     public function build(IView $view) : IView
     {
-        $view->setVar("title", "Welcome");
+        $view->setVar("title", "Welcome to Opulence");
         // Default to empty meta data
         $view->setVar("metaKeywords", []);
         $view->setVar("metaDescription", "");

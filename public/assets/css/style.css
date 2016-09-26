@@ -3,14 +3,12 @@ html
     font-family: 'Open Sans', 'Segoe UI', arial, sans-serif;
     font-size: 14px;
     color: #111;
-    background-color: #f1f1f1;
+    background: #eee;
 }
 
 body
 {
-    position: relative;
     margin: 0 auto;
-    background-color: #fff;
 }
 
 body, div
@@ -27,10 +25,9 @@ h1, h2, h3, h4, h5, h6
 h1
 {
     font-size: 30px;
-    margin: 0 0 20px;
 }
 
-h2, h3, h4, h5, h6
+h1, h2, h3, h4, h5, h6
 {
     margin: 0 0 10px;
 }
@@ -145,123 +142,30 @@ table
     border-collapse: collapse;
 }
 
-header.main
-{
-    background-color: #369;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 34px;
-}
-
 main
 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 100px;
     display: block;
-    width: 1024px;
-    margin: 34px auto 0 auto;
-    padding: 10px 10px 50px;
+    background-color: #fff;
 }
 
-header.main nav, footer.main nav
+#welcome-wrapper
 {
-    width: 1024px;
     margin: 0 auto;
+    padding: 100px 0;
+    width: 1024px;
 }
 
-header.main nav ul, footer.main nav ul
+#welcome h1
 {
-    padding: 0;
+    font-size: 56px;
 }
 
-header.main nav ul li, footer.main nav ul li
+#learn-more
 {
-    padding: 0 10px;
-    display: inline-block;
-    line-height: 2em;
-    font-size: 17px;
-}
-
-header.main nav ul li:first-child, footer.main nav ul li:first-child
-{
-    padding-left: 0;
-}
-
-header.main nav ul li:last-child, footer.main nav ul li:last-child
-{
-    padding-right: 0;
-}
-
-header.main nav a, header.main nav a:link, header.main nav a:active, header.main nav a:visited
-{
-    color: #fff;
-}
-
-header.main nav a:hover
-{
-    color: #def;
-}
-
-header.main nav a:first-child
-{
-    padding-left: 0;
-}
-
-header.main nav li.current
-{
-    background-color: #5ad;
-}
-
-section:not(:first-child)
-{
-    margin-top: 20px;
-}
-
-footer.main
-{
-    padding: 30px 0;
-    text-align: center;
-    background-color: #f1f1f1;
-    color: #888;
-}
-
-footer.main nav a, footer.main nav a:link, footer.main nav a:visited
-{
-    color: #888;
-}
-
-footer.main nav a:hover
-{
-    color: #777;
-}
-
-/* For mobile devices that are big enough, add a little bit of left padding so logo doesn't look tucked away */
-@media screen and (min-device-width: 330px) and (max-device-width: 1023px)
-{
-    header.main nav ul li:first-child
-    {
-        padding-left: 10px;
-    }
-}
-
-@media screen and (min-device-width: 1024px)
-{
-    header.main nav, footer.main nav
-    {
-        width: 1024px;
-    }
-
-    main
-    {
-        width: 1024px;
-    }
-}
-
-@media screen and (min-device-height: 650px)
-{
-    main
-    {
-        min-height: 500px;
-    }
+    margin-top: 30px;
 }

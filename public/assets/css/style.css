@@ -3,7 +3,6 @@ html
     font-family: 'Open Sans', 'Segoe UI', arial, sans-serif;
     font-size: 14px;
     color: #111;
-    background: #eee;
 }
 
 body
@@ -144,20 +143,12 @@ table
 
 main
 {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100px;
-    bottom: 100px;
-    display: block;
     background-color: #fff;
 }
 
 #welcome-wrapper
 {
     margin: 0 auto;
-    padding: 100px 0;
-    width: 1024px;
 }
 
 #welcome h1
@@ -168,4 +159,44 @@ main
 #learn-more
 {
     margin-top: 30px;
+}
+
+@media screen and (min-device-width: 1024px)
+{
+    body
+    {
+        background: #eee;
+    }
+
+    main
+    {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100px;
+        min-height: 350px;
+    }
+
+    #welcome-wrapper
+    {
+        padding: 100px 162px;
+        min-width: 800px;
+        max-width: 1024px;
+        background: url('/assets/images/opulence-background.png') 0 100px no-repeat;
+    }
+}
+
+@media screen and (max-device-width: 1023px)
+{
+    main
+    {
+        padding: 10px;
+    }
+
+    #welcome-wrapper
+    {
+        padding-bottom: 130px;
+        background: url('/assets/images/opulence-background.png') bottom center no-repeat;
+    }
 }

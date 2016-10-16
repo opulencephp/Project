@@ -1,4 +1,4 @@
-<h2>v1.0.0-rc1 (?)</h2>
+<h2>v1.0.0-rc1 (2016-10-15)</h2>
 
 <h3>General</h3>
 * Updated styling

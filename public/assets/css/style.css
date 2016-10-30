@@ -180,10 +180,10 @@ main
 
     #welcome-wrapper
     {
-        padding: 100px 162px;
+        padding: 100px 162px 100px 182px;
         min-width: 800px;
         max-width: 1024px;
-        background: url('/assets/images/opulence-background.png') 0 100px no-repeat;
+        background: url('/assets/images/opulence-background.png') 20px 100px no-repeat;
     }
 }
 

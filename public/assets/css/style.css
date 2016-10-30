@@ -146,12 +146,12 @@ main
     background-color: #fff;
 }
 
-#welcome-wrapper
+#main-wrapper
 {
     margin: 0 auto;
 }
 
-#welcome h1
+#main-wrapper h1
 {
     font-size: 56px;
 }
@@ -178,7 +178,7 @@ main
         min-height: 350px;
     }
 
-    #welcome-wrapper
+    #main-wrapper
     {
         padding: 100px 162px 100px 182px;
         min-width: 800px;
@@ -194,7 +194,7 @@ main
         padding: 10px;
     }
 
-    #welcome-wrapper
+    #main-wrapper
     {
         padding-bottom: 130px;
         background: url('/assets/images/opulence-background.png') bottom center no-repeat;

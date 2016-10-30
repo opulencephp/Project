@@ -15,11 +15,6 @@ class HomeBuilder implements IViewBuilder
     public function build(IView $view) : IView
     {
         $view->setVar("title", "Welcome to Opulence");
-        // Default to empty meta data
-        $view->setVar("metaKeywords", []);
-        $view->setVar("metaDescription", "");
-        // Set default variable values
-        $view->setVar("css", "/assets/css/style.css");
 
         return $view;
     }

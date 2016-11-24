@@ -63,7 +63,8 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $httpBootstrappers = require Config::get("paths", "config.http") . "/bootstrappers.php";
+        $httpBootstrapperPath = Config::get("paths", "config.http") . "/bootstrappers.php";
+        $httpBootstrappers = require $httpBootstrapperPath;
         $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
         $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);

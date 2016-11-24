@@ -32,7 +32,8 @@ $application = new Application($taskDispatcher);
  * The following starts settings up the bootstrappers
  */
 $bootstrapperResolver = new BootstrapperResolver();
-$globalBootstrappers = require __DIR__ . "/bootstrappers.php";
+$globalBootstrapperPath = __DIR__ . "/bootstrappers.php";
+$globalBootstrappers = require $globalBootstrapperPath;
 
 /**
  * ----------------------------------------------------------

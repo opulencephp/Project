@@ -30,24 +30,21 @@ class IntegrationTestCase extends BaseIntegrationTestCase
 
         /**
          * ----------------------------------------------------------
-         * Register some console-specific bindings
-         * ----------------------------------------------------------
-         */
-        $bootstrapperCache = new FileCache(
-            Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json"
-        );
-        $container->bindInstance(ICache::class, $bootstrapperCache);
-
-        /**
-         * ----------------------------------------------------------
          * Configure the bootstrappers for the console kernel
          * ----------------------------------------------------------
          *
+         * @var string $globalBootstrapperPath
          * @var array $globalBootstrappers
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $consoleBootstrappers = require Config::get("paths", "config.console") . "/bootstrappers.php";
+        $consoleBootstrapperPath = Config::get("paths", "config.console") . "/bootstrappers.php";
+        $bootstrapperCache = new FileCache(
+            Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json",
+            max(filemtime($globalBootstrapperPath), filemtime($consoleBootstrapperPath))
+        );
+        $container->bindInstance(ICache::class, $bootstrapperCache);
+        $consoleBootstrappers = require $consoleBootstrapperPath;
         $allBootstrappers = array_merge($globalBootstrappers, $consoleBootstrappers);
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
         $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);

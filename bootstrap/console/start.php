@@ -37,10 +37,12 @@ $application = require_once __DIR__ . "/../../config/application.php";
  * Configure the bootstrappers for the console kernel
  * ----------------------------------------------------------
  */
-$consoleBootstrappers = require Config::get("paths", "config.console") . "/bootstrappers.php";
+$consoleBootstrapperPath = Config::get("paths", "config.console") . "/bootstrappers.php";
+$consoleBootstrappers = require $consoleBootstrapperPath;
 $allBootstrappers = array_merge($globalBootstrappers, $consoleBootstrappers);
 $bootstrapperCache = new FileCache(
-    Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json"
+    Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json",
+    max(filemtime($globalBootstrapperPath), filemtime($consoleBootstrapperPath))
 );
 $bootstrapperFactory = new CachedBootstrapperRegistryFactory($bootstrapperResolver, $bootstrapperCache);
 $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);

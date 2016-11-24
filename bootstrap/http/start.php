@@ -57,7 +57,8 @@ Config::setCategory("sessions", require_once Config::get("paths", "config.http")
  * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
  */
-$httpBootstrappers = require Config::get("paths", "config.http") . "/bootstrappers.php";
+$httpBootstrapperPath = Config::get("paths", "config.http") . "/bootstrappers.php";
+$httpBootstrappers = require $httpBootstrapperPath;
 $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
 
 // If you should cache your bootstrapper registry

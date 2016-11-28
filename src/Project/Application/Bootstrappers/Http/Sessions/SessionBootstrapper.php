@@ -11,6 +11,7 @@ use Opulence\Framework\Sessions\Bootstrappers\SessionBootstrapper as BaseBootstr
 use Opulence\Ioc\IContainer;
 use Opulence\Memcached\Memcached;
 use Opulence\Redis\Redis;
+use Opulence\Sessions\Handlers\ArraySessionHandler;
 use Opulence\Sessions\Handlers\CacheSessionHandler;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 use Opulence\Sessions\Handlers\IEncryptableSessionHandler;
@@ -51,6 +52,9 @@ class SessionBootstrapper extends BaseBootstrapper
                     $this->getCacheBridge($container),
                     Config::get("sessions", "lifetime")
                 );
+                break;
+            case ArraySessionHandler::class:
+                $handler = new ArraySessionHandler();
                 break;
             default: // FileSessionHandler
                 $handler = new FileSessionHandler(Config::get("sessions", "file.path"));

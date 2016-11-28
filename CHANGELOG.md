@@ -1,3 +1,12 @@
+<h2>v1.0.0-rc3 (2016-12-?)</h2>
+
+<h3>General</h3>
+* Updated some dependencies
+
+<h3>Testing</h3>
+* Switched to the `Opulence\Sessions\Handlers\ArraySessionHandler` for unit tests
+* Added support for `Opulence\Views\Cache\ArrayCache` for unit tests
+
 <h2>v1.0.0-rc2 (2016-11-24)</h2>
 
 <h3>General</h3>

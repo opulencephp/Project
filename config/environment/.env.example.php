@@ -2,6 +2,7 @@
 use Opulence\Cache\FileBridge;
 use Opulence\Environments\Environment;
 use Opulence\Sessions\Handlers\FileSessionHandler;
+use Opulence\Views\Caching\FileCache;
 
 /**
  * ----------------------------------------------------------
@@ -9,17 +10,6 @@ use Opulence\Sessions\Handlers\FileSessionHandler;
  * ----------------------------------------------------------
  */
 Environment::setVar("ENV_NAME", Environment::DEVELOPMENT);
-
-/**
- * ----------------------------------------------------------
- * Set SQL database connection info
- * ----------------------------------------------------------
- */
-Environment::setVar("DB_HOST", "localhost");
-Environment::setVar("DB_USER", "myuser");
-Environment::setVar("DB_PASSWORD", "mypassword");
-Environment::setVar("DB_NAME", "public");
-Environment::setVar("DB_PORT", 5432);
 
 /**
  * ----------------------------------------------------------
@@ -31,6 +21,24 @@ Environment::setVar("SESSION_CACHE_BRIDGE", FileBridge::class);
 Environment::setVar("SESSION_COOKIE_DOMAIN", "");
 Environment::setVar("SESSION_COOKIE_IS_SECURE", false);
 Environment::setVar("SESSION_COOKIE_PATH", "/");
+
+/**
+ * ----------------------------------------------------------
+ * Set the view cache
+ * ----------------------------------------------------------
+ */
+Environment::setVar("VIEW_CACHE", FileCache::class);
+
+/**
+ * ----------------------------------------------------------
+ * Set SQL database connection info
+ * ----------------------------------------------------------
+ */
+Environment::setVar("DB_HOST", "localhost");
+Environment::setVar("DB_USER", "myuser");
+Environment::setVar("DB_PASSWORD", "mypassword");
+Environment::setVar("DB_NAME", "public");
+Environment::setVar("DB_PORT", 5432);
 
 /**
  * ----------------------------------------------------------

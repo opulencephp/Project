@@ -10,7 +10,7 @@ This project is a useful starting point for projects that use the **Opulence** f
 Opulence can be installed using Composer:
 
 ```
-composer create-project opulence/project --prefer-dist --stability=dev
+composer create-project opulence/project --prefer-dist
 ```
 
 ## Learn More

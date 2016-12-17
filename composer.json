@@ -21,7 +21,7 @@
   "require": {
     "php": "^7.0",
     "monolog/monolog": "1.22.0",
-    "opulence/opulence": "1.0.x-dev"
+    "opulence/opulence": "1.0.*"
   },
   "require-dev": {
     "phpunit/phpunit": "5.6.*"

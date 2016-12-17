@@ -1,3 +1,8 @@
+<h2>v1.0.1 (2016-12-?)</h2>
+
+<h3>General</h3>
+* Updated the required Opulence version to `1.0.*`
+
 <h2>v1.0.0 (2016-12-05)</h2>
 
 <h3>General</h3>

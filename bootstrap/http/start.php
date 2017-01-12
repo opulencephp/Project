@@ -17,23 +17,23 @@ use Opulence\Routing\Router;
  * Create your paths
  * ----------------------------------------------------------
  */
-$paths = require_once __DIR__ . "/../../config/paths.php";
+$paths = require_once __DIR__ . '/../../config/paths.php';
 
 /**
  * ----------------------------------------------------------
  * Set up the environment
  * ----------------------------------------------------------
  */
-require __DIR__ . "/../../config/environment.php";
+require __DIR__ . '/../../config/environment.php';
 
 /**
  * ----------------------------------------------------------
  * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
-$logger = require __DIR__ . "/../../config/http/logging.php";
-$exceptionHandler = require_once __DIR__ . "/../../config/http/exceptions.php";
-$errorHandler = require_once __DIR__ . "/../../config/http/errors.php";
+$logger = require __DIR__ . '/../../config/http/logging.php';
+$exceptionHandler = require_once __DIR__ . '/../../config/http/exceptions.php';
+$errorHandler = require_once __DIR__ . '/../../config/http/errors.php';
 $exceptionHandler->register();
 $errorHandler->register();
 
@@ -42,29 +42,29 @@ $errorHandler->register();
  * Initialize some application variables
  * ----------------------------------------------------------
  */
-$application = require_once __DIR__ . "/../../config/application.php";
+$application = require_once __DIR__ . '/../../config/application.php';
 
 /**
  * ----------------------------------------------------------
  * Load some HTTP-specific config settings
  * ----------------------------------------------------------
  */
-Config::setCategory("routing", require_once Config::get("paths", "config.http") . "/routing.php");
-Config::setCategory("sessions", require_once Config::get("paths", "config.http") . "/sessions.php");
+Config::setCategory('routing', require_once Config::get('paths', 'config.http') . '/routing.php');
+Config::setCategory('sessions', require_once Config::get('paths', 'config.http') . '/sessions.php');
 
 /**
  * ----------------------------------------------------------
  * Configure the bootstrappers for the HTTP kernel
  * ----------------------------------------------------------
  */
-$httpBootstrapperPath = Config::get("paths", "config.http") . "/bootstrappers.php";
+$httpBootstrapperPath = Config::get('paths', 'config.http') . '/bootstrappers.php';
 $httpBootstrappers = require $httpBootstrapperPath;
 $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
 
 // If you should cache your bootstrapper registry
-if (Environment::getVar("ENV_NAME") == Environment::PRODUCTION) {
+if (Environment::getVar('ENV_NAME') == Environment::PRODUCTION) {
     $bootstrapperCache = new FileCache(
-        Config::get("paths", "tmp.framework.http") . "/cachedBootstrapperRegistry.json"
+        Config::get('paths', 'tmp.framework.http') . '/cachedBootstrapperRegistry.json'
     );
     $bootstrapperFactory = new CachedBootstrapperRegistryFactory($bootstrapperResolver, $bootstrapperCache);
     $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
@@ -106,7 +106,7 @@ $application->start(function () use ($container, $exceptionHandler, $exceptionRe
     $router = $container->resolve(Router::class);
     $request = $container->resolve(Request::class);
     $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
-    $kernel->addMiddleware(require_once Config::get("paths", "config.http") . "/middleware.php");
+    $kernel->addMiddleware(require_once Config::get('paths', 'config.http') . '/middleware.php');
     $response = $kernel->handle($request);
     $response->send();
 });

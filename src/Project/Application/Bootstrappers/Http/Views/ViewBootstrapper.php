@@ -22,16 +22,16 @@ class ViewBootstrapper extends BaseBootstrapper
      */
     protected function getViewCache(IContainer $container) : ICache
     {
-        switch (Config::get("views", "cache")) {
+        switch (Config::get('views', 'cache')) {
             case ArrayCache::class:
                 return new ArrayCache();
                 break;
             default:
                 return new FileCache(
-                    Config::get("paths", "views.compiled"),
-                    Config::get("views", "cache.lifetime"),
-                    Config::get("views", "gc.chance"),
-                    Config::get("views", "gc.divisor")
+                    Config::get('paths', 'views.compiled'),
+                    Config::get('views', 'cache.lifetime'),
+                    Config::get('views', 'gc.chance'),
+                    Config::get('views', 'gc.divisor')
                 );
         }
     }

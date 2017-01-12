@@ -4,4 +4,4 @@
  * Opulence's router then routes the request to the appropriate controller
  * Read the installation docs at www.opulencephp.com for more information
  */
-require_once __DIR__ . "/../bootstrap/http/start.php";
+require_once __DIR__ . '/../bootstrap/http/start.php';

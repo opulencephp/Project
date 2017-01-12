@@ -14,7 +14,7 @@ class HtmlErrorBuilder implements IViewBuilder
      */
     public function build(IView $view) : IView
     {
-        $view->setVar("title", "Error");
+        $view->setVar('title', 'Error');
 
         return $view;
     }

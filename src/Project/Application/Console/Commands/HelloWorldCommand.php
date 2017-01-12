@@ -16,14 +16,14 @@ class HelloWorldCommand extends Command
      */
     protected function define()
     {
-        $this->setName("hello:world")
-            ->setDescription("Defines an example console command")
+        $this->setName('hello:world')
+            ->setDescription('Defines an example console command')
             ->addOption(new Option(
-                "yell",
-                "y",
+                'yell',
+                'y',
                 OptionTypes::OPTIONAL_VALUE,
-                "Whether or not to yell",
-                "yes"
+                'Whether or not to yell',
+                'yes'
             ));
     }
 
@@ -32,9 +32,9 @@ class HelloWorldCommand extends Command
      */
     protected function doExecute(IResponse $response)
     {
-        $message = "Hello, world!";
+        $message = 'Hello, world!';
 
-        if ($this->getOptionValue("yell") == "yes") {
+        if ($this->getOptionValue('yell') == 'yes') {
             $message = strtoupper($message);
         }
 

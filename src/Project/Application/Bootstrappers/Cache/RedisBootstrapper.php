@@ -28,10 +28,10 @@ class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
     {
         $client = new Client();
         $client->connect(
-            getenv("REDIS_HOST"),
-            getenv("REDIS_PORT")
+            getenv('REDIS_HOST'),
+            getenv('REDIS_PORT')
         );
-        $client->select(getenv("REDIS_DATABASE"));
+        $client->select(getenv('REDIS_DATABASE'));
         $redis = new Redis($client);
         $container->bindInstance(Redis::class, $redis);
         $container->bindInstance(TypeMapper::class, new TypeMapper());

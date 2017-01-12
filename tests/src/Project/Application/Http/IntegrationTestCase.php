@@ -29,20 +29,20 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     public function setUp()
     {
-        require __DIR__ . "/../../../../../config/paths.php";
-        require __DIR__ . "/../../../../../config/environment.php";
+        require __DIR__ . '/../../../../../config/paths.php';
+        require __DIR__ . '/../../../../../config/environment.php';
         /** @var LoggerInterface $logger */
         /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */
-        $logger = require __DIR__ . "/../../../../../config/http/logging.php";
-        $exceptionHandler = require __DIR__ . "/../../../../../config/http/exceptions.php";
-        $errorHandler = require __DIR__ . "/../../../../../config/http/errors.php";
+        $logger = require __DIR__ . '/../../../../../config/http/logging.php';
+        $exceptionHandler = require __DIR__ . '/../../../../../config/http/exceptions.php';
+        $errorHandler = require __DIR__ . '/../../../../../config/http/errors.php';
         $exceptionHandler->register();
         $errorHandler->register();
         $this->exceptionHandler = $exceptionHandler;
         $this->exceptionRenderer = $exceptionRenderer;
-        $this->application = require __DIR__ . "/../../../../../config/application.php";
+        $this->application = require __DIR__ . '/../../../../../config/application.php';
         /** @var IContainer $container */
         $this->container = $container;
 
@@ -51,8 +51,8 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * Load some HTTP-specific config settings
          * ----------------------------------------------------------
          */
-        Config::setCategory("routing", require Config::get("paths", "config.http") . "/routing.php");
-        Config::setCategory("sessions", require Config::get("paths", "config.http") . "/sessions.php");
+        Config::setCategory('routing', require Config::get('paths', 'config.http') . '/routing.php');
+        Config::setCategory('sessions', require Config::get('paths', 'config.http') . '/sessions.php');
 
         /**
          * ----------------------------------------------------------
@@ -63,7 +63,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $httpBootstrapperPath = Config::get("paths", "config.http") . "/bootstrappers.php";
+        $httpBootstrapperPath = Config::get('paths', 'config.http') . '/bootstrappers.php';
         $httpBootstrappers = require $httpBootstrapperPath;
         $allBootstrappers = array_merge($globalBootstrappers, $httpBootstrappers);
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
@@ -106,6 +106,6 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     protected function getGlobalMiddleware() : array
     {
-        return require Config::get("paths", "config.http") . "/middleware.php";
+        return require Config::get('paths', 'config.http') . '/middleware.php';
     }
 }

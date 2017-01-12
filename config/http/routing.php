@@ -14,5 +14,5 @@ return [
      *
      * "cache" => Whether or not to cache routes
      */
-    "cache" => true
+    'cache' => true
 ];

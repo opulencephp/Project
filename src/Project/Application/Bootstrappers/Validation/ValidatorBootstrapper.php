@@ -19,7 +19,7 @@ class ValidatorBootstrapper extends BaseBootstrapper
     protected function registerErrorTemplates(ErrorTemplateRegistry $errorTemplateRegistry)
     {
         $errorTemplateRegistry->registerErrorTemplatesFromConfig(
-            require Config::get("paths", "resources.lang.en") . "/validation.php"
+            require Config::get('paths', 'resources.lang.en') . '/validation.php'
         );
     }
 

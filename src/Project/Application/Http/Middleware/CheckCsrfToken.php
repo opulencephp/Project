@@ -23,12 +23,12 @@ class CheckCsrfToken extends BaseMiddleware
         // Add an XSRF cookie for JavaScript frameworks to use
         $response->getHeaders()->setCookie(
             new Cookie(
-                "XSRF-TOKEN",
+                'XSRF-TOKEN',
                 $this->session->get(CsrfTokenChecker::TOKEN_INPUT_NAME),
-                time() + Config::get("sessions", "xsrfcookie.lifetime"),
-                Config::get("sessions", "cookie.path"),
-                Config::get("sessions", "cookie.domain"),
-                Config::get("sessions", "cookie.isSecure"),
+                time() + Config::get('sessions', 'xsrfcookie.lifetime'),
+                Config::get('sessions', 'cookie.path'),
+                Config::get('sessions', 'cookie.domain'),
+                Config::get('sessions', 'cookie.isSecure'),
                 false
             )
         );

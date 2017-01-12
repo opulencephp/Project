@@ -12,16 +12,16 @@ use Opulence\Ioc\IContainer;
  *
  * @var array $paths The list of paths
  */
-Config::setCategory("paths", $paths);
-Config::setCategory("views", require __DIR__ . "/http/views.php");
+Config::setCategory('paths', $paths);
+Config::setCategory('views', require __DIR__ . '/http/views.php');
 
 /**
  * ----------------------------------------------------------
  * Create the application
  * ----------------------------------------------------------
  */
-$taskDispatcher = require __DIR__ . "/tasks.php";
-$container = require __DIR__ . "/ioc.php";
+$taskDispatcher = require __DIR__ . '/tasks.php';
+$container = require __DIR__ . '/ioc.php';
 $application = new Application($taskDispatcher);
 
 /**
@@ -32,7 +32,7 @@ $application = new Application($taskDispatcher);
  * The following starts settings up the bootstrappers
  */
 $bootstrapperResolver = new BootstrapperResolver();
-$globalBootstrapperPath = __DIR__ . "/bootstrappers.php";
+$globalBootstrapperPath = __DIR__ . '/bootstrappers.php';
 $globalBootstrappers = require $globalBootstrapperPath;
 
 /**

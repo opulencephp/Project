@@ -16,8 +16,8 @@ class Session extends BaseSession
      */
     protected function gc()
     {
-        if (rand(1, Config::get("sessions", "gc.divisor")) <= Config::get("sessions", "gc.chance")) {
-            $this->sessionHandler->gc(Config::get("sessions", "lifetime"));
+        if (rand(1, Config::get('sessions', 'gc.divisor')) <= Config::get('sessions', 'gc.chance')) {
+            $this->sessionHandler->gc(Config::get('sessions', 'lifetime'));
         }
     }
 
@@ -33,11 +33,11 @@ class Session extends BaseSession
             new Cookie(
                 $this->session->getName(),
                 $this->session->getId(),
-                time() + Config::get("sessions", "lifetime"),
-                Config::get("sessions", "cookie.path"),
-                Config::get("sessions", "cookie.domain"),
-                Config::get("sessions", "cookie.isSecure"),
-                Config::get("sessions", "cookie.isHttpOnly")
+                time() + Config::get('sessions', 'lifetime'),
+                Config::get('sessions', 'cookie.path'),
+                Config::get('sessions', 'cookie.domain'),
+                Config::get('sessions', 'cookie.isSecure'),
+                Config::get('sessions', 'cookie.isHttpOnly')
             )
         );
 

@@ -33,7 +33,7 @@ class SessionBootstrapper extends BaseBootstrapper
     protected function getSession(IContainer $container) : ISession
     {
         $session = new Session();
-        $session->setName(Config::get("sessions", "name"));
+        $session->setName(Config::get('sessions', 'name'));
 
         return $session;
     }
@@ -46,21 +46,21 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     protected function getSessionHandler(IContainer $container) : SessionHandlerInterface
     {
-        switch (Config::get("sessions", "handler")) {
+        switch (Config::get('sessions', 'handler')) {
             case CacheSessionHandler::class:
                 $handler = new CacheSessionHandler(
                     $this->getCacheBridge($container),
-                    Config::get("sessions", "lifetime")
+                    Config::get('sessions', 'lifetime')
                 );
                 break;
             case ArraySessionHandler::class:
                 $handler = new ArraySessionHandler();
                 break;
             default: // FileSessionHandler
-                $handler = new FileSessionHandler(Config::get("sessions", "file.path"));
+                $handler = new FileSessionHandler(Config::get('sessions', 'file.path'));
         }
 
-        if (Config::get("sessions", "isEncrypted") && $handler instanceof IEncryptableSessionHandler) {
+        if (Config::get('sessions', 'isEncrypted') && $handler instanceof IEncryptableSessionHandler) {
             $handler->useEncryption(true);
             $handler->setEncrypter($this->getSessionEncrypter($container));
         }
@@ -76,23 +76,23 @@ class SessionBootstrapper extends BaseBootstrapper
      */
     private function getCacheBridge(IContainer $container) : ICacheBridge
     {
-        switch (Config::get("sessions", "cache.bridge")) {
+        switch (Config::get('sessions', 'cache.bridge')) {
             case ArrayBridge::class:
                 return new ArrayBridge();
             case MemcachedBridge::class:
                 return new MemcachedBridge(
                     $container->resolve(Memcached::class),
-                    Config::get("sessions", "cache.clientName"),
-                    Config::get("sessions", "cache.keyPrefix")
+                    Config::get('sessions', 'cache.clientName'),
+                    Config::get('sessions', 'cache.keyPrefix')
                 );
             case RedisBridge::class:
                 return new RedisBridge(
                     $container->resolve(Redis::class),
-                    Config::get("sessions", "cache.clientName"),
-                    Config::get("sessions", "cache.keyPrefix")
+                    Config::get('sessions', 'cache.clientName'),
+                    Config::get('sessions', 'cache.keyPrefix')
                 );
             default: // FileBridge
-                return new FileBridge(Config::get("sessions", "file.path"));
+                return new FileBridge(Config::get('sessions', 'file.path'));
         }
     }
 }

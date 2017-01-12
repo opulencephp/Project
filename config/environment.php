@@ -8,7 +8,7 @@
  * you set environment variables on the server itself
  */
 $environmentConfigFiles = [
-    __DIR__ . "/environment/.env.app.php"
+    __DIR__ . '/environment/.env.app.php'
 ];
 
 foreach ($environmentConfigFiles as $environmentConfigFile) {

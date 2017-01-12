@@ -16,32 +16,32 @@ use Opulence\Ioc\Bootstrappers\IBootstrapperRegistry;
  * Create your paths
  * ----------------------------------------------------------
  */
-$paths = require_once __DIR__ . "/../../config/paths.php";
+$paths = require_once __DIR__ . '/../../config/paths.php';
 
 /**
  * ----------------------------------------------------------
  * Set up the environment
  * ----------------------------------------------------------
  */
-require __DIR__ . "/../../config/environment.php";
+require __DIR__ . '/../../config/environment.php';
 
 /**
  * ----------------------------------------------------------
  * Initialize some application variables
  * ----------------------------------------------------------
  */
-$application = require_once __DIR__ . "/../../config/application.php";
+$application = require_once __DIR__ . '/../../config/application.php';
 
 /**
  * ----------------------------------------------------------
  * Configure the bootstrappers for the console kernel
  * ----------------------------------------------------------
  */
-$consoleBootstrapperPath = Config::get("paths", "config.console") . "/bootstrappers.php";
+$consoleBootstrapperPath = Config::get('paths', 'config.console') . '/bootstrappers.php';
 $consoleBootstrappers = require $consoleBootstrapperPath;
 $allBootstrappers = array_merge($globalBootstrappers, $consoleBootstrappers);
 $bootstrapperCache = new FileCache(
-    Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json",
+    Config::get('paths', 'tmp.framework.console') . '/cachedBootstrapperRegistry.json',
     max(filemtime($globalBootstrapperPath), filemtime($consoleBootstrapperPath))
 );
 $bootstrapperFactory = new CachedBootstrapperRegistryFactory($bootstrapperResolver, $bootstrapperCache);

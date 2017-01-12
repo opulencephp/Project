@@ -14,7 +14,7 @@ class HomeBuilder implements IViewBuilder
      */
     public function build(IView $view) : IView
     {
-        $view->setVar("title", "Welcome to Opulence");
+        $view->setVar('title', 'Welcome to Opulence');
 
         return $view;
     }

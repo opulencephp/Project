@@ -22,9 +22,9 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     public function setUp()
     {
-        require __DIR__ . "/../../../../../config/paths.php";
-        require __DIR__ . "/../../../../../config/environment.php";
-        $this->application = require __DIR__ . "/../../../../../config/application.php";
+        require __DIR__ . '/../../../../../config/paths.php';
+        require __DIR__ . '/../../../../../config/environment.php';
+        $this->application = require __DIR__ . '/../../../../../config/application.php';
         /** @var IContainer $container */
         $this->container = $container;
 
@@ -38,9 +38,9 @@ class IntegrationTestCase extends BaseIntegrationTestCase
          * @var IBootstrapperResolver $bootstrapperResolver
          * @var ITaskDispatcher $taskDispatcher
          */
-        $consoleBootstrapperPath = Config::get("paths", "config.console") . "/bootstrappers.php";
+        $consoleBootstrapperPath = Config::get('paths', 'config.console') . '/bootstrappers.php';
         $bootstrapperCache = new FileCache(
-            Config::get("paths", "tmp.framework.console") . "/cachedBootstrapperRegistry.json",
+            Config::get('paths', 'tmp.framework.console') . '/cachedBootstrapperRegistry.json',
             max(filemtime($globalBootstrapperPath), filemtime($consoleBootstrapperPath))
         );
         $container->bindInstance(ICache::class, $bootstrapperCache);

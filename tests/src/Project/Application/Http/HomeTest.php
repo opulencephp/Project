@@ -11,7 +11,7 @@ class HomeTest extends IntegrationTestCase
      */
     public function test404PageIsSetUpCorrectly()
     {
-        $this->get("/doesNotExist")
+        $this->get('/doesNotExist')
             ->go()
             ->assertResponse
             ->isNotFound();
@@ -22,13 +22,13 @@ class HomeTest extends IntegrationTestCase
      */
     public function testHomePageIsSetUpCorrectly()
     {
-        $this->get("/")
+        $this->get('/')
             ->go()
             ->assertResponse
             ->isOK();
-        $this->assertView->varEquals("title", "Welcome to Opulence")
-            ->varEquals("metaKeywords", [])
-            ->varEquals("metaDescription", "")
-            ->varEquals("css", "/assets/css/style.css");
+        $this->assertView->varEquals('title', 'Welcome to Opulence')
+            ->varEquals('metaKeywords', [])
+            ->varEquals('metaDescription', '')
+            ->varEquals('css', '/assets/css/style.css');
     }
 }

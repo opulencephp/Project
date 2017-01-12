@@ -16,6 +16,6 @@ class EventDispatcherBootstrapper extends BaseBootstrapper
      */
     protected function getEventListenerConfig() : array
     {
-        return require Config::get("paths", "config") . "/events.php";
+        return require Config::get('paths', 'config') . '/events.php';
     }
 }

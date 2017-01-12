@@ -15,10 +15,10 @@ class MasterBuilder implements IViewBuilder
     public function build(IView $view) : IView
     {
         // Default to empty meta data
-        $view->setVar("metaKeywords", []);
-        $view->setVar("metaDescription", "");
+        $view->setVar('metaKeywords', []);
+        $view->setVar('metaDescription', '');
         // Set default variable values
-        $view->setVar("css", "/assets/css/style.css");
+        $view->setVar('css', '/assets/css/style.css');
 
         return $view;
     }

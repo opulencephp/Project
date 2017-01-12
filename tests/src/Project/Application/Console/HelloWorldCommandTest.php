@@ -11,11 +11,11 @@ class HelloWorldCommandTest extends IntegrationTestCase
      */
     public function testWithoutOptions()
     {
-        $this->command("hello:world")
+        $this->command('hello:world')
             ->withStyle(false)
             ->execute()
             ->assertResponse
-            ->outputEquals("Hello, world!" . PHP_EOL);
+            ->outputEquals('Hello, world!' . PHP_EOL);
     }
 
     /**
@@ -23,11 +23,11 @@ class HelloWorldCommandTest extends IntegrationTestCase
      */
     public function testYelling()
     {
-        $this->command("hello:world")
-            ->withOptions("--yell")
+        $this->command('hello:world')
+            ->withOptions('--yell')
             ->withStyle(false)
             ->execute()
             ->assertResponse
-            ->outputEquals("HELLO, WORLD!" . PHP_EOL);
+            ->outputEquals('HELLO, WORLD!' . PHP_EOL);
     }
 }

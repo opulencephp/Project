@@ -1,7 +1,7 @@
 <?php
 namespace Project\Application\Bootstrappers\Orm;
 
-use Opulence\Databases\ConnectionPools\ConnectionPool;
+use Opulence\Databases\IConnection;
 use Opulence\Ioc\Bootstrappers\Bootstrapper;
 use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
@@ -16,13 +16,10 @@ use Opulence\Orm\IUnitOfWork;
 use Opulence\Orm\UnitOfWork;
 
 /**
- * Defines the unit of work bootstrapper
+ * Defines the ORM bootstrapper
  */
-class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
+class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
 {
-    /** @var IUnitOfWork */
-    private $unitOfWork = null;
-
     /**
      * @inheritdoc
      */
@@ -47,21 +44,17 @@ class UnitOfWorkBootstrapper extends Bootstrapper implements ILazyBootstrapper
         $this->registerIdGenerators($idGeneratorRegistry);
         $changeTracker = new ChangeTracker();
         $entityRegistry = new EntityRegistry($idAccessorRegistry, $changeTracker);
-        $this->unitOfWork = new UnitOfWork($entityRegistry, $idAccessorRegistry, $idGeneratorRegistry, $changeTracker);
+        $unitOfWork = new UnitOfWork(
+            $entityRegistry,
+            $idAccessorRegistry,
+            $idGeneratorRegistry,
+            $changeTracker,
+            $container->resolve(IConnection::class)
+        );
         $container->bindInstance(IIdAccessorRegistry::class, $idAccessorRegistry);
         $container->bindInstance(IIdGeneratorRegistry::class, $idGeneratorRegistry);
         $container->bindInstance(IChangeTracker::class, $changeTracker);
-        $container->bindInstance(IUnitOfWork::class, $this->unitOfWork);
-    }
-
-    /**
-     * Binds the SQL connection to a new unit of work
-     *
-     * @param ConnectionPool $connectionPool The SQL connection pool
-     */
-    public function run(ConnectionPool $connectionPool)
-    {
-        $this->unitOfWork->setConnection($connectionPool->getWriteConnection());
+        $container->bindInstance(IUnitOfWork::class, $unitOfWork);
     }
 
     /**

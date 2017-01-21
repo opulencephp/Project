@@ -61,7 +61,6 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
         } catch (IocException $ex) {
             throw new RuntimeException('Failed to register ORM bindings', 0, $ex);
         }
-
     }
 
     /**

@@ -5,6 +5,7 @@ use Opulence\Databases\IConnection;
 use Opulence\Ioc\Bootstrappers\Bootstrapper;
 use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
 use Opulence\Ioc\IContainer;
+use Opulence\Ioc\IocException;
 use Opulence\Orm\ChangeTracking\ChangeTracker;
 use Opulence\Orm\ChangeTracking\IChangeTracker;
 use Opulence\Orm\EntityRegistry;
@@ -14,6 +15,7 @@ use Opulence\Orm\Ids\Generators\IdGeneratorRegistry;
 use Opulence\Orm\Ids\Generators\IIdGeneratorRegistry;
 use Opulence\Orm\IUnitOfWork;
 use Opulence\Orm\UnitOfWork;
+use RuntimeException;
 
 /**
  * Defines the ORM bootstrapper
@@ -38,23 +40,28 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
      */
     public function registerBindings(IContainer $container)
     {
-        $idAccessorRegistry = new IdAccessorRegistry();
-        $idGeneratorRegistry = new IdGeneratorRegistry();
-        $this->registerIdAccessors($idAccessorRegistry);
-        $this->registerIdGenerators($idGeneratorRegistry);
-        $changeTracker = new ChangeTracker();
-        $entityRegistry = new EntityRegistry($idAccessorRegistry, $changeTracker);
-        $unitOfWork = new UnitOfWork(
-            $entityRegistry,
-            $idAccessorRegistry,
-            $idGeneratorRegistry,
-            $changeTracker,
-            $container->resolve(IConnection::class)
-        );
-        $container->bindInstance(IIdAccessorRegistry::class, $idAccessorRegistry);
-        $container->bindInstance(IIdGeneratorRegistry::class, $idGeneratorRegistry);
-        $container->bindInstance(IChangeTracker::class, $changeTracker);
-        $container->bindInstance(IUnitOfWork::class, $unitOfWork);
+        try {
+            $idAccessorRegistry = new IdAccessorRegistry();
+            $idGeneratorRegistry = new IdGeneratorRegistry();
+            $this->registerIdAccessors($idAccessorRegistry);
+            $this->registerIdGenerators($idGeneratorRegistry);
+            $changeTracker = new ChangeTracker();
+            $entityRegistry = new EntityRegistry($idAccessorRegistry, $changeTracker);
+            $unitOfWork = new UnitOfWork(
+                $entityRegistry,
+                $idAccessorRegistry,
+                $idGeneratorRegistry,
+                $changeTracker,
+                $container->resolve(IConnection::class)
+            );
+            $container->bindInstance(IIdAccessorRegistry::class, $idAccessorRegistry);
+            $container->bindInstance(IIdGeneratorRegistry::class, $idGeneratorRegistry);
+            $container->bindInstance(IChangeTracker::class, $changeTracker);
+            $container->bindInstance(IUnitOfWork::class, $unitOfWork);
+        } catch (IocException $ex) {
+            throw new RuntimeException('Failed to register ORM bindings', 0, $ex);
+        }
+
     }
 
     /**

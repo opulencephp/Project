@@ -16,7 +16,7 @@ class Session extends BaseSession
      */
     protected function gc()
     {
-        if (rand(1, Config::get('sessions', 'gc.divisor')) <= Config::get('sessions', 'gc.chance')) {
+        if (random_int(1, Config::get('sessions', 'gc.divisor')) <= Config::get('sessions', 'gc.chance')) {
             $this->sessionHandler->gc(Config::get('sessions', 'lifetime'));
         }
     }

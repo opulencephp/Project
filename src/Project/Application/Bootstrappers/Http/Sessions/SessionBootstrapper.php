@@ -9,6 +9,7 @@ use Opulence\Cache\RedisBridge;
 use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Sessions\Bootstrappers\SessionBootstrapper as BaseBootstrapper;
 use Opulence\Ioc\IContainer;
+use Opulence\Ioc\IocException;
 use Opulence\Memcached\Memcached;
 use Opulence\Redis\Redis;
 use Opulence\Sessions\Handlers\ArraySessionHandler;
@@ -43,6 +44,7 @@ class SessionBootstrapper extends BaseBootstrapper
      *
      * @param IContainer $container The IoC Container
      * @return SessionHandlerInterface The session handler to use
+     * @throws IocException Thrown if the encrypter could not be resolved
      */
     protected function getSessionHandler(IContainer $container) : SessionHandlerInterface
     {
@@ -60,7 +62,7 @@ class SessionBootstrapper extends BaseBootstrapper
                 $handler = new FileSessionHandler(Config::get('sessions', 'file.path'));
         }
 
-        if (Config::get('sessions', 'isEncrypted') && $handler instanceof IEncryptableSessionHandler) {
+        if ($handler instanceof IEncryptableSessionHandler && Config::get('sessions', 'isEncrypted')) {
             $handler->useEncryption(true);
             $handler->setEncrypter($this->getSessionEncrypter($container));
         }
@@ -73,6 +75,7 @@ class SessionBootstrapper extends BaseBootstrapper
      *
      * @param IContainer $container The IoC container
      * @return ICacheBridge The cache bridge
+     * @throws IocException Thrown if the cache bridge could not be resolved
      */
     private function getCacheBridge(IContainer $container) : ICacheBridge
     {

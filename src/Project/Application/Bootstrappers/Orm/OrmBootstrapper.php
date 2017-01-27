@@ -64,7 +64,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
             throw new RuntimeException('Failed to register ORM bindings', 0, $ex);
         }
     }
-    
+
     /**
      * Binds repositories to the container
      *

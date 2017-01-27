@@ -1,4 +1,4 @@
-<h2>v1.0.2 (2017-01-?)</h2>
+<h2>v1.0.2 (2017-01-26)</h2>
 
 <h3>General</h3>
 * Added better exception handling

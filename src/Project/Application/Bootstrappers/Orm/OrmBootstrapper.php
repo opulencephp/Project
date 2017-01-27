@@ -31,7 +31,8 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
             IChangeTracker::class,
             IIdAccessorRegistry::class,
             IIdGeneratorRegistry::class,
-            IUnitOfWork::class
+            IUnitOfWork::class,
+            // Add your repository classes here
         ];
     }
 
@@ -54,6 +55,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
                 $changeTracker,
                 $container->resolve(IConnection::class)
             );
+            $this->bindRepositories($container, $unitOfWork);
             $container->bindInstance(IIdAccessorRegistry::class, $idAccessorRegistry);
             $container->bindInstance(IIdGeneratorRegistry::class, $idGeneratorRegistry);
             $container->bindInstance(IChangeTracker::class, $changeTracker);
@@ -61,6 +63,17 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
         } catch (IocException $ex) {
             throw new RuntimeException('Failed to register ORM bindings', 0, $ex);
         }
+    }
+    
+    /**
+     * Binds repositories to the container
+     *
+     * @param IContainer $container The container to bind to
+     * @param IUnitOfWork $unitOfWork The unit of work to use in repositories
+     */
+    private function bindRepositories(IContainer $container, IUnitOfWork $unitOfWork)
+    {
+        // Bind your repositories here
     }
 
     /**

@@ -21,9 +21,8 @@ class HelloWorldCommand extends Command
             ->addOption(new Option(
                 'yell',
                 'y',
-                OptionTypes::OPTIONAL_VALUE,
-                'Whether or not to yell',
-                'yes'
+                OptionTypes::NO_VALUE,
+                'Whether or not to yell'
             ));
     }
 
@@ -34,7 +33,7 @@ class HelloWorldCommand extends Command
     {
         $message = 'Hello, world!';
 
-        if ($this->getOptionValue('yell') == 'yes') {
+        if ($this->optionIsSet('yell')) {
             $message = strtoupper($message);
         }
 

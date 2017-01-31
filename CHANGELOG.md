@@ -1,3 +1,8 @@
+<h2>v1.0.3 (2017-01-30)</h2>
+
+<h3>Console</h3>
+* Fixed broken unit test
+
 <h2>v1.0.2 (2017-01-26)</h2>
 
 <h3>General</h3>

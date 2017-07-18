@@ -14,19 +14,17 @@ use RuntimeException;
 class CommandsBootstrapper extends Bootstrapper
 {
     /**
-     * Sets the console commands from this project
-     *
-     * @param CommandCollection $commandCollection The commands to add to
-     * @param IContainer $container The dependency injection container
+     * @inheritdoc
      */
-    public function run(CommandCollection $commandCollection, IContainer $container)
+    public function registerBindings(IContainer $container)
     {
+        $commands = $container->resolve(CommandCollection::class);
         $commandClasses = require Config::get('paths', 'config.console') . '/commands.php';
 
         try {
             // Instantiate each command class
             foreach ((array)$commandClasses as $commandClass) {
-                $commandCollection->add($container->resolve($commandClass));
+                $commands->add($container->resolve($commandClass));
             }
         } catch (Exception $ex) {
             throw new RuntimeException('Failed to add console commands', 0, $ex);

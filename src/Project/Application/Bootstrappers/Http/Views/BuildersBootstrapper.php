@@ -2,6 +2,7 @@
 namespace Project\Application\Bootstrappers\Http\Views;
 
 use Opulence\Ioc\Bootstrappers\Bootstrapper;
+use Opulence\Ioc\IContainer;
 use Opulence\Views\Factories\IViewFactory;
 use Opulence\Views\IView;
 use Project\Application\Http\Views\Builders\HomeBuilder;
@@ -14,12 +15,12 @@ use Project\Application\Http\Views\Builders\MasterBuilder;
 class BuildersBootstrapper extends Bootstrapper
 {
     /**
-     * Registers view builders to the factory
-     *
-     * @param IViewFactory $viewFactory The view factory to use
+     * @inheritdoc
      */
-    public function run(IViewFactory $viewFactory)
+    public function registerBindings(IContainer $container)
     {
+        $viewFactory = $container->resolve(IViewFactory::class);
+        
         $viewFactory->registerBuilder('Master', function (IView $view) {
             return (new MasterBuilder())->build($view);
         });

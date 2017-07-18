@@ -52,13 +52,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
         $taskDispatcher->registerTask(
             TaskTypes::PRE_START,
             function () use ($bootstrapperDispatcher) {
-                $bootstrapperDispatcher->startBootstrappers(false);
-            }
-        );
-        $taskDispatcher->registerTask(
-            TaskTypes::PRE_SHUTDOWN,
-            function () use ($bootstrapperDispatcher) {
-                $bootstrapperDispatcher->shutDownBootstrappers();
+                $bootstrapperDispatcher->dispatch(false);
             }
         );
 

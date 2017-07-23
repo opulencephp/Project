@@ -20,7 +20,7 @@ class BuildersBootstrapper extends Bootstrapper
     public function registerBindings(IContainer $container)
     {
         $viewFactory = $container->resolve(IViewFactory::class);
-        
+
         $viewFactory->registerBuilder('Master', function (IView $view) {
             return (new MasterBuilder())->build($view);
         });

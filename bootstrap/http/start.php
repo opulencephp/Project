@@ -1,5 +1,4 @@
 <?php
-use Opulence\Applications\Tasks\TaskTypes;
 use Opulence\Environments\Environment;
 use Opulence\Framework\Configuration\Config;
 use Opulence\Framework\Http\Kernel;
@@ -31,18 +30,12 @@ require __DIR__ . '/../../config/environment.php';
  * Set up the exception and error handlers
  * ----------------------------------------------------------
  */
+require __DIR__ . '/../../config/application.php';
 $logger = require __DIR__ . '/../../config/http/logging.php';
 $exceptionHandler = require_once __DIR__ . '/../../config/http/exceptions.php';
 $errorHandler = require_once __DIR__ . '/../../config/http/errors.php';
 $exceptionHandler->register();
 $errorHandler->register();
-
-/**
- * ----------------------------------------------------------
- * Initialize some application variables
- * ----------------------------------------------------------
- */
-$application = require_once __DIR__ . '/../../config/application.php';
 
 /**
  * ----------------------------------------------------------
@@ -76,38 +69,19 @@ if (Environment::getVar('ENV_NAME') == Environment::PRODUCTION) {
 $bootstrapperDispatcher = new BootstrapperDispatcher($container, $bootstrapperRegistry, $bootstrapperResolver);
 $container->bindInstance(IBootstrapperRegistry::class, $bootstrapperRegistry);
 $container->bindInstance(IBootstrapperDispatcher::class, $bootstrapperDispatcher);
-$taskDispatcher->registerTask(
-    TaskTypes::PRE_START,
-    function () use ($bootstrapperDispatcher) {
-        $bootstrapperDispatcher->dispatch(false);
-    }
-);
 
 /**
  * ----------------------------------------------------------
- * Let's get started
+ * Handle the request
  * ----------------------------------------------------------
+ *
+ * @var Router $router
+ * @var Request $request
  */
-$application->start(function () use ($container, $exceptionHandler, $exceptionRenderer) {
-    /**
-     * ----------------------------------------------------------
-     * Handle the request
-     * ----------------------------------------------------------
-     *
-     * @var Router $router
-     * @var Request $request
-     */
-    $router = $container->resolve(Router::class);
-    $request = $container->resolve(Request::class);
-    $kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
-    $kernel->addMiddleware(require_once Config::get('paths', 'config.http') . '/middleware.php');
-    $response = $kernel->handle($request);
-    $response->send();
-});
-
-/**
- * ----------------------------------------------------------
- * Shut her down
- * ----------------------------------------------------------
- */
-$application->shutDown();
+$bootstrapperDispatcher->dispatch(false);
+$router = $container->resolve(Router::class);
+$request = $container->resolve(Request::class);
+$kernel = new Kernel($container, $router, $exceptionHandler, $exceptionRenderer);
+$kernel->addMiddleware(require_once Config::get('paths', 'config.http') . '/middleware.php');
+$response = $kernel->handle($request);
+$response->send();

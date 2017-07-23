@@ -1,8 +1,6 @@
 <?php
 namespace Project\Application\Http;
 
-use Opulence\Applications\Tasks\Dispatchers\ITaskDispatcher;
-use Opulence\Applications\Tasks\TaskTypes;
 use Opulence\Debug\Errors\Handlers\IErrorHandler;
 use Opulence\Debug\Exceptions\Handlers\IExceptionHandler;
 use Opulence\Framework\Configuration\Config;
@@ -42,7 +40,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
         $errorHandler->register();
         $this->exceptionHandler = $exceptionHandler;
         $this->exceptionRenderer = $exceptionRenderer;
-        $this->application = require __DIR__ . '/../../../../../config/application.php';
+        require __DIR__ . '/../../../../../config/application.php';
         /** @var IContainer $container */
         $this->container = $container;
 
@@ -69,12 +67,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
         $bootstrapperFactory = new BootstrapperRegistryFactory($bootstrapperResolver);
         $bootstrapperRegistry = $bootstrapperFactory->createBootstrapperRegistry($allBootstrappers);
         $bootstrapperDispatcher = new BootstrapperDispatcher($container, $bootstrapperRegistry, $bootstrapperResolver);
-        $taskDispatcher->registerTask(
-            TaskTypes::PRE_START,
-            function () use ($bootstrapperDispatcher) {
-                $bootstrapperDispatcher->dispatch(false);
-            }
-        );
+        $bootstrapperDispatcher->dispatch(false);
 
         parent::setUp();
     }

@@ -17,7 +17,7 @@ $paths = [
     'config' => realpath(__DIR__),
     'config.console' => realpath(__DIR__ . '/console'),
     'config.http' => realpath(__DIR__ . '/http'),
-    
+
     /**
      * ----------------------------------------------------------
      * Database

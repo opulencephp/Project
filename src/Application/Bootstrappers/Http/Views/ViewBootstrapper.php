@@ -25,7 +25,6 @@ class ViewBootstrapper extends BaseBootstrapper
         switch (Config::get('views', 'cache')) {
             case ArrayCache::class:
                 return new ArrayCache();
-                break;
             default:
                 return new FileCache(
                     Config::get('paths', 'views.compiled'),

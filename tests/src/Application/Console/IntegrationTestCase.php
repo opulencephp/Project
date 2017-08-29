@@ -20,9 +20,9 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     public function setUp()
     {
-        require __DIR__ . '/../../../../../config/paths.php';
-        require __DIR__ . '/../../../../../config/environment.php';
-        require __DIR__ . '/../../../../../config/application.php';
+        require __DIR__ . '/../../../../config/paths.php';
+        require __DIR__ . '/../../../../config/environment.php';
+        require __DIR__ . '/../../../../config/application.php';
         /** @var IContainer $container */
         $this->container = $container;
 

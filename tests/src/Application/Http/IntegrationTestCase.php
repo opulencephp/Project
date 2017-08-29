@@ -27,20 +27,20 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     public function setUp()
     {
-        require __DIR__ . '/../../../../../config/paths.php';
-        require __DIR__ . '/../../../../../config/environment.php';
+        require __DIR__ . '/../../../../config/paths.php';
+        require __DIR__ . '/../../../../config/environment.php';
         /** @var LoggerInterface $logger */
         /** @var IExceptionRenderer $exceptionRenderer */
         /** @var IExceptionHandler $exceptionHandler */
         /** @var IErrorHandler $errorHandler */
-        $logger = require __DIR__ . '/../../../../../config/http/logging.php';
-        $exceptionHandler = require __DIR__ . '/../../../../../config/http/exceptions.php';
-        $errorHandler = require __DIR__ . '/../../../../../config/http/errors.php';
+        $logger = require __DIR__ . '/../../../../config/http/logging.php';
+        $exceptionHandler = require __DIR__ . '/../../../../config/http/exceptions.php';
+        $errorHandler = require __DIR__ . '/../../../../config/http/errors.php';
         $exceptionHandler->register();
         $errorHandler->register();
         $this->exceptionHandler = $exceptionHandler;
         $this->exceptionRenderer = $exceptionRenderer;
-        require __DIR__ . '/../../../../../config/application.php';
+        require __DIR__ . '/../../../../config/application.php';
         /** @var IContainer $container */
         $this->container = $container;
 

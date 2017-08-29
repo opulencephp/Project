@@ -17,6 +17,15 @@ $paths = [
     'config' => realpath(__DIR__),
     'config.console' => realpath(__DIR__ . '/console'),
     'config.http' => realpath(__DIR__ . '/http'),
+    
+    /**
+     * ----------------------------------------------------------
+     * Database
+     * ----------------------------------------------------------
+     *
+     * "database.migrations" => The directory that holds your migration classes
+     */
+    'database.migrations' => realpath(__DIR__ . '/../src/Infrastructure/Databases/Migrations'),
 
     /**
      * ----------------------------------------------------------

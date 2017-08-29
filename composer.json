@@ -13,8 +13,8 @@
   "autoload": {
     "psr-4": {
       "Project\\": [
-        "src/Project",
-        "tests/src/Project"
+        "src",
+        "tests/src"
       ]
     }
   },

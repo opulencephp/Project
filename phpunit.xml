@@ -1,5 +1,5 @@
 <phpunit
-        bootstrap="config/phpunit.php"
+        bootstrap="config/paths.php"
         colors="true">
     <testsuite name="Project">
         <directory>tests</directory>

@@ -4,7 +4,7 @@
  * Define the list of paths needed by this application
  * ----------------------------------------------------------
  */
-$paths = [
+return [
     /**
      * ----------------------------------------------------------
      * Configs
@@ -127,8 +127,3 @@ $paths = [
     'views.compiled' => realpath(__DIR__ . '/../tmp/framework/http/views'),
     'views.raw' => realpath(__DIR__ . '/../resources/views')
 ];
-
-// Get the autoloader
-require "{$paths['vendor']}/autoload.php";
-
-return $paths;

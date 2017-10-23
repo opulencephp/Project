@@ -27,7 +27,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
      */
     public function setUp()
     {
-        require __DIR__ . '/../../../../config/paths.php';
+        $paths = require __DIR__ . '/../../../../config/paths.php';
         require __DIR__ . '/../../../../config/environment.php';
         /** @var LoggerInterface $logger */
         /** @var IExceptionRenderer $exceptionRenderer */

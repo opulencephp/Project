@@ -1,3 +1,9 @@
+<h2>v1.1.1 (2017-10-23)</h2>
+
+<h3>General</h3>
+
+* `config/paths.php` no longer requires the Composer autoload
+
 <h2>v1.1.0 (2017-10-22)</h2>
 
 <h3>General</h3>

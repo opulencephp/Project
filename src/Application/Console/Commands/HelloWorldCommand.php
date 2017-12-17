@@ -14,7 +14,7 @@ class HelloWorldCommand extends Command
     /**
      * @inheritdoc
      */
-    protected function define()
+    protected function define() : void
     {
         $this->setName('hello:world')
             ->setDescription('Defines an example console command')

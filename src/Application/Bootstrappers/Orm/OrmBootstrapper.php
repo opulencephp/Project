@@ -39,7 +39,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
     /**
      * @inheritdoc
      */
-    public function registerBindings(IContainer $container)
+    public function registerBindings(IContainer $container) : void
     {
         try {
             $idAccessorRegistry = new IdAccessorRegistry();
@@ -71,7 +71,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
      * @param IContainer $container The container to bind to
      * @param IUnitOfWork $unitOfWork The unit of work to use in repositories
      */
-    private function bindRepositories(IContainer $container, IUnitOfWork $unitOfWork)
+    private function bindRepositories(IContainer $container, IUnitOfWork $unitOfWork) : void
     {
         // Bind your repositories here
     }
@@ -81,7 +81,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
      *
      * @param IIdAccessorRegistry $idAccessorRegistry The Id accessor registry
      */
-    private function registerIdAccessors(IIdAccessorRegistry $idAccessorRegistry)
+    private function registerIdAccessors(IIdAccessorRegistry $idAccessorRegistry) : void
     {
         // Register your Id getters/setters for classes that will be managed by the unit of work
     }
@@ -91,7 +91,7 @@ class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
      *
      * @param IIdGeneratorRegistry $idGeneratorRegistry The Id generator registry
      */
-    private function registerIdGenerators(IIdGeneratorRegistry $idGeneratorRegistry)
+    private function registerIdGenerators(IIdGeneratorRegistry $idGeneratorRegistry) : void
     {
         // Register your Id generators for classes that will be managed by the unit of work
     }

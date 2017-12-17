@@ -17,7 +17,7 @@ class BuildersBootstrapper extends Bootstrapper
     /**
      * @inheritdoc
      */
-    public function registerBindings(IContainer $container)
+    public function registerBindings(IContainer $container) : void
     {
         $viewFactory = $container->resolve(IViewFactory::class);
 

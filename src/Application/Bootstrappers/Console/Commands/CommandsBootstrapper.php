@@ -16,7 +16,7 @@ class CommandsBootstrapper extends Bootstrapper
     /**
      * @inheritdoc
      */
-    public function registerBindings(IContainer $container)
+    public function registerBindings(IContainer $container) : void
     {
         $commands = $container->resolve(CommandCollection::class);
         $commandClasses = require Config::get('paths', 'config.console') . '/commands.php';

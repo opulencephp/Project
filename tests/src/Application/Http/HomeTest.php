@@ -9,7 +9,7 @@ class HomeTest extends IntegrationTestCase
     /**
      * Tests that the 404 template is set up correctly
      */
-    public function test404PageIsSetUpCorrectly()
+    public function test404PageIsSetUpCorrectly() : void
     {
         $this->get('/doesNotExist')
             ->go()
@@ -20,7 +20,7 @@ class HomeTest extends IntegrationTestCase
     /**
      * Tests that the home template is set up correctly
      */
-    public function testHomePageIsSetUpCorrectly()
+    public function testHomePageIsSetUpCorrectly() : void
     {
         $this->get('/')
             ->go()

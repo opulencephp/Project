@@ -9,7 +9,7 @@ class HelloWorldCommandTest extends IntegrationTestCase
     /**
      * Tests calling the command without options
      */
-    public function testWithoutOptions()
+    public function testWithoutOptions() : void
     {
         $this->command('hello:world')
             ->withStyle(false)
@@ -21,7 +21,7 @@ class HelloWorldCommandTest extends IntegrationTestCase
     /**
      * Tests calling the command with the yell option
      */
-    public function testYelling()
+    public function testYelling() : void
     {
         $this->command('hello:world')
             ->withOptions('--yell')

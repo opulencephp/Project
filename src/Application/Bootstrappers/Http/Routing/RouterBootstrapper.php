@@ -17,7 +17,7 @@ class RouterBootstrapper extends BaseBootstrapper
      *
      * @param Router $router The router to configure
      */
-    protected function configureRouter(Router $router)
+    protected function configureRouter(Router $router) : void
     {
         $httpConfigPath = Config::get('paths', 'config.http');
         $routingConfig = require "$httpConfigPath/routing.php";

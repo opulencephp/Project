@@ -25,7 +25,7 @@ class IntegrationTestCase extends BaseIntegrationTestCase
     /**
      * @inheritdoc
      */
-    public function setUp()
+    public function setUp() : void
     {
         $paths = require __DIR__ . '/../../../../config/paths.php';
         require __DIR__ . '/../../../../config/environment.php';

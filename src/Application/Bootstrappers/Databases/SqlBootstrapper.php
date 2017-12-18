@@ -8,15 +8,14 @@ use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\IConnection;
 use Opulence\Databases\Providers\Types\Factories\TypeMapperFactory;
 use Opulence\Databases\Server;
-use Opulence\Ioc\Bootstrappers\Bootstrapper;
-use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
+use Opulence\Ioc\Bootstrappers\LazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use RuntimeException;
 
 /**
  * Defines the SQL bootstrapper
  */
-class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
+class SqlBootstrapper extends LazyBootstrapper
 {
     /**
      * @inheritdoc

@@ -2,8 +2,7 @@
 namespace Project\Application\Bootstrappers\Cache;
 
 use Exception;
-use Opulence\Ioc\Bootstrappers\Bootstrapper;
-use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
+use Opulence\Ioc\Bootstrappers\LazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Redis\Redis;
 use Opulence\Redis\Types\TypeMapper;
@@ -13,7 +12,7 @@ use RuntimeException;
 /**
  * Defines the Redis bootstrapper
  */
-class RedisBootstrapper extends Bootstrapper implements ILazyBootstrapper
+class RedisBootstrapper extends LazyBootstrapper
 {
     /**
      * @inheritdoc

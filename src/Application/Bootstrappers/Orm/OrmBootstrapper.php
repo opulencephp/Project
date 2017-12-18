@@ -2,8 +2,7 @@
 namespace Project\Application\Bootstrappers\Orm;
 
 use Opulence\Databases\IConnection;
-use Opulence\Ioc\Bootstrappers\Bootstrapper;
-use Opulence\Ioc\Bootstrappers\ILazyBootstrapper;
+use Opulence\Ioc\Bootstrappers\LazyBootstrapper;
 use Opulence\Ioc\IContainer;
 use Opulence\Ioc\IocException;
 use Opulence\Orm\ChangeTracking\ChangeTracker;
@@ -20,7 +19,7 @@ use RuntimeException;
 /**
  * Defines the ORM bootstrapper
  */
-class OrmBootstrapper extends Bootstrapper implements ILazyBootstrapper
+class OrmBootstrapper extends LazyBootstrapper
 {
     /**
      * @inheritdoc

@@ -1,3 +1,10 @@
+<h2>v1.1.2 (2017-12-23)</h2>
+
+<h3>Databases</h3>
+
+* Added `DB_DRIVER` environment variable to `config/environment/.env.example.php`
+* `SqlBootstrapper` now uses the driver specified in this environment variable
+
 <h2>v1.1.1 (2017-10-23)</h2>
 
 <h3>General</h3>

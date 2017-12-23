@@ -2,7 +2,8 @@
 namespace Project\Application\Bootstrappers\Databases;
 
 use Exception;
-use Opulence\Databases\Adapters\Pdo\PostgreSql\Driver;
+use Opulence\Databases\Adapters\Pdo\MySql\Driver as MySqlDriver;
+use Opulence\Databases\Adapters\Pdo\PostgreSql\Driver as PostgreSqlDriver;
 use Opulence\Databases\ConnectionPools\ConnectionPool;
 use Opulence\Databases\ConnectionPools\SingleServerConnectionPool;
 use Opulence\Databases\IConnection;
@@ -32,8 +33,23 @@ class SqlBootstrapper extends Bootstrapper implements ILazyBootstrapper
     public function registerBindings(IContainer $container)
     {
         try {
+            $driverClass = getenv('DB_DRIVER') ?: PostgreSqlDriver::class;
+        
+            switch ($driverClass) {
+                case MySqlDriver::class:
+                    $driver = new MySqlDriver();
+                    break;
+                case PostgreSqlDriver::class:
+                    $driver = new PostgreSqlDriver();
+                    break;
+                default:
+                    throw new RuntimeException(
+                        "Invalid database driver type specified in environment var \"DB_DRIVER\": $driverClass"
+                    );
+            }
+            
             $connectionPool = new SingleServerConnectionPool(
-                new Driver(),
+                $driver,
                 new Server(
                     getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASSWORD'), getenv('DB_NAME'), getenv('DB_PORT')
                 )

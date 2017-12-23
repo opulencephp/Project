@@ -1,5 +1,6 @@
 <?php
 use Opulence\Cache\FileBridge;
+use Opulence\Databases\Adapters\Pdo\PostgreSql\Driver;
 use Opulence\Environments\Environment;
 use Opulence\Sessions\Handlers\FileSessionHandler;
 use Opulence\Views\Caching\FileCache;
@@ -34,6 +35,7 @@ Environment::setVar('VIEW_CACHE', FileCache::class);
  * Set SQL database connection info
  * ----------------------------------------------------------
  */
+Environment::setVar('DB_DRIVER', Driver::class);
 Environment::setVar('DB_HOST', 'localhost');
 Environment::setVar('DB_USER', 'myuser');
 Environment::setVar('DB_PASSWORD', 'mypassword');

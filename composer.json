@@ -38,7 +38,7 @@
     ],
     "post-create-project-cmd": [
       "php apex encryption:generatekey",
-      "php -r \"echo 'Important: make ' . __DIR__ . '/tmp writable\n';\""
+      "php -r \"echo 'Important: make ' . __DIR__ . DIRECTORY_SEPARATOR . 'tmp writable' . PHP_EOL;\""
     ],
     "post-install-cmd": [
       "php -r \"shell_exec((file_exists(getcwd() . '/composer.phar') ? PHP_BINARY . ' composer.phar' : 'composer') . ' dump-autoload -o');\"",

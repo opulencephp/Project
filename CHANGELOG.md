@@ -1,3 +1,10 @@
+<h2>v1.2.0 (2021-03-15)</h2>
+
+<h3>General</h3>
+
+* Updated to support Opulence 1.2
+* Updated to require PHP 7.3 and up
+
 <h2>v1.1.2 (2017-12-23)</h2>
 
 <h3>Databases</h3>
